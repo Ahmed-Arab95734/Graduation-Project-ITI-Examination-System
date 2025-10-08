@@ -263,3 +263,8 @@ ALTER TABLE Student_Company ADD CONSTRAINT FK_Student_Company_Company FOREIGN KE
 ALTER TABLE Answers ADD CONSTRAINT FK_Answers_Questions_Bank FOREIGN KEY (Question_Number) REFERENCES Questions_Bank(Question_Number);
 ALTER TABLE Answers ADD CONSTRAINT FK_Answers_Exam FOREIGN KEY (Exam_ID) REFERENCES Exam(Exam_ID);
 ALTER TABLE Answers ADD CONSTRAINT FK_Answers_Student FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID);
+
+---------------------------------------------------------------------------------
+--Database version 1.0 end By ahmed arab
+--10/8/2025 4:30 PM
+---------------------------------------------------------------------------------
