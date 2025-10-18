@@ -135,8 +135,10 @@ CREATE TABLE Company (
     Company_ID INT PRIMARY KEY,
     Company_Name NVARCHAR(200) NOT NULL,
     Company_Location NVARCHAR(200) ,
-    Company_Type NVARCHAR(100) 
+    Company_Type NVARCHAR(100) CHECK(Company_Type = N'Multinational' OR Company_Type = N'National')
 );
+
+
 
 CREATE TABLE Student_Company (
     Student_ID INT NOT NULL,
