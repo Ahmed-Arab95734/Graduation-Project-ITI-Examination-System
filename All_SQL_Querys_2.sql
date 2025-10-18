@@ -4099,3 +4099,6 @@ VALUES
 (52, N'L''Oréal', N'Cairo', N'Multinational'),
 (53, N'EFG Hermes', N'6th of October, Giza', N'National'),
 (54, N'EGAS (Egyptian Natural Gas Holding Co.)', N'Cairo', N'National');
+
+
+--test Haitham
