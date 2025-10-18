@@ -347,7 +347,6 @@ UPDATE Department SET Manager_ID = 3 WHERE Department_ID = 3; -- Java
 UPDATE Department SET Manager_ID = 4 WHERE Department_ID = 4; -- Multimedia
 UPDATE Department SET Manager_ID = 5 WHERE Department_ID = 5; -- Unix
 UPDATE Department SET Manager_ID = 6 WHERE Department_ID = 6; -- Network
-UPDATE Department SET Manager_ID = 7 WHERE Department_ID = 7; -- E-Business
 UPDATE Department SET Manager_ID = 193 WHERE Department_ID = 7;--Set the manager for the new 'Soft Skills' department
 
 
