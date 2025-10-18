@@ -342,14 +342,12 @@ VALUES
 (6, N'01066778899');
 
 UPDATE Department SET Manager_ID = 1 WHERE Department_ID = 1; -- System Development
-UPDATE Department SET Manager_ID = 2 WHERE Department_ID = 2; -- E-Learning
-UPDATE Department SET Manager_ID = 3 WHERE Department_ID = 3; -- Java
-UPDATE Department SET Manager_ID = 4 WHERE Department_ID = 4; -- Multimedia
-UPDATE Department SET Manager_ID = 5 WHERE Department_ID = 5; -- Unix
-UPDATE Department SET Manager_ID = 6 WHERE Department_ID = 6; -- Network
-UPDATE Department SET Manager_ID = 7 WHERE Department_ID = 7; -- E-Business
+UPDATE Department SET Manager_ID = 2 WHERE Department_ID = 2; -- Java
+UPDATE Department SET Manager_ID = 3 WHERE Department_ID = 3; -- Multimedia
+UPDATE Department SET Manager_ID = 4 WHERE Department_ID = 4; -- Unix
+UPDATE Department SET Manager_ID = 5 WHERE Department_ID = 5; -- Network
+UPDATE Department SET Manager_ID = 6 WHERE Department_ID = 6; -- E-Business
 UPDATE Department SET Manager_ID = 193 WHERE Department_ID = 7;--Set the manager for the new 'Soft Skills' department
-
 
 -- ============================================
 --   INTAKE & BRANCH & TRACK  Data 
