@@ -156,14 +156,14 @@ CREATE TABLE Student_Course (
 
 
 
-write full SQL script fill these tables with related data of only track ((Power BI Development)) using insertion query and the start of Student_ID and Job_ID and Certificate_ID and is ((1)) 
+write full SQL script fill these tables with related data of only track ((Industrial Automation)) using insertion query and the start of Student_ID and Job_ID and Certificate_ID and is ((2000)) 
 
 and make sure that every student related with his track's courses 
 and make sure that every graduated student only may have company works on a company  related of his track
 and make sure that every student only may have Certificate related of his track 
 and make sure that every student only may have Freelance_Job related of his track  
 and make sure that in every Intake_Branch_Track has just a 25 students
-and make sure that Intake_Branch_Track_ID only for track ((Power BI Development)) 
+and make sure that Intake_Branch_Track_ID only for track ((Industrial Automation)) and these tables (Intake_Branch_Track and Track) are given down in the prompt with its data  
 
 and these is pervious data in the database
 
