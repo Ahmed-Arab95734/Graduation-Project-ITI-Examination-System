@@ -156,7 +156,7 @@ CREATE TABLE Student_Course (
 
 
 
-write full SQL script fill these tables with related data of only track ((Industrial Automation)) using insertion query and the start of Student_ID and Job_ID and Certificate_ID and is ((2000)) 
+write full SQL script fill these tables with related data of only track ((Power BI Development)) using insertion query and the start of Student_ID and Job_ID and Certificate_ID and is ((1)) 
 
 And make sue that every student have random Egyptian (names and address ) and make sure that address contains at least 20 Egyptian governates and his email conations his name and his id and it should @iti not gmail and Determine if the students in that IBT are 'Graduated' or 'In Progress' based on the current date and For 'Graduated' students ONLY:
    - Some (not all) will be assigned a job at a relevant company from company table data and they are given down and make the hire data random dates but all of them after the intake end date and make the positions random 7 or more random positions related to the field in track and  make the percentage of hiring in students of Smart Village branch highest then Cairo University branch then New Capital branch then Alexandria branch then the rest of branches and random the salary and make full time salary is higher than part time salary .
@@ -165,6 +165,7 @@ and For 'In Progress' students:
    - They will NOT have any entries in the 'Student_Company' table. and faculties are random from these list Faculty of Computers Sciences, Faculty of Engineering ,Faculty of Science ,Faculty of Commerce ,Faculty of Business Administration ,Faculty of Information Systems ,Faculty of Education ,Faculty of Economics and Political Science ,Faculty of Agriculture ,Faculty of Fine Arts ,Faculty of Applied Arts ,Faculty of Arts
 and make sure that students address (governate) are near to branch location which the branch data and its location down so if the branch in ITP for example Fayoum so most of students address  are from Fayoum governate or near to it 
 and make sure that most of the students are more likely from faculty of computer science and the second popular faculty is Engineering
+and make sure that all phone numbers are unique    
 and make sure that all his social links conations his name 
 and make sure that certificates have random providers like mahara tech and Udemy and Udacity and coursera and datacamp and Microsoft and have random cost and random dates throw the intake period  
 and make sure that freelance job_site are random like Upwork ,Freelancer,LinkedIn,Khamsat,Mostaql and job earn is random and descriptin is random from like 15 job description or more and random Job_Date but it should be throw his intake start date and end date 
@@ -173,7 +174,7 @@ and make sure that every graduated student only may have company works on a comp
 and make sure that every student only may have Certificate related of his track 
 and make sure that every student only may have Freelance_Job related of his track  
 and make sure that in every Intake_Branch_Track has just a 25 students
-and make sure that Intake_Branch_Track_ID only for track ((Industrial Automation)) and these tables (Intake_Branch_Track and Track) are given down in the prompt with its data  
+and make sure that Intake_Branch_Track_ID only for track ((Power BI Development)) and these tables (Intake_Branch_Track and Track) are given down in the prompt with its data  
 And don't insert any null values in the database exept the leave date on student_company shoud be nulls
 
 and these is pervious data in the database
@@ -555,64 +556,6 @@ VALUES
 (26, 176), (26, 177), (26, 178), (26, 179), (26, 180), (26, 181), (26, 182),
 -- Track 27: Social Media Marketing
 (27, 183), (27, 184), (27, 185), (27, 186), (27, 187), (27, 188), (27, 189);
-
--- 7. Add all 5 new 'Soft Skills' courses to ALL existing tracks (Tracks 1-27)
-INSERT INTO Track_Course (Track_ID, Course_ID)
-VALUES
--- Track 1: Power BI Development
-(1, 190), (1, 191), (1, 192), (1, 193), (1, 194),
--- Track 2: Industrial Automation
-(2, 190), (2, 191), (2, 192), (2, 193), (2, 194),
--- Track 3: AWS Re /Start
-(3, 190), (3, 191), (3, 192), (3, 193), (3, 194),
--- Track 4: Python and DevOps Development
-(4, 190), (4, 191), (4, 192), (4, 193), (4, 194),
--- Track 5: Data Engineering
-(5, 190), (5, 191), (5, 192), (5, 193), (5, 194),
--- Track 6: Front-End and Cross Platform Mobile Development
-(6, 190), (6, 191), (6, 192), (6, 193), (6, 194),
--- Track 7: iOS Mobile Application Development
-(7, 190), (7, 191), (7, 192), (7, 193), (7, 194),
--- Track 8: Software Development Fundamentals
-(8, 190), (8, 191), (8, 192), (8, 193), (8, 194),
--- Track 9: Software Testing
-(9, 190), (9, 191), (9, 192), (9, 193), (9, 194),
--- Track 10: Renewable Energy
-(10, 190), (10, 191), (10, 192), (10, 193), (10, 194),
--- Track 11: Full Stack Web Development Using .Net
-(11, 190), (11, 191), (11, 192), (11, 193), (11, 194),
--- Track 12: Full Stack Web Development Using MERN
-(12, 190), (12, 191), (12, 192), (12, 193), (12, 194),
--- Track 13: Full Stack Web Development using Python
-(13, 190), (13, 191), (13, 192), (13, 193), (13, 194),
--- Track 14: Web Development Using CMS
-(14, 190), (14, 191), (14, 192), (14, 193), (14, 194),
--- Track 15: Full Stack Web Development using PHP
-(15, 190), (15, 191), (15, 192), (15, 193), (15, 194),
--- Track 16: 2D Graphics Design
-(16, 190), (16, 191), (16, 192), (16, 193), (16, 194),
--- Track 17: 3D Modeling
-(17, 190), (17, 191), (17, 192), (17, 193), (17, 194),
--- Track 18: Motion Graphics
-(18, 190), (18, 191), (18, 192), (18, 193), (18, 194),
--- Track 19: Concept Art
-(19, 190), (19, 191), (19, 192), (19, 193), (19, 194),
--- Track 20: UI/UX Design
-(20, 190), (20, 191), (20, 192), (20, 193), (20, 194),
--- Track 21: Systems Administration
-(21, 190), (21, 191), (21, 192), (21, 193), (21, 194),
--- Track 22: Cybersecurity Associate
-(22, 190), (22, 191), (22, 192), (22, 193), (22, 194),
--- Track 23: Data Visualization
-(23, 190), (23, 191), (23, 192), (23, 193), (23, 194),
--- Track 24: Salesforce Specialist
-(24, 190), (24, 191), (24, 192), (24, 193), (24, 194),
--- Track 25: Business Analysis
-(25, 190), (25, 191), (25, 192), (25, 193), (25, 194),
--- Track 26: Business Analysis and Intelligent Automation Development
-(26, 190), (26, 191), (26, 192), (26, 193), (26, 194),
--- Track 27: Social Media Marketing
-(27, 190), (27, 191), (27, 192), (27, 193), (27, 194);
 
 -- 7. Add all 5 new 'Soft Skills' courses to ALL existing tracks (Tracks 1-27)
 INSERT INTO Track_Course (Track_ID, Course_ID)
