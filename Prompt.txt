@@ -158,12 +158,23 @@ CREATE TABLE Student_Course (
 
 write full SQL script fill these tables with related data of only track ((Industrial Automation)) using insertion query and the start of Student_ID and Job_ID and Certificate_ID and is ((2000)) 
 
-and make sure that every student related with his track's courses 
+And make sue that every student have random Egyptian (names and address ) and make sure that address contains at least 20 Egyptian governates and his email conations his name and his id and it should @iti not gmail and Determine if the students in that IBT are 'Graduated' or 'In Progress' based on the current date and For 'Graduated' students ONLY:
+   - Some (not all) will be assigned a job at a relevant company from company table data and they are given down and make the hire data random dates but all of them after the intake end date and make the positions random 7 or more random positions related to the field in track and  make the percentage of hiring in students of Smart Village branch highest then Cairo University branch then New Capital branch then Alexandria branch then the rest of branches and random the salary and make full time salary is higher than part time salary .
+   - A small percentage will be marked as 'Failed to Graduate'.
+and For 'In Progress' students:
+   - They will NOT have any entries in the 'Student_Company' table. and faculties are random from these list Faculty of Computers Sciences, Faculty of Engineering ,Faculty of Science ,Faculty of Commerce ,Faculty of Business Administration ,Faculty of Information Systems ,Faculty of Education ,Faculty of Economics and Political Science ,Faculty of Agriculture ,Faculty of Fine Arts ,Faculty of Applied Arts ,Faculty of Arts
+and make sure that students address (governate) are near to branch location which the branch data and its location down so if the branch in ITP for example Fayoum so most of students address  are from Fayoum governate or near to it 
+and make sure that most of the students are more likely from faculty of computer science and the second popular faculty is Engineering
+and make sure that all his social links conations his name 
+and make sure that certificates have random providers like mahara tech and Udemy and Udacity and coursera and datacamp and Microsoft and have random cost and random dates throw the intake period  
+and make sure that freelance job_site are random like Upwork ,Freelancer,LinkedIn,Khamsat,Mostaql and job earn is random and descriptin is random from like 15 job description or more and random Job_Date but it should be throw his intake start date and end date 
+and make sure that every student related with his track's courses and make each course start date begin with the date of end date of the course pervious 
 and make sure that every graduated student only may have company works on a company  related of his track
 and make sure that every student only may have Certificate related of his track 
 and make sure that every student only may have Freelance_Job related of his track  
 and make sure that in every Intake_Branch_Track has just a 25 students
 and make sure that Intake_Branch_Track_ID only for track ((Industrial Automation)) and these tables (Intake_Branch_Track and Track) are given down in the prompt with its data  
+And don't insert any null values in the database exept the leave date on student_company shoud be nulls
 
 and these is pervious data in the database
 
