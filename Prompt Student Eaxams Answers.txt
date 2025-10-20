@@ -40,8 +40,11 @@ each Group study 12 courses
 student id is not sequential and we have 12900 student so you should make a loop to check each student id and his track  and check the  courses of his track
 and you should know that the database have 27 track each track have 7 technical courses and each course have instructor 
 and there are 5 courses soft skills are taken by all tracks 
+
 and make a Bias towards some students and make them answer correctly more than the others and the students who answer correctly than the other are either from smart village branch then New Capital then Cairo University then Alexandria 
 and make a Bias towards some students and make them answer correctly more than the others and the students who answer correctly than the other are who takes intakes in 2024 as they should have average correct answerers better than  intakes in 2023
+and make bias for students whom Student_Faculty_Grade is excellent make them answer correctly more than the others 
+
 
 and make sure that no student fails in 3 or more course exams unless his  Student_ITI_Status is 'Failed to Graduate' so before you make any student fail in 3 or more exams check first from the data in the database that his  Student_ITI_Status is 'Failed to Graduate' in student table which already exist in the database 
 and you should know that not all students whose Student_ITI_Status is 'Failed to Graduate' failed because they didn't pass the exams ,some of them failed  to graduate because of the absence of lectures (didn't attend minimum lectures to graduate) and some failed to graduate because misbehave 
