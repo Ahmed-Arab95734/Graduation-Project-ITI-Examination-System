@@ -1,0 +1,376 @@
+CREATE TABLE Exam (
+    Exam_ID INT PRIMARY KEY,
+    Course_ID INT NOT NULL,
+    Instructor_ID INT NOT NULL,
+    Exam_Date DATE NOT NULL,
+    Exam_Duration_Minutes INT NOT NULL CHECK (Exam_Duration_Minutes > 0),
+    Exam_Type NVARCHAR(50) CHECK (Exam_Type IN (N'Normal', N'Corrective')),
+    FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Instructor_ID) REFERENCES Instructor(Instructor_ID) ON DELETE CASCADE
+);
+CREATE TABLE Exam_Questions (
+    Exam_ID INT NOT NULL,
+    Question_ID INT NOT NULL,
+    PRIMARY KEY (Exam_ID, Question_ID),
+    FOREIGN KEY (Exam_ID) REFERENCES Exam(Exam_ID),
+    FOREIGN KEY (Question_ID) REFERENCES Question_Bank(Question_ID) 
+);
+
+CREATE TABLE Student_Exam_Answer (
+    Exam_ID INT NOT NULL,
+    Question_ID INT NOT NULL,
+    Student_ID INT NOT NULL,
+    Student_Answer NVARCHAR(1000) ,
+    Student_Grade DECIMAL(6,2) CHECK (Student_Grade >= 0),
+    PRIMARY KEY (Exam_ID, Question_ID, Student_ID),
+    FOREIGN KEY (Exam_ID) REFERENCES Exam(Exam_ID) ,
+    FOREIGN KEY (Question_ID) REFERENCES Question_Bank(Question_ID) ,
+    FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID)
+);
+
+write SQL script to insert data in all 3 tables above and all should related in database schema and the rest of schema is down
+Each course in each track should have at least 1 exam and exam date for each course should be at the end date of  Course_EndDate in the TABLE Student_Course
+and the instructor who puts the exam of specific course  should be the instructor of that course from table Instructor_Course
+and each exam have 10 random questions out of 15 from table Question_Bank and the questions should be in the same course that the exam have
+and the data in table Question_Bank are mixed between mcq and true/false and if the question mcq type it would have 3 of 4 choices on table  Question_Choice 
+and Exam_Duration_Minutes should be 20 minutes (each question have time 2 minutes )
+and each Intake_Branch_Track (Group)(25 Students) can have the same exam in each course if the Exam_Type was normal not corrective
+and if any student answer less than 6 out of 10 right should repeat the exam for one time and this  time called  Exam_Type corrective
+each Group study 12 courses
+student id is not sequential and we have 12900 student so you should make a loop to check each student id and his track  and check the  courses of his track
+and you should know that the database have 27 track each track have 7 technical courses and each course have instructor 
+and there are 5 courses soft skills are taken by all tracks 
+and make a Bias towards some students and make them answer correctly more than the others and the students who answer correctly than the other are either from smart village branch then New Capital then Cairo University then Alexandria 
+and make a Bias towards some students and make them answer correctly more than the others and the students who answer correctly than the other are who takes intakes in 2024 as they should have average correct answerers better than  intakes in 2023
+
+and make sure that no student fails in 3 or more course exams unless his  Student_ITI_Status is 'Failed to Graduate' so before you make any student fail in 3 or more exams check first from the data in the database that his  Student_ITI_Status is 'Failed to Graduate' in student table which already exist in the database 
+and you should know that not all students whose Student_ITI_Status is 'Failed to Graduate' failed because they didn't pass the exams ,some of them failed  to graduate because of the absence of lectures (didn't attend minimum lectures to graduate) and some failed to graduate because misbehave 
+
+
+
+
+CREATE TABLE Instructor (
+    Instructor_ID INT PRIMARY KEY,
+    Instructor_Fname NVARCHAR(50) NOT NULL,
+    Instructor_Lname NVARCHAR(50) NOT NULL,
+    Instructor_Gender NVARCHAR(10) CHECK (Instructor_Gender IN (N'Male', N'Female')),
+    Instructor_Birthdate DATE CHECK (DATEADD(year, 18, Instructor_Birthdate) <= GETDATE()),
+    Instructor_Marital_Status NVARCHAR(50) CHECK (Instructor_Marital_Status IN (N'Married', N'Single')),
+    Instructor_Salary INT  CHECK (Instructor_Salary >= 8000),
+    Instructor_Contract_Type NVARCHAR(50) CHECK (Instructor_Contract_Type IN (N'Full-Time', N'Part-Time')),
+    Instructor_Email NVARCHAR(150),
+    Department_ID INT --The Relation (FOREIGN KEY) Would be Done when Department table is created 
+);
+
+CREATE TABLE Intake (
+    Intake_ID INT PRIMARY KEY,
+    Intake_Name NVARCHAR(200) NOT NULL,
+    Intake_Type NVARCHAR(50) CHECK (Intake_Type IN (N'Professional Training Program - (9 Months)' , 
+                                                    N'Intensive Code Camps - (4 Months)')),
+    Intake_Start_Date DATE NOT NULL,
+    Intake_End_Date DATE NOT NULL
+);
+INSERT INTO Intake (Intake_ID, Intake_Name, Intake_Type, Intake_Start_Date, Intake_End_Date)
+VALUES
+-- ===== 2023 =====
+(1, 'Round 2023/2024', N'Professional Training Program - (9 Months)', '2023-10-01', '2024-06-30'),
+(2, 'Round 1 2023', N'Intensive Code Camps - (4 Months)', '2023-02-01', '2023-05-31'),
+(3, 'Round 2 2023', N'Intensive Code Camps - (4 Months)', '2023-07-01', '2023-10-31'),
+(4, 'Round 3 2023', N'Intensive Code Camps - (4 Months)', '2023-11-01', '2024-02-29'),
+
+-- ===== 2024 =====
+(5, 'Round 2024/2025', N'Professional Training Program - (9 Months)', '2024-10-01', '2025-06-30'),
+(6, 'Round 1 2024', N'Intensive Code Camps - (4 Months)', '2024-02-01', '2024-05-31'),
+(7, 'Round 2 2024', N'Intensive Code Camps - (4 Months)', '2024-07-01', '2024-10-31'),
+(8, 'Round 3 2024', N'Intensive Code Camps - (4 Months)', '2024-11-01', '2025-02-28')
+
+
+CREATE TABLE Branch (
+    Branch_ID INT PRIMARY KEY,
+    Branch_Location NVARCHAR(200),
+    Branch_Name NVARCHAR(200) NOT NULL,
+    Branch_Start_Date DATE NOT NULL
+);
+
+
+INSERT INTO Branch (Branch_ID, Branch_Location, Branch_Name, Branch_Start_Date)
+VALUES 
+(1, 'Giza', 'Smart Village', '2009-01-01'),
+(2, 'Alexandria', 'Alexandria', '1996-01-01'),
+(3, 'Assiut', 'Assiut', '2007-01-01'),
+(4, 'El Mansoura', 'El Mansoura', '2007-01-01'),
+(5, 'Ismailia', 'Ismailia', '2013-01-01'),
+(6, 'El Menoufia', 'El Menoufia', '2020-01-01'),
+(7, 'El Minia', 'El Minia', '2020-01-01'),
+(8, 'Sohag', 'Sohag', '2020-01-01'),
+(9, 'Qena', 'Qena', '2020-01-01'),
+(10, 'Aswan', 'Aswan', '2021-01-01'),
+(11, 'New Capital', 'New Capital', '2022-01-01'),
+(12, 'Giza', 'Cairo University', '2022-01-01'),
+(13, 'New Valley', 'New Valley', '2023-01-01'),
+(14, 'Beni Sweif', 'Beni Sweif', '2023-01-01'),
+(15, 'Benha', 'Benha', '2024-01-01'),
+(16, 'El Fayoum', 'El Fayoum', '2024-01-01'),
+(17, 'Port Said', 'Port Said', '2024-01-01'),
+(18, 'Al Arish', 'Al Arish', '2024-01-01'),
+(19, 'Zagazig', 'Zagazig', '2024-01-01'),
+(20, 'Damanhour', 'Damanhour', '2024-01-01'),
+(21, 'Tanta', 'Tanta', '2024-01-01');
+
+
+CREATE TABLE Track (
+    Track_ID INT  PRIMARY KEY,
+    Track_Name NVARCHAR(200) NOT NULL,
+    Department_ID INT NOT NULL,
+    FOREIGN KEY (Department_ID) REFERENCES Department(Department_ID) ON DELETE CASCADE
+);
+
+CREATE TABLE Intake_Branch_Track (
+    Intake_Branch_Track_ID INT PRIMARY KEY,
+    Intake_ID INT NOT NULL,
+    Branch_ID INT NOT NULL,
+    Track_ID INT NOT NULL,
+    FOREIGN KEY (Intake_ID) REFERENCES Intake(Intake_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Track_ID) REFERENCES Track(Track_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Branch_ID) REFERENCES Branch(Branch_ID) ON DELETE CASCADE
+);
+
+CREATE TABLE Student (
+    Student_ID INT  PRIMARY KEY,
+    Student_Mail NVARCHAR(100) NOT NULL UNIQUE,
+    Student_Address NVARCHAR(255) ,
+    Student_Gender NVARCHAR(10) CHECK (Student_Gender IN (N'Male', N'Female')),
+    Student_Marital_Status NVARCHAR(50) CHECK (Student_Marital_Status IN (N'Married', N'Single')),
+    Student_Fname NVARCHAR(50) NOT NULL,
+    Student_Lname NVARCHAR(50) NOT NULL,
+    Student_Birthdate DATE NOT NULL CHECK (DATEADD(year, 18, Student_Birthdate) <= GETDATE()),
+    Student_Faculty NVARCHAR(100) ,
+    Student_Faculty_Grade NVARCHAR(50) CHECK (Student_Faculty_Grade IN (N'Excellent', N'Very Good',N'Good',N'Pass')),
+    Student_ITI_Status NVARCHAR(50) CHECK (Student_ITI_Status IN (N'Graduated', N'Failed to Graduate',N'In Progress')),
+    Intake_Branch_Track_ID INT NOT NULL,
+    FOREIGN KEY (Intake_Branch_Track_ID) REFERENCES Intake_Branch_Track(Intake_Branch_Track_ID) ON DELETE CASCADE,
+);
+
+
+CREATE TABLE Freelance_Job (
+    Job_ID INT PRIMARY KEY,
+    Student_ID INT NOT NULL,
+    Job_Earn DECIMAL(12,2) NOT NULL,
+    Job_Date DATE NOT NULL,
+    Job_Site NVARCHAR(255) ,
+    Description NVARCHAR(1000) NULL,
+    FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID) ON DELETE CASCADE
+);
+
+CREATE TABLE Certificate (
+    Certificate_ID INT PRIMARY KEY,
+    Student_ID INT NOT NULL,
+    Certificate_Name NVARCHAR(200) NOT NULL,
+    Certificate_Provider NVARCHAR(200) NULL,
+    Certificate_Cost DECIMAL(12,2),
+    Certificate_Date DATE ,
+    FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID) ON DELETE CASCADE
+);
+
+-- ================
+-- COMPANY & EMPLOYMENT
+-- ================
+CREATE TABLE Company (
+    Company_ID INT PRIMARY KEY,
+    Company_Name NVARCHAR(200) NOT NULL,
+    Company_Location NVARCHAR(200) ,
+    Company_Type NVARCHAR(100) CHECK(Company_Type = N'Multinational' OR Company_Type = N'National')
+);
+
+
+
+CREATE TABLE Student_Company (
+    Student_ID INT NOT NULL,
+    Company_ID INT NOT NULL,
+    Salary DECIMAL(12,2) ,
+    Position NVARCHAR(100),
+    Contract_Type NVARCHAR(50) CHECK (Contract_Type IN (N'Full-Time', N'Part-Time')),
+    Hire_Date DATE ,
+    Leave_Date DATE ,
+    PRIMARY KEY (Student_ID, Company_ID),
+    FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Company_ID) REFERENCES Company(Company_ID) ON DELETE CASCADE
+);
+
+
+
+-- ================
+-- COURSE
+-- ================
+CREATE TABLE Course (
+    Course_ID INT PRIMARY KEY,
+    Course_Name NVARCHAR(200) NOT NULL
+);
+
+CREATE TABLE Track_Course (
+    Course_ID INT NOT NULL,
+    Track_ID INT NOT NULL,
+    PRIMARY KEY (Track_ID, Course_ID),
+    FOREIGN KEY (Track_ID) REFERENCES Track(Track_ID) ,
+    FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID) 
+    
+);
+
+
+INSERT INTO Track_Course (Track_ID, Course_ID)
+VALUES
+-- Track 1: Power BI Development
+(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7),
+-- Track 2: Industrial Automation
+(2, 8), (2, 9), (2, 10), (2, 11), (2, 12), (2, 13), (2, 14),
+-- Track 3: AWS Re /Start
+(3, 15), (3, 16), (3, 17), (3, 18), (3, 19), (3, 20), (3, 21),
+-- Track 4: Python and DevOps Development
+(4, 22), (4, 23), (4, 24), (4, 25), (4, 26), (4, 27), (4, 28),
+-- Track 5: Data Engineering
+(5, 29), (5, 30), (5, 31), (5, 32), (5, 33), (5, 34), (5, 35),
+-- Track 6: Front-End and Cross Platform Mobile Development
+(6, 36), (6, 37), (6, 38), (6, 39), (6, 40), (6, 41), (6, 42),
+-- Track 7: iOS Mobile Application Development
+(7, 43), (7, 44), (7, 45), (7, 46), (7, 47), (7, 48), (7, 49),
+-- Track 8: Software Development Fundamentals
+(8, 50), (8, 51), (8, 52), (8, 53), (8, 54), (8, 55), (8, 56),
+-- Track 9: Software Testing
+(9, 57), (9, 58), (9, 59), (9, 60), (9, 61), (9, 62), (9, 63),
+-- Track 10: Renewable Energy
+(10, 64), (10, 65), (10, 66), (10, 67), (10, 68), (10, 69), (10, 70),
+-- Track 11: Full Stack Web Development Using .Net
+(11, 71), (11, 72), (11, 73), (11, 74), (11, 75), (11, 76), (11, 77),
+-- Track 12: Full Stack Web Development Using MERN
+(12, 78), (12, 79), (12, 80), (12, 81), (12, 82), (12, 83), (12, 84),
+-- Track 13: Full Stack Web Development using Python
+(13, 85), (13, 86), (13, 87), (13, 88), (13, 89), (13, 90), (13, 91),
+-- Track 14: Web Development Using CMS
+(14, 92), (14, 93), (14, 94), (14, 95), (14, 96), (14, 97), (14, 98),
+-- Track 15: Full Stack Web Development using PHP
+(15, 99), (15, 100), (15, 101), (15, 102), (15, 103), (15, 104), (15, 105),
+-- Track 16: 2D Graphics Design
+(16, 106), (16, 107), (16, 108), (16, 109), (16, 110), (16, 111), (16, 112),
+-- Track 17: 3D Modeling
+(17, 113), (17, 114), (17, 115), (17, 116), (17, 117), (17, 118), (17, 119),
+-- Track 18: Motion Graphics
+(18, 120), (18, 121), (18, 122), (18, 123), (18, 124), (18, 125), (18, 126),
+-- Track 19: Concept Art
+(19, 127), (19, 128), (19, 129), (19, 130), (19, 131), (19, 132), (19, 133),
+-- Track 20: UI/UX Design
+(20, 134), (20, 135), (20, 136), (20, 137), (20, 138), (20, 139), (20, 140),
+-- Track 21: Systems Administration
+(21, 141), (21, 142), (21, 143), (21, 144), (21, 145), (21, 146), (21, 147),
+-- Track 22: Cybersecurity Associate
+(22, 148), (22, 149), (22, 150), (22, 151), (22, 152), (22, 153), (22, 154),
+-- Track 23: Data Visualization
+(23, 155), (23, 156), (23, 157), (23, 158), (23, 159), (23, 160), (23, 161),
+-- Track 24: Salesforce Specialist
+(24, 162), (24, 163), (24, 164), (24, 165), (24, 166), (24, 167), (24, 168),
+-- Track 25: Business Analysis
+(25, 169), (25, 170), (25, 171), (25, 172), (25, 173), (25, 174), (25, 175),
+-- Track 26: Business Analysis and Intelligent Automation Development
+(26, 176), (26, 177), (26, 178), (26, 179), (26, 180), (26, 181), (26, 182),
+-- Track 27: Social Media Marketing
+(27, 183), (27, 184), (27, 185), (27, 186), (27, 187), (27, 188), (27, 189);
+
+-- 7. Add all 5 new 'Soft Skills' courses to ALL existing tracks (Tracks 1-27)
+INSERT INTO Track_Course (Track_ID, Course_ID)
+VALUES
+-- Track 1: Power BI Development
+(1, 190), (1, 191), (1, 192), (1, 193), (1, 194),
+-- Track 2: Industrial Automation
+(2, 190), (2, 191), (2, 192), (2, 193), (2, 194),
+-- Track 3: AWS Re /Start
+(3, 190), (3, 191), (3, 192), (3, 193), (3, 194),
+-- Track 4: Python and DevOps Development
+(4, 190), (4, 191), (4, 192), (4, 193), (4, 194),
+-- Track 5: Data Engineering
+(5, 190), (5, 191), (5, 192), (5, 193), (5, 194),
+-- Track 6: Front-End and Cross Platform Mobile Development
+(6, 190), (6, 191), (6, 192), (6, 193), (6, 194),
+-- Track 7: iOS Mobile Application Development
+(7, 190), (7, 191), (7, 192), (7, 193), (7, 194),
+-- Track 8: Software Development Fundamentals
+(8, 190), (8, 191), (8, 192), (8, 193), (8, 194),
+-- Track 9: Software Testing
+(9, 190), (9, 191), (9, 192), (9, 193), (9, 194),
+-- Track 10: Renewable Energy
+(10, 190), (10, 191), (10, 192), (10, 193), (10, 194),
+-- Track 11: Full Stack Web Development Using .Net
+(11, 190), (11, 191), (11, 192), (11, 193), (11, 194),
+-- Track 12: Full Stack Web Development Using MERN
+(12, 190), (12, 191), (12, 192), (12, 193), (12, 194),
+-- Track 13: Full Stack Web Development using Python
+(13, 190), (13, 191), (13, 192), (13, 193), (13, 194),
+-- Track 14: Web Development Using CMS
+(14, 190), (14, 191), (14, 192), (14, 193), (14, 194),
+-- Track 15: Full Stack Web Development using PHP
+(15, 190), (15, 191), (15, 192), (15, 193), (15, 194),
+-- Track 16: 2D Graphics Design
+(16, 190), (16, 191), (16, 192), (16, 193), (16, 194),
+-- Track 17: 3D Modeling
+(17, 190), (17, 191), (17, 192), (17, 193), (17, 194),
+-- Track 18: Motion Graphics
+(18, 190), (18, 191), (18, 192), (18, 193), (18, 194),
+-- Track 19: Concept Art
+(19, 190), (19, 191), (19, 192), (19, 193), (19, 194),
+-- Track 20: UI/UX Design
+(20, 190), (20, 191), (20, 192), (20, 193), (20, 194),
+-- Track 21: Systems Administration
+(21, 190), (21, 191), (21, 192), (21, 193), (21, 194),
+-- Track 22: Cybersecurity Associate
+(22, 190), (22, 191), (22, 192), (22, 193), (22, 194),
+-- Track 23: Data Visualization
+(23, 190), (23, 191), (23, 192), (23, 193), (23, 194),
+-- Track 24: Salesforce Specialist
+(24, 190), (24, 191), (24, 192), (24, 193), (24, 194),
+-- Track 25: Business Analysis
+(25, 190), (25, 191), (25, 192), (25, 193), (25, 194),
+-- Track 26: Business Analysis and Intelligent Automation Development
+(26, 190), (26, 191), (26, 192), (26, 193), (26, 194),
+-- Track 27: Social Media Marketing
+(27, 190), (27, 191), (27, 192), (27, 193), (27, 194);
+
+
+CREATE TABLE Instructor_Course (
+    Instructor_ID INT NOT NULL,
+    Course_ID INT NOT NULL,
+    PRIMARY KEY (Instructor_ID, Course_ID),
+    FOREIGN KEY (Instructor_ID) REFERENCES Instructor(Instructor_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID) ON DELETE CASCADE
+);
+
+CREATE TABLE Student_Course (
+    Student_ID INT NOT NULL,
+    Course_ID INT NOT NULL,
+    Course_StartDate DATE ,
+    Course_EndDate DATE ,
+    PRIMARY KEY (Student_ID, Course_ID),
+    FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID) ON DELETE CASCADE
+);
+
+
+
+-- ================
+-- EXAMS & QUESTIONS
+-- ================
+
+
+CREATE TABLE Question_Bank (
+    Question_ID INT PRIMARY KEY,
+    Course_ID INT NOT NULL,
+    Question_Type NVARCHAR(50) CHECK (Question_Type IN (N'MCQ', N'True/False')),
+    Question_Description NVARCHAR(1000) NOT NULL,
+    Question_Model_Answer NVARCHAR(1000) NOT NULL,
+    FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID) ON DELETE CASCADE
+);
+
+CREATE TABLE Question_Choice (
+    Question_Choice_ID INT PRIMARY KEY,
+    Question_ID INT NOT NULL ,
+    Choice_Text NVARCHAR(500) NOT NULL,
+    FOREIGN KEY (Question_ID) REFERENCES Question_Bank(Question_ID) ON DELETE CASCADE
+);
+
