@@ -20,6 +20,11 @@ CREATE TABLE Instructor (
     Department_ID INT --The Relation (FOREIGN KEY) Would be Done when Department table is created 
 );
 
+ALTER TABLE Instructor
+ADD CONSTRAINT CK_Instructor_MinAge23
+CHECK (DATEADD(YEAR, 23, Instructor_Birthdate) <= GETDATE());
+
+
 CREATE TABLE Instructor_Phone (
     Instructor_ID INT NOT NULL,
     Phone NVARCHAR(20) NOT NULL,
@@ -70,6 +75,8 @@ CREATE TABLE Intake_Branch_Track (
     FOREIGN KEY (Track_ID) REFERENCES Track(Track_ID) ON DELETE CASCADE,
     FOREIGN KEY (Branch_ID) REFERENCES Branch(Branch_ID) ON DELETE CASCADE
 );
+EXEC sp_rename 'Intake_Branch_Track', 'Group';
+EXEC sp_rename 'Group.Intake_Branch_Track_ID', 'Group_ID', 'COLUMN';
 
 -- ================
 -- STUDENT
@@ -88,6 +95,25 @@ CREATE TABLE Student (
     Student_ITI_Status NVARCHAR(50) CHECK (Student_ITI_Status IN (N'Graduated', N'Failed to Graduate',N'In Progress')),
     Intake_Branch_Track_ID INT NOT NULL,
     FOREIGN KEY (Intake_Branch_Track_ID) REFERENCES Intake_Branch_Track(Intake_Branch_Track_ID) ON DELETE CASCADE,
+);
+
+UPDATE Student
+SET Student_Birthdate = DATEADD(YEAR, -22, GETDATE())
+WHERE DATEADD(YEAR, 22, Student_Birthdate) > GETDATE();
+
+ALTER TABLE Student
+ADD CONSTRAINT CK_Student_MinAge22
+CHECK (DATEADD(YEAR, 22, Student_Birthdate) <= GETDATE());
+
+CREATE TABLE Failed_Students (
+    Student_ID INT NOT NULL,
+    Failure_Reason NVARCHAR(255) NOT NULL,
+    
+    PRIMARY KEY (Student_ID, Failure_Reason),
+    
+    FOREIGN KEY (Student_ID) 
+        REFERENCES Student(Student_ID) 
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Student_Phone (
@@ -286,6 +312,11 @@ VALUES
 (4, N'Unix'),
 (5, N'Network'),
 (6, N'E-Business');
+
+UPDATE Department
+SET Department_Name = N'Full Stack Web Development'
+WHERE Department_ID =2;
+
 
 --Insert the new Department
 INSERT INTO Department (Department_ID, Department_Name)
