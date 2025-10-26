@@ -1,80 +1,36 @@
-/*this procedure will simply calculate and return the results for the given exam.
+-- Stored Procedure to grade a specific student's answers for a given exam
 
-Stored Procedure: sp_CorrectExam
-SQL
-*/
-CREATE PROCEDURE sp_CorrectExam
+CREATE OR ALTER PROCEDURE StudentExamCorrection
+    @StudentID INT,
     @ExamID INT
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    DECLARE @TotalExamQuestions INT;
+    -- Update the Student_Grade for each answer based on the Question_Bank
+    UPDATE sa
+    SET sa.Student_Grade =
+        CASE
+            -- If the student didn't answer (NULL), grade is 0
+            WHEN sa.Student_Answer IS NULL THEN 0
 
-    -- ===================================================================
-    -- 1. VALIDATION: Check if Exam exists and get total questions
-    -- ===================================================================
-    IF NOT EXISTS (SELECT 1 FROM Exam WHERE Exam_ID = @ExamID)
-    BEGIN
-        RAISERROR ('Error: Exam ID %d not found.', 16, 1, @ExamID);
-        RETURN;
-    END
+            -- If the question is True/False, compare answers case-insensitively
+            WHEN qb.Question_Type = N'True/False' AND UPPER(ISNULL(sa.Student_Answer, '')) = UPPER(qb.Question_Model_Answer) THEN 1
 
-    -- Get the total number of questions for this exam
-    SELECT @TotalExamQuestions = COUNT(Question_ID)
-    FROM Exam_Questions
-    WHERE Exam_ID = @ExamID;
+            -- If the question is MCQ, compare answers case-sensitively (assuming choices match exactly)
+            WHEN qb.Question_Type = N'MCQ' AND sa.Student_Answer = qb.Question_Model_Answer THEN 1
 
-    IF @TotalExamQuestions = 0
-    BEGIN
-        PRINT 'Warning: Exam ID ' + CAST(@ExamID AS VARCHAR(10)) + ' has no questions associated with it.';
-        -- Return an empty result set matching the expected structure
-        SELECT
-            Student_ID = CAST(NULL AS INT),
-            TotalGrade = CAST(NULL AS DECIMAL(8,2)),
-            QuestionsAnswered = CAST(NULL AS INT),
-            TotalExamQuestions = 0
-        WHERE 1=0; -- Ensures structure is returned but no rows
-        RETURN;
-    END
-
-    -- ===================================================================
-    -- 2. CALCULATION: Sum grades for each student on this exam
-    -- ===================================================================
-    SELECT
-        SEA.Student_ID,
-        ISNULL(SUM(SEA.Student_Grade), 0) AS TotalGrade, -- Calculate the total grade, defaulting to 0 if no answers exist
-        COUNT(SEA.Question_ID) AS QuestionsAnswered,      -- Count how many questions the student answered
-        @TotalExamQuestions AS TotalExamQuestions         -- Show the total questions on the exam
+            -- Otherwise, the answer is incorrect
+            ELSE 0
+        END
     FROM
-        Student_Exam_Answer AS SEA
+        dbo.Student_Exam_Answer AS sa
+    INNER JOIN
+        dbo.Question_Bank AS qb ON sa.Question_ID = qb.Question_ID
     WHERE
-        SEA.Exam_ID = @ExamID
-    GROUP BY
-        SEA.Student_ID
-    ORDER BY
-        SEA.Student_ID;
+        sa.Student_ID = @StudentID
+        AND sa.Exam_ID = @ExamID;
 
-END;
+
+END
 GO
-
-/*How to Use
-Simply execute the procedure and provide the @ExamID you want to correct.
-
-Example:
-
-To calculate the total grades for all students who took Exam_ID = 29750:
-
-SQL
-*/
-
-/*
-EXEC sp_CorrectExam @ExamID = 1;
-*/
-
-/*Output:
-
-The procedure will return a table-like result showing each Student_ID that has answers recorded for that exam,
-their calculated TotalGrade (sum of Student_Grade from the Student_Exam_Answer table),
-the number of QuestionsAnswered by that student for the exam,
-and the TotalExamQuestions on that exam.*/
