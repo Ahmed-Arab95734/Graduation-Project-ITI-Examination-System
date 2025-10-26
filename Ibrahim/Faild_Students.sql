@@ -10,35 +10,49 @@ CREATE PROCEDURE [dbo].[Failed_Students_Insert]
     @Failure_Reason NVARCHAR(255)
 AS
 BEGIN
-    -- Adds a failure reason to a specific student.
     SET NOCOUNT ON;
 
+    -- 1. Pre-Checks (NOT NULL, PK, FK)
+    IF @Student_ID IS NULL OR @Failure_Reason IS NULL
+    BEGIN
+        SELECT 'Error: The composite Primary Key columns (Student_ID, Failure_Reason) cannot be NULL. Please provide valid inputs.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM [dbo].[Failed_Students] WHERE [Student_ID] = @Student_ID AND [Failure_Reason] = @Failure_Reason)
+    BEGIN
+        SELECT 'Error: This combination of Student_ID and Failure_Reason already exists. This link cannot be duplicated.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Student] WHERE [Student_ID] = @Student_ID)
+    BEGIN
+        SELECT 'Error: The provided Student_ID does not exist in the [Student] table. Please use a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    -- 2. Perform Insert
     BEGIN TRY
-        -- 1. Check Foreign Key (Student)
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Student] WHERE [Student_ID] = @Student_ID)
-        BEGIN
-            SELECT 'Error: Student_ID does not exist in the Student table.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 2. Check Primary Key (Uniqueness)
-        IF EXISTS (SELECT 1 FROM [dbo].[Failed_Students] WHERE [Student_ID] = @Student_ID AND [Failure_Reason] = @Failure_Reason)
-        BEGIN
-            SELECT 'Error: This failure reason is already registered for this student.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 3. Perform Insert
         INSERT INTO [dbo].[Failed_Students] ([Student_ID], [Failure_Reason])
-        VALUES (@Student_ID, @Failure_Reason);
+        -- 3. Output inserted data
+        OUTPUT 
+            inserted.[Student_ID] AS [Inserted_Student_ID],
+            inserted.[Failure_Reason] AS [Inserted_Failure_Reason]
+        VALUES 
+            (@Student_ID, @Failure_Reason);
     END TRY
     BEGIN CATCH
-        SELECT 'An unexpected error occurred in Failed_Students_Insert.' AS ErrorMessage;
-        THROW;
+        -- 4. Smart CATCH Block
+        DECLARE @ErrorNum INT = ERROR_NUMBER();
+        DECLARE @ErrorMsg NVARCHAR(4000) = ERROR_MESSAGE();
+        IF @ErrorNum = 547 IF @ErrorMsg LIKE '%FOREIGN KEY%' SELECT 'Error: A Foreign Key violation occurred. A value you provided (like an ID) does not exist in the parent table. Please check your IDs and try again.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE IF @ErrorMsg LIKE '%CHECK constraint%' SELECT 'Error: A CHECK constraint violation occurred. A value you provided is invalid (e.g., a salary below the minimum, or an invalid type string).' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE SELECT 'Error 547: ' + @ErrorMsg AS ErrorMessage;
+        ELSE IF @ErrorNum = 515 SELECT 'Error: A NOT NULL violation occurred. You must provide a value for a required column.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum IN (2627, 2601) SELECT 'Error: A Unique Key or Primary Key violation occurred. The value you are trying to insert already exists.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum = 245 SELECT 'Error: A datatype conversion failed. Check that you are not putting text in a number field or an invalid date format.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE THROW;
     END CATCH
 END
 GO
-
 
 --------------------------------------------------------------------------------
 -- TEST CASES FOR Failed_Students_Insert
@@ -67,6 +81,7 @@ PRINT 'Test 4 (Error - Bad Student_ID FK)...';
 EXEC [dbo].[Failed_Students_Insert] @Student_ID = 60000, @Failure_Reason = 'Cheating';
 -- Expected: 'Error: Student_ID does not exist in the Student table.'
 GO
+
 --------------------------------------------------------------------------------
 
 -- READ (Consolidated Select)
@@ -76,37 +91,34 @@ CREATE PROCEDURE [dbo].[Failed_Students_Select]
 AS
 BEGIN
     -- Selects records based on provided parameters:
-    -- 1. Both IDs: Selects by Primary Key.
-    -- 2. Only Student_ID: Selects all reasons for that student.
-    -- 3. Only Failure_Reason: Selects all students for that reason.
-    -- 4. Neither ID: Selects all records.
+    -- 1. Student_ID AND Failure_Reason: Selects by specific Primary Key.
+    -- 2. Student_ID only: Selects all reasons for one student.
+    -- 3. Failure_Reason only: Selects all students for one reason.
+    -- 4. NULL: Selects all records.
     SET NOCOUNT ON;
-    
+
     BEGIN TRY
         IF @Student_ID IS NOT NULL AND @Failure_Reason IS NOT NULL
         BEGIN
-            -- 1. Both provided: Select the specific record by PK
-            SELECT *
-            FROM [dbo].[Failed_Students]
+            -- 1. Select by Full Primary Key
+            SELECT * FROM [dbo].[Failed_Students] 
             WHERE [Student_ID] = @Student_ID AND [Failure_Reason] = @Failure_Reason;
         END
         ELSE IF @Student_ID IS NOT NULL AND @Failure_Reason IS NULL
         BEGIN
-            -- 2. Only Student_ID provided: Select all reasons for that student
-            SELECT *
-            FROM [dbo].[Failed_Students]
+            -- 2. Select by Student_ID
+            SELECT * FROM [dbo].[Failed_Students] 
             WHERE [Student_ID] = @Student_ID;
         END
         ELSE IF @Student_ID IS NULL AND @Failure_Reason IS NOT NULL
         BEGIN
-            -- 3. Only Failure_Reason provided: Select all students for that reason
-            SELECT *
-            FROM [dbo].[Failed_Students]
+            -- 3. Select by Failure_Reason
+            SELECT * FROM [dbo].[Failed_Students] 
             WHERE [Failure_Reason] = @Failure_Reason;
         END
         ELSE
         BEGIN
-            -- 4. Both are NULL: Select all records
+            -- 4. Select All
             SELECT * FROM [dbo].[Failed_Students];
         END
     END TRY
@@ -145,68 +157,68 @@ GO
 
 --------------------------------------------------------------------------------
 
--- UPDATE (Atomic DELETE + INSERT)
 CREATE PROCEDURE [dbo].[Failed_Students_Update]
     @Student_ID INT,
     @Old_Failure_Reason NVARCHAR(255),
     @New_Failure_Reason NVARCHAR(255)
 AS
 BEGIN
-    -- Atomically "updates" a failure reason by deleting the old and inserting the new.
     SET NOCOUNT ON;
 
+    -- 1. Pre-Checks
+    IF @Student_ID IS NULL OR @Old_Failure_Reason IS NULL OR @New_Failure_Reason IS NULL
+    BEGIN
+        SELECT 'Error: All parameters (@Student_ID, @Old_Failure_Reason, @New_Failure_Reason) are required and cannot be NULL.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Failed_Students] WHERE [Student_ID] = @Student_ID AND [Failure_Reason] = @Old_Failure_Reason)
+    BEGIN
+        SELECT 'Error: The old record (Student_ID, Old_Failure_Reason) does not exist. No update occurred.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM [dbo].[Failed_Students] WHERE [Student_ID] = @Student_ID AND [Failure_Reason] = @New_Failure_Reason)
+    BEGIN
+        SELECT 'Error: The new record (Student_ID, New_Failure_Reason) already exists. Cannot create a duplicate.' AS ErrorMessage;
+        RETURN;
+    END
+
+    -- 2. Perform Transaction
+    BEGIN TRANSACTION;
     BEGIN TRY
-        -- If old and new are the same, do nothing.
-        IF @Old_Failure_Reason = @New_Failure_Reason
-        BEGIN
-            SELECT 'Warning: Old and new failure reasons are the same. No update occurred.' AS Message;
-            RETURN;
-        END
-
-        BEGIN TRANSACTION;
-
-        -- 1. Check if Old Record Exists
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Failed_Students] WHERE [Student_ID] = @Student_ID AND [Failure_Reason] = @Old_Failure_Reason)
-        BEGIN
-            SELECT 'Error: The original record (Student_ID, Old_Failure_Reason) does not exist.' AS ErrorMessage;
-            ROLLBACK TRANSACTION;
-            RETURN;
-        END
-
-        -- 2. Check if New Record Already Exists (PK conflict)
-        IF EXISTS (SELECT 1 FROM [dbo].[Failed_Students] WHERE [Student_ID] = @Student_ID AND [Failure_Reason] = @New_Failure_Reason)
-        BEGIN
-            SELECT 'Error: The new failure reason is already registered for this student.' AS ErrorMessage;
-            ROLLBACK TRANSACTION;
-            RETURN;
-        END
-
-        -- 3. Check Foreign Key (Student)
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Student] WHERE [Student_ID] = @Student_ID)
-        BEGIN
-            SELECT 'Error: Student_ID does not exist in the Student table.' AS ErrorMessage;
-            ROLLBACK TRANSACTION;
-            RETURN;
-        END
-
-        -- 4. Perform the atomic Delete and Insert
-        DELETE FROM [dbo].[Failed_Students]
-        WHERE [Student_ID] = @Student_ID AND [Failure_Reason] = @Old_Failure_Reason;
         
+        -- Step 1: Delete the old record and output it
+        DELETE FROM [dbo].[Failed_Students]
+        OUTPUT 
+            deleted.[Student_ID] AS [Old_Student_ID],
+            deleted.[Failure_Reason] AS [Old_Failure_Reason]
+        WHERE 
+            [Student_ID] = @Student_ID AND [Failure_Reason] = @Old_Failure_Reason;
+        
+        -- Step 2: Insert the new record and output it
         INSERT INTO [dbo].[Failed_Students] ([Student_ID], [Failure_Reason])
-        VALUES (@Student_ID, @New_Failure_Reason);
-
+        OUTPUT 
+            inserted.[Student_ID] AS [New_Student_ID],
+            inserted.[Failure_Reason] AS [New_Failure_Reason]
+        VALUES 
+            (@Student_ID, @New_Failure_Reason);
+        
         COMMIT TRANSACTION;
     END TRY
     BEGIN CATCH
-        IF @@TRANCOUNT > 0
-            ROLLBACK TRANSACTION;
-        SELECT 'An unexpected error occurred in Failed_Students_Update.' AS ErrorMessage;
-        THROW;
+        ROLLBACK TRANSACTION;
+        -- 4. Smart CATCH Block
+        DECLARE @ErrorNum INT = ERROR_NUMBER();
+        DECLARE @ErrorMsg NVARCHAR(4000) = ERROR_MESSAGE();
+        IF @ErrorNum = 547 IF @ErrorMsg LIKE '%FOREIGN KEY%' SELECT 'Error: A Foreign Key violation occurred. A value you provided (like an ID) does not exist in the parent table. Please check your IDs and try again.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE IF @ErrorMsg LIKE '%CHECK constraint%' SELECT 'Error: A CHECK constraint violation occurred. A value you provided is invalid (e.g., a salary below the minimum, or an invalid type string).' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE SELECT 'Error 547: ' + @ErrorMsg AS ErrorMessage;
+        ELSE IF @ErrorNum = 515 SELECT 'Error: A NOT NULL violation occurred. You must provide a value for a required column.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum IN (2627, 2601) SELECT 'Error: A Unique Key or Primary Key violation occurred. The value you are trying to insert already exists.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum = 245 SELECT 'Error: A datatype conversion failed. Check that you are not putting text in a number field or an invalid date format.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE THROW;
     END CATCH
 END
 GO
-
 
 --------------------------------------------------------------------------------
 -- TEST CASES FOR Failed_Students_Update
@@ -248,31 +260,53 @@ EXEC [dbo].[Failed_Students_Update]
 -- Expected: 'Warning: Old and new failure reasons are the same. No update occurred.'
 GO
 --------------------------------------------------------------------------------
-*/
 
 -- DELETE
 CREATE PROCEDURE [dbo].[Failed_Students_Delete]
-    @Student_ID INT,
-    @Failure_Reason NVARCHAR(255)
+    @Student_ID INT = null,
+    @Failure_Reason NVARCHAR(255)= null 
 AS
 BEGIN
-    -- Removes a specific failure reason from a specific student.
     SET NOCOUNT ON;
 
     BEGIN TRY
-        -- 1. Check if the record exists
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Failed_Students] WHERE [Student_ID] = @Student_ID AND [Failure_Reason] = @Failure_Reason)
+        IF @Student_ID IS NULL OR @Failure_Reason IS NULL
         BEGIN
-            SELECT 'Error: This failure reason is not assigned to this student. No deletion occurred.' AS ErrorMessage;
+            SELECT 'Error: Safe delete requires the full composite key. BOTH @Student_ID and @Failure_Reason must be provided. No deletion occurred.' AS ErrorMessage;
+            RETURN;
+        END
+        -- 1. CRITICAL: Check for NULLs to prevent accidental mass-delete.
+        IF @Student_ID IS NULL OR @Failure_Reason IS NULL
+        BEGIN
+            SELECT 'Error: Safe delete requires the full composite key. BOTH Student_ID and Failure_Reason must be provided. No deletion occurred.' AS ErrorMessage;
             RETURN;
         END
 
-        -- 2. Perform Delete
+        -- 2. Check if the specific record exists before deleting.
+        IF NOT EXISTS (SELECT 1 FROM [dbo].[Failed_Students] WHERE [Student_ID] = @Student_ID AND [Failure_Reason] = @Failure_Reason)
+        BEGIN
+            SELECT 'Error: Record not found. No deletion occurred. Please provide a valid Student_ID and Failure_Reason.' AS ErrorMessage;
+            RETURN;
+        END
+
+        -- 3. Perform the specific delete.
         DELETE FROM [dbo].[Failed_Students]
-        WHERE [Student_ID] = @Student_ID AND [Failure_Reason] = @Failure_Reason;
+        OUTPUT 
+            deleted.[Student_ID] AS [Deleted_Student_ID],
+            deleted.[Failure_Reason] AS [Deleted_Failure_Reason]
+        WHERE 
+            [Student_ID] = @Student_ID AND [Failure_Reason] = @Failure_Reason;
+        
     END TRY
     BEGIN CATCH
-        SELECT 'An unexpected error occurred in Failed_Students_Delete.' AS ErrorMessage;
+        -- 4. Smart CATCH Block (FK violation on DELETE is very unlikely on this table)
+        IF ERROR_NUMBER() = 547
+        BEGIN
+            SELECT 'Error: Cannot delete this record. It is still referenced by other tables (Foreign Key violation). Please delete the child records first.' AS ErrorMessage;
+            RETURN;
+        END
+        
+        SELECT 'An unexpected error occurred in sp_DeleteFailed_Students.' AS ErrorMessage;
         THROW;
     END CATCH
 END
@@ -281,25 +315,16 @@ GO
 --------------------------------------------------------------------------------
 -- TEST CASES FOR Failed_Students_Delete
 --------------------------------------------------------------------------------
-PRINT '--- 3. TESTING Failed_Students_Delete ---';
-
--- Test 9 (Success): Delete link (1, 'Attendance').
-PRINT 'Test 9 (Delete - Removing 1, "Attendance")...';
-EXEC [dbo].[Failed_Students_Delete] @Student_ID = 1, @Failure_Reason = 'Attendance';
-
--- Test 10 (Error - Not Found): Try to delete non-existent link (1, 'Cheating').
-PRINT 'Test 10 (Delete - Removing non-existent 1, "Cheating")...';
-EXEC [dbo].[Failed_Students_Delete] @Student_ID = 1, @Failure_Reason = 'Cheating';
--- Expected: 'Error: This failure reason is not assigned to this student. No deletion occurred.'
-
--- Test 11 (Error - Already Deleted): Try to delete (1, 'Attendance') again.
-PRINT 'Test 11 (Delete - Removing 1, "Attendance" again)...';
-EXEC [dbo].[Failed_Students_Delete] @Student_ID = 1, @Failure_Reason = 'Attendance';
--- Expected: 'Error: This failure reason is not assigned to this student. No deletion occurred.'
-
-PRINT '--- 4. FINAL VERIFICATION ---';
-EXEC [dbo].[Failed_Students_Select] ;
--- Expected: 1 row (1, 'Grades').
+PRINT '--- 1. TESTING sp_InsertFailed_Students ---';
+-- ASSUMPTION: Student_ID 1 exists.
+-- Test 1 (Success):
+EXEC [dbo].[Failed_Students_Delete] @Student_ID = 1, @Failure_Reason = 'Low Attendance';
+-- Test 2 (Error - PK NULL):
+EXEC [dbo].[Failed_Students_Delete] @Student_ID = 1, @Failure_Reason = NULL;
+-- Test 3 (Error - PK Exists):
+EXEC [dbo].[Failed_Students_Delete] @Student_ID = 1, @Failure_Reason = 'Low Attendance';
+-- Test 4 (Error - Bad FK):
+EXEC [dbo].[Failed_Students_Delete] @Student_ID = 99, @Failure_Reason = 'Bad Grade';
 GO
 --------------------------------------------------------------------------------
 

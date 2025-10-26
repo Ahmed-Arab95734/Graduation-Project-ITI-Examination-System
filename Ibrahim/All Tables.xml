@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DatabaseSchema>
+  <Table name="Department">
+    <Columns>
+      <Column>
+        <Name>Department_ID</Name>
+        <Type>INT</Type>
+        <Constraints>
+          <Constraint>PRIMARY KEY</Constraint>
+        </Constraints>
+      </Column>
+      <Column>
+        <Name>Department_Name</Name>
+        <Type>NVARCHAR(200)</Type>
+        <Constraints>
+          <Constraint>NOT NULL</Constraint>
+        </Constraints>
+      </Column>
+      <Column>
+        <Name>Manager_ID</Name>
+        <Type>INT</Type>
+        <Constraints />
+      </Column>
+    </Columns>
+    <TableConstraints>
+      <Constraint>FOREIGN KEY (Manager_ID) REFERENCES Instructor(Instructor_ID) ON DELETE SET NULL</Constraint>
+    </TableConstraints>
+  </Table>
+  <Table name="Instructor">
+    <Columns>
+      <Column>
+        <Name>Instructor_ID</Name>
+        <Type>INT</Type>
+        <Constraints>
+          <Constraint>PRIMARY KEY</Constraint>
+        </Constraints>
+      </Column>
+      <Column>
+        <Name

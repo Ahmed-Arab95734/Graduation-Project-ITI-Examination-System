@@ -1,117 +1,119 @@
 
 --------------------------------------------------------------------------------
--- 3. CRUD STORED PROCEDURES FOR 'Exam_Questions'
+-- CRUD STORED PROCEDURES FOR 'Exam_Questions' (Template: Composite Key V3)
+-- FK Tables: [Exam], [Questions_Bank]
+--------------------------------------------------------------------------------
+-- Rules Implemented:
+-- 1. Naming: TableName_Operation (e.g., Exam_Questions_Insert)
+-- 2. Select/Delete: By Full PK, By partial FK, or All (if all NULL)
+-- 3. Output: OUTPUT clause used for all data modifications.
+-- 4. Errors: Detailed IF-checks and a smart CATCH block.
 --------------------------------------------------------------------------------
 
+-- CREATE
 CREATE PROCEDURE [dbo].[Exam_Questions_Insert]
     @Exam_ID INT,
     @Question_ID INT
 AS
 BEGIN
-    -- Adds a specific question to a specific exam.
     SET NOCOUNT ON;
 
+    -- 1. Pre-Checks (NOT NULL, PK, FK)
+    IF @Exam_ID IS NULL OR @Question_ID IS NULL
+    BEGIN
+        SELECT 'Error: Both Primary Key parts (Exam_ID, Question_ID) are required and cannot be NULL.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM [dbo].[Exam_Questions] WHERE [Exam_ID] = @Exam_ID AND [Question_ID] = @Question_ID)
+    BEGIN
+        SELECT 'Error: This relationship (Exam_ID, Question_ID) already exists. Please use a different combination.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Exam] WHERE [Exam_ID] = @Exam_ID)
+    BEGIN
+        SELECT 'Error: The provided Exam_ID does not exist in [Exam] table. Please use a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+    
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Questions_Banks] WHERE [Question_ID] = @Question_ID)
+    BEGIN
+        SELECT 'Error: The provided Question_ID does not exist in [Questions_Bank] table. Please use a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    -- 2. Perform Insert
     BEGIN TRY
-        -- 1. Check Foreign Key (Exam)
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Exam] WHERE [Exam_ID] = @Exam_ID)
-        BEGIN
-            SELECT 'Error: Exam_ID does not exist in the Exam table.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 2. Check Foreign Key (Questions_Bank)
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Question_Bank] WHERE [Question_ID] = @Question_ID)
-        BEGIN
-            SELECT 'Error: Question_ID does not exist in the Questions_Bank table.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 3. Check Primary Key (Uniqueness)
-        IF EXISTS (SELECT 1 FROM [dbo].[Exam_Questions] WHERE [Exam_ID] = @Exam_ID AND [Question_ID] = @Question_ID)
-        BEGIN
-            SELECT 'Error: This question is already assigned to this exam.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 4. Perform Insert
         INSERT INTO [dbo].[Exam_Questions] ([Exam_ID], [Question_ID])
-        VALUES (@Exam_ID, @Question_ID);
+        -- 3. Output inserted data
+        OUTPUT 
+            inserted.[Exam_ID] AS [Inserted_Exam_ID],
+            inserted.[Question_ID] AS [Inserted_Question_ID]
+        VALUES 
+            (@Exam_ID, @Question_ID);
     END TRY
     BEGIN CATCH
-        SELECT 'An unexpected error occurred in Exam_Questions_Insert.' AS ErrorMessage;
-        THROW;
+        -- 4. Smart CATCH Block
+        DECLARE @ErrorNum INT = ERROR_NUMBER();
+        DECLARE @ErrorMsg NVARCHAR(4000) = ERROR_MESSAGE();
+        IF @ErrorNum = 547 IF @ErrorMsg LIKE '%FOREIGN KEY%' SELECT 'Error: A Foreign Key violation occurred. A value you provided (like an ID) does not exist in the parent table. Please check your IDs and try again.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE IF @ErrorMsg LIKE '%CHECK constraint%' SELECT 'Error: A CHECK constraint violation occurred. A value you provided is invalid (e.g., a salary below the minimum, or an invalid type string).' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE SELECT 'Error 547: ' + @ErrorMsg AS ErrorMessage;
+        ELSE IF @ErrorNum = 515 SELECT 'Error: A NOT NULL violation occurred. You must provide a value for a required column.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum IN (2627, 2601) SELECT 'Error: A Unique Key or Primary Key violation occurred. The value you are trying to insert already exists.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum = 245 SELECT 'Error: A datatype conversion failed. Check that you are not putting text in a number field or an invalid date format.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE THROW;
     END CATCH
 END
 GO
 
 --------------------------------------------------------------------------------
-
+-- TEST CASES FOR Exam_Questions_Insert
+-------------------------------------------------------------------------------- */
 PRINT '--- 1. TESTING Exam_Questions_Insert ---';
-
--- Test 1 (Success): Add a valid question (5001) to a valid exam (1).
-PRINT 'Test 1 (Success - Adding 1, 5001)...';
-EXEC [dbo].[Exam_Questions_Insert] @Exam_ID = 1, @Question_ID = 1;
-
--- Test 2 (Success): Add another valid question (5002) to the same exam (1).
-PRINT 'Test 2 (Success - Adding 1, 5002)...';
-EXEC [dbo].[Exam_Questions_Insert] @Exam_ID = 1, @Question_ID = 2;
-
--- Test 3 (Error - Duplicate PK): Try to add question 5001 to exam 1 again.
-PRINT 'Test 3 (Error - Duplicate PK)...';
-EXEC [dbo].[Exam_Questions_Insert] @Exam_ID = 1, @Question_ID = 2;
--- Expected: 'Error: This question is already assigned to this exam.'
-
--- Test 4 (Error - Bad FK1): Try to add a question to a non-existent exam (999).
-PRINT 'Test 4 (Error - Bad Exam_ID FK)...';
-EXEC [dbo].[Exam_Questions_Insert] @Exam_ID = 100000, @Question_ID = 5003;
--- Expected: 'Error: Exam_ID does not exist in the Exam table.'
-
--- Test 5 (Error - Bad FK2): Try to add a non-existent question (9999) to a valid exam.
-PRINT 'Test 5 (Error - Bad Question_ID FK)...';
-EXEC [dbo].[Exam_Questions_Insert] @Exam_ID = 1, @Question_ID = 100000;
--- Expected: 'Error: Question_ID does not exist in the Questions_Bank table.'
+-- ASSUMPTION: Exam 101 and Questions 501, 502 exist.
+-- Test 1 (Success):
+EXEC [dbo].[Exam_Questions_Insert] @Exam_ID = 101, @Question_ID = 501;
+-- Test 2 (Success):
+EXEC [dbo].[Exam_Questions_Insert] @Exam_ID = 101, @Question_ID = 502;
+-- Test 3 (Error - PK NULL):
+EXEC [dbo].[Exam_Questions_Insert] @Exam_ID = 101, @Question_ID = NULL;
+-- Test 4 (Error - PK Exists):
+EXEC [dbo].[Exam_Questions_Insert] @Exam_ID = 101, @Question_ID = 501;
+-- Test 5 (Error - Bad FK1):
+EXEC [dbo].[Exam_Questions_Insert] @Exam_ID = 999, @Question_ID = 501;
+-- Test 6 (Error - Bad FK2):
+EXEC [dbo].[Exam_Questions_Insert] @Exam_ID = 101, @Question_ID = 999;
 GO
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
--- READ (Select by Primary Key)
-CREATE PROCEDURE [dbo].[Exam_Questions_Select]
+-- READ (Consolidated Select)
+alter PROCEDURE [dbo].[Exam_Questions_Select]
     @Exam_ID INT = NULL,
     @Question_ID INT = NULL
 AS
 BEGIN
-    -- Selects records based on provided parameters:
-    -- 1. Both IDs: Selects by Primary Key.
-    -- 2. Only Exam_ID: Selects all questions for that exam.
-    -- 3. Only Question_ID: Selects all exams for that question.
-    -- 4. Neither ID: Selects all records.
     SET NOCOUNT ON;
     
     BEGIN TRY
         IF @Exam_ID IS NOT NULL AND @Question_ID IS NOT NULL
         BEGIN
-            -- 1. Both IDs provided: Select the specific record by PK
-            SELECT *
-            FROM [dbo].[Exam_Questions]
-            WHERE [Exam_ID] = @Exam_ID AND [Question_ID] = @Question_ID;
+            -- 1. Select by Full Primary Key
+            SELECT * FROM [dbo].[Exam_Questions] WHERE [Exam_ID] = @Exam_ID AND [Question_ID] = @Question_ID;
         END
         ELSE IF @Exam_ID IS NOT NULL AND @Question_ID IS NULL
         BEGIN
-            -- 2. Only Exam_ID provided: Select all questions for that exam
-            SELECT *
-            FROM [dbo].[Exam_Questions]
-            WHERE [Exam_ID] = @Exam_ID;
+            -- 2. Select by first part of PK (All questions for one exam)
+            SELECT * FROM [dbo].[Exam_Questions] WHERE [Exam_ID] = @Exam_ID;
         END
         ELSE IF @Exam_ID IS NULL AND @Question_ID IS NOT NULL
         BEGIN
-            -- 3. Only Question_ID provided: Select all exams for that question
-            SELECT *
-            FROM [dbo].[Exam_Questions]
-            WHERE [Question_ID] = @Question_ID;
+            -- 3. Select by second part of PK (All exams with one question)
+            SELECT * FROM [dbo].[Exam_Questions] WHERE [Question_ID] = @Question_ID;
         END
         ELSE
         BEGIN
-            -- 4. Both IDs are NULL: Select all records
+            -- 4. Select All (All params are NULL)
             SELECT * FROM [dbo].[Exam_Questions];
         END
     END TRY
@@ -122,204 +124,215 @@ BEGIN
 END
 GO
 
-
--- TEST CASES FOR Exam_Questions_Select (Consolidated)
---------------------------------------------------------------------------------
-PRINT '--- 2. TESTING Exam_Questions_Select (Consolidated) ---';
-
--- Test 6 (PK): Find a link that exists.
-PRINT 'Test 6 (Select - Finding 1, 5001)...';
-EXEC [dbo].[Exam_Questions_Select] @Exam_ID = 1, @Question_ID = 1;
--- Expected: 1 row returned.
-
--- Test 7 (PK - No Result): Find a link that does not exist.
-PRINT 'Test 7 (Select - Finding 102, 5001)...';
-EXEC [dbo].[Exam_Questions_Select] @Exam_ID = 102, @Question_ID = 5001;
--- Expected: 0 rows returned.
-
--- Test 8 (All): Call with no parameters.
-PRINT 'Test 8 (Select - All rows, no params)...';
+/* --------------------------------------------------------------------------------
+-- TEST CASES FOR Exam_Questions_Select
+-------------------------------------------------------------------------------- */
+PRINT '--- 2. TESTING Exam_Questions_Select ---';
+-- Test 7 (By Full PK):
+EXEC [dbo].[Exam_Questions_Select] @Exam_ID = 101, @Question_ID = 501;
+-- Test 8 (By Partial PK 1):
+EXEC [dbo].[Exam_Questions_Select] @Exam_ID = 101;
+-- Test 9 (By Partial PK 2):
+EXEC [dbo].[Exam_Questions_Select] @Question_ID = 501;
+-- Test 10 (All):
 EXEC [dbo].[Exam_Questions_Select];
--- Expected: All rows (2 in this test script).
-
--- Test 9 (By Exam_ID): Find all questions for exam 1.
-PRINT 'Test 9 (Select - By Exam_ID 1)...';
-EXEC [dbo].[Exam_Questions_Select] @Exam_ID = 1;
--- Expected: 2 rows returned (5001, 5002).
-
--- Test 10 (By Question_ID): Find all exams using question 5001.
-PRINT 'Test 10 (Select - By Question_ID 5001)...';
-EXEC [dbo].[Exam_Questions_Select] @Question_ID = 5001;
--- Expected: 1 row returned (Exam 1).
 GO
 
---------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
 
 -- UPDATE (DELETE + INSERT Pattern)
-/*
--- NOTE: This procedure updates the [Question_ID] part of the composite primary key.
--- This is achieved by deleting the old record and inserting a new one
--- within a single, safe transaction.
-*/
-
-CREATE PROCEDURE [dbo].[Exam_Questions_Update]
+alter PROCEDURE [dbo].[Exam_Questions_Update]
     @Exam_ID INT,
     @Old_Question_ID INT,
     @New_Question_ID INT
 AS
 BEGIN
-    -- Updates an exam's question assignment by replacing the old one with a new one.
     SET NOCOUNT ON;
 
-    -- Check 1: Old assignment must exist
+    -- 1. Pre-Checks
+    IF @Exam_ID IS NULL OR @Old_Question_ID IS NULL OR @New_Question_ID IS NULL
+    BEGIN
+        SELECT 'Error: All parameters (@Exam_ID, @Old_Question_ID, @New_Question_ID) are required and cannot be NULL.' AS ErrorMessage;
+        RETURN;
+    END
+
     IF NOT EXISTS (SELECT 1 FROM [dbo].[Exam_Questions] WHERE [Exam_ID] = @Exam_ID AND [Question_ID] = @Old_Question_ID)
     BEGIN
-        SELECT 'Error: The old question assignment does not exist for this exam.' AS ErrorMessage;
+        SELECT 'Error: The old record (Exam_ID, Old_Question_ID) does not exist. No update occurred.' AS ErrorMessage;
         RETURN;
     END
 
-    -- Check 2: New assignment must NOT exist
     IF EXISTS (SELECT 1 FROM [dbo].[Exam_Questions] WHERE [Exam_ID] = @Exam_ID AND [Question_ID] = @New_Question_ID)
     BEGIN
-        SELECT 'Error: The new question assignment is already registered for this exam.' AS ErrorMessage;
+        SELECT 'Error: The new record (Exam_ID, New_Question_ID) already exists. Cannot create a duplicate.' AS ErrorMessage;
         RETURN;
     END
 
-    -- Check 3: New Question_ID must be a valid FK
-    IF NOT EXISTS (SELECT 1 FROM [dbo].[Questions_Bank] WHERE [Question_ID] = @New_Question_ID)
+        IF NOT EXISTS (SELECT 1 FROM [dbo].[Question_Bank] WHERE [Question_ID] = @New_Question_ID)
     BEGIN
-        SELECT 'Error: The new Question_ID does not exist in the Questions_Bank table.' AS ErrorMessage;
+        SELECT 'Error: The new Question_ID does not exist in [Questions_Bank]. Please use a valid ID.' AS ErrorMessage;
         RETURN;
     END
 
-    -- Start transaction to ensure atomicity (all or nothing)
+    -- 2. Perform Transaction
     BEGIN TRANSACTION;
     BEGIN TRY
         
-        -- Step 1: Delete the old record
+        -- Step 1: Delete the old record and output it
         DELETE FROM [dbo].[Exam_Questions]
-        WHERE [Exam_ID] = @Exam_ID AND [Question_ID] = @Old_Question_ID;
+        OUTPUT 
+            deleted.[Exam_ID] AS [Old_Exam_ID],
+            deleted.[Question_ID] AS [Old_Question_ID]
+        WHERE 
+            [Exam_ID] = @Exam_ID AND [Question_ID] = @Old_Question_ID;
         
-        -- Step 2: Insert the new record
+        -- Step 2: Insert the new record and output it
         INSERT INTO [dbo].[Exam_Questions] ([Exam_ID], [Question_ID])
-        VALUES (@Exam_ID, @New_Question_ID);
+        OUTPUT 
+            inserted.[Exam_ID] AS [New_Exam_ID],
+            inserted.[Question_ID] AS [New_Question_ID]
+        VALUES 
+            (@Exam_ID, @New_Question_ID);
         
-        -- If both steps succeed, commit the transaction
         COMMIT TRANSACTION;
     END TRY
     BEGIN CATCH
-        -- If any step fails, roll back the entire operation
         ROLLBACK TRANSACTION;
-        SELECT 'An unexpected error occurred during the update. The transaction was rolled back.' AS ErrorMessage;
-        THROW; -- Re-throw the original error for debugging
+        -- 4. Smart CATCH Block
+        DECLARE @ErrorNum INT = ERROR_NUMBER();
+        DECLARE @ErrorMsg NVARCHAR(4000) = ERROR_MESSAGE();
+        IF @ErrorNum = 547 IF @ErrorMsg LIKE '%FOREIGN KEY%' SELECT 'Error: A Foreign Key violation occurred. A value you provided (like an ID) does not exist in the parent table. Please check your IDs and try again.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE IF @ErrorMsg LIKE '%CHECK constraint%' SELECT 'Error: A CHECK constraint violation occurred. A value you provided is invalid (e.g., a salary below the minimum, or an invalid type string).' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE SELECT 'Error 547: ' + @ErrorMsg AS ErrorMessage;
+        ELSE IF @ErrorNum = 515 SELECT 'Error: A NOT NULL violation occurred. You must provide a value for a required column.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum IN (2627, 2601) SELECT 'Error: A Unique Key or Primary Key violation occurred. The value you are trying to insert already exists.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum = 245 SELECT 'Error: A datatype conversion failed. Check that you are not putting text in a number field or an invalid date format.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE THROW;
     END CATCH
 END
 GO
 
---------------------------------------------------------------------------------
+/* --------------------------------------------------------------------------------
 -- TEST CASES FOR Exam_Questions_Update
---------------------------------------------------------------------------------
--- ASSUMPTION:
--- 1. Question 503 exists in the [Questions_Bank] table.
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- */
 PRINT '--- 3. TESTING Exam_Questions_Update ---';
-
--- Test 10 (Success): Update question 502 to 503 for exam 101.
-PRINT 'Test 10 (Update - Success)...';
-EXEC [dbo].[Exam_Questions_Update]
-    @Exam_ID = 101,
-    @Old_Question_ID = 502,
-    @New_Question_ID = 503;
--- Verify:
-EXEC [dbo].[Exam_Questions_Select] @Exam_ID = 101;
--- Expected: 2 rows (501 and 503)
-
--- Test 11 (Error - Old Not Found): Try to update a non-existent old question (999).
-PRINT 'Test 11 (Update - Error, Old Question Not Found)...';
-EXEC [dbo].[Exam_Questions_Update]
-    @Exam_ID = 101,
-    @Old_Question_ID = 999,
-    @New_Question_ID = 503;
--- Expected: 'Error: The old question assignment does not exist for this exam.'
-
--- Test 12 (Error - New Already Exists): Try to update 503 to 501 (which already exists).
-PRINT 'Test 12 (Update - Error, New Question Already Exists)...';
-EXEC [dbo].[Exam_Questions_Update]
-    @Exam_ID = 101,
-    @Old_Question_ID = 503,
-    @New_Question_ID = 501;
--- Expected: 'Error: The new question assignment is already registered for this exam.'
-
--- Test 13 (Error - New FK invalid): Try to update 503 to 999 (non-existent question).
-PRINT 'Test 13 (Update - Error, New Question FK invalid)...';
-EXEC [dbo].[Exam_Questions_Update]
-    @Exam_ID = 101,
-    @Old_Question_ID = 503,
-    @New_Question_ID = 999;
--- Expected: 'Error: The new Question_ID does not exist in the Questions_Bank table.'
+-- ASSUMPTION: Question 503 exists in [Questions_Bank].
+-- Test 11 (Success): Update 502 to 503 for Exam 101.
+EXEC [dbo].[Exam_Questions_Update] @Exam_ID = 101, @Old_Question_ID = 502, @New_Question_ID = 503;
+-- Test 12 (Error - Old Not Found):
+EXEC [dbo].[Exam_Questions_Update] @Exam_ID = 101, @Old_Question_ID = 999, @New_Question_ID = 503;
+-- Test 13 (Error - New Already Exists):
+EXEC [dbo].[Exam_Questions_Update] @Exam_ID = 101, @Old_Question_ID = 503, @New_Question_ID = 501;
+-- Test 14 (Error - New FK invalid):
+EXEC [dbo].[Exam_Questions_Update] @Exam_ID = 101, @Old_Question_ID = 503, @New_Question_ID = 999;
 GO
 
-------------------------------------------------------------------------------------------------------------------
-
+------------------------------------------------------------------------------------------------------------------------
 -- DELETE
-alter PROCEDURE [dbo].[Exam_Questions_Delete]
-    @Exam_ID INT = null,
-    @Question_ID INT = null
+CREATE PROCEDURE [dbo].[Exam_Questions_Delete]
+    @Exam_ID INT = NULL,
+    @Question_ID INT = NULL
 AS
 BEGIN
-    -- Removes a single question from a specific exam.
     SET NOCOUNT ON;
 
     BEGIN TRY
-        -- 1. Check if the record exists
-        IF NOT EXISTS (SELECT * FROM [dbo].[Exam_Questions] WHERE [Exam_ID] = @Exam_ID AND [Question_ID] = @Question_ID)
+        IF @Exam_ID IS NOT NULL AND @Question_ID IS NOT NULL
         BEGIN
-            SELECT 'Error: This question is not part of this exam. No deletion occurred.' AS ErrorMessage;
-            RETURN;
-        END
+            -- 1. Delete by Full Primary Key
+            IF NOT EXISTS (SELECT 1 FROM [dbo].[Exam_Questions] WHERE [Exam_ID] = @Exam_ID AND [Question_ID] = @Question_ID)
+            BEGIN
+                SELECT 'Error: Record not found. No deletion occurred. Please provide valid IDs.' AS ErrorMessage;
+                RETURN;
+            END
 
-        -- 2. Perform Delete
-        DELETE FROM [dbo].[Exam_Questions]
-        WHERE [Exam_ID] = @Exam_ID AND [Question_ID] = @Question_ID;
+            DELETE FROM [dbo].[Exam_Questions]
+            OUTPUT 
+                deleted.[Exam_ID] AS [Deleted_Exam_ID],
+                deleted.[Question_ID] AS [Deleted_Question_ID]
+            WHERE 
+                [Exam_ID] = @Exam_ID AND [Question_ID] = @Question_ID;
+        END
+        ELSE IF @Exam_ID IS NOT NULL AND @Question_ID IS NULL
+        BEGIN
+            -- 2. Delete by first part of PK (All questions for one exam)
+            IF NOT EXISTS (SELECT 1 FROM [dbo].[Exam_Questions] WHERE [Exam_ID] = @Exam_ID)
+            BEGIN
+                SELECT 'Info: No records found for this Exam_ID. No deletion occurred.' AS InfoMessage;
+                RETURN;
+            END
+            
+            DELETE FROM [dbo].[Exam_Questions]
+            OUTPUT 
+                deleted.[Exam_ID] AS [Deleted_Exam_ID],
+                deleted.[Question_ID] AS [Deleted_Question_ID]
+            WHERE 
+                [Exam_ID] = @Exam_ID;
+        END
+        ELSE IF @Exam_ID IS NULL AND @Question_ID IS NOT NULL
+        BEGIN
+            -- 3. Delete by second part of PK (All exams with one question)
+             IF NOT EXISTS (SELECT 1 FROM [dbo].[Exam_Questions] WHERE [Question_ID] = @Question_ID)
+            BEGIN
+                SELECT 'Info: No records found for this Question_ID. No deletion occurred.' AS InfoMessage;
+                RETURN;
+            END
+
+            DELETE FROM [dbo].[Exam_Questions]
+            OUTPUT 
+                deleted.[Exam_ID] AS [Deleted_Exam_ID],
+                deleted.[Question_ID] AS [Deleted_Question_ID]
+            WHERE 
+                [Question_ID] = @Question_ID;
+        END
+        ELSE
+        BEGIN
+            -- 4. Delete All Records (All params are NULL)
+            PRINT 'Warning: Deleting all records from [Exam_Questions]. This action cannot be undone.';
+            BEGIN TRANSACTION;
+
+            -- Check for FK constraints before truncating
+            IF EXISTS (SELECT * FROM sys.foreign_keys WHERE referenced_object_id = OBJECT_ID('dbo.Exam_Questions'))
+            BEGIN
+                -- Cannot TRUNCATE, must DELETE.
+                DELETE FROM [dbo].[Exam_Questions];
+            END
+            ELSE
+            BEGIN
+                -- Safe to TRUNCATE for performance
+                TRUNCATE TABLE [dbo].[Exam_Questions];
+            END
+
+            COMMIT TRANSACTION;
+            SELECT 'Success: All records have been deleted from [Exam_Questions].' AS SuccessMessage;
+        END
     END TRY
     BEGIN CATCH
-        -- Check for specific error 547 (Foreign Key violation)
-        -- This is unlikely here unless another table (e.g., Student_Answers)
-        -- links directly to Exam_Questions.
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+
+        -- 4. Smart CATCH Block
         IF ERROR_NUMBER() = 547
         BEGIN
-            SELECT 'Error: Cannot delete this link. It is still referenced by other records (e.g., student answers).' AS ErrorMessage;
+            SELECT 'Error: Cannot delete. The record(s) are still referenced by other tables (Foreign Key violation). Please delete the child records first.' AS ErrorMessage;
             RETURN;
         END
         
-        -- Handle other errors
         SELECT 'An unexpected error occurred in Exam_Questions_Delete.' AS ErrorMessage;
         THROW;
     END CATCH
 END
 GO
 
-
+--------------------------------------------------------------------------------
 -- TEST CASES FOR Exam_Questions_Delete
---------------------------------------------------------------------------------
-PRINT '--- 3. TESTING Exam_Questions_Delete ---';
+-------------------------------------------------------------------------------- */
+PRINT '--- 4. TESTING Exam_Questions_Delete ---';
+-- Test 15 (Success - By Full PK):
+EXEC [dbo].[Exam_Questions_Delete] @Exam_ID = 101, @Question_ID = 501;
+-- Test 16 (Error - Not Found):
+EXEC [dbo].[Exam_Questions_Delete] @Exam_ID = 101, @Question_ID = 99;
+-- Test 17 (Delete by Partial PK 1):
+EXEC [dbo].[Exam_Questions_Delete] @Exam_ID = 101;
+-- Test 18 (Delete All):
+EXEC [dbo].[Exam_Questions_Delete];
+GO
 
--- Test 11 (Success): Delete an existing link.
-PRINT 'Test 11 (Delete - Removing 1, 5001)...';
-EXEC [dbo].[Exam_Questions_Delete] @Exam_ID = 1, @Question_ID = 1;
-
--- Test 12 (Error - Not Found): Try to delete a link that does not exist.
-PRINT 'Test 12 (Delete - Removing non-existent 102, 5001)...';
-EXEC [dbo].[Exam_Questions_Delete] @Exam_ID = 100000, @Question_ID = 5001;
--- Expected: 'Error: This question is not assigned to this exam. No deletion occurred.'
-
--- Test 13 (Error - Already Deleted): Try to delete the first link again.
-PRINT 'Test 13 (Delete - Removing 1, 5001 again)...';
-EXEC [dbo].[Exam_Questions_Delete] @Exam_ID = 1, @Question_ID = 2;
--- Expected: 'Error: This question is not assigned to this exam. No deletion occurred.'
-
-PRINT '--- 4. FINAL VERIFICATION ---';
--- Run SelectAll again. It should only show one row: (1, 5002).
-PRINT 'Test 14 (Final Select - Should show 1 row)...';
-EXEC [dbo].[Exam_Questions_Select];
---------------------------------------------------------------------------------

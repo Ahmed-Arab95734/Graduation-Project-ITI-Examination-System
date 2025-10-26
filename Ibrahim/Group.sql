@@ -12,54 +12,67 @@ CREATE PROCEDURE [dbo].[Group_Insert]
     @Track_ID INT
 AS
 BEGIN
-    -- Creates a new group, linking an Intake, Branch, and Track.
     SET NOCOUNT ON;
 
+    -- 1. Pre-Checks (NOT NULL, PK, FK)
+    IF @Group_ID IS NULL
+    BEGIN
+        SELECT 'Error: The Primary Key (Group_ID) cannot be NULL. Please provide a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+    
+    IF @Intake_ID IS NULL OR @Branch_ID IS NULL OR @Track_ID IS NULL
+    BEGIN
+        SELECT 'Error: [Intake_ID], [Branch_ID], and [Track_ID] cannot be NULL. Please provide all required values.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM [dbo].[Group] WHERE [Group_ID] = @Group_ID)
+    BEGIN
+        SELECT 'Error: A record with this Primary Key (Group_ID) already exists. Please use a different ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Intake] WHERE [Intake_ID] = @Intake_ID)
+    BEGIN
+        SELECT 'Error: The provided Intake_ID does not exist in the [Intake] table. Please use a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Branch] WHERE [Branch_ID] = @Branch_ID)
+    BEGIN
+        SELECT 'Error: The provided Branch_ID does not exist in the [Branch] table. Please use a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Track] WHERE [Track_ID] = @Track_ID)
+    BEGIN
+        SELECT 'Error: The provided Track_ID does not exist in the [Track] table. Please use a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    -- 2. Perform Insert with CATCH block for CHECK constraints
     BEGIN TRY
-        -- 1. Check Primary Key (Uniqueness)
-        IF EXISTS (SELECT 1 FROM [dbo].[Group] WHERE [Group_ID] = @Group_ID)
-        BEGIN
-            SELECT 'Error: Group_ID already exists.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 2. Check Foreign Key (Intake)
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Intake] WHERE [Intake_ID] = @Intake_ID)
-        BEGIN
-            SELECT 'Error: Intake_ID does not exist in the Intake table.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 3. Check Foreign Key (Branch)
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Branch] WHERE [Branch_ID] = @Branch_ID)
-        BEGIN
-            SELECT 'Error: Branch_ID does not exist in the Branch table.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 4. Check Foreign Key (Track)
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Track] WHERE [Track_ID] = @Track_ID)
-        BEGIN
-            SELECT 'Error: Track_ID does not exist in the Track table.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 5. Check Uniqueness (Combination of FKs) - Assuming this should be unique
-        IF EXISTS (SELECT 1 FROM [dbo].[Group] WHERE [Intake_ID] = @Intake_ID AND [Branch_ID] = @Branch_ID AND [Track_ID] = @Track_ID)
-        BEGIN
-            SELECT 'Error: This combination of Intake, Branch, and Track already exists.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 6. Perform Insert
-        INSERT INTO [dbo].[Group]
-           ([Group_ID], [Intake_ID], [Branch_ID], [Track_ID])
-        VALUES
-           (@Group_ID, @Intake_ID, @Branch_ID, @Track_ID);
+        INSERT INTO [dbo].[Group] 
+            ([Group_ID], [Intake_ID], [Branch_ID], [Track_ID])
+        -- 3. Output inserted data
+        OUTPUT 
+            inserted.[Group_ID] AS [Inserted_Group_ID],
+            inserted.[Intake_ID] AS [Inserted_Intake_ID],
+            inserted.[Branch_ID] AS [Inserted_Branch_ID],
+            inserted.[Track_ID] AS [Inserted_Track_ID]
+        VALUES 
+            (@Group_ID, @Intake_ID, @Branch_ID, @Track_ID);
     END TRY
     BEGIN CATCH
-        SELECT 'An unexpected error occurred in Group_Insert.' AS ErrorMessage;
-        THROW;
+        -- 4. Smart CATCH Block
+        DECLARE @ErrorNum INT = ERROR_NUMBER();
+        DECLARE @ErrorMsg NVARCHAR(4000) = ERROR_MESSAGE();
+        IF @ErrorNum = 547 IF @ErrorMsg LIKE '%FOREIGN KEY%' SELECT 'Error: A Foreign Key violation occurred. A value you provided (like an ID) does not exist in the parent table. Please check your IDs and try again.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE IF @ErrorMsg LIKE '%CHECK constraint%' SELECT 'Error: A CHECK constraint violation occurred. A value you provided is invalid (e.g., a salary below the minimum, or an invalid type string).' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE SELECT 'Error 547: ' + @ErrorMsg AS ErrorMessage;
+        ELSE IF @ErrorNum = 515 SELECT 'Error: A NOT NULL violation occurred. You must provide a value for a required column.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum IN (2627, 2601) SELECT 'Error: A Unique Key or Primary Key violation occurred. The value you are trying to insert already exists.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum = 245 SELECT 'Error: A datatype conversion failed. Check that you are not putting text in a number field or an invalid date format.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE THROW;
     END CATCH
 END
 GO
@@ -75,34 +88,17 @@ GO
 
 PRINT '--- 1. TESTING Group_Insert ---';
 
--- Test 1 (Success): Add a valid group.
-PRINT 'Test 1 (Success - Adding Group 501)...';
-EXEC [dbo].[Group_Insert]
-    @Group_ID = 501,
-    @Intake_ID = 45,
-    @Branch_ID = 1,
-    @Track_ID = 101;
-
--- Test 2 (Error - Duplicate PK): Try to add group 501 again.
-PRINT 'Test 2 (Error - Duplicate PK)...';
-EXEC [dbo].[Group_Insert]
-    @Group_ID = 501, @Intake_ID = 45, @Branch_ID = 1, @Track_ID = 101;
--- Expected: 'Error: Group_ID already exists.'
-
--- Test 3 (Error - Bad FK1): Non-existent Intake.
-PRINT 'Test 3 (Error - Bad Intake_ID FK)...';
-EXEC [dbo].[Group_Insert]
-    @Group_ID = 502, @Intake_ID = 99, @Branch_ID = 1, @Track_ID = 101;
--- Expected: 'Error: Intake_ID does not exist in the Intake table.'
-
--- Test 4 (Error - Duplicate Combination): Try to add the same combo with a new PK.
-PRINT 'Test 4 (Error - Duplicate Combination)...';
-EXEC [dbo].[Group_Insert]
-    @Group_ID = 503,
-    @Intake_ID = 45, -- Same
-    @Branch_ID = 1,  -- Same
-    @Track_ID = 101; -- Same
--- Expected: 'Error: This combination of Intake, Branch, and Track already exists.'
+-- ASSUMPTION: Intake 1, Branch 2, Track 3 all exist.
+-- Test 1 (Success):
+EXEC [dbo].[Group_Insert] @Group_ID = 10001, @Intake_ID = 1, @Branch_ID = 2, @Track_ID = 3;
+-- Test 2 (Error - PK NULL):
+EXEC [dbo].[Group_Insert] @Group_ID = NULL, @Intake_ID = 1, @Branch_ID = 2, @Track_ID = 3;
+-- Test 3 (Error - PK Exists):
+EXEC [dbo].[Group_Insert] @Group_ID = 1, @Intake_ID = 1, @Branch_ID = 2, @Track_ID = 3;
+-- Test 4 (Error - Bad FK):
+EXEC [dbo].[Group_Insert] @Group_ID = 10001, @Intake_ID = 99, @Branch_ID = 2, @Track_ID = 3;
+-- Test 5 (Error - NOT NULL):
+EXEC [dbo].[Group_Insert] @Group_ID = 2, @Intake_ID = 1, @Branch_ID = NULL, @Track_ID = 3;
 GO
 --------------------------------------------------------------------------------
 
@@ -165,7 +161,7 @@ EXEC [dbo].[Group_Select] @Intake_ID = 45;
 
 -- Test 7 (By Combo): Find by Intake 45 and Branch 1.
 PRINT 'Test 7 (Select - By Intake 45 and Branch 1)...';
-EXEC [dbo].[Group_Select] @Intake_ID = 45, @Branch_ID = 1;
+EXEC [dbo].[Group_Select] @Intake_ID = 4, @Branch_ID = 1;
 -- Expected: 1 row.
 
 -- Test 8 (All): Select all groups.
@@ -174,7 +170,7 @@ EXEC [dbo].[Group_Select];
 -- Expected: 1 row.
 GO
 --------------------------------------------------------------------------------
-*/
+
 
 -- UPDATE (Standard)
 /*
@@ -183,71 +179,80 @@ GO
 -- We are not "updating the key" (like in Failed_Students); we are just
 -- updating the data columns associated with that key.
 */
+
 CREATE PROCEDURE [dbo].[Group_Update]
-    @Group_ID INT,
+ @Group_ID INT,
     @Intake_ID INT,
     @Branch_ID INT,
     @Track_ID INT
 AS
 BEGIN
-    -- Updates an existing group's associated Intake, Branch, or Track.
     SET NOCOUNT ON;
 
+    -- 1. Pre-Checks (PK exists, NOT NULL, FK)
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Group] WHERE [Group_ID] = @Group_ID)
+    BEGIN
+        SELECT 'Error: Record ID not found. No update occurred. Please provide a valid Group_ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF @Intake_ID IS NULL OR @Branch_ID IS NULL OR @Track_ID IS NULL
+    BEGIN
+        SELECT 'Error: [Intake_ID], [Branch_ID], and [Track_ID] cannot be NULL. Please provide all required values.' AS ErrorMessage;
+        RETURN;
+    END
+    
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Intake] WHERE [Intake_ID] = @Intake_ID)
+    BEGIN
+        SELECT 'Error: The provided Intake_ID does not exist in the [Intake] table. Please use a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Branch] WHERE [Branch_ID] = @Branch_ID)
+    BEGIN
+        SELECT 'Error: The provided Branch_ID does not exist in the [Branch] table. Please use a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Track] WHERE [Track_ID] = @Track_ID)
+    BEGIN
+        SELECT 'Error: The provided Track_ID does not exist in the [Track] table. Please use a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    -- 2. Perform Update
     BEGIN TRY
-        -- 1. Check if PK exists
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Group] WHERE [Group_ID] = @Group_ID)
-        BEGIN
-            SELECT 'Error: Group_ID not found. No update occurred.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 2. Check Foreign Key (Intake)
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Intake] WHERE [Intake_ID] = @Intake_ID)
-        BEGIN
-            SELECT 'Error: Intake_ID does not exist in the Intake table.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 3. Check Foreign Key (Branch)
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Branch] WHERE [Branch_ID] = @Branch_ID)
-        BEGIN
-            SELECT 'Error: Branch_ID does not exist in the Branch table.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 4. Check Foreign Key (Track)
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Track] WHERE [Track_ID] = @Track_ID)
-        BEGIN
-            SELECT 'Error: Track_ID does not exist in the Track table.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 5. Check Uniqueness (Combination of FKs) - if changing
-        IF EXISTS (SELECT 1 FROM [dbo].[Group] 
-                   WHERE [Intake_ID] = @Intake_ID 
-                     AND [Branch_ID] = @Branch_ID 
-                     AND [Track_ID] = @Track_ID
-                     AND [Group_ID] != @Group_ID)
-        BEGIN
-            SELECT 'Error: This combination of Intake, Branch, and Track already exists for another group.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 6. Perform Update
         UPDATE [dbo].[Group]
         SET 
             [Intake_ID] = @Intake_ID,
             [Branch_ID] = @Branch_ID,
             [Track_ID] = @Track_ID
+        -- 3. Output Old and New records
+        OUTPUT 
+            deleted.[Group_ID] AS [Old_Group_ID],
+            inserted.[Group_ID] AS [New_Group_ID],
+            deleted.[Intake_ID] AS [Old_Intake_ID],
+            inserted.[Intake_ID] AS [New_Intake_ID],
+            deleted.[Branch_ID] AS [Old_Branch_ID],
+            inserted.[Branch_ID] AS [New_Branch_ID],
+            deleted.[Track_ID] AS [Old_Track_ID],
+            inserted.[Track_ID] AS [New_Track_ID]
         WHERE 
             [Group_ID] = @Group_ID;
     END TRY
     BEGIN CATCH
-        SELECT 'An unexpected error occurred in Group_Update.' AS ErrorMessage;
-        THROW;
+        -- 4. Smart CATCH Block (Same as Insert)
+        DECLARE @ErrorNum INT = ERROR_NUMBER();
+        DECLARE @ErrorMsg NVARCHAR(4000) = ERROR_MESSAGE();
+        IF @ErrorNum = 547 IF @ErrorMsg LIKE '%FOREIGN KEY%' SELECT 'Error: A Foreign Key violation occurred. A value you provided (like an ID) does not exist in the parent table. Please check your IDs and try again.' AS ErrorMessage; ELSE IF @ErrorMsg LIKE '%CHECK constraint%' SELECT 'Error: A CHECK constraint violation occurred. A value you provided is invalid (e.g., a salary below the minimum, or an invalid type string).' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE SELECT 'Error 547: ' + @ErrorMsg AS ErrorMessage;
+        ELSE IF @ErrorNum = 515 SELECT 'Error: A NOT NULL violation occurred. You must provide a value for a required column.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum IN (2627, 2601) SELECT 'Error: A Unique Key or PrimaryKey violation occurred. The value you are trying to insert already exists.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum = 245 SELECT 'Error: A datatype conversion failed. Check that you are not putting text in a number field or an invalid date format.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE THROW;
     END CATCH
 END
 GO
+
 
 --------------------------------------------------------------------------------
 -- TEST CASES FOR Group_Update
@@ -257,97 +262,103 @@ GO
 PRINT '--- 3. TESTING Group_Update ---';
 
 -- Test 9 (Success): Update the Track for Group 501.
-PRINT 'Test 9 (Update - Success, changing track)...';
-EXEC [dbo].[Group_Update]
-    @Group_ID = 501,
-    @Intake_ID = 1,
-    @Branch_ID = 1,
-    @Track_ID = 1; 
-
--- Verify:
-EXEC [dbo].[Group_Select] @Group_ID = 501;
-
--- Test 10 (Error - Not Found): Try to update non-existent group 999.
-PRINT 'Test 10 (Update - Error, Group 999 not found)...';
-EXEC [dbo].[Group_Update]
-    @Group_ID = 999, @Intake_ID = 1, @Branch_ID = 1, @Track_ID = 1;
--- Expected: 'Error: Group_ID not found. No update occurred.'
-
--- Test 11 (Error - Bad FK): Try to update to a non-existent track.
-PRINT 'Test 11 (Update - Error, Track 999 not found)...';
-EXEC [dbo].[Group_Update]
-    @Group_ID = 1, @Intake_ID = 1, @Branch_ID = 1, @Track_ID = 999;
--- Expected: 'Error: Track_ID does not exist in the Track table.'
+-- ASSUMPTION: Intake 4, Branch 5, Track 6 all exist.
+-- Test 8 (Success): Update record 1.
+EXEC [dbo].[Group_Update] @Group_ID = 1, @Intake_ID = 4, @Branch_ID = 5, @Track_ID = 6;
+-- Test 9 (Error - Not Found):
+EXEC [dbo].[Group_Update] @Group_ID = 99, @Intake_ID = 1, @Branch_ID = 2, @Track_ID = 3;
+-- Test 10 (Error - Bad FK):
+EXEC [dbo].[Group_Update] @Group_ID = 1, @Intake_ID = 99, @Branch_ID = 2, @Track_ID = 3;
 GO
 --------------------------------------------------------------------------------
-*/
 
 -- DELETE
 CREATE PROCEDURE [dbo].[Group_Delete]
-    @Group_ID INT
+    @Group_ID INT = Null
+    @Intake_ID INT = Null,
+    @Branch_ID INT = Null,
+    @Track_ID INT = Null
 AS
 BEGIN
-    -- Deletes a group by its Primary Key.
     SET NOCOUNT ON;
 
     BEGIN TRY
-        -- 1. Check if the record exists
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Group] WHERE [Group_ID] = @Group_ID)
+         IF @Group_ID IS NULL 
         BEGIN
-            SELECT 'Error: Group_ID not found. No deletion occurred.' AS ErrorMessage;
+            SELECT 'Error: Cannot delete this group. It is still referenced by other tables (e.g., Track, Inake , Branch). Please delete or re-assign the records in those tables first.' AS ErrorMessage;
             RETURN;
         END
+        IF @Group_ID IS NOT NULL
+        BEGIN
+            SELECT 'Error: Cannot delete this group. It is still referenced by other tables (e.g., Track). Please delete or re-assign the records in those tables first.' AS ErrorMessage;
+            RETURN;
+        END
+            -- 1. Delete by Primary Key
+            IF NOT EXISTS (SELECT 1 FROM [dbo].[Group] WHERE [Group_ID] = @Group_ID)
+            BEGIN
+                SELECT 'Error: Record ID not found. No deletion occurred. Please provide a valid Group_ID.' AS ErrorMessage;
+                RETURN;
+            END
 
-        -- 2. Perform Delete
-        DELETE FROM [dbo].[Group]
-        WHERE [Group_ID] = @Group_ID;
+            DELETE FROM [dbo].[Group]
+            -- 3. Output deleted data
+            OUTPUT 
+                deleted.[Group_ID] AS [Deleted_Group_ID],
+                deleted.[Intake_ID] AS [Deleted_Intake_ID],
+                deleted.[Branch_ID] AS [Deleted_Branch_ID],
+                deleted.[Track_ID] AS [Deleted_Track_ID]
+            WHERE 
+                [Group_ID] = @Group_ID;
+        END
+        ELSE
+        BEGIN
+            -- 2. Delete All Records (ID is NULL)
+            PRINT 'Warning: Deleting all records from [Group]. This action cannot be undone.'
+            BEGIN TRANSACTION;
+            
+            -- Check for FK constraints before truncating
+            IF EXISTS (SELECT * FROM sys.foreign_keys WHERE referenced_object_id = OBJECT_ID('dbo.Group'))
+            BEGIN
+                -- Cannot TRUNCATE, must DELETE.
+                DELETE FROM [dbo].[Group];
+            END
+            ELSE
+            BEGIN
+                -- Safe to TRUNCATE for performance
+                TRUNCATE TABLE [dbo].[Group];
+            END
+            
+            COMMIT TRANSACTION;
+            SELECT 'Success: All records have been deleted from [Group].' AS SuccessMessage;
+        END
     END TRY
     BEGIN CATCH
-        -- Check for specific error 547 (Foreign Key violation)
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+
+        -- 4. Smart CATCH Block
         IF ERROR_NUMBER() = 547
         BEGIN
-            SELECT 'Error: Cannot delete group. It is still referenced by other records (e.g., students in this group).' AS ErrorMessage;
-            RETURN; -- Don't THROW, just return the custom message
+            SELECT 'Error: Cannot delete this group. It is still referenced by other tables (e.g., Students). Please delete or re-assign the records in those tables first.' AS ErrorMessage;
+            RETURN;
         END
         
-        -- Handle other errors
-        SELECT 'An unexpected error occurred in Group_Delete.' AS ErrorMessage;
-        THROW; -- Re-throw the original error for debugging
+        SELECT 'An unexpected error occurred in sp_DeleteGroup.' AS ErrorMessage;
+        THROW;
     END CATCH
 END
 GO
 
 --------------------------------------------------------------------------------
--- TEST CASES FOR Group_Delete
+-- TEST CASES FOR sp_DeleteGroup
 --------------------------------------------------------------------------------
-PRINT '--- 4. TESTING Group_Delete ---';
-
--- Test 12 (Success): Delete Group 501.
-PRINT 'Test 12 (Delete - Success, removing 501)...';
-EXEC [dbo].[Group_Delete] @Group_ID = 501;
-
--- Test 13 (Error - Not Found): Try to delete non-existent group 999.
-PRINT 'Test 13 (Delete - Error, 999 not found)...';
-EXEC [dbo].[Group_Delete] @Group_ID = 999;
--- Expected: 'Error: Group_ID not found. No deletion occurred.'
-
--- Test 14 (Error - Already Deleted): Try to delete 501 again.
-PRINT 'Test 14 (Delete - Error, 501 already deleted)...';
-EXEC [dbo].[Group_Delete] @Group_ID = 501;
--- Expected: 'Error: Group_ID not found. No deletion occurred.'
-
--- Test 15 (FK Error - How to test):
-/*
--- To test the Foreign Key constraint error (Error 547), you would:
--- 1. Have another table (e.g., [Student_Group]) with a FK to [Group_ID].
--- 2. Insert a student into [Student_Group] with Group_ID = 501.
--- 3. Run: EXEC [dbo].[Group_Delete] @Group_ID = 501;
--- 4. Expected: 'Error: Cannot delete group. It is still referenced by other records (e.g., students in this group).'
-*/
-
-PRINT '--- 5. FINAL VERIFICATION ---';
-EXEC [dbo].[Group_Select];
--- Expected: 0 rows (assuming Test 12 was successful and Test 15 was not run).
+PRINT '--- 4. TESTING sp_DeleteGroup ---';
+-- Test 11 (Success): Delete record 1.
+EXEC [dbo].[Group_Delete] @Group_ID = 1;
+-- Test 12 (Error - Not Found):
+EXEC [dbo].[Group_Delete] @Group_ID = 99;
+-- Test 13 (Delete All):
+EXEC [dbo].[Group_Delete];
 GO
 --------------------------------------------------------------------------------
 

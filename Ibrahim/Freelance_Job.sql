@@ -4,7 +4,7 @@
 --------------------------------------------------------------------------------
 
 -- CREATE
-create PROCEDURE [dbo].[Freelance_Job_Insert]
+CREATE PROCEDURE [dbo].[Freelance_Job_Insert]
     @Job_ID INT,
     @Student_ID INT,
     @Job_Earn DECIMAL(12, 2),
@@ -13,33 +13,57 @@ create PROCEDURE [dbo].[Freelance_Job_Insert]
     @Description NVARCHAR(1000) = NULL
 AS
 BEGIN
-    -- Creates a new freelance job record for a student.
     SET NOCOUNT ON;
 
+    -- 1. Pre-Checks (NOT NULL, PK, FK)
+    IF @Job_ID IS NULL
+    BEGIN
+        SELECT 'Error: The Primary Key (Job_ID) cannot be NULL. Please provide a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+    
+    IF @Student_ID IS NULL OR @Job_Earn IS NULL OR @Job_Date IS NULL
+    BEGIN
+        SELECT 'Error: [Student_ID], [Job_Earn], and [Job_Date] cannot be NULL. Please provide all required values.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM [dbo].[Freelance_Job] WHERE [Job_ID] = @Job_ID)
+    BEGIN
+        SELECT 'Error: A record with this Primary Key (Job_ID) already exists. Please use a different ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Student] WHERE [Student_ID] = @Student_ID)
+    BEGIN
+        SELECT 'Error: The provided Student_ID does not exist in the [Student] table. Please use a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    -- 2. Perform Insert with CATCH block for CHECK constraints
     BEGIN TRY
-        -- 1. Check Primary Key (Uniqueness)
-        IF EXISTS (SELECT [Job_ID] FROM [dbo].[Freelance_Job] WHERE [Job_ID] = @Job_ID)
-        BEGIN
-            SELECT 'Error: Job_ID already exists.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 2. Check Foreign Key (Student)
-        IF NOT EXISTS (SELECT @Student_ID FROM [dbo].[Student] WHERE [Student_ID] = @Student_ID)
-        BEGIN
-            SELECT 'Error: Student_ID does not exist in the Student table.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 3. Perform Insert
         INSERT INTO [dbo].[Freelance_Job] 
             ([Job_ID], [Student_ID], [Job_Earn], [Job_Date], [Job_Site], [Description])
+        -- 3. Output inserted data
+        OUTPUT 
+            inserted.[Job_ID] AS [Inserted_Job_ID],
+            inserted.[Student_ID] AS [Inserted_Student_ID],
+            inserted.[Job_Earn] AS [Inserted_Job_Earn],
+            inserted.[Job_Date] AS [Inserted_Job_Date],
+            inserted.[Job_Site] AS [Inserted_Job_Site],
+            inserted.[Description] AS [Inserted_Description]
         VALUES 
             (@Job_ID, @Student_ID, @Job_Earn, @Job_Date, @Job_Site, @Description);
     END TRY
     BEGIN CATCH
-        SELECT 'An unexpected error occurred in Freelance_Job_Insert.' AS ErrorMessage;
-        THROW;
+        -- 4. Smart CATCH Block
+        DECLARE @ErrorNum INT = ERROR_NUMBER();
+        DECLARE @ErrorMsg NVARCHAR(4000) = ERROR_MESSAGE();
+        IF @ErrorNum = 547 IF @ErrorMsg LIKE '%FOREIGN KEY%' SELECT 'Error: A Foreign Key violation occurred. A value you provided (like an ID) does not exist in the parent table. Please check your IDs and try again.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE IF @ErrorMsg LIKE '%CHECK constraint%' SELECT 'Error: A CHECK constraint violation occurred. A value you provided is invalid (e.g., a salary below the minimum, or an invalid type string).' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE SELECT 'Error 547: ' + @ErrorMsg AS ErrorMessage;
+        ELSE IF @ErrorNum = 515 SELECT 'Error: A NOT NULL violation occurred. You must provide a value for a required column.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum IN (2627, 2601) SELECT 'Error: A Unique Key or Primary Key violation occurred. The value you are trying to insert already exists.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum = 245 SELECT 'Error: A datatype conversion failed. Check that you are not putting text in a number field or an invalid date format.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE THROW;
     END CATCH
 END
 GO
@@ -152,25 +176,29 @@ CREATE PROCEDURE [dbo].[Freelance_Job_Update]
     @Description NVARCHAR(1000) = NULL
 AS
 BEGIN
-    -- Updates an existing freelance job record.
     SET NOCOUNT ON;
 
+    -- 1. Pre-Checks (PK exists, NOT NULL, FK)
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Freelance_Job] WHERE [Job_ID] = @Job_ID)
+    BEGIN
+        SELECT 'Error: Record ID not found. No update occurred. Please provide a valid Job_ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    IF @Student_ID IS NULL OR @Job_Earn IS NULL OR @Job_Date IS NULL
+    BEGIN
+        SELECT 'Error: [Student_ID], [Job_Earn], and [Job_Date] cannot be NULL. Please provide all required values.' AS ErrorMessage;
+        RETURN;
+    END
+    
+    IF NOT EXISTS (SELECT 1 FROM [dbo].[Student] WHERE [Student_ID] = @Student_ID)
+    BEGIN
+        SELECT 'Error: The provided Student_ID does not exist in the [Student] table. Please use a valid ID.' AS ErrorMessage;
+        RETURN;
+    END
+
+    -- 2. Perform Update
     BEGIN TRY
-        -- 1. Check if PK exists
-        IF NOT EXISTS (SELECT [Job_ID] FROM [dbo].[Freelance_Job] WHERE [Job_ID] = @Job_ID)
-        BEGIN
-            SELECT 'Error: Job_ID not found. No update occurred.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 2. Check Foreign Key (Student)
-        IF NOT EXISTS (SELECT [Student_ID] FROM [dbo].[Student] WHERE [Student_ID] = @Student_ID)
-        BEGIN
-            SELECT 'Error: Student_ID does not exist in the Student table.' AS ErrorMessage;
-            RETURN;
-        END
-
-        -- 3. Perform Update
         UPDATE [dbo].[Freelance_Job]
         SET 
             [Student_ID] = @Student_ID,
@@ -178,15 +206,36 @@ BEGIN
             [Job_Date] = @Job_Date,
             [Job_Site] = @Job_Site,
             [Description] = @Description
+        -- 3. Output Old and New records
+        OUTPUT 
+            deleted.[Job_ID] AS [Old_Job_ID],
+            inserted.[Job_ID] AS [New_Job_ID],
+            deleted.[Student_ID] AS [Old_Student_ID],
+            inserted.[Student_ID] AS [New_Student_ID],
+            deleted.[Job_Earn] AS [Old_Job_Earn],
+            inserted.[Job_Earn] AS [New_Job_Earn],
+            deleted.[Job_Date] AS [Old_Job_Date],
+            inserted.[Job_Date] AS [New_Job_Date],
+            deleted.[Job_Site] AS [Old_Job_Site],
+            inserted.[Job_Site] AS [New_Job_Site],
+            deleted.[Description] AS [Old_Description],
+            inserted.[Description] AS [New_Description]
         WHERE 
             [Job_ID] = @Job_ID;
     END TRY
     BEGIN CATCH
-        SELECT 'An unexpected error occurred in Freelance_Job_Update.' AS ErrorMessage;
-        THROW;
+        -- 4. Smart CATCH Block (Same as Insert)
+        DECLARE @ErrorNum INT = ERROR_NUMBER();
+        DECLARE @ErrorMsg NVARCHAR(4000) = ERROR_MESSAGE();
+        IF @ErrorNum = 547 IF @ErrorMsg LIKE '%FOREIGN KEY%' SELECT 'Error: A Foreign Key violation occurred. A value you provided (like an ID) does not exist in the parent table. Please check your IDs and try again.' AS ErrorMessage; ELSE IF @ErrorMsg LIKE '%CHECK constraint%' SELECT 'Error: A CHECK constraint violation occurred. A value you provided is invalid (e.g., a salary below the minimum, or an invalid type string).' AS ErrorMessage, @ErrorMsg AS [Constraint_Details]; ELSE SELECT 'Error 547: ' + @ErrorMsg AS ErrorMessage;
+        ELSE IF @ErrorNum = 515 SELECT 'Error: A NOT NULL violation occurred. You must provide a value for a required column.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum IN (2627, 2601) SELECT 'Error: A Unique Key or PrimaryKey violation occurred. The value you are trying to insert already exists.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE IF @ErrorNum = 245 SELECT 'Error: A datatype conversion failed. Check that you are not putting text in a number field or an invalid date format.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
+        ELSE THROW;
     END CATCH
 END
 GO
+
 
 --------------------------------------------------------------------------------
 -- TEST CASES FOR Freelance_Job_Update
@@ -227,32 +276,73 @@ GO
 --------------------------------------------------------------------------------------------------------
 
 -- DELETE
-CREATE PROCEDURE [dbo].[Freelance_Job_Delete]
-    @Job_ID INT
+create PROCEDURE [dbo].[Freelance_Job_Delete]
+    @Job_ID INT = NULL
 AS
 BEGIN
-    -- Deletes a freelance job record by its Primary Key.
     SET NOCOUNT ON;
 
     BEGIN TRY
-        -- 1. Check if the record exists
-        IF NOT EXISTS (SELECT 1 FROM [dbo].[Freelance_Job] WHERE [Job_ID] = @Job_ID)
+    
+        IF @Job_ID IS NOT NULL
         BEGIN
-            SELECT 'Error: Job_ID not found. No deletion occurred.' AS ErrorMessage;
-            RETURN;
-        END
+            -- 1. Delete by Primary Key
+            IF NOT EXISTS (SELECT 1 FROM [dbo].[Freelance_Job] WHERE [Job_ID] = @Job_ID)
+            BEGIN
+                SELECT 'Error: Record ID not found. No deletion occurred. Please provide a valid Job_ID.' AS ErrorMessage;
+                RETURN;
+            END
 
-        -- 2. Perform Delete
-        DELETE FROM [dbo].[Freelance_Job]
-        WHERE [Job_ID] = @Job_ID;
+            DELETE FROM [dbo].[Freelance_Job]
+            -- 3. Output deleted data
+            OUTPUT 
+                deleted.[Job_ID] AS [Deleted_Job_ID],
+                deleted.[Student_ID] AS [Deleted_Student_ID],
+                deleted.[Job_Earn] AS [Deleted_Job_Earn],
+                deleted.[Job_Date] AS [Deleted_Job_Date],
+                deleted.[Job_Site] AS [Deleted_Job_Site],
+                deleted.[Description] AS [Deleted_Description]
+            WHERE 
+                [Job_ID] = @Job_ID;
+        END
+        ELSE
+        BEGIN
+            -- 2. Delete All Records (ID is NULL)
+            PRINT 'Warning: Deleting all records from [Freelance_Job]. This action cannot be undone.'
+            BEGIN TRANSACTION;
+            
+            -- Check for FK constraints before truncating
+            IF EXISTS (SELECT * FROM sys.foreign_keys WHERE referenced_object_id = OBJECT_ID('dbo.Freelance_Job'))
+            BEGIN
+                -- Cannot TRUNCATE, must DELETE.
+                DELETE FROM [dbo].[Freelance_Job];
+            END
+            ELSE
+            BEGIN
+                -- Safe to TRUNCATE for performance
+                TRUNCATE TABLE [dbo].[Freelance_Job];
+            END
+            
+            COMMIT TRANSACTION;
+            SELECT 'Success: All records have been deleted from [Freelance_Job].' AS SuccessMessage;
+        END
     END TRY
     BEGIN CATCH
-        SELECT 'An unexpected error occurred in Freelance_Job_Delete.' AS ErrorMessage;
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+
+        -- 4. Smart CATCH Block
+        IF ERROR_NUMBER() = 547
+        BEGIN
+            SELECT 'Error: Cannot delete this record. It is still referenced by other tables (Foreign Key violation). Please delete the child records first.' AS ErrorMessage;
+            RETURN;
+        END
+        
+        SELECT 'An unexpected error occurred in sp_DeleteFreelance_Job.' AS ErrorMessage;
         THROW;
     END CATCH
 END
 GO
-
 --------------------------------------------------------------------------------
 -- TEST CASES FOR Freelance_Job_Delete
 --------------------------------------------------------------------------------
@@ -274,5 +364,7 @@ EXEC [dbo].[Freelance_Job_Delete] @Job_ID = 1;
 
 PRINT '--- 5. FINAL VERIFICATION ---';
 EXEC [dbo].[Freelance_Job_Select];
+
+EXEC [dbo].[Freelance_Job_Delete];
 -- Expected: 0 rows.
 GO
