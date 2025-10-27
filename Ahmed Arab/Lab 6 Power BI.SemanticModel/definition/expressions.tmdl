@@ -1,0 +1,53 @@
+expression RepatedCustomer = ```
+		let
+		    Source = Csv.Document(File.Contents("C:\Users\QaiatY store\Downloads\hotels.csv"),[Delimiter=",", Columns=36, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"hotel", type text}, {"is_canceled", Int64.Type}, {"lead_time", Int64.Type}, {"arrival_date_year", Int64.Type}, {"arrival_date_month", type text}, {"arrival_date_week_number", Int64.Type}, {"arrival_date_day_of_month", Int64.Type}, {"stays_in_weekend_nights", Int64.Type}, {"stays_in_week_nights", Int64.Type}, {"adults", Int64.Type}, {"children", Int64.Type}, {"babies", Int64.Type}, {"meal", type text}, {"country", type text}, {"market_segment", type text}, {"distribution_channel", type text}, {"is_repeated_guest", Int64.Type}, {"previous_cancellations", Int64.Type}, {"previous_bookings_not_canceled", Int64.Type}, {"reserved_room_type", type text}, {"assigned_room_type", type text}, {"booking_changes", Int64.Type}, {"deposit_type", type text}, {"agent", Int64.Type}, {"company", Int64.Type}, {"days_in_waiting_list", Int64.Type}, {"customer_type", type text}, {"adr", type number}, {"required_car_parking_spaces", Int64.Type}, {"total_of_special_requests", Int64.Type}, {"reservation_status", type text}, {"reservation_status_date", type date}, {"name", type text}, {"email", type text}, {"phone-number", type text}, {"credit_card", type text}}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","","Unknown",Replacer.ReplaceValue,{"country"}),
+		    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",null,0,Replacer.ReplaceValue,{"agent"}),
+		    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1",null,0,Replacer.ReplaceValue,{"company"}),
+		    #"Added Custom" = Table.AddColumn(#"Replaced Value2", "Total Nights ", each [stays_in_weekend_nights] + [stays_in_week_nights]),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"Total Nights ", Int64.Type}}),
+		    #"Added Custom1" = Table.AddColumn(#"Changed Type1", "Length of Stay Category", each if [#"Total Nights "] <= 2 then "Short Stay" else if [#"Total Nights "] <= 7 then "Medium Stay" else "Long Stay"),
+		    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom1",{{"Length of Stay Category", type text}}),
+		    #"Added Custom2" = Table.AddColumn(#"Changed Type2", "Revenue", each [adr] * [#"Total Nights "]),
+		    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Total Guests", each [adults] + [children] + [babies]),
+		    #"Added Custom4" = Table.AddColumn(#"Added Custom3", "Was Room Upgraded", each if [assigned_room_type] <> [reserved_room_type] then "Upgraded" else "Same Room"),
+		    #"Added Index" = Table.AddIndexColumn(#"Added Custom4", "Index", 1, 1, Int64.Type),
+		    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "Booking_ID"}}),
+		    #"Added Custom5" = Table.AddColumn(#"Renamed Columns", "arrival_date_key", each [arrival_date_year] * 10000 + 
+		Number.FromText(
+		    Text.PadStart(
+		        Text.From(
+		            List.PositionOf({"January","February","March","April","May","June","July","August","September","October","November","December"}, [arrival_date_month]) + 1
+		        ), 
+		        2, "0"
+		    )
+		) * 100 + [arrival_date_day_of_month]),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Added Custom5",{"country", "name", "email", "phone-number", "credit_card", "customer_type"}),
+		    #"Grouped Rows" = Table.Group(#"Removed Other Columns", {"email"}, {{"booking_count", each Table.RowCount(_), Int64.Type}}),
+		    #"Added Custom6" = Table.AddColumn(#"Grouped Rows", "is_repeated_guest", each if [booking_count] > 1 then 1 else 0),
+		    #"Changed Type3" = Table.TransformColumnTypes(#"Added Custom6",{{"is_repeated_guest", Int64.Type}})
+		in
+		    #"Changed Type3"
+		```
+	lineageTag: ee5199ad-e2ba-463a-a654-f3d03c956d5d
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression countries_iso3166b =
+		let
+		    Source = Csv.Document(File.Contents("C:\Users\QaiatY store\Downloads\countries_iso3166b.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"iso2", type text}, {"iso3", type text}, {"iso_num", Int64.Type}, {"country", type text}, {"country_common", type text}}),
+		    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each true)
+		in
+		    #"Filtered Rows"
+	lineageTag: 39b5edd2-990c-4c38-85c7-e129f2d7eaba
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

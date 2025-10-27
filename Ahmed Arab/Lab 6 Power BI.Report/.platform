@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Lab 6 Power BI"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "77c17246-60b5-4144-90c4-1f8723ad650b"
+  }
+}

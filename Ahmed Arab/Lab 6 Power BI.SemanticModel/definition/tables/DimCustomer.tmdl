@@ -1,0 +1,137 @@
+table DimCustomer
+	lineageTag: 06248a5d-dda9-4e86-a178-a705025fe276
+
+	column customer_type
+		dataType: string
+		lineageTag: 99002f98-a4bd-4c93-8541-914dd2df3fb4
+		summarizeBy: none
+		sourceColumn: customer_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_code
+		dataType: string
+		lineageTag: 3c62dab0-3c27-4b49-8ac6-0cb546c99722
+		summarizeBy: none
+		sourceColumn: country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: d9373827-09f5-469e-8ec2-c22a69cd6644
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: f3ea451c-ebd2-4571-b4a2-b78bba33382d
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone-number
+		dataType: string
+		lineageTag: 65b036fe-958c-4bc3-be1a-cd839edfc807
+		summarizeBy: none
+		sourceColumn: phone-number
+
+		annotation SummarizationSetBy = Automatic
+
+	column credit_card
+		dataType: string
+		lineageTag: 58783cfd-4f6a-4460-b24f-9d74cced8383
+		summarizeBy: none
+		sourceColumn: credit_card
+
+		annotation SummarizationSetBy = Automatic
+
+	column booking_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 93e08df7-1bf5-43c6-aa69-6619b9dbed21
+		summarizeBy: none
+		sourceColumn: booking_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_repeated_guest
+		dataType: int64
+		formatString: 0
+		lineageTag: 758bbab6-73f7-49f4-9760-a6734643b0bc
+		summarizeBy: none
+		sourceColumn: is_repeated_guest
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_name
+		dataType: string
+		lineageTag: b17bbcdb-a921-4e76-8aa6-ab50f64df277
+		summarizeBy: none
+		sourceColumn: country_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 74baf2cb-74b3-477f-81c9-22d8bc8cbb89
+		summarizeBy: none
+		sourceColumn: Customer_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomer = m
+		mode: import
+		source = ```
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\QaiatY store\Downloads\hotels.csv"),[Delimiter=",", Columns=36, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"hotel", type text}, {"is_canceled", Int64.Type}, {"lead_time", Int64.Type}, {"arrival_date_year", Int64.Type}, {"arrival_date_month", type text}, {"arrival_date_week_number", Int64.Type}, {"arrival_date_day_of_month", Int64.Type}, {"stays_in_weekend_nights", Int64.Type}, {"stays_in_week_nights", Int64.Type}, {"adults", Int64.Type}, {"children", Int64.Type}, {"babies", Int64.Type}, {"meal", type text}, {"country", type text}, {"market_segment", type text}, {"distribution_channel", type text}, {"is_repeated_guest", Int64.Type}, {"previous_cancellations", Int64.Type}, {"previous_bookings_not_canceled", Int64.Type}, {"reserved_room_type", type text}, {"assigned_room_type", type text}, {"booking_changes", Int64.Type}, {"deposit_type", type text}, {"agent", Int64.Type}, {"company", Int64.Type}, {"days_in_waiting_list", Int64.Type}, {"customer_type", type text}, {"adr", type number}, {"required_car_parking_spaces", Int64.Type}, {"total_of_special_requests", Int64.Type}, {"reservation_status", type text}, {"reservation_status_date", type date}, {"name", type text}, {"email", type text}, {"phone-number", type text}, {"credit_card", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","","Unknown",Replacer.ReplaceValue,{"country"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",null,0,Replacer.ReplaceValue,{"agent"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1",null,0,Replacer.ReplaceValue,{"company"}),
+				    #"Added Custom" = Table.AddColumn(#"Replaced Value2", "Total Nights ", each [stays_in_weekend_nights] + [stays_in_week_nights]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"Total Nights ", Int64.Type}}),
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type1", "Length of Stay Category", each if [#"Total Nights "] <= 2 then "Short Stay" else if [#"Total Nights "] <= 7 then "Medium Stay" else "Long Stay"),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom1",{{"Length of Stay Category", type text}}),
+				    #"Added Custom2" = Table.AddColumn(#"Changed Type2", "Revenue", each [adr] * [#"Total Nights "]),
+				    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Total Guests", each [adults] + [children] + [babies]),
+				    #"Added Custom4" = Table.AddColumn(#"Added Custom3", "Was Room Upgraded", each if [assigned_room_type] <> [reserved_room_type] then "Upgraded" else "Same Room"),
+				    #"Added Index" = Table.AddIndexColumn(#"Added Custom4", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "Booking_ID"}}),
+				    #"Added Custom5" = Table.AddColumn(#"Renamed Columns", "arrival_date_key", each [arrival_date_year] * 10000 + 
+				Number.FromText(
+				    Text.PadStart(
+				        Text.From(
+				            List.PositionOf({"January","February","March","April","May","June","July","August","September","October","November","December"}, [arrival_date_month]) + 1
+				        ), 
+				        2, "0"
+				    )
+				) * 100 + [arrival_date_day_of_month]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Added Custom5",{"hotel", "customer_type", "country", "name", "email", "phone-number", "credit_card"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Removed Other Columns",{"hotel"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Columns", {"email"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Removed Duplicates", {"email"}, RepatedCustomer, {"email"}, "RepatedCustomer", JoinKind.LeftOuter),
+				    #"Expanded RepatedCustomer" = Table.ExpandTableColumn(#"Merged Queries", "RepatedCustomer", {"booking_count", "is_repeated_guest"}, {"RepatedCustomer.booking_count", "RepatedCustomer.is_repeated_guest"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Expanded RepatedCustomer",{{"RepatedCustomer.booking_count", "booking_count"}, {"RepatedCustomer.is_repeated_guest", "is_repeated_guest"}}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Renamed Columns1","CN","CHN",Replacer.ReplaceText,{"country"}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Replaced Value3", each true),
+				    #"Merged Queries1" = Table.NestedJoin(#"Filtered Rows1", {"country"}, countries_iso3166b, {"iso3"}, "countries_iso3166b", JoinKind.LeftOuter),
+				    #"Expanded countries_iso3166b" = Table.ExpandTableColumn(#"Merged Queries1", "countries_iso3166b", {"country"}, {"countries_iso3166b.country"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Expanded countries_iso3166b", each true),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Filtered Rows",{{"countries_iso3166b.country", "country_name"}, {"country", "country_code"}}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Renamed Columns2",null,"Unknown",Replacer.ReplaceValue,{"country_name"}),
+				    #"Added Index1" = Table.AddIndexColumn(#"Replaced Value4", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Added Index1",{{"Index", "Customer_ID"}})
+				in
+				    #"Renamed Columns3"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

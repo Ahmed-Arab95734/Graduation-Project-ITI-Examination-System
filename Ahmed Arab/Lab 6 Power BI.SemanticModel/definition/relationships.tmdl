@@ -1,0 +1,8 @@
+relationship AutoDetected_7f226a58-cafe-495d-a6eb-c25e93160586
+	fromColumn: FactBooking.arrival_date_key
+	toColumn: DimDate.arrival_date_key
+
+relationship AutoDetected_7a43ab66-434c-490e-891f-d50c20e52e98
+	fromColumn: FactBooking.Customer_ID
+	toColumn: DimCustomer.Customer_ID
+

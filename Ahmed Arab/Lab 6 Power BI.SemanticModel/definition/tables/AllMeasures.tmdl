@@ -1,0 +1,118 @@
+table AllMeasures
+	lineageTag: 9fd58c04-dfbb-46ab-869c-a813d8f439b8
+
+	measure 'Total Bookings' = COUNT(FactBooking[Booking_ID])
+		formatString: 0
+		lineageTag: 127895dc-f9e3-471d-9430-417da41d2208
+
+	measure 'Total Revenue' = ```
+			
+			SUMX(
+			    FILTER(
+			        'FactBooking',
+			        'FactBooking'[is_canceled] = 0
+			    ),
+			    'FactBooking'[Revenue])
+			
+			```
+		lineageTag: d48548ee-92c7-48f7-8443-4e13b08865c9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Daily Rate (ADR)' = AVERAGE(FactBooking[adr])
+		lineageTag: 2e4264ca-658a-4664-b6b6-09490416c822
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cancellation Rate' = DIVIDE(SUM(FactBooking[is_canceled]),COUNT(FactBooking[Booking_ID]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: fa041369-907d-48cb-b3b6-49da14aeb9cd
+
+	measure 'Total Guests' = sum(FactBooking[Total Guests])
+		formatString: 0
+		lineageTag: 471f17fe-df3c-42f3-9e1b-15f91d56fbae
+
+	measure 'Repeated Guests (%)' = DIVIDE(sum(DimCustomer[is_repeated_guest]),DISTINCTCOUNT(DimCustomer[Customer_ID]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f590c951-46c4-4918-84a7-39f6f295076e
+
+	measure 'Average Lead Time (Days)' = AVERAGE(FactBooking[lead_time])
+		lineageTag: 4dd878db-6709-44d4-a037-20f6eb7da1f6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Bookings for a Customer' = AVERAGE(DimCustomer[booking_count])
+		lineageTag: 4b925f07-c1a2-4f34-a6bf-10e464ce880f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'No. Companies' = DISTINCTCOUNT(FactBooking[company])
+		formatString: 0
+		lineageTag: 1b5ea45b-fa28-4302-82ef-c7ab753e2733
+
+	measure 'No.Upgraded Customers' =
+			
+			COUNTROWS(
+			    FILTER(
+			        'FactBooking',
+			        'FactBooking'[Was Room Upgraded]= "Upgraded"
+			    )
+			)
+		formatString: 0
+		lineageTag: 14f1772f-d079-45fa-99e2-85b51836d4b1
+
+	measure 'Total Nights Sold' = sum(FactBooking[Total Nights ])
+		formatString: 0
+		lineageTag: d0d71797-7031-41b6-9b0a-38e61efdfe99
+
+	measure 'Avg Night Cost' = DIVIDE([Total Revenue],[Total Nights Sold])
+		lineageTag: 3117f5f8-168d-4184-9777-a3a3f54abeaa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Nights Booked' = AVERAGE(FactBooking[Total Nights ])
+		lineageTag: abad87fd-059b-4e79-969b-2a46aedd75cd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Cost per Booking' = DIVIDE([Total Revenue],[Total Bookings])
+		lineageTag: 39986894-62e4-4283-98bb-7bb210f87ee6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Guests per Booking' = AVERAGE(FactBooking[Total Guests])
+		lineageTag: f7f91cd3-b2b8-4807-9c1b-7c035ba00fdd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'No. Cancelled Bookings' = sum (FactBooking[is_canceled])
+		formatString: 0
+		lineageTag: 71b6e68c-7f7b-40a1-9f1e-c2a7e53f556e
+
+	measure 'Avg Guests per Day' = DIVIDE([Total Guests],COUNTROWS(DimDate))
+		lineageTag: e0a78e92-1935-4a8a-b8f2-cdbe404820f2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Requierd Parkings per Day' = DIVIDE(SUM(FactBooking[required_car_parking_spaces]),COUNTROWS(DimDate))
+		lineageTag: 7cff488f-0fbc-4acb-9920-cbedbbdbf355
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: 8e14da0a-83ac-417b-bcce-581f94054df9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AllMeasures = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = dc3f7ebc8035477693a91019c226bcc2
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

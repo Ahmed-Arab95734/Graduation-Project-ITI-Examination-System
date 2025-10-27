@@ -1,0 +1,131 @@
+table DimDate
+	lineageTag: 0740d7a4-cfa0-46e5-93de-619c906f13f3
+	dataCategory: Time
+
+	column arrival_date_key
+		dataType: string
+		lineageTag: 4828d3df-41d4-4e7a-bb62-3cc3e5353bc2
+		summarizeBy: none
+		sourceColumn: arrival_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Full_Date
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: 64ddaed4-4ee9-45b8-9f57-9f5a1cc0fa2e
+		summarizeBy: none
+		sourceColumn: Full_Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 406b0d6a-3519-4fd9-9d18-4dfe417575c6
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b6ba4f8-b009-4e10-b78f-db4ec53ccc4a
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 40ec41a0-1b4b-4494-8dfb-fb09ff573f4a
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f122660-bbcc-4973-b9e9-62c9b1005d34
+		summarizeBy: none
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Full_Date Hierarchy'
+		lineageTag: 338287fc-b33c-4baf-94b6-d86124e580ec
+
+		level Full_Date
+			lineageTag: c9de4813-54d0-41e2-b108-70fa6ece102d
+			column: Full_Date
+
+		level Year
+			lineageTag: 8a47f353-c850-474c-9ddb-62d60693463b
+			column: Year
+
+		level Quarter
+			lineageTag: d1454b81-418c-4da3-9101-1e86375145a3
+			column: Quarter
+
+		level Month
+			lineageTag: c94103e9-2db6-4b80-8093-fc4b12a81fe8
+			column: Month
+
+		level Day
+			lineageTag: 0c1f9684-7934-407d-a41d-493e613ecd9c
+			column: Day
+
+	partition DimDate = m
+		mode: import
+		source = ```
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\QaiatY store\Downloads\hotels.csv"),[Delimiter=",", Columns=36, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"hotel", type text}, {"is_canceled", Int64.Type}, {"lead_time", Int64.Type}, {"arrival_date_year", Int64.Type}, {"arrival_date_month", type text}, {"arrival_date_week_number", Int64.Type}, {"arrival_date_day_of_month", Int64.Type}, {"stays_in_weekend_nights", Int64.Type}, {"stays_in_week_nights", Int64.Type}, {"adults", Int64.Type}, {"children", Int64.Type}, {"babies", Int64.Type}, {"meal", type text}, {"country", type text}, {"market_segment", type text}, {"distribution_channel", type text}, {"is_repeated_guest", Int64.Type}, {"previous_cancellations", Int64.Type}, {"previous_bookings_not_canceled", Int64.Type}, {"reserved_room_type", type text}, {"assigned_room_type", type text}, {"booking_changes", Int64.Type}, {"deposit_type", type text}, {"agent", Int64.Type}, {"company", Int64.Type}, {"days_in_waiting_list", Int64.Type}, {"customer_type", type text}, {"adr", type number}, {"required_car_parking_spaces", Int64.Type}, {"total_of_special_requests", Int64.Type}, {"reservation_status", type text}, {"reservation_status_date", type date}, {"name", type text}, {"email", type text}, {"phone-number", type text}, {"credit_card", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","","Unknown",Replacer.ReplaceValue,{"country"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",null,0,Replacer.ReplaceValue,{"agent"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1",null,0,Replacer.ReplaceValue,{"company"}),
+				    #"Added Custom" = Table.AddColumn(#"Replaced Value2", "Total Nights ", each [stays_in_weekend_nights] + [stays_in_week_nights]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"Total Nights ", Int64.Type}}),
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type1", "Length of Stay Category", each if [#"Total Nights "] <= 2 then "Short Stay" else if [#"Total Nights "] <= 7 then "Medium Stay" else "Long Stay"),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom1",{{"Length of Stay Category", type text}}),
+				    #"Added Custom2" = Table.AddColumn(#"Changed Type2", "Revenue", each [adr] * [#"Total Nights "]),
+				    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Total Guests", each [adults] + [children] + [babies]),
+				    #"Added Custom4" = Table.AddColumn(#"Added Custom3", "Was Room Upgraded", each if [assigned_room_type] <> [reserved_room_type] then "Upgraded" else "Same Room"),
+				    #"Added Index" = Table.AddIndexColumn(#"Added Custom4", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "Booking_ID"}}),
+				    #"Added Custom5" = Table.AddColumn(#"Renamed Columns", "arrival_date_key", each [arrival_date_year] * 10000 + 
+				Number.FromText(
+				    Text.PadStart(
+				        Text.From(
+				            List.PositionOf({"January","February","March","April","May","June","July","August","September","October","November","December"}, [arrival_date_month]) + 1
+				        ), 
+				        2, "0"
+				    )
+				) * 100 + [arrival_date_day_of_month]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Added Custom5",{"arrival_date_year", "arrival_date_month", "arrival_date_week_number", "arrival_date_day_of_month", "arrival_date_key"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"arrival_date_key"}),
+				    #"Added Custom6" = Table.AddColumn(#"Removed Duplicates", "Full_Date", each #date([arrival_date_year],
+				    List.PositionOf({"January","February","March","April","May","June","July","August","September","October","November","December"}, [arrival_date_month]) + 1,
+				    [arrival_date_day_of_month])),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Custom6",{{"Full_Date", type date}}),
+				    #"Inserted Year" = Table.AddColumn(#"Changed Type3", "Year", each Date.Year([Full_Date]), Int64.Type),
+				    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.Month([Full_Date]), Int64.Type),
+				    #"Inserted Quarter" = Table.AddColumn(#"Inserted Month", "Quarter", each Date.QuarterOfYear([Full_Date]), Int64.Type),
+				    #"Inserted Day" = Table.AddColumn(#"Inserted Quarter", "Day", each Date.Day([Full_Date]), Int64.Type),
+				    #"Removed Columns" = Table.RemoveColumns(#"Inserted Day",{"arrival_date_year", "arrival_date_month", "arrival_date_week_number", "arrival_date_day_of_month", "Day"}),
+				    #"Inserted Day1" = Table.AddColumn(#"Removed Columns", "Day", each Date.Day([Full_Date]), Int64.Type)
+				in
+				    #"Inserted Day1"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
