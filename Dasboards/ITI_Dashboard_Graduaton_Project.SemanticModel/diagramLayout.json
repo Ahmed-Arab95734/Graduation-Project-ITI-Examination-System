@@ -1,0 +1,256 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 566.48413001191909
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1422.5756233758511,
+            "y": 131.7426162291988
+          },
+          "nodeIndex": "DimCertificate",
+          "nodeLineageTag": "a1d0a2a2-f212-446b-be37-ff263190541b",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1146.4671840883004,
+            "y": 0
+          },
+          "nodeIndex": "DimCertificateProvider",
+          "nodeLineageTag": "e80b4c07-6860-4aaf-88da-b2a0ce05ea7d",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1250.9814382265574,
+            "y": 1515.0879545817718
+          },
+          "nodeIndex": "DimCompany",
+          "nodeLineageTag": "70d55fd0-6036-4acf-8202-481c33de5a84",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 792.3761741088897,
+            "y": 1464.7299205153533
+          },
+          "nodeIndex": "DimCourse",
+          "nodeLineageTag": "fca4b30e-801c-4013-a30b-861502687005",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 785.67540994642957,
+            "y": 602.329164192008
+          },
+          "nodeIndex": "DimDate",
+          "nodeLineageTag": "b4da776c-94bb-4b86-a888-eb70561634be",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 1090.4460180478468
+          },
+          "nodeIndex": "DimExam",
+          "nodeLineageTag": "b6f041cb-d81c-440f-b613-f34588bc57c7",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1662.7553273986273,
+            "y": 1108.1050394173092
+          },
+          "nodeIndex": "DimFailureReason",
+          "nodeLineageTag": "6e1fe336-7ec5-4c34-8c37-c2df16a5d255",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 496.50005395922108,
+            "y": 555.75458504070389
+          },
+          "nodeIndex": "DimInstructor",
+          "nodeLineageTag": "08ef8eb5-8796-461a-bfc9-91ed5d9c7464",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 856.35032591816366,
+            "y": 0
+          },
+          "nodeIndex": "DimJobSite",
+          "nodeLineageTag": "619762df-b8ee-401c-bae0-29983b9abf0d",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 364.74082651476851,
+            "y": 1403.3639542442504
+          },
+          "nodeIndex": "DimQuestion",
+          "nodeLineageTag": "24743c36-e73b-4401-82e4-79fa2daf9ed4",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 920.64346232024161,
+            "y": 903.53339499170352
+          },
+          "nodeIndex": "DimStudent",
+          "nodeLineageTag": "7ce20b40-314d-4426-8a5d-bca74520e1e3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 963.43342420605916,
+            "y": 1670.99224043042
+          },
+          "nodeIndex": "DimTopic",
+          "nodeLineageTag": "879c7566-5b00-40f5-8526-1ded3f5d6d43",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1132.5928965822327,
+            "y": 281.66495918729856
+          },
+          "nodeIndex": "FactCertificate",
+          "nodeLineageTag": "8bb19b1b-87e6-433e-889b-0076c26e29db",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 844.0169500943972,
+            "y": 347.01876513740513
+          },
+          "nodeIndex": "FactFreelanceJob",
+          "nodeLineageTag": "ceca0ac1-8507-4c6f-a3a8-5b0bd661d649",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1372.727550235807,
+            "y": 1095.9430908364432
+          },
+          "nodeIndex": "FactStudentFailure",
+          "nodeLineageTag": "a80dd477-e3e3-4f6d-ad20-d6eec56ce35e",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1082.709222241213,
+            "y": 1259.795736711706
+          },
+          "nodeIndex": "FactStudentOutcomes",
+          "nodeLineageTag": "dcc05022-c780-4a7f-aa76-a2c3a132602e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 630.5706915668253,
+            "y": 1099.8899558585897
+          },
+          "nodeIndex": "FactStudentPerformance",
+          "nodeLineageTag": "5b8c9bf9-f78c-43dc-a914-bf989c531994",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 339.17518297783045,
+            "y": 909.46602909235662
+          },
+          "nodeIndex": "FactStudentRating",
+          "nodeLineageTag": "9615062e-01c3-4a3e-bd4a-dd10c0eac3b4",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 73.152974980563926,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

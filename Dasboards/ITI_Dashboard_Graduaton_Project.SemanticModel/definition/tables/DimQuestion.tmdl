@@ -1,0 +1,47 @@
+table DimQuestion
+	lineageTag: 24743c36-e73b-4401-82e4-79fa2daf9ed4
+
+	column QuestionKey
+		dataType: int64
+		formatString: 0
+		lineageTag: fdfd856c-342f-435d-9c27-a1d2cec207de
+		summarizeBy: none
+		sourceColumn: QuestionKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Question_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 394b46ac-ef42-47d1-9a8a-a8dc810dd557
+		summarizeBy: none
+		sourceColumn: Question_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Question_Type
+		dataType: string
+		lineageTag: 6d46efef-bb27-4bcd-824a-8da01898c99e
+		summarizeBy: none
+		sourceColumn: Question_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Question_Description
+		dataType: string
+		lineageTag: e5fea4d8-92b8-4436-b9f2-5d4763065228
+		summarizeBy: none
+		sourceColumn: Question_Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimQuestion = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
+				    dbo_DimQuestion = ITI_DW{[Schema="dbo",Item="DimQuestion"]}[Data]
+				in
+				    dbo_DimQuestion
+

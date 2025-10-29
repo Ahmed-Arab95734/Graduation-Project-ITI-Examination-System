@@ -1,0 +1,68 @@
+table FactCertificate
+	lineageTag: 8bb19b1b-87e6-433e-889b-0076c26e29db
+
+	column CertificateLogKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c77bd7a-114f-4d2a-9b08-ba6b7fe415c6
+		summarizeBy: count
+		sourceColumn: CertificateLogKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c451de3b-5656-4482-914f-eb35d816f2b5
+		summarizeBy: none
+		sourceColumn: StudentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CertificateDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 97b21a20-3c56-4eb3-bfc7-51cebff00e9f
+		summarizeBy: none
+		sourceColumn: CertificateDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CertificateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e1fbd89-9708-4294-86c3-99083fd24f4c
+		summarizeBy: none
+		sourceColumn: CertificateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProviderKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e1da1c5-54e3-474c-885c-8b7a8e1fa051
+		summarizeBy: none
+		sourceColumn: ProviderKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Certificate_Cost
+		dataType: double
+		lineageTag: e6065bf4-d925-4310-9653-58d0686c87cc
+		summarizeBy: sum
+		sourceColumn: Certificate_Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactCertificate = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
+				    dbo_FactCertificate = ITI_DW{[Schema="dbo",Item="FactCertificate"]}[Data]
+				in
+				    dbo_FactCertificate
+

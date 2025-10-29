@@ -1,0 +1,30 @@
+table DimFailureReason
+	lineageTag: 6e1fe336-7ec5-4c34-8c37-c2df16a5d255
+
+	column FailureReasonKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a267301-bade-4675-9e51-4ce06e4a1c5f
+		summarizeBy: none
+		sourceColumn: FailureReasonKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Failure_Reason_Text
+		dataType: string
+		lineageTag: a616c5d2-73b7-4bf1-97ca-4987a3f6228a
+		summarizeBy: none
+		sourceColumn: Failure_Reason_Text
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimFailureReason = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
+				    dbo_DimFailureReason = ITI_DW{[Schema="dbo",Item="DimFailureReason"]}[Data]
+				in
+				    dbo_DimFailureReason
+
