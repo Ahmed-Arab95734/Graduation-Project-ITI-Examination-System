@@ -1,0 +1,59 @@
+table FactFreelanceJob
+	lineageTag: ceca0ac1-8507-4c6f-a3a8-5b0bd661d649
+
+	column FreelanceJobKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 4366bcfa-4398-4619-9db6-c72475733142
+		summarizeBy: count
+		sourceColumn: FreelanceJobKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentKey
+		dataType: int64
+		formatString: 0
+		lineageTag: e2e2efeb-716c-4087-8fb4-74f80413c6a9
+		summarizeBy: none
+		sourceColumn: StudentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f250656c-499b-4800-921f-d44cbd3421df
+		summarizeBy: none
+		sourceColumn: JobDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobSiteKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a720b8b5-3622-4f36-81bf-128a4db0090c
+		summarizeBy: none
+		sourceColumn: JobSiteKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Job_Earn
+		dataType: double
+		lineageTag: 127dc068-7c6e-41b4-ac17-bf5202255b19
+		summarizeBy: sum
+		sourceColumn: Job_Earn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactFreelanceJob = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
+				    dbo_FactFreelanceJob = ITI_DW{[Schema="dbo",Item="FactFreelanceJob"]}[Data]
+				in
+				    dbo_FactFreelanceJob
+

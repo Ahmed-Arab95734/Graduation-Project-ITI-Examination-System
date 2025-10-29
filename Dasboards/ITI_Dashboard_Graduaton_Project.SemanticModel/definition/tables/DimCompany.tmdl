@@ -1,0 +1,55 @@
+table DimCompany
+	lineageTag: 70d55fd0-6036-4acf-8202-481c33de5a84
+
+	column CompanyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f94b5bfb-55e7-4329-a305-ef7c84993c63
+		summarizeBy: none
+		sourceColumn: CompanyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 187a2ff7-2e06-43dd-bb40-dd38ef7afc6b
+		summarizeBy: none
+		sourceColumn: Company_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company_Name
+		dataType: string
+		lineageTag: b9556441-20f4-4aa2-8f17-48577fdf791e
+		summarizeBy: none
+		sourceColumn: Company_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company_Location
+		dataType: string
+		lineageTag: 82fecc8e-183c-46d0-a496-318ef6bccc15
+		summarizeBy: none
+		sourceColumn: Company_Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company_Type
+		dataType: string
+		lineageTag: df990852-ff54-4d5c-916c-80d520896944
+		summarizeBy: none
+		sourceColumn: Company_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCompany = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
+				    dbo_DimCompany = ITI_DW{[Schema="dbo",Item="DimCompany"]}[Data]
+				in
+				    dbo_DimCompany
+

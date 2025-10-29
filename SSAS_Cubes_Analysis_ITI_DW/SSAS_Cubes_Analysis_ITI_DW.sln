@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36401.2 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "SSAS_Cubes_Analysis_ITI_DW", "SSAS_Cubes_Analysis_ITI_DW\SSAS_Cubes_Analysis_ITI_DW.dwproj", "{E0937AD9-BA9E-7F18-25D3-B3AAB9AA7A1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0937AD9-BA9E-7F18-25D3-B3AAB9AA7A1D}.Development|Default.ActiveCfg = Development
+		{E0937AD9-BA9E-7F18-25D3-B3AAB9AA7A1D}.Development|Default.Build.0 = Development
+		{E0937AD9-BA9E-7F18-25D3-B3AAB9AA7A1D}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E46FF88D-6F16-4710-A2DF-98E54AFE8408}
+	EndGlobalSection
+EndGlobal
