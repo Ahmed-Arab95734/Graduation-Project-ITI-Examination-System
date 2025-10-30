@@ -37,6 +37,17 @@
           "type": "BaseTheme"
         }
       ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "ITI_Background8419575202694348.png",
+          "path": "ITI_Background8419575202694348.png",
+          "type": "Image"
+        }
+      ]
     }
   ],
   "settings": {
