@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 113.49350080391289,
-        "y": 439.98165380147054
+        "x": 0,
+        "y": 266.69248942401777
       },
       "nodes": [
         {
@@ -140,8 +140,8 @@
         },
         {
           "location": {
-            "x": 920.64346232024161,
-            "y": 903.53339499170352
+            "x": 1001.4881478243988,
+            "y": 915.97103891542008
           },
           "nodeIndex": "DimStudent",
           "nodeLineageTag": "7ce20b40-314d-4426-8a5d-bca74520e1e3",
@@ -256,7 +256,7 @@
         }
       ],
       "name": "All tables",
-      "zoomValue": 64.320863734853788,
+      "zoomValue": 57.369444610321729,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

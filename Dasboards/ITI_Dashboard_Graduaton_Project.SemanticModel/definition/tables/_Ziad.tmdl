@@ -9,20 +9,21 @@ table _Ziad
 		formatString: 0
 		lineageTag: 98bc678d-601a-4d3d-bf14-62187efc084b
 
-	measure 'Avg. St. Grade' = DIVIDE(AVERAGEX(SUMMARIZE(FactStudentPerformance, FactStudentPerformance[StudentKey], FactStudentPerformance[ExamKey], "Exam Grade", SUM(FactStudentPerformance[Student_Grade])), [Exam Grade]), 10)
-		formatString: 0%;-0%;0%
+	measure 'Avg. St. Grade' = AVERAGEX(SUMMARIZE(FactStudentPerformance, FactStudentPerformance[StudentKey], FactStudentPerformance[ExamKey], "Exam Grade", SUM(FactStudentPerformance[Student_Grade])), [Exam Grade])
 		lineageTag: fd2e6261-6e4b-4a16-b047-314081808e4f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg. St. Salary' = AVERAGE(FactStudentOutcomes[Salary])
 		formatString: #,0.00
 		lineageTag: 096341b1-9a5e-486e-ab94-be41e84bc774
 
-	measure 'Total Hired Graduates Salaries' = SUM(FactStudentOutcomes[Salary])
+	measure 'Total Hired Graduates Salaries' = CALCULATE(SUM(FactStudentOutcomes[Salary]), USERELATIONSHIP(FactStudentOutcomes[HireDateKey], DimDate[DateKey]))
 		lineageTag: 5de0a47a-f9f7-4da8-8d40-4fbc406867aa
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Total Freelance Earnings' = SUM(FactFreelanceJob[Job_Earn])
+	measure 'Total Freelance Earnings' = CALCULATE(SUM(FactFreelanceJob[Job_Earn]), USERELATIONSHIP(FactFreelanceJob[JobDateKey], DimDate[DateKey]))
 		lineageTag: b0caa63a-3446-442e-8127-afcaae2b423a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
