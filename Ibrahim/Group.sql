@@ -273,80 +273,61 @@ GO
 --------------------------------------------------------------------------------
 
 -- DELETE
-CREATE PROCEDURE [dbo].[Group_Delete]
-    @Group_ID INT = Null
-    @Intake_ID INT = Null,
-    @Branch_ID INT = Null,
-    @Track_ID INT = Null
+CREATE OR ALTER PROCEDURE [dbo].[Group_Delete]
+    @Group_ID INT = NULL
 AS
 BEGIN
     SET NOCOUNT ON;
 
     BEGIN TRY
-         IF @Group_ID IS NULL 
+        IF @Group_ID IS NOT NULL -- User wants to delete a specific group
         BEGIN
-            SELECT 'Error: Cannot delete this group. It is still referenced by other tables (e.g., Track, Inake , Branch). Please delete or re-assign the records in those tables first.' AS ErrorMessage;
-            RETURN;
-        END
-        IF @Group_ID IS NOT NULL
-        BEGIN
-            SELECT 'Error: Cannot delete this group. It is still referenced by other tables (e.g., Track). Please delete or re-assign the records in those tables first.' AS ErrorMessage;
-            RETURN;
-        END
-            -- 1. Delete by Primary Key
+            -- Check if the specific record exists before attempting deletion
             IF NOT EXISTS (SELECT 1 FROM [dbo].[Group] WHERE [Group_ID] = @Group_ID)
             BEGIN
-                SELECT 'Error: Record ID not found. No deletion occurred. Please provide a valid Group_ID.' AS ErrorMessage;
+                SELECT 'Error: Group ID ' + CAST(@Group_ID AS NVARCHAR(10)) + ' not found. No deletion occurred.' AS ErrorMessage;
                 RETURN;
             END
 
+            -- Perform the specific delete. ON DELETE CASCADE will handle child records in [Student].
             DELETE FROM [dbo].[Group]
-            -- 3. Output deleted data
-            OUTPUT 
+            OUTPUT
                 deleted.[Group_ID] AS [Deleted_Group_ID],
                 deleted.[Intake_ID] AS [Deleted_Intake_ID],
                 deleted.[Branch_ID] AS [Deleted_Branch_ID],
                 deleted.[Track_ID] AS [Deleted_Track_ID]
-            WHERE 
+            WHERE
                 [Group_ID] = @Group_ID;
+
+            SELECT 'Success: Group ID ' + CAST(@Group_ID AS NVARCHAR(10)) + ' and associated students deleted.' AS SuccessMessage;
         END
-        ELSE
+        ELSE -- @Group_ID IS NULL, user wants to delete all records (with a warning)
         BEGIN
-            -- 2. Delete All Records (ID is NULL)
-            PRINT 'Warning: Deleting all records from [Group]. This action cannot be undone.'
-            BEGIN TRANSACTION;
+            PRINT 'Warning: Attempting to delete ALL records from [Group] table. This action cannot be undone and will delete associated student data due to CASCADE DELETE.';
+
+            -- Given that [Group] is referenced by [Student] (ON DELETE CASCADE),
+            -- TRUNCATE is not possible. Must use DELETE.
+            DELETE FROM [dbo].[Group];
             
-            -- Check for FK constraints before truncating
-            IF EXISTS (SELECT * FROM sys.foreign_keys WHERE referenced_object_id = OBJECT_ID('dbo.Group'))
-            BEGIN
-                -- Cannot TRUNCATE, must DELETE.
-                DELETE FROM [dbo].[Group];
-            END
-            ELSE
-            BEGIN
-                -- Safe to TRUNCATE for performance
-                TRUNCATE TABLE [dbo].[Group];
-            END
-            
-            COMMIT TRANSACTION;
             SELECT 'Success: All records have been deleted from [Group].' AS SuccessMessage;
         END
     END TRY
     BEGIN CATCH
-        IF @@TRANCOUNT > 0
-            ROLLBACK TRANSACTION;
+        -- In case of any unhandled errors, especially Foreign Key violations (if CASCADE wasn't set or there's a different constraint)
+        DECLARE @ErrorNum INT = ERROR_NUMBER();
+        DECLARE @ErrorMsg NVARCHAR(4000) = ERROR_MESSAGE();
 
-        -- 4. Smart CATCH Block
-        IF ERROR_NUMBER() = 547
+        IF @ErrorNum = 547 -- Foreign Key constraint violation
         BEGIN
-            SELECT 'Error: Cannot delete this group. It is still referenced by other tables (e.g., Students). Please delete or re-assign the records in those tables first.' AS ErrorMessage;
-            RETURN;
+            -- This catch block is less likely to be hit with ON DELETE CASCADE but good to have
+            SELECT 'Error: A Foreign Key constraint prevented deletion. This group might be referenced by other tables in a way not covered by ON DELETE CASCADE, or an unexpected data integrity issue occurred.' AS ErrorMessage, @ErrorMsg AS [Constraint_Details];
         END
-        
-        SELECT 'An unexpected error occurred in sp_DeleteGroup.' AS ErrorMessage;
-        THROW;
+        ELSE
+        BEGIN
+            SELECT 'An unexpected error occurred in [dbo].[Group_Delete]. Error ' + CAST(@ErrorNum AS NVARCHAR(10)) + ': ' + @ErrorMsg AS ErrorMessage;
+        END
     END CATCH
-END
+END;
 GO
 
 --------------------------------------------------------------------------------
