@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "4b60e5e55577ca12751e",
   "position": {
     "x": 0,
     "y": 0,
     "z": 0,
     "height": 122.70003994141925,
-    "width": 227.28190515382639
+    "width": 227.28190515382639,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -22,7 +23,7 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "student count"
+                  "Property": "Total Students"
                 }
               },
               "queryRef": "_Ziad.student count",
@@ -41,7 +42,7 @@
                     "Entity": "_Ziad"
                   }
                 },
-                "Property": "student count"
+                "Property": "Total Students"
               }
             },
             "direction": "Descending"
