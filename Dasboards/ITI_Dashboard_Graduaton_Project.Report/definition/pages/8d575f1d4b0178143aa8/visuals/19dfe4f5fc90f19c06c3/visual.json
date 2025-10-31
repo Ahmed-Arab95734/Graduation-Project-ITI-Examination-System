@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "19dfe4f5fc90f19c06c3",
+  "position": {
+    "x": 979.452887537994,
+    "y": 420.18237082066872,
+    "z": 1,
+    "height": 299.57446808510639,
+    "width": 300.54711246200611,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCompany"
+                    }
+                  },
+                  "Property": "Company_Name"
+                }
+              },
+              "queryRef": "DimCompany.Company_Name",
+              "nativeQueryRef": "Company_Name"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "943a456a5efd509a702c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCompany"
+              }
+            },
+            "Property": "Company_Name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
