@@ -1,0 +1,24 @@
+table _Ziad
+	lineageTag: 5ebf4a66-578b-4a14-b996-65f6ef14f39c
+
+	measure 'student count' = DISTINCTCOUNT(DimStudent[Student_ID])
+		formatString: 0
+		lineageTag: ef07c578-94e4-4c2c-84d4-b58549e9c665
+
+	column Column
+		formatString: 0
+		lineageTag: ec85d41f-1103-43ad-b43b-f54c64456c12
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Ziad = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 27888afb0b34428c89e5777096ffbe11
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+
