@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
-        "y": 266.69248942401777
+        "x": 26.429993337897461,
+        "y": 842.65037583178969
       },
       "nodes": [
         {
@@ -244,10 +244,24 @@
         },
         {
           "location": {
-            "x": 1896.7553273986273,
-            "y": 823.49612021521
+            "x": 1806.9203101404812,
+            "y": 624.10620386176367
           },
           "nodeIndex": "_Ziad",
+          "nodeLineageTag": "5ebf4a66-578b-4a14-b996-65f6ef14f39c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2135.1375233624394,
+            "y": 606.57742000651558
+          },
+          "nodeIndex": "HaithamMeasures",
+          "nodeLineageTag": "90789787-27ad-4b31-bd0f-411734b53e3d",
           "size": {
             "height": 200,
             "width": 234
@@ -256,7 +270,7 @@
         }
       ],
       "name": "All tables",
-      "zoomValue": 57.369444610321729,
+      "zoomValue": 64.320863734853944,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
