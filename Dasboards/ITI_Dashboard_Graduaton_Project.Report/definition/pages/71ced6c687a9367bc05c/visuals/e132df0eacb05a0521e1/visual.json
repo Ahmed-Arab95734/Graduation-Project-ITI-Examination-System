@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "e132df0eacb05a0521e1",
   "position": {
     "x": 1036.2947027782375,
     "y": 254.55494879291007,
     "z": 3000,
     "height": 403.67293654733669,
-    "width": 210.87392207696692,
-    "tabOrder": 2000
+    "width": 210.87392207696692
   },
   "visual": {
     "visualType": "donutChart",
@@ -42,7 +41,7 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "student count"
+                  "Property": "Total Students"
                 }
               },
               "queryRef": "_Ziad.student count",
@@ -61,7 +60,7 @@
                     "Entity": "_Ziad"
                   }
                 },
-                "Property": "student count"
+                "Property": "Total Students"
               }
             },
             "direction": "Descending"

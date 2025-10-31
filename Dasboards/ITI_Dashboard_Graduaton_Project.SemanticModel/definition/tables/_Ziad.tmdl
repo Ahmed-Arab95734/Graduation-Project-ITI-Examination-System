@@ -1,15 +1,73 @@
 table _Ziad
 	lineageTag: 5ebf4a66-578b-4a14-b996-65f6ef14f39c
 
-	measure 'student count' = DISTINCTCOUNT(DimStudent[Student_ID])
+	measure 'Total Students' = DISTINCTCOUNT(DimStudent[Student_ID])
 		formatString: 0
 		lineageTag: ef07c578-94e4-4c2c-84d4-b58549e9c665
 
-	column Column
+	measure 'Total Graduates' = CALCULATE(COUNT(DimStudent[Student_ID]), DimStudent[Student_ITI_Status] = "Graduated" )
+		formatString: 0
+		lineageTag: 98bc678d-601a-4d3d-bf14-62187efc084b
+
+	measure 'Avg. St. Grade' = AVERAGEX(SUMMARIZE(FactStudentPerformance, FactStudentPerformance[StudentKey], FactStudentPerformance[ExamKey], "Exam Grade", SUM(FactStudentPerformance[Student_Grade])), [Exam Grade])
+		lineageTag: fd2e6261-6e4b-4a16-b047-314081808e4f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg. St. Salary' = AVERAGE(FactStudentOutcomes[Salary])
+		formatString: #,0.00
+		lineageTag: 096341b1-9a5e-486e-ab94-be41e84bc774
+
+	measure 'Total Hired Graduates Salaries' = CALCULATE(SUM(FactStudentOutcomes[Salary]), USERELATIONSHIP(FactStudentOutcomes[HireDateKey], DimDate[DateKey]))
+		lineageTag: 5de0a47a-f9f7-4da8-8d40-4fbc406867aa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Freelance Earnings' = CALCULATE(SUM(FactFreelanceJob[Job_Earn]), USERELATIONSHIP(FactFreelanceJob[JobDateKey], DimDate[DateKey]))
+		lineageTag: b0caa63a-3446-442e-8127-afcaae2b423a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Employment Rate %' = DIVIDE(COUNT(FactStudentOutcomes[StudentKey]), [Total Graduates])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 05a29280-649f-4ddc-83f0-701eec255d5d
+
+	measure 'Total Hires' = COUNTROWS(FactStudentOutcomes)
+		formatString: 0
+		lineageTag: bd036146-514f-4201-b67a-cf676e0885bb
+
+	measure 'Avg. Instructor Rating' = AVERAGE(FactStudentRating[RatingValue])
+		lineageTag: 7705061f-f6f2-47f7-94a6-c9a911d2d9fb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Failure Rate %' = DIVIDE(countrows(FactStudentFailure), [Total Students])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f74a0883-e26f-4d93-8867-caa998ca387d
+
+	measure 'Avg. Days-to-Hire' = ```
+			AVERAGE(FactStudentOutcomes[DaysToHire]) 
+			```
+		lineageTag: b05bc0cf-8455-417e-b855-bc00fc65566b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Branches' = DISTINCTCOUNT(DimStudent[Branch_Name])
+		formatString: 0
+		lineageTag: b614d7c1-ce91-4738-97e8-8599fa858fac
+
+	measure 'Total Intakes' = DISTINCTCOUNT(DimStudent[Intake_Name])
+		formatString: 0
+		lineageTag: 7de1b5f3-088a-41d4-b691-f1e00fe08357
+
+	measure 'Branches Above Target' = COUNTROWS(FILTER(SUMMARIZE(DimStudent, DimStudent[branch_name], "Avg. Grade", [Avg. St. Grade]), [Avg. Grade] > 0.75))
+		formatString: 0
+		lineageTag: 1e13f783-2272-4282-97b4-c8cb29274f3d
+
+	column ZZZ
 		formatString: 0
 		lineageTag: ec85d41f-1103-43ad-b43b-f54c64456c12
 		summarizeBy: sum
-		isNameInferred
 		sourceColumn: [Column]
 
 		annotation SummarizationSetBy = Automatic

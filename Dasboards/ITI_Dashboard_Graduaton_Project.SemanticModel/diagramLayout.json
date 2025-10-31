@@ -5,7 +5,7 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 394.40939543254137
+        "y": 266.69248942401777
       },
       "nodes": [
         {
@@ -140,8 +140,8 @@
         },
         {
           "location": {
-            "x": 920.64346232024161,
-            "y": 903.53339499170352
+            "x": 1001.4881478243988,
+            "y": 915.97103891542008
           },
           "nodeIndex": "DimStudent",
           "nodeLineageTag": "7ce20b40-314d-4426-8a5d-bca74520e1e3",
@@ -218,8 +218,8 @@
         },
         {
           "location": {
-            "x": 630.5706915668253,
-            "y": 1099.8899558585897
+            "x": 594.81246528614042,
+            "y": 1112.3275997823062
           },
           "nodeIndex": "FactStudentPerformance",
           "nodeLineageTag": "5b8c9bf9-f78c-43dc-a914-bf989c531994",
@@ -256,7 +256,7 @@
         }
       ],
       "name": "All tables",
-      "zoomValue": 36.307450736866308,
+      "zoomValue": 57.369444610321729,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
