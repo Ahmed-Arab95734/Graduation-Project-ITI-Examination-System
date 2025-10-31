@@ -60,9 +60,14 @@ table _Ziad
 		formatString: 0
 		lineageTag: 7de1b5f3-088a-41d4-b691-f1e00fe08357
 
-	measure 'Branches Above Target' = COUNTROWS(FILTER(SUMMARIZE(DimStudent, DimStudent[branch_name], "Avg. Grade", [Avg. St. Grade]), [Avg. Grade] > 0.75))
+	measure 'Branches Above Target' = COUNTROWS(FILTER(SUMMARIZE(DimStudent, DimStudent[branch_name], "Avg. Grade", [Avg. St. Grade]), [Avg. Grade] > 7))
 		formatString: 0
 		lineageTag: 1e13f783-2272-4282-97b4-c8cb29274f3d
+
+	measure 'Avg. No. Students Per Track' = DIVIDE([Total Students], [Total Intakes])
+		lineageTag: 756bd542-c128-4ca8-9e8e-75f1e792b8c7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column ZZZ
 		formatString: 0

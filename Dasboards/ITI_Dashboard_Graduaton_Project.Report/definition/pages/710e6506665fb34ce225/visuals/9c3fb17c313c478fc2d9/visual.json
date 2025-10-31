@@ -1,0 +1,356 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "9c3fb17c313c478fc2d9",
+  "position": {
+    "x": 218.12061711079946,
+    "y": 466.76016830294532,
+    "z": 3000,
+    "height": 245.04908835904629,
+    "width": 495.48387096774195,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "DimDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "FullDate"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Year"
+                }
+              },
+              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Year",
+              "nativeQueryRef": "FullDate Year",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "DimDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "FullDate"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Quarter"
+                }
+              },
+              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Quarter",
+              "nativeQueryRef": "FullDate Quarter",
+              "active": false
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Ziad"
+                    }
+                  },
+                  "Property": "Avg. St. Grade"
+                }
+              },
+              "queryRef": "_Ziad.Avg. St. Grade",
+              "nativeQueryRef": "Avg. St. Grade"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Ziad"
+                    }
+                  },
+                  "Property": "Avg. Instructor Rating"
+                }
+              },
+              "queryRef": "_Ziad.Avg. Instructor Rating",
+              "nativeQueryRef": "Avg. Instructor Rating"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'PLACE HOLDER'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "heading": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Heading3'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "90D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2E3757'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "25D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
