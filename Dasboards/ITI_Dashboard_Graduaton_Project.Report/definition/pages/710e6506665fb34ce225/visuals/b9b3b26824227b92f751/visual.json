@@ -23,11 +23,11 @@
                       "Entity": "DimStudent"
                     }
                   },
-                  "Property": "Track_Name"
+                  "Property": "Intake_Name"
                 }
               },
-              "queryRef": "DimStudent.Track_Name",
-              "nativeQueryRef": "Track_Name",
+              "queryRef": "DimStudent.Intake_Name",
+              "nativeQueryRef": "Intake_Name",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg. Days-to-Hire"
+                  "Property": "Total Students"
                 }
               },
-              "queryRef": "_Ziad.Avg. Days-to-Hire",
-              "nativeQueryRef": "Avg. Days-to-Hire"
+              "queryRef": "_Ziad.Total Students",
+              "nativeQueryRef": "Total Students"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "_Ziad"
                   }
                 },
-                "Property": "Avg. Days-to-Hire"
+                "Property": "Total Students"
               }
             },
             "direction": "Descending"
@@ -230,7 +230,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'PLACE HOLDER'"
+                  "Value": "'Students Per Intake'"
                 }
               }
             }

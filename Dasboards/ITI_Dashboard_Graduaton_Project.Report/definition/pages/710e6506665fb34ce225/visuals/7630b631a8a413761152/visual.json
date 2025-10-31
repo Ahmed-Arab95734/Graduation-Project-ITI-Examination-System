@@ -1,71 +1,34 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "9c3fb17c313c478fc2d9",
+  "name": "7630b631a8a413761152",
   "position": {
-    "x": 218.12061711079946,
-    "y": 466.76016830294532,
-    "z": 3000,
-    "height": 245.04908835904629,
-    "width": 495.48387096774195,
-    "tabOrder": 1000
+    "x": 219.08355795148248,
+    "y": 466.63072776280319,
+    "z": 6001,
+    "height": 244.95956873315362,
+    "width": 494.23180592991912,
+    "tabOrder": 6001
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
+                    "SourceRef": {
+                      "Entity": "DimStudent"
                     }
                   },
-                  "Level": "Year"
+                  "Property": "Intake_Name"
                 }
               },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Year",
-              "nativeQueryRef": "FullDate Year",
+              "queryRef": "DimStudent.Intake_Name",
+              "nativeQueryRef": "Intake_Name",
               "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Quarter"
-                }
-              },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Quarter",
-              "nativeQueryRef": "FullDate Quarter",
-              "active": false
             }
           ]
         },
@@ -79,28 +42,32 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg. St. Grade"
+                  "Property": "Employment Rate %"
                 }
               },
-              "queryRef": "_Ziad.Avg. St. Grade",
-              "nativeQueryRef": "Avg. St. Grade"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Ziad"
-                    }
-                  },
-                  "Property": "Avg. Instructor Rating"
-                }
-              },
-              "queryRef": "_Ziad.Avg. Instructor Rating",
-              "nativeQueryRef": "Avg. Instructor Rating"
+              "queryRef": "_Ziad.Employment Rate %",
+              "nativeQueryRef": "Employment Rate %"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Ziad"
+                  }
+                },
+                "Property": "Employment Rate %"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -154,18 +121,33 @@
           }
         }
       ],
-      "legend": [
+      "labels": [
         {
           "properties": {
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'InsideEnd'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "ribbonBands": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -177,13 +159,6 @@
       "title": [
         {
           "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'PLACE HOLDER'"
-                }
-              }
-            },
             "show": {
               "expr": {
                 "Literal": {
@@ -249,6 +224,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Segoe UI'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Employment Rate Per Intake'"
                 }
               }
             }
