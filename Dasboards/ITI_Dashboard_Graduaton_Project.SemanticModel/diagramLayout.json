@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 345.14461888313156,
-        "y": 466.41164713936695
+        "x": 26.429993337897461,
+        "y": 572.13162049095683
       },
       "nodes": [
         {
@@ -263,7 +263,7 @@
           "nodeIndex": "HaithamMeasures",
           "nodeLineageTag": "90789787-27ad-4b31-bd0f-411734b53e3d",
           "size": {
-            "height": 610.442249482643,
+            "height": 200,
             "width": 234
           },
           "zIndex": 0

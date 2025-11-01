@@ -2,11 +2,11 @@ table _Ziad
 	lineageTag: 5ebf4a66-578b-4a14-b996-65f6ef14f39c
 
 	measure 'Total Students' = DISTINCTCOUNT(DimStudent[Student_ID])
-		formatString: 0
+		formatString: 0.0
 		lineageTag: ef07c578-94e4-4c2c-84d4-b58549e9c665
 
 	measure 'Total Graduates' = CALCULATE(COUNT(DimStudent[Student_ID]), DimStudent[Student_ITI_Status] = "Graduated" )
-		formatString: 0
+		formatString: 0.0
 		lineageTag: 98bc678d-601a-4d3d-bf14-62187efc084b
 
 	measure 'Avg. St. Grade' = AVERAGEX(SUMMARIZE(FactStudentPerformance, FactStudentPerformance[StudentKey], FactStudentPerformance[ExamKey], "Exam Grade", SUM(FactStudentPerformance[Student_Grade])), [Exam Grade])
@@ -60,9 +60,14 @@ table _Ziad
 		formatString: 0
 		lineageTag: 7de1b5f3-088a-41d4-b691-f1e00fe08357
 
-	measure 'Branches Above Target' = COUNTROWS(FILTER(SUMMARIZE(DimStudent, DimStudent[branch_name], "Avg. Grade", [Avg. St. Grade]), [Avg. Grade] > 0.75))
+	measure 'Branches Above Target' = COUNTROWS(FILTER(SUMMARIZE(DimStudent, DimStudent[branch_name], "Avg. Grade", [Avg. St. Grade]), [Avg. Grade] > 7))
 		formatString: 0
 		lineageTag: 1e13f783-2272-4282-97b4-c8cb29274f3d
+
+	measure 'Avg. No. Students Per Track' = DIVIDE([Total Students], [Total Intakes])
+		lineageTag: 756bd542-c128-4ca8-9e8e-75f1e792b8c7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column ZZZ
 		formatString: 0

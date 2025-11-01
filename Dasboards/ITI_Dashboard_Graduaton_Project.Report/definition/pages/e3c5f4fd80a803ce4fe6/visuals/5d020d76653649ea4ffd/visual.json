@@ -230,7 +230,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Student Grade Per Track'"
+                  "Value": "'Average Graduate Salary Per Track'"
                 }
               }
             }
