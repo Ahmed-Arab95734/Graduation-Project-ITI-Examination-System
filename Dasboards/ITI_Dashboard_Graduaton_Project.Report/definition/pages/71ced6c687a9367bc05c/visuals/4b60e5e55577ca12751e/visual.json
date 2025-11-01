@@ -6,7 +6,8 @@
     "y": 0,
     "z": 0,
     "height": 122.70003994141925,
-    "width": 227.28190515382639
+    "width": 227.28190515382639,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -22,7 +23,7 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Total Students"
+                  "Property": "student count"
                 }
               },
               "queryRef": "_Ziad.student count",
@@ -41,7 +42,7 @@
                     "Entity": "_Ziad"
                   }
                 },
-                "Property": "Total Students"
+                "Property": "student count"
               }
             },
             "direction": "Descending"

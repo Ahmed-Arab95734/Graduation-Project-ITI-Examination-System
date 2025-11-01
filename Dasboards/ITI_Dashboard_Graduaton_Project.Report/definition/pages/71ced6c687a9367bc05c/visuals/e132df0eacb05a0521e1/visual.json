@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 403.67293654733669,
     "width": 210.87392207696692,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "donutChart",
@@ -42,7 +42,7 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Total Students"
+                  "Property": "student count"
                 }
               },
               "queryRef": "_Ziad.student count",
@@ -61,7 +61,7 @@
                     "Entity": "_Ziad"
                   }
                 },
-                "Property": "Total Students"
+                "Property": "student count"
               }
             },
             "direction": "Descending"

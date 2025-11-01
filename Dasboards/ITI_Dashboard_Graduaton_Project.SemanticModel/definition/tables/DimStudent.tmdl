@@ -14,10 +14,10 @@ table DimStudent
 		dataType: int64
 		formatString: 0
 		lineageTag: a454ca56-9673-461f-8c8c-a615fb2869b4
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: Student_ID
 
-		annotation SummarizationSetBy = User
+		annotation SummarizationSetBy = Automatic
 
 	column Student_FullName
 		dataType: string
@@ -184,6 +184,19 @@ table DimStudent
 		lineageTag: 285e6f6a-8289-44cd-bee1-c8890190588e
 		summarizeBy: none
 		sourceColumn: Social_Instagram
+
+		annotation SummarizationSetBy = Automatic
+
+	column Freelance = ```
+			
+			IF(
+			    NOT(ISEMPTY(RELATEDTABLE(FactFreelanceJob))), 
+			    "Yes", 
+			    "No"
+			)
+			```
+		lineageTag: a3b14fb4-d385-4ed7-9214-314ad891e806
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 

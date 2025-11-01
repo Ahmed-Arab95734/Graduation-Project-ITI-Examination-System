@@ -6,7 +6,8 @@
     "y": 254.55494879291007,
     "z": 5000,
     "height": 403.67293654733669,
-    "width": 402.1666942467869
+    "width": 402.1666942467869,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -59,7 +60,7 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Total Students"
+                  "Property": "student count"
                 }
               },
               "queryRef": "_Ziad.student count",
@@ -78,7 +79,7 @@
                     "Entity": "_Ziad"
                   }
                 },
-                "Property": "Total Students"
+                "Property": "student count"
               }
             },
             "direction": "Descending"
@@ -355,7 +356,7 @@
                                 "Source": "_"
                               }
                             },
-                            "Property": "Total Students"
+                            "Property": "student count"
                           }
                         }
                       }

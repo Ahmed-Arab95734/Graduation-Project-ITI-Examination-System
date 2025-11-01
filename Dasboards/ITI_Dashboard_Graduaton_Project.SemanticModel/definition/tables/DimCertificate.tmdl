@@ -5,10 +5,10 @@ table DimCertificate
 		dataType: int64
 		formatString: 0
 		lineageTag: aa0e5ef0-c8ff-4179-ac6f-9ed93306f54c
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: CertificateKey
 
-		annotation SummarizationSetBy = User
+		annotation SummarizationSetBy = Automatic
 
 	column Certificate_Name
 		dataType: string
