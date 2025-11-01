@@ -37,6 +37,7 @@ ref table FactStudentPerformance
 ref table FactStudentRating
 ref table _Ziad
 ref table HaithamMeasures
+ref table _Mahmoud
 
 ref cultureInfo en-US
 

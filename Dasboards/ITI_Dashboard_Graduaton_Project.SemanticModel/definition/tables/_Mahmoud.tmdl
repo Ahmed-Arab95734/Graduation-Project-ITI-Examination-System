@@ -1,0 +1,45 @@
+table _Mahmoud
+	lineageTag: 8d7c7134-3f40-4e57-81e5-19f25b820a6c
+
+	measure 'Avg. Grade' = AVERAGE(FactStudentPerformance[Student_Grade])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d9d7b15e-c6bb-414d-a156-d2f437091c86
+
+	measure '2024 vs 2023 Grade Trend %' = ```
+			
+			VAR Grade2024 = 
+			    CALCULATE(
+			       AVERAGE(FactStudentPerformance[Student_Grade],
+			        'DimDate'[ = 2024
+			    )
+			VAR Grade2023 = 
+			    CALCULATE(
+			        [Overall Avg. Grade],
+			        'DimDate'[Year] = 2025
+			    )
+			RETURN
+			    IF(
+			        NOT ISBLANK(Grade2024) && NOT ISBLANK(Grade2023) && Grade2023 <> 0,
+			        DIVIDE(Grade2024 - Grade2023, Grade2023, 0),
+			        BLANK()
+			    )
+			```
+		lineageTag: 844cdb98-57b4-4a9b-bb17-a603c1fd4095
+
+	column Column
+		formatString: 0
+		lineageTag: d6fbd1cd-cb24-445c-b463-c743d36d5720
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Mahmoud = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 3d90e9b8bcbb4620806cd9afe819fa99
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+
