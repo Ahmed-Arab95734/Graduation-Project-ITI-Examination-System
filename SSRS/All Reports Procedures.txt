@@ -6,7 +6,7 @@ select t.Topic_ID, t.Topic_Name from Topic t inner join course c
 on t.Course_ID = c.Course_ID
 where t.Course_ID = @CourseID
 
-4:
+--4:
 create or alter proc Get_Ins_Students @insID int
 as
 
