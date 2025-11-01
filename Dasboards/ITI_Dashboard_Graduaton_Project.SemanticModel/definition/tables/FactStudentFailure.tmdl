@@ -1,0 +1,31 @@
+table FactStudentFailure
+	lineageTag: a80dd477-e3e3-4f6d-ad20-d6eec56ce35e
+
+	column StudentKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 8afd7a97-aec2-49ab-ba7d-735a5f507584
+		summarizeBy: none
+		sourceColumn: StudentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column FailureReasonKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9def9938-fa1d-4ad5-ace5-4583d105fc33
+		summarizeBy: none
+		sourceColumn: FailureReasonKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactStudentFailure = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
+				    dbo_FactStudentFailure = ITI_DW{[Schema="dbo",Item="FactStudentFailure"]}[Data]
+				in
+				    dbo_FactStudentFailure
+

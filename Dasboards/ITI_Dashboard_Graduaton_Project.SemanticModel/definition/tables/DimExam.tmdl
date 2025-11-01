@@ -1,0 +1,48 @@
+table DimExam
+	lineageTag: b6f041cb-d81c-440f-b613-f34588bc57c7
+
+	column ExamKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b02cfe36-911a-497d-93d7-8680c1528e61
+		summarizeBy: none
+		sourceColumn: ExamKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exam_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: e1a97424-b477-4279-acfd-90c2c3f21729
+		summarizeBy: none
+		sourceColumn: Exam_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exam_Type
+		dataType: string
+		lineageTag: 9ba749c5-c1fe-47b9-864a-348028fe5ac7
+		summarizeBy: none
+		sourceColumn: Exam_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exam_Duration_Minutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 931a29c1-762e-46da-9056-3cb2aa2d5f8d
+		summarizeBy: none
+		sourceColumn: Exam_Duration_Minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimExam = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
+				    dbo_DimExam = ITI_DW{[Schema="dbo",Item="DimExam"]}[Data]
+				in
+				    dbo_DimExam
+

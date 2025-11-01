@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "22d1d5dd5c7fe56663ea",
+  "position": {
+    "x": 0,
+    "y": 104.03818185542515,
+    "z": 0,
+    "height": 182.90583584260227,
+    "width": 389.30416436223607
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mahmoud"
+                    }
+                  },
+                  "Property": "Avg. Grade"
+                }
+              },
+              "queryRef": "_Mahmoud.Avg. Grade",
+              "nativeQueryRef": "Avg. Grade"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Mahmoud"
+                  }
+                },
+                "Property": "Avg. Grade"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9665f1665fb3302d244b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Mahmoud"
+              }
+            },
+            "Property": "Avg. Grade"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

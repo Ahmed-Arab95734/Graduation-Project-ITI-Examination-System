@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "ITI_Dashboard_Graduaton_Project"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "34715d6a-a35f-451d-a8ae-22ec804f37e1"
+  }
+}

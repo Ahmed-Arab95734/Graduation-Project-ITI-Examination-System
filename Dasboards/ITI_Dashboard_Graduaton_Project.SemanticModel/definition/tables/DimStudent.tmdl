@@ -1,0 +1,199 @@
+table DimStudent
+	lineageTag: 7ce20b40-314d-4426-8a5d-bca74520e1e3
+
+	column StudentKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ed50c749-35fc-47ce-8fc8-37f8e8f3dda0
+		summarizeBy: none
+		sourceColumn: StudentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Student_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: a454ca56-9673-461f-8c8c-a615fb2869b4
+		summarizeBy: none
+		sourceColumn: Student_ID
+
+		annotation SummarizationSetBy = User
+
+	column Student_FullName
+		dataType: string
+		lineageTag: d99d9b49-e83c-427a-81e0-bd292db5f26f
+		summarizeBy: none
+		sourceColumn: Student_FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Student_Gender
+		dataType: string
+		lineageTag: 5cc7a08c-85d5-44d2-b634-65756a31c64c
+		summarizeBy: none
+		sourceColumn: Student_Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Student_Mail
+		dataType: string
+		lineageTag: 4f03afa7-bfa4-4e43-8c2d-723a1ce42557
+		summarizeBy: none
+		sourceColumn: Student_Mail
+
+		annotation SummarizationSetBy = Automatic
+
+	column Student_Address
+		dataType: string
+		lineageTag: 73beb0c5-bd8f-46a5-939f-0e92b420e006
+		summarizeBy: none
+		sourceColumn: Student_Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column Student_Birthdate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 57855985-4ed9-4259-a8b7-4c1eeb5438c5
+		summarizeBy: none
+		sourceColumn: Student_Birthdate
+
+		variation Variation
+			isDefault
+			relationship: 765f284e-65f5-493f-b7fb-aab788e5abd8
+			defaultHierarchy: LocalDateTable_a72cc324-0a18-478b-b0c8-74babc6dd898.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Phone
+		dataType: string
+		lineageTag: 4b1a6479-3962-4182-bdf5-757887b929e1
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Student_Marital_Status
+		dataType: string
+		lineageTag: e282a0fa-0fe5-4c06-aaab-62e8e507ad86
+		summarizeBy: none
+		sourceColumn: Student_Marital_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Student_Faculty
+		dataType: string
+		lineageTag: e4235c22-495b-4b57-b007-186450bfb7d2
+		summarizeBy: none
+		sourceColumn: Student_Faculty
+
+		annotation SummarizationSetBy = Automatic
+
+	column Student_Faculty_Grade
+		dataType: string
+		lineageTag: 117d8476-1624-4a97-a2a2-dfc526bb0b05
+		summarizeBy: none
+		sourceColumn: Student_Faculty_Grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Student_ITI_Status
+		dataType: string
+		lineageTag: c4dae6cb-b4a7-4493-95a6-504e48bb7f48
+		summarizeBy: none
+		sourceColumn: Student_ITI_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Track_Name
+		dataType: string
+		lineageTag: b95666da-5aad-47c2-b69a-4e125683eb65
+		summarizeBy: none
+		sourceColumn: Track_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Branch_Name
+		dataType: string
+		lineageTag: 3d0d50c5-92ce-482a-bcd4-f34be8b4b1be
+		summarizeBy: none
+		sourceColumn: Branch_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Intake_Name
+		dataType: string
+		lineageTag: 065f5da9-97c2-4c99-bd17-73622a3dace7
+		summarizeBy: none
+		sourceColumn: Intake_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Expected_Graduation_Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 54d48c91-9063-4a25-a403-7f0237bb0605
+		summarizeBy: none
+		sourceColumn: Expected_Graduation_Date
+
+		variation Variation
+			isDefault
+			relationship: c7696021-d02c-4fc4-adab-e80c68385733
+			defaultHierarchy: LocalDateTable_c5752f76-6b26-498b-bd0a-271ec2dee2cb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Social_Facebook
+		dataType: string
+		lineageTag: 1f26ecaa-b4c8-4afa-a44d-6cb286c655c6
+		summarizeBy: none
+		sourceColumn: Social_Facebook
+
+		annotation SummarizationSetBy = Automatic
+
+	column Social_LinkedIn
+		dataType: string
+		lineageTag: eb9818b0-a6cb-4d57-9867-4a2fa6ff684e
+		summarizeBy: none
+		sourceColumn: Social_LinkedIn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Social_GitHub
+		dataType: string
+		lineageTag: 11c8a4cd-8fd1-4b68-a6ff-8636a9645f33
+		summarizeBy: none
+		sourceColumn: Social_GitHub
+
+		annotation SummarizationSetBy = Automatic
+
+	column Social_X
+		dataType: string
+		lineageTag: ae448138-d038-45cf-b702-516e6dd2983d
+		summarizeBy: none
+		sourceColumn: Social_X
+
+		annotation SummarizationSetBy = Automatic
+
+	column Social_Instagram
+		dataType: string
+		lineageTag: 285e6f6a-8289-44cd-bee1-c8890190588e
+		summarizeBy: none
+		sourceColumn: Social_Instagram
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimStudent = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
+				    dbo_DimStudent = ITI_DW{[Schema="dbo",Item="DimStudent"]}[Data]
+				in
+				    dbo_DimStudent
+
