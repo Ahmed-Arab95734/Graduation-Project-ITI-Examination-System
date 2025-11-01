@@ -1,0 +1,72 @@
+--Topic Insert
+
+create or alter proc Create_Topic @ID int, @Topic_Name nvarchar(max), @Course_ID int
+as
+begin
+
+	if @Course_ID not in (select Course_ID from Course)
+	begin
+	select 'Course ID does not exist';
+	return;
+	end
+	
+	if @ID in (select Topic_ID from Topic)
+	begin
+	select 'Topic ID already exists';
+	return;
+	end
+
+insert into Topic values(@ID, @Topic_Name, @Course_ID);
+select 'Topic created successfully';
+end
+
+--Topic Delete
+
+create or alter proc Delete_Topic @ID int
+as 
+begin 
+
+	if @ID not in (select Topic_ID from Topic)
+	begin
+	select 'Wrong Topic ID or Topic does not exist';
+	return;
+	end
+
+delete from Topic
+where Topic_ID = @ID;
+select 'Topic deleted successfully';
+end
+
+--Topic Update
+
+Create or alter proc Update_Topic_Name @name nvarchar(max), @Topic_ID int 
+as
+begin
+	if @Topic_ID not in (select Topic_ID from Topic)
+	begin
+	select 'Wrong Topic ID or Topic does not exist';
+	return;
+	end
+update Topic
+set Topic_Name = @name
+where Topic_ID = @Topic_ID
+select 'Topic name with ID = ' + cast(@Topic_ID as varchar(20)) + ' has been updated to ' +  @name;
+end
+
+--Topic Select
+
+
+create or alter proc View_Topic @course_ID int = null
+as
+begin
+    if @course_ID is not null and @course_ID not in (select Course_ID from Course)
+    begin
+        select 'Course does not exist';
+        return;
+    end
+
+    select t.*, c.Course_Name
+    from Topic t
+    inner join Course c on t.Course_ID = c.Course_ID
+    where @course_ID is null or t.Course_ID = @course_ID;
+end

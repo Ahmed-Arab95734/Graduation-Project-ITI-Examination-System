@@ -1,0 +1,138 @@
+report proc:
+3: 
+create proc Get_Course_Topics @CourseID int
+as
+select t.Topic_ID, t.Topic_Name from Topic t inner join course c
+on t.Course_ID = c.Course_ID
+where t.Course_ID = @CourseID
+
+4:
+create or alter proc Get_Ins_Students @insID int
+as
+
+select concat(ins.Instructor_fname,' ', ins.Instructor_Lname) as InsFullName, insc.course_ID, c.Course_name, count(sc.student_ID) as NumberOfStudents
+from Instructor ins 
+inner join Instructor_Course insc on ins.Instructor_ID = insc.Instructor_ID
+inner join Student_Course sc on sc.Course_ID = insc.Course_ID
+inner join course c on c.Course_ID = insc.Course_ID
+where ins.instructor_ID = @insID
+group by ins.Instructor_fname, ins.Instructor_Lname, insc.course_ID, c.Course_Name
+
+1:
+
+create or alter procedure getstudentsbydepartment @track_ID int
+as 
+begin
+
+select Student_ID,Track_Name ,Student_Fname+' '+Student_Lname as StudentFullname, Student_Mail,Student_Gender,
+Student_Address, Student_Birthdate,Student_Marital_Status,
+Student_Faculty, Student_Faculty_Grade,Student_ITI_Status,d.Department_Name
+
+from Student s join [Group] as g 
+on s.Intake_Branch_Track_ID = g.group_id join Track t 
+on t.Track_ID = g.track_id join Department d
+on t.Department_ID = d.Department_ID
+
+where t.Track_ID = @track_ID
+
+end
+
+2:
+
+ALTER   procedure [dbo].[getgradebystudent] @student_id int
+as
+begin
+select sea.student_id, s.Student_Fname+' '+s.Student_Lname as StudentFullname, c.course_name as [Course Name], sea.exam_id,Sum(sea.Student_grade)*100 / count(sea.question_id) as [Total Grade]
+
+from 
+student s join
+student_exam_answer as sea on s.student_id = sea.student_id
+
+join exam e on e.exam_id = sea.exam_id
+join course as c on e.course_id = c.course_id 
+
+where sea.student_id = @student_id
+
+group by sea.student_id, sea.exam_id, s.student_fname, s.student_lname, c.course_name
+
+end
+
+
+5:
+
+ALTER   PROCEDURE [dbo].[GetExamQuestionsWithChoices]
+    @ExamNumber INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- First result set: Questions only (no duplicates)
+    SELECT DISTINCT
+        eq.Exam_ID,
+        qb.Question_ID,
+        qb.Question_Type,
+        qb.Question_Description,
+        qb.Question_Model_Answer,
+        c.Course_Name
+    FROM [ITIExaminationSystem].[dbo].[Exam_Questions] eq
+    INNER JOIN [ITIExaminationSystem].[dbo].[Question_Bank] qb 
+        ON eq.Question_ID = qb.Question_ID
+        inner join exam e
+        on eq.Exam_ID = e.Exam_ID
+        inner join
+        Course c
+        on e.Course_ID = c.Course_ID
+    WHERE eq.Exam_ID = @ExamNumber
+    ORDER BY qb.Question_ID;
+
+    -- Second result set: Choices only
+    SELECT 
+        qb.Question_ID,
+        qc.Question_Choice_ID,
+        qc.Choice_Text,
+        ROW_NUMBER() OVER (PARTITION BY qb.Question_ID ORDER BY qc.Question_Choice_ID) as ChoiceNumber
+    FROM [ITIExaminationSystem].[dbo].[Exam_Questions] eq
+    INNER JOIN [ITIExaminationSystem].[dbo].[Question_Bank] qb 
+        ON eq.Question_ID = qb.Question_ID
+    LEFT JOIN [ITIExaminationSystem].[dbo].[Question_Choice] qc 
+        ON qb.Question_ID = qc.Question_ID
+    WHERE eq.Exam_ID = @ExamNumber
+    ORDER BY 
+        qb.Question_ID,
+        qc.Question_Choice_ID;
+END
+
+
+
+6:
+
+ALTER   PROCEDURE [dbo].[GetStudentExamAnswers]
+    @Exam_ID INT,
+    @Student_ID INT
+AS
+BEGIN
+    SELECT 
+        q.Question_ID,
+        q.Question_Description,
+        q.Question_Type,
+        q.Question_Model_Answer,
+        sea.Student_Answer,
+        sea.Student_Grade,
+        sea.Exam_ID,
+        sea.Student_ID,
+        concat(s.student_fname, ' ', s.Student_Lname) as StudentName,
+        c.course_name
+    FROM [ITIExaminationSystem].[dbo].[Question_Bank] q
+    INNER JOIN [ITIExaminationSystem].[dbo].[Student_Exam_Answer] sea 
+        ON q.Question_ID = sea.Question_ID
+        inner join
+        Student s
+        on s.student_ID = sea.Student_ID
+        inner join Exam e
+        on e.Exam_ID = sea.Exam_ID
+        inner join course c
+        on c.course_ID = e.Course_ID
+    WHERE sea.Exam_ID = @Exam_ID 
+        AND sea.Student_ID = @Student_ID
+    ORDER BY q.Question_ID;
+END

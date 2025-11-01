@@ -1,0 +1,116 @@
+--Insert 
+
+create or alter proc Add_St_Social 
+    @ID int, 
+    @social_Type nvarchar(50), 
+    @url nvarchar(max)
+as
+begin
+    -- Check if student exists
+    if @ID not in (select student_ID from Student)
+    begin
+        select 'Student ID does not exist' as Message;
+        return;
+    end
+
+    -- Check if social type already assigned
+    if exists (select 1 from Student_Social where Student_ID = @ID and social_type = @social_Type)
+    begin
+        select 'Student already has a ' + @social_Type + ' link' as Message;
+        return;
+    end
+
+    insert into Student_Social (Student_ID, Social_Type, Social_Url)
+    values(@ID, @social_Type, @url);
+
+    select 'Social link has been added to student with ID = ' + cast(@ID as varchar(15)) as Message;
+end
+
+--Delete
+
+create or alter proc delete_St_Social @ID int
+as
+begin
+    if @ID not in (select student_ID from Student)
+    begin
+        select 'Student ID does not exist' as Message;
+        return;
+    end
+
+    if not exists (select 1 from Student_Social where Student_ID = @ID)
+    begin
+        select 'Student does not have any social links' as Message;
+        return;
+    end
+
+    delete from Student_Social where Student_ID = @ID;
+    select 'All social links for student ID = ' + cast(@ID as varchar(15)) + ' have been removed successfully' as Message;
+end
+
+
+--Update
+
+create or alter proc Update_St_Social 
+    @ID int, 
+    @social_Type nvarchar(50), 
+    @url nvarchar(max)
+as
+begin
+    if @ID not in (select Student_ID from Student)
+    begin
+        select 'Student does not exist' as Message;
+        return;
+    end
+
+    if not exists (select 1 from Student_Social where Student_ID = @ID)
+    begin
+        select 'Student does not have any social links' as Message;
+        return;
+    end
+
+    if @social_Type not in ('GitHub', 'Facebook', 'LinkedIn')
+    begin 
+        select 'Social media type must be GitHub, Facebook, or LinkedIn' as Message;
+        return;
+    end
+
+    if @url not like '%' + @social_Type + '%'
+    begin
+        select 'Social URL does not match the social type' as Message;
+        return;
+    end
+
+    if not exists (select 1 from Student_Social where Student_ID = @ID and Social_Type = @social_Type)
+    begin
+        select 'Student does not have this social media type' as Message;
+        return;
+    end
+
+    update Student_Social
+    set Social_Url = @url
+    where Student_ID = @ID and Social_Type = @social_Type;
+
+    select 'Student ' + cast(@ID as varchar(15)) + ' ' + @social_Type + ' link updated successfully' as Message;
+end
+
+
+--Select
+
+create or alter proc View_St_Social @ID int
+as 
+begin
+    if (
+        @ID not in (select student_ID from Student)
+        or 
+        @ID not in (select student_ID from Student_Social)
+    )
+    begin
+        select 'Student does not exist or does not have social links' as Message;
+        return;
+    end
+
+    select sts.*, concat(s.Student_Fname,' ', s.Student_Lname) as Student_Name
+    from Student_Social sts 
+    inner join Student s on sts.Student_ID = s.Student_ID
+    where sts.Student_ID = @ID;
+end

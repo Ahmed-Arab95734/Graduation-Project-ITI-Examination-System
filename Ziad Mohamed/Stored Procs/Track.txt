@@ -1,0 +1,80 @@
+--Insert Track
+
+create or alter proc Create_Track @ID int, @Track_Name nvarchar(max), @dept_id int
+as
+begin
+
+	if @dept_id not in (select Department_ID from Department)
+	begin
+	select 'Department ID does not exist';
+	return;
+	end
+	
+	if @ID in (select track_ID from Track)
+	begin
+	select 'Track ID already exists';
+	return;
+	end
+
+insert into Track values(@ID, @Track_Name, @dept_id);
+select 'Track created successfully';
+end
+
+
+--Delete Track
+
+create or alter proc Delete_Track @ID int
+as 
+begin 
+
+	if @ID not in (select Track_ID from Track)
+	begin
+	select 'Wrong Track ID or Track does not exist';
+	return;
+	end
+
+delete from Track
+where Track_ID = @ID
+select 'Track deleted successfully';
+end
+
+--Update Track Name
+
+Create proc Update_Track_Name @name nvarchar(max), @filter int 
+as
+begin
+	if @filter not in (select track_ID from Track)
+	begin
+	select 'Wrong Track ID or Track does not exist';
+	return;
+	end
+update Track
+set Track_Name = @name
+where Track_ID = @filter
+select 'Track name with ID = ' + cast(@filter as varchar(20)) + ' has been updated to ' +  @name;
+end
+
+--Select Tracks
+
+create or alter proc View_Tracks @Dept_ID int = null
+as
+begin
+	if @Dept_ID is null
+	begin
+		select t.*, d.Department_Name
+		from Track t
+		inner join Department d on t.Department_ID = d.Department_ID;
+		return;
+	end
+
+	if @Dept_ID not in (select Department_ID from Department)
+	begin
+		select 'Wrong Department ID or Department does not exist';
+		return;
+	end
+
+	select t.*, d.Department_Name
+	from Track t
+	inner join Department d on t.Department_ID = d.Department_ID
+	where t.Department_ID = @Dept_ID;
+end

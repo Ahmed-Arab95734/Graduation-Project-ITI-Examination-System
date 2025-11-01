@@ -1,0 +1,139 @@
+--Insert Student_Exam_Questions
+
+create or alter proc assign_exam @exID int, @stID int
+as 
+begin
+
+	if @exID not in (select exam_ID from Exam)
+	begin
+	select 'Exam ID does not exist';
+	return;
+	end
+
+	if @stID not in (select student_ID from Student)
+	begin
+	select 'Student ID does not exist';
+	return;
+	end
+
+	if (select Course_ID from exam where Exam_ID = @exID) not in (select course_ID from Student_Course where Student_ID = @stID)
+	begin
+	select 'Exam course is not the same as the student assigned courses';
+	return;
+	end
+
+insert into Student_Exam_Answer(Exam_ID, Question_ID, Student_ID)
+select exam_ID, question_ID, @stID from Exam_Questions
+where Exam_ID = @exID
+select 'Student with ID = ' + cast(@stID as varchar(15)) + ' was successfully assigned to exam with ID = ' + cast(@exID as varchar(15));
+end
+
+
+--Delete Student_Exam_Questions
+
+create or alter proc unassign_exam @exID int, @stID int
+as
+begin
+	if @exID not in ( select exam_ID from Student_Exam_Answer where Student_ID = @stID)
+	begin
+	select 'Exam is not assigned to student with ID = ' +cast(@stID as varchar(15));
+	return;
+	end
+
+delete from Student_Exam_Answer
+where Exam_ID = @exID and Student_ID = @stID;
+select 'Exam with ID = ' + cast(@exID as varchar(15)) + ' was unassigned from student with ID = ' + cast(@stID as varchar(15));
+end
+
+--Select Student_Exam_Questions
+
+create or alter proc View_Student_Exam @exID int = null, @stID int = null
+as
+begin
+	if @exID is not null and @exID not in (select exam_ID from Student_Exam_Answer)
+	begin
+	select 'Exam ID is not assigned to any student';
+	return;
+	end
+
+	if @stID is not null and @stiD not in (select Student_ID from Student_Exam_Answer)
+	begin
+	select 'Student ID is not assigned to any exam';
+	return;
+	end
+
+	if @exID is not null and @stID is null
+	begin
+	select sea.*, concat(st.student_Fname, ' ', st.student_Lname) as StudentName from 
+	Student_Exam_Answer sea inner join Student st
+	on sea.Student_ID = st.student_ID
+	where sea.Exam_ID = @exID;
+	return;
+	end
+
+	if @exID is null and @stID is not null
+	begin
+	select sea.*, concat(st.student_Fname, ' ', st.student_Lname) as StudentName from Student_Exam_Answer sea inner join Student st
+	on sea.Student_ID = st.student_ID
+	where sea.Student_ID = @stID;
+	return;
+	end
+
+	if @exID is not null and @stID is not null
+	begin
+	select sea.*, concat(st.student_Fname, ' ', st.student_Lname) as StudentName from Student_Exam_Answer sea inner join Student st
+	on sea.Student_ID = st.student_ID
+	where sea.Student_ID = @stID and sea.Exam_ID = @exID;
+	return;
+	end
+
+select sea.*, concat(st.student_Fname, ' ', st.student_Lname) as StudentName from Student_Exam_Answer sea inner join Student st
+on sea.Student_ID = st.student_ID;
+end
+
+--Update
+
+create or alter proc Update_Student_Exam_Student @exID int, @oldStID int, @newStID int
+as
+begin
+    
+    if @exID not in (select Exam_ID from Student_Exam_Answer where Student_ID = @oldStID)
+    begin
+        select 'Exam with ID = ' + cast(@exID as varchar(15)) + 
+               ' is not assigned to Student ID = ' + cast(@oldStID as varchar(15));
+        return;
+    end
+
+    
+    if @newStID not in (select Student_ID from Student)
+    begin
+        select 'New Student ID = ' + cast(@newStID as varchar(15)) + ' does not exist';
+        return;
+    end
+
+    
+    if exists (select 1 from Student_Exam_Answer where Exam_ID = @exID and Student_ID = @newStID)
+    begin
+        select 'Exam with ID = ' + cast(@exID as varchar(15)) + 
+               ' is already assigned to Student ID = ' + cast(@newStID as varchar(15));
+        return;
+    end
+
+    
+    if (select Course_ID from Exam where Exam_ID = @exID)
+        not in (select Course_ID from Student_Course where Student_ID = @newStID)
+    begin
+        select 'New Student ID = ' + cast(@newStID as varchar(15)) + 
+               ' is not enrolled in the course of Exam ID = ' + cast(@exID as varchar(15));
+        return;
+    end
+
+    
+    update Student_Exam_Answer
+    set Student_ID = @newStID
+    where Exam_ID = @exID and Student_ID = @oldStID;
+
+    select 'Student ID for Exam ID = ' + cast(@exID as varchar(15)) + 
+           ' has been updated from ' + cast(@oldStID as varchar(15)) + 
+           ' to ' + cast(@newStID as varchar(15)) + ' successfully';
+end

@@ -1,0 +1,141 @@
+--Insert
+
+create or alter proc add_St_Phone @ID int, @number nvarchar(14)
+as
+begin
+	if @ID not in (select student_ID from Student)
+	begin
+		select 'Student ID does not exist' as Message;
+		return;
+	end
+	
+	if @number in (select phone from student_phone where student_ID = @ID)
+	begin
+		select 'Phone number is already assigned to student ID = ' + cast(@ID as varchar(15)) as Message;
+		return;
+	end
+
+	insert into Student_Phone (Student_ID, Phone)
+	values(@ID, @number);
+
+	select 'Phone number was added to student ID = ' + cast(@ID as varchar(15)) as Message;
+end
+
+
+--Delete
+
+create or alter proc delete_St_Phone @ID int, @number nvarchar(14) = null
+as
+begin
+	if @ID not in (select student_ID from Student)
+	begin
+		select 'Student ID does not exist' as Message;
+		return;
+	end
+
+	if not exists (select 1 from Student_Phone where Student_ID = @ID)
+	begin
+		select 'Student has no phone numbers' as Message;
+		return;
+	end
+
+	if @number is not null and not exists (
+		select 1 from Student_Phone where Student_ID = @ID and Phone = @number
+	)
+	begin
+		select 'Student does not have this phone number' as Message;
+		return;
+	end
+
+	if @number is not null
+	begin
+		delete from Student_Phone
+		where Student_ID = @ID and Phone = @number;
+		select 'Student phone number ' + @number + ' was deleted' as Message;
+		return;
+	end
+
+	delete from Student_Phone
+	where Student_ID = @ID;
+	select 'All phone numbers for student ID = ' + cast(@ID as varchar(15)) + ' were deleted' as Message;
+end
+
+
+--Update
+
+create or alter proc Update_St_Phone @id int, @newnumber nvarchar(14), @oldnum nvarchar(14)
+as 
+begin
+	if @id not in (select student_ID from Student_Phone)
+	begin
+		select 'Student has no phone number' as Message;
+		return;
+	end
+
+	if not exists (select 1 from Student_Phone where Student_ID = @id and Phone = @oldnum)
+	begin
+		select 'Old phone number not found for this student' as Message;
+		return;
+	end
+
+	update Student_Phone 
+	set Phone = @newnumber
+	where Student_ID = @id and Phone = @oldnum;
+
+	select 'Student with ID = ' + cast(@id as varchar(15)) + 
+		   ' phone number was changed from ' + @oldnum + 
+		   ' to ' + @newnumber as Message;
+end
+
+
+--Select
+
+create or alter proc View_St_Phone @ID int = null, @phonenum nvarchar(14) = null
+as
+begin
+	-- Validation
+	if (
+		(@ID is not null and @ID not in (select student_ID from Student_Phone))
+		or
+		(@phonenum is not null and @phonenum not in (select phone from Student_Phone))
+	)
+	begin
+		select 'Student ID does not exist or does not have a phone number' as Message;
+		return;
+	end
+	
+	-- By ID only
+	if @ID is not null and @phonenum is null
+	begin
+		select p.*, concat(s.student_fname, ' ', s.student_lname) as StudentName
+		from Student_Phone p 
+		inner join Student s on p.Student_ID = s.Student_ID
+		where p.Student_ID = @ID;
+		return;
+	end
+
+	-- By ID + phone
+	if @ID is not null and @phonenum is not null
+	begin
+		select p.*, concat(s.student_fname, ' ', s.student_lname) as StudentName
+		from Student_Phone p 
+		inner join Student s on p.Student_ID = s.Student_ID
+		where p.Student_ID = @ID and p.Phone = @phonenum;
+		return;
+	end
+
+	-- By phone only
+	if @ID is null and @phonenum is not null
+	begin
+		select p.*, concat(s.student_fname, ' ', s.student_lname) as StudentName
+		from Student_Phone p 
+		inner join Student s on p.Student_ID = s.Student_ID
+		where p.Phone = @phonenum;
+		return;
+	end
+
+	-- All records
+	select p.*, concat(s.student_fname, ' ', s.student_lname) as StudentName
+	from Student_Phone p 
+	inner join Student s on p.Student_ID = s.Student_ID;
+end

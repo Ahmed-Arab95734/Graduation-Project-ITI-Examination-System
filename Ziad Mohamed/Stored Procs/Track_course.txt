@@ -1,0 +1,155 @@
+--Track_Course Insert
+
+create or alter proc Assign_Course_Track @course_ID int, @Track_ID int
+as
+begin
+	if @course_ID not in (select Course_ID from Course) 
+	   or @Track_ID not in (select Track_ID from Track)
+	begin
+		select 'Course ID or Track ID is invalid or does not exist';
+		return;
+	end
+
+	if exists (select 1 from Track_Course where Course_ID = @course_ID and Track_ID = @Track_ID)
+	begin
+		select 'Course is already assigned to Track ID = ' + cast(@Track_ID as varchar(15));
+		return;
+	end
+
+	insert into Track_Course (Course_ID, Track_ID)
+	values (@course_ID, @Track_ID);
+
+	select 'Course with ID = ' + cast(@course_ID as varchar(15)) + 
+		   ' has been successfully assigned to the Track with ID = ' + cast(@Track_ID as varchar(15));
+end
+
+--Track_Course Delete
+
+create or alter proc unassign_Course_Track @course_ID int, @track_ID int
+as
+begin
+	if not exists (select 1 from Track_Course where Course_ID = @course_ID and Track_ID = @track_ID)
+	begin
+	select 'Course with ID = ' + cast(@course_ID as varchar(15)) +
+		   ' is not assigned to Track with ID = ' + cast(@track_ID as varchar(15));
+	return;
+	end
+
+
+	delete from Track_Course
+	where Course_ID = @course_ID and Track_ID = @track_ID;
+	select 'Course with ID = ' + cast(@course_ID as varchar(15)) + ' was successfully unassigned from the Track with ID = ' + cast(@track_ID as varchar(15));
+
+end
+
+
+--Track_Course Select
+
+create or alter proc View_Track_Course @Track_ID int = null, @Course_ID int = null
+as 
+begin
+	
+	if @Track_ID is null and @Course_ID is null
+	begin
+		select * from Track_Course;
+		return;
+	end
+
+	
+	if @Course_ID is null
+	begin
+		if @Track_ID not in (select Track_ID from Track)
+		begin
+			select 'Invalid Track ID';
+			return;
+		end
+		select * from Track_Course where Track_ID = @Track_ID;
+		return;
+	end
+
+
+	if @Track_ID is null
+	begin
+		if @Course_ID not in (select Course_ID from Course)
+		begin
+			select 'Invalid Course ID';
+			return;
+		end
+		select * from Track_Course where Course_ID = @Course_ID;
+		return;
+	end
+
+	
+	if @Track_ID not in (select Track_ID from Track) or @Course_ID not in (select Course_ID from Course)
+	begin
+		select 'Wrong Track ID or Course ID';
+		return;
+	end
+
+	select * from Track_Course 
+	where Track_ID = @Track_ID and Course_ID = @Course_ID;
+end
+
+
+--Update 
+
+create or alter proc Update_Track_Course @update_Column varchar(20), @set int, @course_ID int, @track_ID int
+as
+begin
+	if @update_Column not in ('Course_ID', 'Track_ID')
+	begin
+		select 'Update_Column must be Course_ID or Track_ID';
+		return;
+	end
+
+	if @update_Column = 'Course_ID' and @set not in (select Course_ID from Course)
+	begin
+		select 'New Course ID does not exist';
+		return;
+	end
+
+	if @update_Column = 'Track_ID' and @set not in (select Track_ID from Track)
+	begin
+		select 'New Track ID does not exist';
+		return;
+	end
+
+	if not exists (select 1 from Track_Course where Course_ID = @course_ID and Track_ID = @track_ID)
+	begin
+		select 'Course + Track combination does not exist';
+		return;
+	end
+
+	if @update_Column = 'Course_ID' 
+		and exists (select 1 from Track_Course where Course_ID = @set and Track_ID = @track_ID)
+	begin
+		select 'This Course + Track combination already exists';
+		return;
+	end
+
+	if @update_Column = 'Track_ID'
+		and exists (select 1 from Track_Course where Course_ID = @course_ID and Track_ID = @set)
+	begin
+		select 'This Course + Track combination already exists';
+		return;
+	end
+
+	if @update_Column = 'Course_ID'
+	begin 
+		exec('update Track_Course set Course_ID = ' + cast(@set as varchar(15)) +
+			 ' where Course_ID = ' + cast(@course_ID as varchar(15)) +
+			 ' and Track_ID = ' + cast(@track_ID as varchar(15)));
+		select 'Course ID updated successfully';
+		return;
+	end
+
+	if @update_Column = 'Track_ID'
+	begin
+		exec('update Track_Course set Track_ID = ' + cast(@set as varchar(15)) +
+			 ' where Course_ID = ' + cast(@course_ID as varchar(15)) +
+			 ' and Track_ID = ' + cast(@track_ID as varchar(15)));
+		select 'Track ID updated successfully';
+		return;
+	end
+end
+
