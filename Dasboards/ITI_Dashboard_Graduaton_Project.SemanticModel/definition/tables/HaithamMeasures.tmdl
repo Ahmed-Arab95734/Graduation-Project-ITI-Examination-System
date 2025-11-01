@@ -1,6 +1,78 @@
 table HaithamMeasures
 	lineageTag: 90789787-27ad-4b31-bd0f-411734b53e3d
 
+	measure 'Total Rating Submitted' = COUNTROWS(FactStudentRating)
+		lineageTag: 12419d00-1bc8-41ed-a260-da35e50b4e26
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Students Submitting Ratings' = DIVIDE(DISTINCTCOUNT(FactStudentRating[StudentKey]), DISTINCTCOUNT(DimStudent[Student_ID]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2b3a2fc6-1f68-402f-8c48-5066390f297d
+
+	measure 'Total Certificates Acquired' = COUNTROWS(FactCertificate)
+		formatString: 0
+		lineageTag: f9eb1d8b-74c2-4768-98b1-a4e280023dfb
+
+	measure '% Students with Certificates' =
+			
+			DIVIDE(
+			    DISTINCTCOUNT(FactCertificate[StudentKey]),
+			    DISTINCTCOUNT(DimStudent[Student_ID])
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a7887ad1-393c-4605-92ac-10ebf4f033f5
+
+	measure 'Total Instructors Rated' = DISTINCTCOUNT(FactStudentRating[InstructorKey])
+		formatString: 0
+		lineageTag: f03bb04a-c394-4ba6-ac73-957b67d66dfa
+
+	measure 'Total Freelance Earning' = SUM(FactFreelanceJob[Job_Earn])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: cf03686d-3d26-4e12-beb7-51e454c1afd0
+
+	measure '% Students with Freelance Jobs' =
+			
+			DIVIDE(
+			    DISTINCTCOUNT(FactFreelanceJob[StudentKey]),
+			    DISTINCTCOUNT(DimStudent[Student_ID])
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6c66eff0-8430-422a-91d2-1f825b5093cd
+
+	measure 'Total Freelance Jobs' = COUNTROWS(FactFreelanceJob)
+		formatString: 0
+		lineageTag: 37ddbe72-4f8e-4982-b2c4-8e600278079a
+
+	measure 'Average Certificates per Student' = DIVIDE(COUNTROWS(FactCertificate), DISTINCTCOUNT(DimStudent[Student_ID]))
+		lineageTag: b22c51ed-35dd-402c-825c-8ad96fed5798
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Certified Students' = DISTINCTCOUNT(FactCertificate[StudentKey])
+		formatString: 0
+		lineageTag: 1a864770-054d-4a60-9195-28e3db5d6659
+
+	measure 'Average Earnings' = AVERAGE(FactFreelanceJob[Job_Earn])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 47d05000-3696-4d89-bee0-2af7b172188f
+
+	measure 'Distinct Both Certified and Freelance' =
+			
+			VAR Certs = VALUES(FactCertificate[StudentKey])
+			VAR Fls = VALUES(FactFreelanceJob[StudentKey])
+			RETURN
+			COUNTROWS(INTERSECT(Certs, Fls))
+		formatString: 0
+		lineageTag: bfe02baf-01c1-4245-9b23-228234f23a11
+
+	measure 'Avg Grade (All Students)' =
+			
+			AVERAGE(FactStudentPerformance[Student_Grade])*10
+		lineageTag: 47003e73-a53c-4967-8d4a-58f5f3380fb8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Column
 		formatString: 0
 		lineageTag: 0c4cdde3-d19b-46b0-9a0e-698d01c80b79

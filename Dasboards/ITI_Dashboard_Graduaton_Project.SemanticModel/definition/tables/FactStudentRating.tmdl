@@ -23,10 +23,10 @@ table FactStudentRating
 		dataType: int64
 		formatString: 0
 		lineageTag: 79ff743e-abfc-430d-bc89-923fe0a39100
-		summarizeBy: sum
+		summarizeBy: count
 		sourceColumn: RatingValue
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	partition FactStudentRating = m
 		mode: import

@@ -14,10 +14,10 @@ table DimStudent
 		dataType: int64
 		formatString: 0
 		lineageTag: a454ca56-9673-461f-8c8c-a615fb2869b4
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: Student_ID
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column Student_FullName
 		dataType: string
