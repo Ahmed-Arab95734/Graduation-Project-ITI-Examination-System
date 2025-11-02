@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "55437ca1661d7abc551d",
   "position": {
     "x": 746.99088145896656,
@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 299.57446808510639,
     "width": 521.33738601823711,
-    "tabOrder": 11000
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "columnChart",
@@ -395,7 +395,21 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "eecc206c846664c17c0b",
+        "name": "e6c51b31ed222faaae25",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Avg Hired Graduates Salaries"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "012e45fd1f2c4b7e4bcd",
         "field": {
           "Column": {
             "Expression": {

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "03f76ef2e539c259eeb2",
   "position": {
     "x": 14.353044240035041,
@@ -7,7 +7,7 @@
     "z": 10000,
     "height": 91.85948313622427,
     "width": 189.46018396846256,
-    "tabOrder": 10000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "slicer",
@@ -88,23 +88,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "19555c1f3510b70e541e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCourse"
-              }
-            },
-            "Property": "Course_Name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

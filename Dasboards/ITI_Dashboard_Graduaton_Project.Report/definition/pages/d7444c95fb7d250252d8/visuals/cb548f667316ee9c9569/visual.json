@@ -6,50 +6,11 @@
     "y": 2.0514208790070825,
     "z": 2000,
     "height": 122.22222222222221,
-    "width": 227.77777777777777
+    "width": 227.77777777777777,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "HaithamMeasures"
-                    }
-                  },
-                  "Property": "Max Age"
-                }
-              },
-              "queryRef": "HaithamMeasures.Max Age",
-              "nativeQueryRef": "Max Age"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "HaithamMeasures"
-                  }
-                },
-                "Property": "Max Age"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    },
     "objects": {
       "categoryLabels": [
         {

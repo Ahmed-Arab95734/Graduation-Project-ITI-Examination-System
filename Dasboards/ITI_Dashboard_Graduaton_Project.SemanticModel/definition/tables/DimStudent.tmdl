@@ -43,14 +43,6 @@ table DimStudent
 
 		annotation SummarizationSetBy = Automatic
 
-	column Student_Address
-		dataType: string
-		lineageTag: 9c6ebb3e-7f34-433c-9594-80565985307e
-		summarizeBy: none
-		sourceColumn: Student_Address
-
-		annotation SummarizationSetBy = Automatic
-
 	column Student_Birthdate
 		dataType: dateTime
 		formatString: Long Date
@@ -174,13 +166,45 @@ table DimStudent
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Student_Address.1'
+		dataType: string
+		lineageTag: 45d1ca06-7442-45b8-8e95-0c583a4301b4
+		summarizeBy: none
+		sourceColumn: Student_Address.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Student_Address.2'
+		dataType: string
+		lineageTag: 1f9b8855-2a5b-4933-aa6c-5d13a61dd5f5
+		summarizeBy: none
+		sourceColumn: Student_Address.2
+
+		annotation SummarizationSetBy = Automatic
+
+	column County
+		dataType: string
+		lineageTag: 4a5d5c38-a229-4535-891f-16e9605567a3
+		summarizeBy: none
+		sourceColumn: County
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimStudent = m
 		mode: import
 		source =
 				let
 				    Source = Sql.Databases("."),
 				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
-				    dbo_DimStudent = ITI_DW{[Schema="dbo",Item="DimStudent"]}[Data]
+				    dbo_DimStudent = ITI_DW{[Schema="dbo",Item="DimStudent"]}[Data],
+				    #"Split Column by Delimiter" = Table.SplitColumn(dbo_DimStudent, "Student_Address", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), {"Student_Address.1", "Student_Address.2"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Student_Address.1", type text}, {"Student_Address.2", type text}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "County", each if [Student_Address.2] = null then [Student_Address.1] else [Student_Address.2]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Conditional Column",{{"County", type text}})
 				in
-				    dbo_DimStudent
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

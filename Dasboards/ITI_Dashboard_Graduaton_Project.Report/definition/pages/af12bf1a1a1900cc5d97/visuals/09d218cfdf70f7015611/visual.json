@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "09d218cfdf70f7015611",
   "position": {
     "x": 267.3904766515605,
     "y": 0,
     "z": 1000,
     "height": 122.70003994141925,
-    "width": 227.28190515382639,
-    "tabOrder": 1000
+    "width": 227.28190515382639
   },
   "visual": {
     "visualType": "card",
@@ -271,23 +270,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "3adc01371bf7f7f8cf06",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "9bfe0723dc666cb5677b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "AhmedMeasures"
-              }
-            },
-            "Property": "Total Exam Attempts"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "3adc01371bf7f7f8cf06"
 }
