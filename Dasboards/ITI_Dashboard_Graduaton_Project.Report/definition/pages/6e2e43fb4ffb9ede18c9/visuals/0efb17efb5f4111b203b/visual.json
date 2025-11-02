@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 245.55555555555554,
     "width": 494.44444444444446,
-    "tabOrder": 4000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "lineChart",
@@ -321,37 +321,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "dcd4b7bcde2909e98442",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDate"
-              }
-            },
-            "Property": "FullDate"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a9f6f39fd1150fa83aeb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. Instructor Rating"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -4,10 +4,10 @@
   "position": {
     "x": 655.2154007391473,
     "y": 254.55494879291007,
-    "z": 4000,
+    "z": 3000,
     "height": 403.67293654733669,
     "width": 353.96694062919448,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "lineChart",
@@ -265,42 +265,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "aab7aa3bfa2536fb24f5",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDate"
-              }
-            },
-            "Property": "FullDate"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "d78a8a597911959e08fd",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FactFreelanceJob"
-                  }
-                },
-                "Property": "FreelanceJobKey"
-              }
-            },
-            "Function": 5
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

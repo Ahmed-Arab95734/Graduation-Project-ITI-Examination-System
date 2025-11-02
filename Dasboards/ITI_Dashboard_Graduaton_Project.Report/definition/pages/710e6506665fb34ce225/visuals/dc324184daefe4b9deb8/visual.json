@@ -4,18 +4,14 @@
   "position": {
     "x": 753.09957924263676,
     "y": 207.34922861150071,
-    "z": 4000,
+    "z": 3000,
     "height": 245.94670406732118,
-    "width": 494.58625525946707,
-    "tabOrder": 3000
+    "width": 494.58625525946707
   },
   "visual": {
     "visualType": "barChart",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": []
-        },
         "Y": {
           "projections": [
             {
@@ -318,23 +314,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "807ffa8d113570b89d87",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Failure Rate %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

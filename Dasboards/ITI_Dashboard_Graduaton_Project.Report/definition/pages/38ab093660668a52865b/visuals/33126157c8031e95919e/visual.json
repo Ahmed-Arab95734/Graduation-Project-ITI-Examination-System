@@ -1,0 +1,32 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "33126157c8031e95919e",
+  "position": {
+    "x": 6.8085106382978724,
+    "y": 559.27051671732522,
+    "z": 11000,
+    "height": 49.6048632218845,
+    "width": 196.47416413373861,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "bookmarkNavigator",
+    "objects": {
+      "bookmarks": [
+        {
+          "properties": {
+            "selectedBookmark": {
+              "expr": {
+                "Literal": {
+                  "Value": "'d1e5bc987327abd17d65'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "howCreated": "InsertVisualButton"
+}

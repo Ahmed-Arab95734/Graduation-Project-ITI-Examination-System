@@ -2,12 +2,16 @@ table _Ziad
 	lineageTag: 5ebf4a66-578b-4a14-b996-65f6ef14f39c
 
 	measure 'Total Students' = DISTINCTCOUNT(DimStudent[Student_ID])
-		formatString: 0.0
+		formatString: 0
 		lineageTag: ef07c578-94e4-4c2c-84d4-b58549e9c665
 
+		annotation PBI_FormatHint = {"isDecimal":true}
+
 	measure 'Total Graduates' = CALCULATE(COUNT(DimStudent[Student_ID]), DimStudent[Student_ITI_Status] = "Graduated" )
-		formatString: 0.0
+		formatString: 0
 		lineageTag: 98bc678d-601a-4d3d-bf14-62187efc084b
+
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'Avg. St. Grade' = AVERAGEX(SUMMARIZE(FactStudentPerformance, FactStudentPerformance[StudentKey], FactStudentPerformance[ExamKey], "Exam Grade", SUM(FactStudentPerformance[Student_Grade])), [Exam Grade])
 		lineageTag: fd2e6261-6e4b-4a16-b047-314081808e4f
@@ -15,7 +19,7 @@ table _Ziad
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg. St. Salary' = AVERAGE(FactStudentOutcomes[Salary])
-		formatString: #,0.00
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 096341b1-9a5e-486e-ab94-be41e84bc774
 
 	measure 'Total Hired Graduates Salaries' = CALCULATE(SUM(FactStudentOutcomes[Salary]), USERELATIONSHIP(FactStudentOutcomes[HireDateKey], DimDate[DateKey]))
@@ -42,7 +46,7 @@ table _Ziad
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Failure Rate %' = DIVIDE(countrows(FactStudentFailure), [Total Students])
-		formatString: 0.00%;-0.00%;0.00%
+		formatString: 0%;-0%;0%
 		lineageTag: f74a0883-e26f-4d93-8867-caa998ca387d
 
 	measure 'Avg. Days-to-Hire' = ```

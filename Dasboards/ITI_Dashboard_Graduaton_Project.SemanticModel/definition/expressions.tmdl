@@ -1,0 +1,13 @@
+expression 'Companies Fileds' =
+		let
+		    Source = Excel.Workbook(File.Contents("F:\courses\iti\ITI Power bi\Final Project\Final Project GitHub\Graduation-Project-ITI-Examination-System\Ibrahim\Companies.xlsx"), null, true),
+		    Table3_Table = Source{[Item="Table3",Kind="Table"]}[Data],
+		    #"Renamed Columns" = Table.RenameColumns(Table3_Table,{{"#", "CompanKey"}})
+		in
+		    #"Renamed Columns"
+	lineageTag: 91dd52bc-6e5f-44bd-9656-89e8a7bfc5d6
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

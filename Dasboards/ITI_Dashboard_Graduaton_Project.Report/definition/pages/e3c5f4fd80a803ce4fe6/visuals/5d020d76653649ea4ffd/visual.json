@@ -7,15 +7,12 @@
     "z": 6000,
     "height": 259.41093969144458,
     "width": 494.58625525946707,
-    "tabOrder": 4000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "barChart",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": []
-        },
         "Y": {
           "projections": [
             {
@@ -318,23 +315,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "82b2cbc8cac49747d5a5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. St. Salary"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
