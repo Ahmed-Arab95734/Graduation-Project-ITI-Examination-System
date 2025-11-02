@@ -1,0 +1,137 @@
+table AhmedMeasures
+	lineageTag: 08be5da3-9ab9-4be7-ab77-e40fac1bab09
+
+	measure 'Avg. Rating' = ```
+			
+			    AVERAGE(FactStudentRating[RatingValue])
+			```
+		lineageTag: d79e0e92-225f-482e-a036-93e287a1b4d9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Ratings' = ```
+			
+			    COUNTROWS(FactStudentRating)
+			```
+		formatString: 0
+		lineageTag: 4224fdbf-fad5-4e0c-8b3e-cd08e7341835
+
+	measure 'Total Exam Attempts' = ```
+			
+			    DISTINCTCOUNT(FactStudentPerformance[ExamKey])
+			```
+		lineageTag: bb4ab897-c330-4c64-801c-e21f630fe8ca
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Instructors' = ```
+			
+			    DISTINCTCOUNT(DimInstructor[InstructorKey])
+			```
+		formatString: 0
+		lineageTag: 24a1faea-debb-43f8-adc9-2e8972093696
+
+	measure 'Avg. Salary' = ```
+			
+			    AVERAGE(DimInstructor[Instructor_Salary])
+			
+			```
+		lineageTag: 655e6e10-749c-45d6-81b0-f6b30b3146c8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Salary (Payroll)' = ```
+			
+			    SUM(DimInstructor[Instructor_Salary])
+			
+			```
+		formatString: 0
+		lineageTag: 92081e97-fdb6-4456-9523-0efd89a31f65
+
+	measure 'Avg. Instructor Age' = ```
+			
+			    AVERAGEX(
+			        DimInstructor,
+			        DATEDIFF(DimInstructor[Instructor_Birthdate], TODAY(), YEAR)
+			    )
+			```
+		lineageTag: 9745ec6b-d292-4d7e-ae44-68b39fd03dc1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg. Rating (Prev. Year)' = ```
+			
+			    CALCULATE(
+			        [Avg. Rating],
+			        SAMEPERIODLASTYEAR(DimDate[FullDate])
+			    )
+			```
+		lineageTag: f7e1bfcc-7390-4070-b25b-4e29eb08a83a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rating YOY Change' = ```
+			
+			    VAR PrevYear = [Avg. Rating (Prev. Year)]
+			    VAR CurrentYear = [Avg. Rating]
+			    RETURN
+			        IF(
+			            NOT ISBLANK(PrevYear) && NOT ISBLANK(CurrentYear),
+			            DIVIDE(CurrentYear - PrevYear, PrevYear)
+			        )
+			```
+		lineageTag: cd0ed6f8-a35e-4e2f-9ae9-5b63eb5318b9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg. Grade (Prev. Year)' = ```
+			
+			    CALCULATE(
+			        [Avg. Grade],
+			        SAMEPERIODLASTYEAR(DimDate[FullDate])
+			    )
+			```
+		lineageTag: 5676c1c3-61a2-4c8a-8c7e-4a828dfb337d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Grade YOY Change' = ```
+			
+			    VAR PrevYear = [Avg. Grade (Prev. Year)]
+			    VAR CurrentYear = [Avg. Grade]
+			    RETURN
+			        IF(
+			            NOT ISBLANK(PrevYear) && NOT ISBLANK(CurrentYear),
+			            DIVIDE(CurrentYear - PrevYear, PrevYear)
+			        )
+			
+			```
+		lineageTag: 666f6b08-2247-47c2-9843-90ba62474ff4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg.Grade' = ```
+			
+			    AVERAGE(FactStudentPerformance[Student_Grade])*10
+			```
+		lineageTag: 10f23101-5372-438e-bb6d-9dcc1b83d0cb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: 1223e819-24cd-4981-b07f-4c3bfb0e5836
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AhmedMeasures = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 6ec2098b7e894fda928eb291b5b7d791
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

@@ -14,10 +14,10 @@ table DimInstructor
 		dataType: int64
 		formatString: 0
 		lineageTag: d789c2bf-86ec-4c42-9e74-e46afcb545a3
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: Instructor_ID
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column Instructor_FullName
 		dataType: string
@@ -96,8 +96,35 @@ table DimInstructor
 		dataType: int64
 		formatString: 0
 		lineageTag: a9cce972-8a7d-4e6f-93ac-868810867df4
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: DepartmentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Manager' = ```
+			
+			    VAR InstructorID = DimInstructor[InstructorKey]
+			    VAR ManagerIDs = VALUES(DimDepartment[Manager_InstructorKey])
+			    RETURN
+			        IF(InstructorID IN ManagerIDs, "Manager", "Instructor")
+			```
+		lineageTag: 8809eea4-4cd1-4c30-8950-adc0f94993ee
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column '-- Add to DimInstructor tableSalary Band' = ```
+			
+			    SWITCH(
+			        TRUE(),
+			        DimInstructor[Instructor_Salary] < 12000, "8K - 12k",
+			        DimInstructor[Instructor_Salary] < 15000, "12k - 15k",
+			        DimInstructor[Instructor_Salary] < 20000, "15k - 20k",
+			        "20k+"
+			    )
+			```
+		lineageTag: 2bde598d-3e65-469c-9717-f3df579e1f94
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
