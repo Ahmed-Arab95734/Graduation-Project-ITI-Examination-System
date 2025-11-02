@@ -332,23 +332,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "ab4204f036d4592e2387",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "31e421e7ae08f90b5b63",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "% Students Submitting Ratings"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "ab4204f036d4592e2387"
 }

@@ -1,0 +1,596 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "Avg. Salary Cert",
+  "name": "22ef8a05376cbc847d41",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "ec2fa56850ccbc53a020",
+    "sections": {
+      "ec2fa56850ccbc53a020": {
+        "visualContainers": {
+          "5ce85662d1d92fb237be": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "e7e19f7ed11af9f62853": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e7a9e85adaf7641a73c8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Salary (With Certs)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3f2348be87904597802b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Salary (Without Certs)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Salary (With Certs)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "7694cdea8619fd0c8269": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "004abdafef380fa47f95": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e2b9b525947a59f73bfc",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Grade (With Certs)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ff0c0be35019823df983",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Grade (Without Certs)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Grade (With Certs)"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "e8f4267e0bd8d20dc1dd": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8f7a0838a2ce51942a7f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Earnings (Freelancers Only)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Earnings (Freelancers Only)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "f0776c1cb2f0704c8094": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "dc2be5116b1581758a1d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Grade (All Students)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Grade (All Students)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "fc97c90ecd5193390a3b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9750ac1ecd42e7136e18",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Grade (Students with Freelance)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Grade (Students with Freelance)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "41cac830efc5dc021138": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e3f3e51005f18a81403f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Earnings (Freelance + Certificate)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Earnings (Freelance + Certificate)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "4598f73d1a005fbb126b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d63a24f1a45ff631e027",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Grade (All Students)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f5b69543d2d95f7670dd",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimStudent"
+                        }
+                      },
+                      "Property": "Has Certificate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c26e1354c1f2aa73d278",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimStudent"
+                        }
+                      },
+                      "Property": "Has Freelance"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3016f7266122893dded8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimTrack"
+                        }
+                      },
+                      "Property": "Track_Name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "decompositionTreeVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg Grade (All Students)"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "ExplainBy": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimTrack"
+                        }
+                      },
+                      "Property": "Track_Name"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimStudent"
+                        }
+                      },
+                      "Property": "Has Certificate"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimStudent"
+                        }
+                      },
+                      "Property": "Has Freelance"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "ExplainBy"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "DimTrack.Track_Name"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DimTrack"
+                              }
+                            },
+                            "Property": "Track_Name"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "DimStudent.Has Certificate"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DimStudent"
+                              }
+                            },
+                            "Property": "Has Certificate"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "DimStudent.Has Freelance"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null,
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'Full Stack Web Development Using MERN'"
+                            }
+                          }
+                        ],
+                        "isToggled": true,
+                        "children": [
+                          {
+                            "identityValues": [
+                              {
+                                "Literal": {
+                                  "Value": "'Yes'"
+                                }
+                              }
+                            ],
+                            "isToggled": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "1fd679771d65d0b63e5b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d6bf1e1d1466c6662d77",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg St. Salary"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "69a709b9b73ba0675cf1",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimStudent"
+                        }
+                      },
+                      "Property": "Freelance Level"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HaithamMeasures"
+                        }
+                      },
+                      "Property": "Avg St. Salary"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimStudent"
+                        }
+                      },
+                      "Property": "Freelance Level"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -15,7 +15,7 @@ table _Ziad
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg. St. Salary' = AVERAGE(FactStudentOutcomes[Salary])
-		formatString: #,0.00
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 096341b1-9a5e-486e-ab94-be41e84bc774
 
 	measure 'Total Hired Graduates Salaries' = CALCULATE(SUM(FactStudentOutcomes[Salary]), USERELATIONSHIP(FactStudentOutcomes[HireDateKey], DimDate[DateKey]))

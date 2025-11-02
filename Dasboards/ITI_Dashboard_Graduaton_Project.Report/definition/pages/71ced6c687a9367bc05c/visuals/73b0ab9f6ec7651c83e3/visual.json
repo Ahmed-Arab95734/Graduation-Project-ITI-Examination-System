@@ -1,20 +1,18 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "73b0ab9f6ec7651c83e3",
   "position": {
     "x": 218.40513357971574,
     "y": 254.55494879291007,
     "z": 5000,
     "height": 403.67293654733669,
-    "width": 402.1666942467869
+    "width": 402.1666942467869,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": []
-        },
         "Series": {
           "projections": [
             {
@@ -279,37 +277,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "136a82253653f07acd69",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimStudent"
-              }
-            },
-            "Property": "Student_Gender"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b0571d5da2cbf639c3fb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Total Students"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

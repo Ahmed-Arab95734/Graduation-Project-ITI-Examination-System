@@ -4,18 +4,15 @@
   "position": {
     "x": 219.08355795148248,
     "y": 466.63072776280319,
-    "z": 6001,
+    "z": 5000,
     "height": 244.95956873315362,
     "width": 494.23180592991912,
-    "tabOrder": 6001
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "barChart",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": []
-        },
         "Y": {
           "projections": [
             {
@@ -318,23 +315,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0d858e41a8564b8ee6fb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Employment Rate %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

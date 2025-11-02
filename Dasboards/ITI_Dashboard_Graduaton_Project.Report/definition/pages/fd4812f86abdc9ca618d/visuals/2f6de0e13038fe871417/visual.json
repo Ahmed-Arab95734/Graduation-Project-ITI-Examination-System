@@ -23,11 +23,11 @@
                       "Entity": "HaithamMeasures"
                     }
                   },
-                  "Property": "Average Earnings"
+                  "Property": "Avg Earning per Job"
                 }
               },
-              "queryRef": "HaithamMeasures.Average Earnings",
-              "nativeQueryRef": "Average Earnings"
+              "queryRef": "HaithamMeasures.Avg Earning per Job",
+              "nativeQueryRef": "Avg Earning per Job"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "HaithamMeasures"
                   }
                 },
-                "Property": "Average Earnings"
+                "Property": "Avg Earning per Job"
               }
             },
             "direction": "Descending"
@@ -227,7 +227,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Avg. Freelance Earning'"
+                  "Value": "'Avg. Freelance Earning per Job'"
                 }
               }
             },
@@ -339,23 +339,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "e2953ee0a8ab611b60c8",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0f06bd56debb149f5444",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Average Earnings"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "e2953ee0a8ab611b60c8"
 }

@@ -58,10 +58,10 @@ table FactStudentPerformance
 	column Student_Grade
 		dataType: double
 		lineageTag: 0c1a9099-6dba-4d53-b70e-f00ca71b46c4
-		summarizeBy: sum
+		summarizeBy: average
 		sourceColumn: Student_Grade
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
