@@ -14,7 +14,7 @@ table DimDepartment
 		dataType: int64
 		formatString: 0
 		lineageTag: 20a1a172-f8fa-4c40-9743-d3e93c5bcc7d
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: Department_ID
 
 		annotation SummarizationSetBy = Automatic
@@ -31,7 +31,7 @@ table DimDepartment
 		dataType: int64
 		formatString: 0
 		lineageTag: 92fdc9f7-ed7c-4020-9ccf-22abdf4f6eb9
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: Manager_InstructorKey
 
 		annotation SummarizationSetBy = Automatic

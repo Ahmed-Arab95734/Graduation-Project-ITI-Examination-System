@@ -7,12 +7,31 @@
     "z": 5000,
     "height": 244.95956873315362,
     "width": 494.23180592991912,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimIntake"
+                    }
+                  },
+                  "Property": "Intake_Type"
+                }
+              },
+              "queryRef": "DimIntake.Intake_Type",
+              "nativeQueryRef": "Intake_Type",
+              "active": true
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {

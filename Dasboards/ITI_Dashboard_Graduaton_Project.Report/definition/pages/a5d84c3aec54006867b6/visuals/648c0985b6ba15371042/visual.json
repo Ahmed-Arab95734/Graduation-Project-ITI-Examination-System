@@ -4,15 +4,33 @@
   "position": {
     "x": 753.09957924263676,
     "y": 207.34922861150071,
-    "z": 6000,
+    "z": 5000,
     "height": 245.94670406732118,
-    "width": 494.58625525946707,
-    "tabOrder": 2000
+    "width": 494.58625525946707
   },
   "visual": {
     "visualType": "barChart",
     "query": {
       "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimBranch"
+                    }
+                  },
+                  "Property": "Branch_Name"
+                }
+              },
+              "queryRef": "DimBranch.Branch_Name",
+              "nativeQueryRef": "Branch_Name",
+              "active": true
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {

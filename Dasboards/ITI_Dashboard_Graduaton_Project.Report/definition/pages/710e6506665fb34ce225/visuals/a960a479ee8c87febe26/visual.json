@@ -6,10 +6,51 @@
     "y": 0,
     "z": 0,
     "height": 122.70003994141925,
-    "width": 227.28190515382639
+    "width": 227.28190515382639,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Ziad"
+                    }
+                  },
+                  "Property": "Total Branches"
+                }
+              },
+              "queryRef": "_Ziad.Total Branches",
+              "nativeQueryRef": "Total Branches"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Ziad"
+                  }
+                },
+                "Property": "Total Branches"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "categoryLabels": [
         {

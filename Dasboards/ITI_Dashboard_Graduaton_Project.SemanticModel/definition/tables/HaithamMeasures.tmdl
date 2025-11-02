@@ -27,7 +27,7 @@ table HaithamMeasures
 		formatString: 0
 		lineageTag: f03bb04a-c394-4ba6-ac73-957b67d66dfa
 
-	measure 'Total Freelance Earning' = CALCULATE(SUM(FactFreelanceJob[Job_Earn]), USERELATIONSHIP(FactFreelanceJob[StudentKey], DimStudent[StudentKey]))
+	measure 'Total Freelance Earning' = SUM(FactFreelanceJob[Job_Earn])
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: cf03686d-3d26-4e12-beb7-51e454c1afd0
 
@@ -50,261 +50,26 @@ table HaithamMeasures
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Certified Students' = DISTINCTCOUNT(FactCertificate[StudentKey])
-		formatString: 0
+		formatString: 0.0
 		lineageTag: 1a864770-054d-4a60-9195-28e3db5d6659
 
-	measure 'Avg Earnings (Freelancers Only)' =
-			
-			AVERAGEX(
-			    FILTER(
-			        VALUES(DimStudent[StudentKey]),
-			        CALCULATE(COUNTROWS(FactFreelanceJob)) > 0
-			    ),
-			    CALCULATE([Total Freelance Earnings])
-			)
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+	measure 'Average Earnings' = AVERAGE(FactFreelanceJob[Job_Earn])
+		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 47d05000-3696-4d89-bee0-2af7b172188f
 
+	measure 'Distinct Both Certified and Freelance' =
+			
+			VAR Certs = VALUES(FactCertificate[StudentKey])
+			VAR Fls = VALUES(FactFreelanceJob[StudentKey])
+			RETURN
+			COUNTROWS(INTERSECT(Certs, Fls))
+		formatString: 0
+		lineageTag: bfe02baf-01c1-4245-9b23-228234f23a11
+
 	measure 'Avg Grade (All Students)' =
-			CALCULATE(
-			AVERAGE(FactStudentPerformance[Student_Grade]) * 10 , USERELATIONSHIP(DimStudent[StudentKey], FactStudentPerformance[StudentKey]))
-		formatString: 0.00
+			
+			AVERAGE(FactStudentPerformance[Student_Grade])*10
 		lineageTag: 47003e73-a53c-4967-8d4a-58f5f3380fb8
-
-	measure 'Avg Grade (Students with Freelance)' =
-			
-			CALCULATE(
-			    [Avg Grade (All Students)],
-			    FILTER(
-			        VALUES(DimStudent[StudentKey]),
-			        CALCULATE(COUNTROWS(FactFreelanceJob)) > 0
-			    )
-			)
-		lineageTag: 0367351d-8f8a-450f-98e5-31ffe7e85855
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Avg Earnings (Freelance + Certificate)' =
-			
-			AVERAGEX(
-			    FILTER(
-			        VALUES(DimStudent[StudentKey]),
-			        CALCULATE(COUNTROWS(FactFreelanceJob)) > 0 &&
-			        CALCULATE(COUNTROWS(FactCertificate)) > 0
-			    ),
-			    CALCULATE([Total Freelance Earnings])
-			)
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
-		lineageTag: 823b45b9-f33e-4bf3-951c-dcc6040021a9
-
-	measure 'Certificate Count per Student' =
-			
-			CALCULATE(
-			    COUNTROWS(FactCertificate),
-			    ALLEXCEPT(FactCertificate, FactCertificate[StudentKey])
-			, USERELATIONSHIP(FactCertificate[StudentKey], DimStudent[StudentKey]))
-		formatString: 0
-		lineageTag: 3fcb064a-9cee-4741-9b1f-2210757b142b
-
-	measure 'Avg Earnings NotCertified' =
-			
-			CALCULATE(AVERAGE(FactFreelanceJob[Job_Earn]),
-			  FILTER(VALUES(DimStudent[Student_ID]), CALCULATE(COUNTROWS(FactCertificate)) = 0)
-			)
-		lineageTag: 9aded490-16ea-4702-87a5-6605925fe6f5
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Avg St. Salary' = CALCULATE(AVERAGE(FactStudentOutcomes[Salary]), USERELATIONSHIP(FactStudentOutcomes[StudentKey], DimStudent[StudentKey]))
-		lineageTag: 9f77e274-0672-4af0-807b-93ff0fbb7bb4
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Avg Salary (With Certs)' =
-			
-			CALCULATE(
-			    [Avg St. Salary],
-			    FILTER(VALUES(DimStudent[StudentKey]),
-			        CALCULATE(COUNTROWS(FactCertificate)) > 0)
-			)
-		lineageTag: 346187ba-7dea-49a1-a1c9-f8fb642119f4
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Avg Salary (Without Certs)' =
-			
-			CALCULATE(
-			    [Avg St. Salary],
-			    FILTER(VALUES(DimStudent[StudentKey]),
-			        CALCULATE(COUNTROWS(FactCertificate)) = 0)
-			)
-		lineageTag: 4165ecac-e497-4463-be2d-50f1096db87f
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Avg Grade (With Certs)' =
-			
-			CALCULATE(
-			    [Avg Grade (All Students)],
-			    FILTER(VALUES(DimStudent[StudentKey]),
-			        CALCULATE(COUNTROWS(FactCertificate)) > 0)
-			)
-		lineageTag: c9a4c36f-7e4a-4ef8-80ff-fa0f5634793a
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Avg Grade (Without Certs)' =
-			
-			CALCULATE(
-			    [Avg Grade (All Students)],
-			    FILTER(VALUES(DimStudent[StudentKey]),
-			        CALCULATE(COUNTROWS(FactCertificate)) = 0)
-			)
-		lineageTag: 7aeaf864-0b83-4ded-9e1a-045ef824c327
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Avg Earning per Job' =
-			
-			AVERAGE(FactFreelanceJob[Job_Earn])
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
-		lineageTag: 0f5956e5-f1d7-4df2-9b77-e404709de6d1
-
-	measure 'Avg Age' = AVERAGE(DimStudent[Age])
-		lineageTag: 513614d0-c356-4b9d-8916-381ba9dd1584
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '% Male' =
-			
-			DIVIDE(
-			    CALCULATE(COUNTROWS(DimStudent), DimStudent[Student_Gender] = "Male"),
-			    [Total Students]
-			)
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: c6d23874-150b-481b-acde-57a49a71fa41
-
-	measure '% Female' =
-			
-			DIVIDE(
-			    CALCULATE(COUNTROWS(DimStudent), DimStudent[Student_Gender] = "Female"),
-			    [Total Students]
-			)
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: d028467f-e26e-43e1-998c-d19e166c2c90
-
-	measure '% Married' =
-			
-			DIVIDE(
-			    CALCULATE(COUNTROWS(DimStudent), DimStudent[Student_Marital_Status] = "Married"),
-			    [Total Students]
-			)
-		lineageTag: 98cb0f30-4e6f-4f1f-a380-bd0182ec6b7a
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '% Single' =
-			
-			DIVIDE(
-			    CALCULATE(COUNTROWS(DimStudent), DimStudent[Student_Marital_Status] = "Single"),
-			    [Total Students]
-			)
-		lineageTag: 4eb25978-14d6-4b37-a492-11a54cf5be95
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '% Graduated Students' =
-			
-			DIVIDE(
-			    CALCULATE(COUNTROWS(DimStudent), DimStudent[Student_ITI_Status] = "Graduated"),
-			    [Total Students]
-			)
-		lineageTag: 9bf7db75-0808-49ff-80b9-8c151ffbab45
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '% Failed to Graduate Students' =
-			
-			DIVIDE(
-			    CALCULATE(COUNTROWS(DimStudent), DimStudent[Student_ITI_Status] = "Failed to Graduate"),
-			    [Total Students]
-			)
-		lineageTag: d02edc50-974a-4365-b091-073fc926285f
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Min Age' =
-			
-			MINX(
-			    DimStudent,
-			    DATEDIFF(DimStudent[Student_Birthdate], TODAY(), YEAR)
-			)
-		formatString: 0
-		lineageTag: da76476c-046c-4ca9-b42e-55560be41c74
-
-	measure 'Max Age' =
-			
-			MAXX(
-			    DimStudent,
-			    DATEDIFF(DimStudent[Student_Birthdate], TODAY(), YEAR)
-			)
-		formatString: 0
-		lineageTag: 6d27c711-818f-42a2-b7d3-b0e437e1f2ea
-
-	measure 'Total Grade (Per Student)' =
-			
-			CALCULATE(
-			    SUM(FactStudentPerformance[Student_Grade]),
-			    USERELATIONSHIP(FactStudentPerformance[StudentKey], DimStudent[StudentKey])
-			)
-		lineageTag: bbe037d1-2bb0-4792-a551-cb85ea90a725
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Current Salary' = ```
-			
-			CALCULATE(
-			    MAX(FactStudentOutcomes[Salary]),
-			    FILTER(
-			        FactStudentOutcomes,
-			        FactStudentOutcomes[StudentKey] = SELECTEDVALUE(DimStudent[StudentKey])
-			    )
-			)
-			
-			```
-		lineageTag: 6f7cc8fd-9f28-4b59-908b-1ede733d2c14
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Track Avg Grade' =
-			
-			CALCULATE(
-			    AVERAGE(FactStudentPerformance[Student_Grade]) *10,
-			    ALLEXCEPT(DimStudent, DimStudent[TrackKey])
-			)
-		lineageTag: 90842e8f-124c-4dff-aed8-77da97ce5462
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Min Grade' = MIN(FactStudentPerformance[Student_Grade]) *10
-		lineageTag: f2ffe79e-4d4e-49bd-9bd8-3013c2b39c71
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Max Grade' = MAX(FactStudentPerformance[Student_Grade])*10
-		lineageTag: 331ab226-59c8-4a3f-97c2-717125c6a6a7
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Avg Grade per Student' =
-			
-			CALCULATE(
-			    AVERAGE(FactStudentPerformance[Student_Grade]),
-			    FILTER(
-			        FactStudentPerformance,
-			        FactStudentPerformance[StudentKey] = SELECTEDVALUE(DimStudent[StudentKey])
-			    ))
-		lineageTag: e5abd441-ccc1-4c97-b1c1-e15a6329ecec
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

@@ -7,7 +7,7 @@
     "z": 0,
     "height": 122.70003994141925,
     "width": 227.28190515382639,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Ziad"
+                      "Entity": "AhmedMeasures"
                     }
                   },
-                  "Property": "Total Students"
+                  "Property": "Total Instructors"
                 }
               },
-              "queryRef": "_Ziad.student count",
-              "nativeQueryRef": "student count"
+              "queryRef": "AhmedMeasures.Total Instructors",
+              "nativeQueryRef": "Total Instructors"
             }
           ]
         }
@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Ziad"
+                    "Entity": "AhmedMeasures"
                   }
                 },
-                "Property": "Total Students"
+                "Property": "Total Instructors"
               }
             },
             "direction": "Descending"
@@ -186,7 +186,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Student'"
+                  "Value": "'Total Instructors '"
                 }
               }
             },

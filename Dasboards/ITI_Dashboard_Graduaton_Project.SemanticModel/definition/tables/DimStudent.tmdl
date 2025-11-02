@@ -14,10 +14,10 @@ table DimStudent
 		dataType: int64
 		formatString: 0
 		lineageTag: 8a232c99-c50a-4798-9750-88263b764451
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: Student_ID
 
-		annotation SummarizationSetBy = User
+		annotation SummarizationSetBy = Automatic
 
 	column Student_FullName
 		dataType: string
@@ -40,14 +40,6 @@ table DimStudent
 		lineageTag: 56175ea4-e698-4785-96f5-a83b758215e2
 		summarizeBy: none
 		sourceColumn: Student_Mail
-
-		annotation SummarizationSetBy = Automatic
-
-	column Student_Address
-		dataType: string
-		lineageTag: 50d6483f-53fb-4ceb-a92d-3d90f0e6795f
-		summarizeBy: none
-		sourceColumn: Student_Address
 
 		annotation SummarizationSetBy = Automatic
 
@@ -174,112 +166,13 @@ table DimStudent
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Freelance Count' =
-			
-			CALCULATE(
-			    COUNTROWS(FactFreelanceJob),
-			    FILTER(
-			        FactFreelanceJob,
-			        FactFreelanceJob[StudentKey] = DimStudent[Student_ID]
-			    )
-			)
-		formatString: 0
-		lineageTag: b2198e6b-2193-4c8b-a324-20e827a0c7c2
-		summarizeBy: sum
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Has Freelance' =
-			
-			IF(
-			    CALCULATE(COUNTROWS(FactFreelanceJob)) > 0,
-			    "Yes", "No"
-			)
-		lineageTag: 8e4ee069-e8fc-4e65-b471-e4fcf686b451
+	column County
+		dataType: string
+		lineageTag: 45efe471-5c2d-4f67-9bfb-e54e1df888a8
 		summarizeBy: none
+		sourceColumn: County
 
 		annotation SummarizationSetBy = Automatic
-
-	column 'Has Certificate' =
-			
-			IF(
-			    CALCULATE(COUNTROWS(FactCertificate)) > 0,
-			    "Yes", "No"
-			)
-		lineageTag: 9cf68080-b2e7-4f87-8153-ad889056d9f7
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Freelance Level' =
-			
-			SWITCH(
-			    TRUE(),
-			    [Freelance Count] = 0, "None",
-			    [Freelance Count] <= 2, "1–2 Jobs",
-			    [Freelance Count] <= 5, "3–5 Jobs",
-			    "6+ Jobs"
-			)
-		lineageTag: b451f4e0-d509-4c11-83c6-4ef3742d981e
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
-	column Age = ```
-			DATEDIFF(DimStudent[Student_Birthdate], TODAY(), YEAR)
-			
-			```
-		formatString: 0
-		lineageTag: 4bf1c0f5-6342-4963-bace-daa3e7eb8105
-		summarizeBy: sum
-
-		annotation SummarizationSetBy = Automatic
-
-	column EmploymentStatus =
-			
-			VAR HasMatch =
-			    LOOKUPVALUE(
-			        FactStudentOutcomes[StudentKey],
-			        FactStudentOutcomes[StudentKey],
-			        DimStudent[StudentKey]
-			    )
-			RETURN
-			IF(NOT(ISBLANK(HasMatch)), "Employed", "Not Employed")
-		lineageTag: 3e3edfba-01c7-4ee5-b978-6f536ddf8fa3
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Current Salary' = ```
-			
-			LOOKUPVALUE(
-			    FactStudentOutcomes[Salary],      -- column we want
-			    FactStudentOutcomes[StudentKey],   -- search column
-			    DimStudent[StudentKey]             -- match this student's ID
-			)
-			
-			```
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
-		lineageTag: db56544d-8159-4f93-94a4-4b4e937d355b
-		summarizeBy: sum
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Avg Grade per Student' =
-			
-			CALCULATE(
-			    AVERAGE(FactStudentPerformance[Student_Grade]),
-			    FILTER(
-			        FactStudentPerformance,
-			        FactStudentPerformance[StudentKey] = DimStudent[StudentKey]
-			    )
-			)
-		lineageTag: 819ea3e7-31b0-4e86-a22a-c6f612f7bebe
-		summarizeBy: sum
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition DimStudent = m
 		mode: import
@@ -287,9 +180,15 @@ table DimStudent
 				let
 				    Source = Sql.Databases("."),
 				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
-				    dbo_DimStudent = ITI_DW{[Schema="dbo",Item="DimStudent"]}[Data]
+				    dbo_DimStudent = ITI_DW{[Schema="dbo",Item="DimStudent"]}[Data],
+				    #"Split Column by Delimiter" = Table.SplitColumn(dbo_DimStudent, "Student_Address", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), {"Student_Address.1", "Student_Address.2"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Student_Address.1", type text}, {"Student_Address.2", type text}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "County", each if [Student_Address.2] = null then [Student_Address.1] else [Student_Address.2]),
+				    #"Removed Columns" = Table.RemoveColumns(#"Added Conditional Column",{"Student_Address.1", "Student_Address.2"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"County", type text}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Changed Type1",{{"County", Text.Trim, type text}})
 				in
-				    dbo_DimStudent
+				    #"Trimmed Text"
 
 	annotation PBI_NavigationStepName = Navigation
 

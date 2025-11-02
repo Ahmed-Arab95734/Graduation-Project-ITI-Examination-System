@@ -7,12 +7,31 @@
     "z": 4000,
     "height": 245.94670406732118,
     "width": 494.58625525946707,
-    "tabOrder": 1000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "barChart",
     "query": {
       "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimTrack"
+                    }
+                  },
+                  "Property": "Track_Name"
+                }
+              },
+              "queryRef": "DimTrack.Track_Name",
+              "nativeQueryRef": "Track_Name",
+              "active": true
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {

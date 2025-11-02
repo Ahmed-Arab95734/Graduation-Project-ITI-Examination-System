@@ -1,0 +1,53 @@
+table HimaMeasures
+	lineageTag: 6099bf17-07d4-458a-b783-1ce10be9c732
+
+	measure 'Total failed' = [Total Students] - [Total Graduates]
+		formatString: 0
+		lineageTag: 4d17e099-d589-43a7-8bf2-e0591617619e
+
+	measure 'Graduation %' = DIVIDE([Total Graduates] , [Total Students])
+		formatString: 0%;-0%;0%
+		lineageTag: 02f0d267-1c65-4bb9-92b8-ec91782e1eab
+
+	measure 'Total student Salary' = SUM(FactStudentOutcomes[Salary])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6364bc1c-e761-4a48-b161-34426d95ce67
+
+	measure 'Avg Hired Graduates Salaries' = CALCULATE(AVERAGE(FactStudentOutcomes[Salary]), USERELATIONSHIP(FactStudentOutcomes[HireDateKey], DimDate[DateKey]))
+		lineageTag: ab554e5c-d6db-426f-8203-c30ec9a268cf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Certicates cost' = CALCULATE(AVERAGE(FactCertificate[Certificate_Cost]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: f5955ef2-9c14-4a2f-ae75-7e167a91e399
+
+	measure 'Total Freelancers' = DISTINCTCOUNT(FactFreelanceJob[StudentKey])
+		formatString: 0.0
+		lineageTag: 4ca0055e-b5f4-4ffb-8cbf-bb4bcd225f4d
+
+	measure 'Total Hired Graduates' = [Total Graduates] * [Employment Rate %]
+		formatString: 0
+		lineageTag: d8f5d496-e963-4b78-b1e7-c3e57b72d8de
+
+	measure 'Total Companies' = COUNTROWS(DimCompany)
+		formatString: 0
+		lineageTag: ee375a55-aed8-42eb-8345-4a45e52bcdac
+
+	column Column
+		formatString: 0
+		lineageTag: 6e458eb2-9f3f-44e3-a01b-49ce6d3b49de
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition HimaMeasures = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = a953d2e9a91a43c28d4666fe250f306e
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

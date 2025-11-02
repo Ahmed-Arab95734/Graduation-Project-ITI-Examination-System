@@ -13,11 +13,6 @@ relationship 9db6ebc3-857f-442b-8d83-15163ba74c90
 	fromColumn: DimInstructor.Instructor_Birthdate
 	toColumn: LocalDateTable_648ff91c-d05b-411e-a19d-eb59dee588a5.Date
 
-relationship 275d50d7-b70f-46c5-abcb-b19db02bb5ff
-	joinOnDateBehavior: datePartOnly
-	fromColumn: DimIntake.Intake_Start_Date
-	toColumn: LocalDateTable_86ce843e-ed53-4f40-b194-098e9b29e737.Date
-
 relationship ac55c810-b83e-4e8c-9bbe-b173a027bc93
 	joinOnDateBehavior: datePartOnly
 	fromColumn: DimIntake.Intake_End_Date
@@ -29,6 +24,7 @@ relationship c97076b7-1d2c-45d3-b01c-254c6eb21330
 	toColumn: LocalDateTable_872af1ea-694b-4fd6-a457-f5c393adf202.Date
 
 relationship 1f31a500-2f3e-45d7-aee8-370dea5709f0
+	isActive: false
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: DimDepartment.Manager_InstructorKey
@@ -37,7 +33,6 @@ relationship 1f31a500-2f3e-45d7-aee8-370dea5709f0
 	annotation PBI_IsFromSource = FS
 
 relationship 5bf6cb56-50b2-4af5-9082-fecac0469e43
-	isActive: false
 	fromColumn: DimInstructor.DepartmentKey
 	toColumn: DimDepartment.DepartmentKey
 
@@ -203,4 +198,11 @@ relationship 316fe649-4172-483f-a7a4-9dba0895152b
 	toColumn: DimStudent.StudentKey
 
 	annotation PBI_IsFromSource = FS
+
+relationship 4bfe0f73-1535-dd93-1b82-7429d517e0be
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: DimIntake.Intake_Start_Date
+	toColumn: DimDate.FullDate
 

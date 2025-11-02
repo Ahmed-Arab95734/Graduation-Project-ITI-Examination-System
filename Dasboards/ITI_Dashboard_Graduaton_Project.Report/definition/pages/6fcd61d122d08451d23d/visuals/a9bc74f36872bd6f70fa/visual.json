@@ -6,7 +6,8 @@
     "y": 0,
     "z": 2000,
     "height": 122.70003994141925,
-    "width": 227.28190515382639
+    "width": 227.28190515382639,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -19,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Ziad"
+                      "Entity": "AhmedMeasures"
                     }
                   },
-                  "Property": "Total Students"
+                  "Property": "Avg. Rating"
                 }
               },
-              "queryRef": "_Ziad.student count",
-              "nativeQueryRef": "student count"
+              "queryRef": "AhmedMeasures.Avg. Rating",
+              "nativeQueryRef": "Avg. Rating"
             }
           ]
         }
@@ -38,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Ziad"
+                    "Entity": "AhmedMeasures"
                   }
                 },
-                "Property": "Total Students"
+                "Property": "Avg. Rating"
               }
             },
             "direction": "Descending"
@@ -260,7 +261,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Student'"
+                  "Value": "'Avg. Rating'"
                 }
               }
             }

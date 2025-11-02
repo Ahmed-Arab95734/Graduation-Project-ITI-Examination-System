@@ -14,10 +14,10 @@ table DimInstructor
 		dataType: int64
 		formatString: 0
 		lineageTag: d789c2bf-86ec-4c42-9e74-e46afcb545a3
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: Instructor_ID
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column Instructor_FullName
 		dataType: string
@@ -96,7 +96,7 @@ table DimInstructor
 		dataType: int64
 		formatString: 0
 		lineageTag: a9cce972-8a7d-4e6f-93ac-868810867df4
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: DepartmentKey
 
 		annotation SummarizationSetBy = Automatic

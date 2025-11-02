@@ -110,6 +110,14 @@ table AhmedMeasures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Avg.Grade' = ```
+			
+			    AVERAGE(FactStudentPerformance[Student_Grade])*10
+			```
+		lineageTag: 10f23101-5372-438e-bb6d-9dcc1b83d0cb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Column
 		formatString: 0
 		lineageTag: 1223e819-24cd-4981-b07f-4c3bfb0e5836
