@@ -29,6 +29,7 @@ relationship c97076b7-1d2c-45d3-b01c-254c6eb21330
 	toColumn: LocalDateTable_872af1ea-694b-4fd6-a457-f5c393adf202.Date
 
 relationship 1f31a500-2f3e-45d7-aee8-370dea5709f0
+	isActive: false
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: DimDepartment.Manager_InstructorKey
@@ -37,7 +38,6 @@ relationship 1f31a500-2f3e-45d7-aee8-370dea5709f0
 	annotation PBI_IsFromSource = FS
 
 relationship 5bf6cb56-50b2-4af5-9082-fecac0469e43
-	isActive: false
 	fromColumn: DimInstructor.DepartmentKey
 	toColumn: DimDepartment.DepartmentKey
 

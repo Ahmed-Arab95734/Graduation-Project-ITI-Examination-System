@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "a0cad70db86dbafc8dfa",
   "position": {
     "x": 218.12061711079946,
@@ -7,15 +7,12 @@
     "z": 5000,
     "height": 245.94670406732118,
     "width": 495.48387096774195,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "barChart",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": []
-        },
         "Y": {
           "projections": [
             {
@@ -318,23 +315,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "543823728e4eecd124ac",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. St. Salary"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

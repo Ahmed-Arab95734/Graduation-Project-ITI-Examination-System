@@ -1,10 +1,10 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "694016445315621c6acf",
   "position": {
     "x": 218.40513357971574,
     "y": 254.55494879291007,
-    "z": 5000,
+    "z": 4000,
     "height": 403.67293654733669,
     "width": 402.1666942467869,
     "tabOrder": 5000
@@ -308,20 +308,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "2e35ad821e49d3e2bbc6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDate"
-              }
-            },
-            "Property": "FullDate"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "d99047c5eb901e89ad7a",
         "field": {
           "Column": {
@@ -350,34 +336,6 @@
         },
         "type": "Categorical",
         "howCreated": "User"
-      },
-      {
-        "name": "e04fa8f2e227fa167c56",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Mahmoud"
-              }
-            },
-            "Property": "Avg. Grade"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "874a68c39ecf147f4c11",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDate"
-              }
-            },
-            "Property": "CalendarYear"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

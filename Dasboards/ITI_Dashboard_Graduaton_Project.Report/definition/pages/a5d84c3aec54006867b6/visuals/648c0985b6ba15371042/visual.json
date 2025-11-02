@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "648c0985b6ba15371042",
   "position": {
     "x": 753.09957924263676,
@@ -7,15 +7,12 @@
     "z": 6000,
     "height": 245.94670406732118,
     "width": 494.58625525946707,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "barChart",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": []
-        },
         "Y": {
           "projections": [
             {
@@ -318,23 +315,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "36f8736fc1893c1b4554",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Total Freelance Earnings"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

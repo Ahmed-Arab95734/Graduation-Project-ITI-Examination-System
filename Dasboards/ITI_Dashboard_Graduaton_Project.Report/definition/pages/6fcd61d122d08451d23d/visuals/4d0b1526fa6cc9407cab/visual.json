@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Ziad"
+                      "Entity": "AhmedMeasures"
                     }
                   },
-                  "Property": "Total Students"
+                  "Property": "Avg.Grade"
                 }
               },
-              "queryRef": "_Ziad.student count",
-              "nativeQueryRef": "student count"
+              "queryRef": "AhmedMeasures.Avg.Grade",
+              "nativeQueryRef": "Avg.Grade"
             }
           ]
         }
@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Ziad"
+                    "Entity": "AhmedMeasures"
                   }
                 },
-                "Property": "Total Students"
+                "Property": "Avg.Grade"
               }
             },
             "direction": "Descending"
@@ -261,7 +261,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Student'"
+                  "Value": "'Avg. Grade'"
                 }
               }
             }
