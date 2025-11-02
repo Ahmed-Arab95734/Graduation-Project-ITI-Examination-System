@@ -4,13 +4,13 @@
   "position": {
     "x": 752.996336996337,
     "y": 466.989010989011,
-    "z": 6001,
+    "z": 6000,
     "height": 244.74725274725276,
     "width": 494.18315018315019,
-    "tabOrder": 5001
+    "tabOrder": 6000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -92,6 +92,13 @@
                   "Value": "false"
                 }
               }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -112,6 +119,13 @@
               }
             },
             "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"

@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 280.44943820224722,
     "width": 521.86195826645269,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "columnChart",
@@ -532,20 +532,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "d5da1e3b916ffc047397",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTrack"
-              }
-            },
-            "Property": "Track_Name"
-          }
-        },
-        "type": "Categorical"
       }
     ],
     "filterSortOrder": "Custom"

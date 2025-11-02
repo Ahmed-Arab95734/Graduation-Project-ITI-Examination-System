@@ -1,15 +1,56 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "a960a479ee8c87febe26",
   "position": {
     "x": 0,
     "y": 0,
     "z": 0,
     "height": 122.70003994141925,
-    "width": 227.28190515382639
+    "width": 227.28190515382639,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Ziad"
+                    }
+                  },
+                  "Property": "Total Branches"
+                }
+              },
+              "queryRef": "_Ziad.Total Branches",
+              "nativeQueryRef": "Total Branches"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Ziad"
+                  }
+                },
+                "Property": "Total Branches"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "categoryLabels": [
         {
@@ -291,5 +332,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "6fc3a79dc6786bce81db"
+  "parentGroupName": "6fc3a79dc6786bce81db",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "42f52fc8d14c11992a97",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Total Branches"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

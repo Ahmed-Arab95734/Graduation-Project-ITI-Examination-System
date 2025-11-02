@@ -6,8 +6,7 @@
     "y": 430.43338683788124,
     "z": 3000,
     "height": 281.47672552166938,
-    "width": 520.83467094703053,
-    "tabOrder": 1000
+    "width": 520.83467094703053
   },
   "visual": {
     "visualType": "columnChart",
@@ -495,34 +494,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "abe9c75ee780ff5cf963",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTrack"
-              }
-            },
-            "Property": "Track_Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "81760e7982d6f03d5cf6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Total student Salary"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

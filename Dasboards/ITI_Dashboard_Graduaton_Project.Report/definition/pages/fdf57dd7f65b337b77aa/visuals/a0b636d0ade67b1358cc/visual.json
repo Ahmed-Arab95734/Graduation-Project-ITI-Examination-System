@@ -6,8 +6,7 @@
     "y": 0,
     "z": 3000,
     "height": 117.54577074223094,
-    "width": 232.777799707891,
-    "tabOrder": 1000
+    "width": 232.777799707891
   },
   "visual": {
     "visualType": "card",
@@ -332,23 +331,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "12d555d881d59a2f6e5e",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "f851e8cb912ce6cdbbad",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Total Freelancers"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "12d555d881d59a2f6e5e"
 }

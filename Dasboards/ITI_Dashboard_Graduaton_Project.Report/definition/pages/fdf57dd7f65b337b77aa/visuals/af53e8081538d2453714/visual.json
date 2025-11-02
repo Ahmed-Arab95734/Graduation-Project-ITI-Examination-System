@@ -7,7 +7,7 @@
     "z": 0,
     "height": 117.54577074223094,
     "width": 232.777799707891,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -332,23 +332,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "12d555d881d59a2f6e5e",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fe04c0458f1863dbf763",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Total Certified Students"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "12d555d881d59a2f6e5e"
 }

@@ -1496,7 +1496,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Ziad",
-			          "ConceptualProperty": "Avg. No. Students Per Track"
+			          "ConceptualProperty": "Avg. No. Students Per Intake"
 			        }
 			      },
 			      "State": "Generated",

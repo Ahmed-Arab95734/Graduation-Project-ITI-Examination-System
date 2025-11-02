@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 118.04375429851596,
     "width": 232.92739363365376,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
@@ -339,23 +339,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "fcb72b2c44f10de4a084",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "6a27aca6af2298ef19b6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Total Students"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "fcb72b2c44f10de4a084"
 }

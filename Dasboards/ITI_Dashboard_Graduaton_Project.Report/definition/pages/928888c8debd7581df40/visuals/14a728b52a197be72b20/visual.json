@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 281.47672552166938,
     "width": 507.47993579454254,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "columnChart",
@@ -494,20 +494,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "7c7a3699630b6f68f585",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Total student Salary"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
