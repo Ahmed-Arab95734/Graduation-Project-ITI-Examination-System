@@ -14,23 +14,7 @@
     "query": {
       "queryState": {
         "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimStudent"
-                    }
-                  },
-                  "Property": "Intake_Name"
-                }
-              },
-              "queryRef": "DimStudent.Intake_Name",
-              "nativeQueryRef": "Intake_Name",
-              "active": true
-            }
-          ]
+          "projections": []
         },
         "Y": {
           "projections": [
@@ -334,5 +318,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3f7c1f00e86da933c3cb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Total Students"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

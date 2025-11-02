@@ -299,7 +299,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "f9750fabfd938e1cfb54",
+        "name": "136a82253653f07acd69",
         "field": {
           "Column": {
             "Expression": {
@@ -307,98 +307,24 @@
                 "Entity": "DimStudent"
               }
             },
-            "Property": "Branch_Name"
+            "Property": "Student_Gender"
           }
         },
-        "type": "TopN",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "subquery",
-              "Expression": {
-                "Subquery": {
-                  "Query": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "d",
-                        "Entity": "DimStudent",
-                        "Type": 0
-                      },
-                      {
-                        "Name": "_",
-                        "Entity": "_Ziad",
-                        "Type": 0
-                      }
-                    ],
-                    "Select": [
-                      {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Source": "d"
-                            }
-                          },
-                          "Property": "Branch_Name"
-                        },
-                        "Name": "field"
-                      }
-                    ],
-                    "OrderBy": [
-                      {
-                        "Direction": 1,
-                        "Expression": {
-                          "Measure": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "_"
-                              }
-                            },
-                            "Property": "Total Students"
-                          }
-                        }
-                      }
-                    ],
-                    "Top": 5
-                  }
-                }
-              },
-              "Type": 2
-            },
-            {
-              "Name": "d",
-              "Entity": "DimStudent",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Branch_Name"
-                      }
-                    }
-                  ],
-                  "Table": {
-                    "SourceRef": {
-                      "Source": "subquery"
-                    }
-                  }
-                }
+        "type": "Categorical"
+      },
+      {
+        "name": "b0571d5da2cbf639c3fb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
               }
-            }
-          ]
+            },
+            "Property": "Total Students"
+          }
         },
-        "isLockedInViewMode": true
+        "type": "Advanced"
       }
     ]
   }

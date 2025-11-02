@@ -1,10 +1,10 @@
 table FactCertificate
-	lineageTag: 8bb19b1b-87e6-433e-889b-0076c26e29db
+	lineageTag: 8d81e07d-92f2-41eb-8013-fdb10eb8b569
 
 	column CertificateLogKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 6c77bd7a-114f-4d2a-9b08-ba6b7fe415c6
+		lineageTag: a3ac405d-4c28-4e40-b47a-f598c27bf051
 		summarizeBy: count
 		sourceColumn: CertificateLogKey
 
@@ -13,7 +13,7 @@ table FactCertificate
 	column StudentKey
 		dataType: int64
 		formatString: 0
-		lineageTag: c451de3b-5656-4482-914f-eb35d816f2b5
+		lineageTag: 7328e234-2064-4545-b564-76157d79da06
 		summarizeBy: none
 		sourceColumn: StudentKey
 
@@ -22,7 +22,7 @@ table FactCertificate
 	column CertificateDateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 97b21a20-3c56-4eb3-bfc7-51cebff00e9f
+		lineageTag: 8605de6c-b6b6-4fe7-b42d-e90405cad39c
 		summarizeBy: none
 		sourceColumn: CertificateDateKey
 
@@ -31,7 +31,7 @@ table FactCertificate
 	column CertificateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 7e1fbd89-9708-4294-86c3-99083fd24f4c
+		lineageTag: e5baee22-61b6-4920-864a-173af4a73fc6
 		summarizeBy: none
 		sourceColumn: CertificateKey
 
@@ -40,7 +40,7 @@ table FactCertificate
 	column ProviderKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 5e1da1c5-54e3-474c-885c-8b7a8e1fa051
+		lineageTag: 3f6d1ebc-4acf-42ce-9a95-b8fd3f45e1e9
 		summarizeBy: none
 		sourceColumn: ProviderKey
 
@@ -48,7 +48,7 @@ table FactCertificate
 
 	column Certificate_Cost
 		dataType: double
-		lineageTag: e6065bf4-d925-4310-9653-58d0686c87cc
+		lineageTag: ed119356-5db9-48cb-b1dd-302748baef31
 		summarizeBy: sum
 		sourceColumn: Certificate_Cost
 
@@ -65,4 +65,8 @@ table FactCertificate
 				    dbo_FactCertificate = ITI_DW{[Schema="dbo",Item="FactCertificate"]}[Data]
 				in
 				    dbo_FactCertificate
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

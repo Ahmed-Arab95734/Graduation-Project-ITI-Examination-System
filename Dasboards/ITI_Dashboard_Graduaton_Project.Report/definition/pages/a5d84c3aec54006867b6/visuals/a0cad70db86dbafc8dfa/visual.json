@@ -14,23 +14,7 @@
     "query": {
       "queryState": {
         "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimStudent"
-                    }
-                  },
-                  "Property": "Branch_Name"
-                }
-              },
-              "queryRef": "DimStudent.Branch_Name",
-              "nativeQueryRef": "Branch_Name",
-              "active": true
-            }
-          ]
+          "projections": []
         },
         "Y": {
           "projections": [
@@ -334,5 +318,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "543823728e4eecd124ac",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Salary"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

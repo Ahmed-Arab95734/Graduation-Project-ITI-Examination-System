@@ -14,23 +14,7 @@
     "query": {
       "queryState": {
         "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimStudent"
-                    }
-                  },
-                  "Property": "Track_Name"
-                }
-              },
-              "queryRef": "DimStudent.Track_Name",
-              "nativeQueryRef": "Track_Name",
-              "active": true
-            }
-          ]
+          "projections": []
         },
         "Y": {
           "projections": [
@@ -328,5 +312,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7a5edbda22bc843fa31f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Total Certificates Acquired"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -1,11 +1,11 @@
 table FactStudentRating
-	lineageTag: 9615062e-01c3-4a3e-bd4a-dd10c0eac3b4
+	lineageTag: 767836fd-70ee-4ace-9757-e9b6ed0ed2ed
 
 	column StudentKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 97e622dd-4a4a-4195-8f92-1d57836f517f
-		summarizeBy: none
+		lineageTag: 3e20e827-4b25-4fb0-ae3a-c7fda91f77bb
+		summarizeBy: count
 		sourceColumn: StudentKey
 
 		annotation SummarizationSetBy = Automatic
@@ -13,7 +13,7 @@ table FactStudentRating
 	column InstructorKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 6659a0ab-7144-4580-a217-b602703dbf61
+		lineageTag: aa7e075d-3e55-4c99-b069-38b00b61c243
 		summarizeBy: none
 		sourceColumn: InstructorKey
 
@@ -22,11 +22,20 @@ table FactStudentRating
 	column RatingValue
 		dataType: int64
 		formatString: 0
-		lineageTag: 79ff743e-abfc-430d-bc89-923fe0a39100
-		summarizeBy: count
+		lineageTag: 9414e789-1e22-4c2f-b98c-0d4016f1af2a
+		summarizeBy: sum
 		sourceColumn: RatingValue
 
-		annotation SummarizationSetBy = User
+		annotation SummarizationSetBy = Automatic
+
+	column RateDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: e93ae974-2672-4fc7-a494-3abc3af5b243
+		summarizeBy: none
+		sourceColumn: RateDateKey
+
+		annotation SummarizationSetBy = Automatic
 
 	partition FactStudentRating = m
 		mode: import

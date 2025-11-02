@@ -1,0 +1,83 @@
+table DimIntake
+	lineageTag: 5b529ec5-271c-4495-af13-43977410c045
+
+	column IntakeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: dbf87753-d872-4241-bb36-bf62d6c8c092
+		summarizeBy: none
+		sourceColumn: IntakeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Intake_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: ed7e3a0f-e797-492e-8ad9-7cdd635ff09d
+		summarizeBy: count
+		sourceColumn: Intake_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Intake_Name
+		dataType: string
+		lineageTag: 523d4b0b-fae7-4a61-b244-fb2c861be6c7
+		summarizeBy: none
+		sourceColumn: Intake_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Intake_Type
+		dataType: string
+		lineageTag: c270c2cf-e9eb-4cbd-8025-6b39accb9975
+		summarizeBy: none
+		sourceColumn: Intake_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Intake_Start_Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f40f3d80-0a33-45b9-a1bf-1aafacfd85ab
+		summarizeBy: none
+		sourceColumn: Intake_Start_Date
+
+		variation Variation
+			isDefault
+			relationship: 275d50d7-b70f-46c5-abcb-b19db02bb5ff
+			defaultHierarchy: LocalDateTable_86ce843e-ed53-4f40-b194-098e9b29e737.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Intake_End_Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f236e8df-2a04-4005-aa4a-4ed28c73034b
+		summarizeBy: none
+		sourceColumn: Intake_End_Date
+
+		variation Variation
+			isDefault
+			relationship: ac55c810-b83e-4e8c-9bbe-b173a027bc93
+			defaultHierarchy: LocalDateTable_6a0608fb-2c93-449d-a7d1-103f9ff05784.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition DimIntake = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
+				    dbo_DimIntake = ITI_DW{[Schema="dbo",Item="DimIntake"]}[Data]
+				in
+				    dbo_DimIntake
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

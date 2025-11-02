@@ -10,34 +10,42 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["DimCertificate","DimCertificateProvider","DimCompany","DimCourse","DimDate","DimExam","DimFailureReason","DimInstructor","DimJobSite","DimQuestion","DimStudent","DimTopic","FactCertificate","FactFreelanceJob","FactStudentFailure","FactStudentOutcomes","FactStudentPerformance","FactStudentRating"]
+annotation PBI_QueryOrder = ["DimBranch","DimCertificateProvider","DimCertificate","DimCompany","DimCourse","DimDate","DimDepartment","DimExam","DimFailureReason","DimInstructor","DimIntake","DimJobSite","DimQuestion","DimStudent","DimTopic","FactCertificate","DimTrack","FactFreelanceJob","FactStudentFailure","FactStudentOutcomes","FactStudentPerformance","FactStudentRating"]
 
-ref table DimCertificate
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+
+ref table _Ziad
+ref table HaithamMeasures
+ref table _Mahmoud
+ref table DimBranch
+ref table DateTableTemplate_d921f2b4-6c24-46f7-aeb4-d26fa1634ebb
+ref table LocalDateTable_8015eab8-0c77-41be-836e-d82b92152063
 ref table DimCertificateProvider
+ref table DimCertificate
 ref table DimCompany
 ref table DimCourse
 ref table DimDate
-ref table DateTableTemplate_43e72e8b-658f-4839-9a01-4b1995ad8629
-ref table LocalDateTable_f2a67918-980d-4d15-a8ee-cc706ec72628
+ref table LocalDateTable_ed44020d-a536-42de-9b46-c7958ae1bf1d
+ref table DimDepartment
 ref table DimExam
 ref table DimFailureReason
 ref table DimInstructor
-ref table LocalDateTable_2eaae032-c3ea-455b-96e3-d0f30194d572
+ref table LocalDateTable_648ff91c-d05b-411e-a19d-eb59dee588a5
+ref table DimIntake
+ref table LocalDateTable_86ce843e-ed53-4f40-b194-098e9b29e737
+ref table LocalDateTable_6a0608fb-2c93-449d-a7d1-103f9ff05784
 ref table DimJobSite
 ref table DimQuestion
 ref table DimStudent
-ref table LocalDateTable_a72cc324-0a18-478b-b0c8-74babc6dd898
-ref table LocalDateTable_c5752f76-6b26-498b-bd0a-271ec2dee2cb
+ref table LocalDateTable_872af1ea-694b-4fd6-a457-f5c393adf202
 ref table DimTopic
 ref table FactCertificate
+ref table DimTrack
 ref table FactFreelanceJob
 ref table FactStudentFailure
 ref table FactStudentOutcomes
 ref table FactStudentPerformance
 ref table FactStudentRating
-ref table _Ziad
-ref table HaithamMeasures
-ref table _Mahmoud
 
 ref cultureInfo en-US
 

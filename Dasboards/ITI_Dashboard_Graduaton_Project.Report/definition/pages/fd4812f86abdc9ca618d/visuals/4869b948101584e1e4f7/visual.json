@@ -14,23 +14,7 @@
     "query": {
       "queryState": {
         "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimStudent"
-                    }
-                  },
-                  "Property": "Track_Name"
-                }
-              },
-              "queryRef": "DimStudent.Track_Name",
-              "nativeQueryRef": "Track_Name",
-              "active": true
-            }
-          ]
+          "projections": []
         },
         "Y": {
           "projections": [
@@ -341,5 +325,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "72f4e13453022078cc08",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Total Freelance Earning"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -1,18 +1,18 @@
 table DimCertificate
-	lineageTag: a1d0a2a2-f212-446b-be37-ff263190541b
+	lineageTag: b2b88ba2-7d98-468a-973a-ae680d4aebc3
 
 	column CertificateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: aa0e5ef0-c8ff-4179-ac6f-9ed93306f54c
-		summarizeBy: count
+		lineageTag: 6f319f0f-e24d-491c-8d9d-e7bb640680da
+		summarizeBy: none
 		sourceColumn: CertificateKey
 
-		annotation SummarizationSetBy = User
+		annotation SummarizationSetBy = Automatic
 
 	column Certificate_Name
 		dataType: string
-		lineageTag: cac2782b-d1dc-43ed-a03b-0e1f444645ae
+		lineageTag: 95fd3ec3-96f7-4dab-852f-f4cf8bf4ce95
 		summarizeBy: none
 		sourceColumn: Certificate_Name
 
@@ -27,4 +27,8 @@ table DimCertificate
 				    dbo_DimCertificate = ITI_DW{[Schema="dbo",Item="DimCertificate"]}[Data]
 				in
 				    dbo_DimCertificate
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

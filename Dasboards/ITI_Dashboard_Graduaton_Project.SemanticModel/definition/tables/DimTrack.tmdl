@@ -1,0 +1,52 @@
+table DimTrack
+	lineageTag: eab75356-075f-41e8-932c-01a5ecf1a006
+
+	column TrackKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b3e9556a-2032-4870-bcad-1bd76f928a46
+		summarizeBy: none
+		sourceColumn: TrackKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Track_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 953fa655-a17f-4b1b-86a9-51b5cc40ee98
+		summarizeBy: count
+		sourceColumn: Track_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Track_Name
+		dataType: string
+		lineageTag: 6e73e0dc-73dd-410d-a266-44d22fe86892
+		summarizeBy: none
+		sourceColumn: Track_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f4c00dbf-bfbb-471f-9ce7-f1ac431b1161
+		summarizeBy: none
+		sourceColumn: DepartmentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimTrack = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
+				    dbo_DimTrack = ITI_DW{[Schema="dbo",Item="DimTrack"]}[Data]
+				in
+				    dbo_DimTrack
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

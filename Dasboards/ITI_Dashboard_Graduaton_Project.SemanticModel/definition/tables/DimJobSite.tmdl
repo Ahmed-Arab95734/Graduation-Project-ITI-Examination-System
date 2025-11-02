@@ -1,10 +1,10 @@
 table DimJobSite
-	lineageTag: 619762df-b8ee-401c-bae0-29983b9abf0d
+	lineageTag: 0c02c2ad-4cda-41d1-81ca-3c52d590889e
 
 	column JobSiteKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 5b1ef030-b5cb-4361-a5c3-5b902e1d148e
+		lineageTag: e8014cf7-dbe9-4400-8256-f621696954c7
 		summarizeBy: none
 		sourceColumn: JobSiteKey
 
@@ -12,7 +12,7 @@ table DimJobSite
 
 	column Job_Site_Name
 		dataType: string
-		lineageTag: 4d83a74c-580c-4ca2-ae72-704bbc4cddef
+		lineageTag: f2fd802c-93ea-4dcd-ab72-a8a4590f6282
 		summarizeBy: none
 		sourceColumn: Job_Site_Name
 
@@ -27,4 +27,8 @@ table DimJobSite
 				    dbo_DimJobSite = ITI_DW{[Schema="dbo",Item="DimJobSite"]}[Data]
 				in
 				    dbo_DimJobSite
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

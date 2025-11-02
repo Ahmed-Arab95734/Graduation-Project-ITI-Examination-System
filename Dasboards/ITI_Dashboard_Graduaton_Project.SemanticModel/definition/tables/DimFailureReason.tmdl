@@ -1,10 +1,10 @@
 table DimFailureReason
-	lineageTag: 6e1fe336-7ec5-4c34-8c37-c2df16a5d255
+	lineageTag: fb57be82-106e-4024-85ec-c9fa93c58964
 
 	column FailureReasonKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 9a267301-bade-4675-9e51-4ce06e4a1c5f
+		lineageTag: f0805787-5936-4224-a097-4ea90fc09598
 		summarizeBy: none
 		sourceColumn: FailureReasonKey
 
@@ -12,7 +12,7 @@ table DimFailureReason
 
 	column Failure_Reason_Text
 		dataType: string
-		lineageTag: a616c5d2-73b7-4bf1-97ca-4987a3f6228a
+		lineageTag: 3b0c55c8-a156-49ee-8121-55fd5b033d1d
 		summarizeBy: none
 		sourceColumn: Failure_Reason_Text
 
@@ -27,4 +27,8 @@ table DimFailureReason
 				    dbo_DimFailureReason = ITI_DW{[Schema="dbo",Item="DimFailureReason"]}[Data]
 				in
 				    dbo_DimFailureReason
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

@@ -1,10 +1,10 @@
 table DimCertificateProvider
-	lineageTag: e80b4c07-6860-4aaf-88da-b2a0ce05ea7d
+	lineageTag: 9be449f4-583c-4fb6-b52d-37361bc95b63
 
 	column ProviderKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 1457a0f3-c203-4b5c-b1fc-25888c27fd96
+		lineageTag: a62bb867-0263-421c-b3c8-fc23be64a0b6
 		summarizeBy: none
 		sourceColumn: ProviderKey
 
@@ -12,7 +12,7 @@ table DimCertificateProvider
 
 	column Provider_Name
 		dataType: string
-		lineageTag: ef171a75-4d75-443b-96d5-9b44b60931c3
+		lineageTag: e2c8d69c-3300-49e3-b61a-89259665a913
 		summarizeBy: none
 		sourceColumn: Provider_Name
 
@@ -27,4 +27,8 @@ table DimCertificateProvider
 				    dbo_DimCertificateProvider = ITI_DW{[Schema="dbo",Item="DimCertificateProvider"]}[Data]
 				in
 				    dbo_DimCertificateProvider
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

@@ -1,10 +1,10 @@
 table DimStudent
-	lineageTag: 7ce20b40-314d-4426-8a5d-bca74520e1e3
+	lineageTag: ca816423-ba23-469a-b54e-0c84bc109538
 
 	column StudentKey
 		dataType: int64
 		formatString: 0
-		lineageTag: ed50c749-35fc-47ce-8fc8-37f8e8f3dda0
+		lineageTag: 99e2c9ef-12d8-4c27-84e6-74335676003e
 		summarizeBy: none
 		sourceColumn: StudentKey
 
@@ -13,15 +13,15 @@ table DimStudent
 	column Student_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: a454ca56-9673-461f-8c8c-a615fb2869b4
-		summarizeBy: none
+		lineageTag: 8a232c99-c50a-4798-9750-88263b764451
+		summarizeBy: count
 		sourceColumn: Student_ID
 
-		annotation SummarizationSetBy = User
+		annotation SummarizationSetBy = Automatic
 
 	column Student_FullName
 		dataType: string
-		lineageTag: d99d9b49-e83c-427a-81e0-bd292db5f26f
+		lineageTag: 649e2ec0-193c-40eb-b8d2-0931a341f1f7
 		summarizeBy: none
 		sourceColumn: Student_FullName
 
@@ -29,7 +29,7 @@ table DimStudent
 
 	column Student_Gender
 		dataType: string
-		lineageTag: 5cc7a08c-85d5-44d2-b634-65756a31c64c
+		lineageTag: 706000cb-3a53-46f0-894f-e26fdb917c57
 		summarizeBy: none
 		sourceColumn: Student_Gender
 
@@ -37,7 +37,7 @@ table DimStudent
 
 	column Student_Mail
 		dataType: string
-		lineageTag: 4f03afa7-bfa4-4e43-8c2d-723a1ce42557
+		lineageTag: 56175ea4-e698-4785-96f5-a83b758215e2
 		summarizeBy: none
 		sourceColumn: Student_Mail
 
@@ -45,7 +45,7 @@ table DimStudent
 
 	column Student_Address
 		dataType: string
-		lineageTag: 73beb0c5-bd8f-46a5-939f-0e92b420e006
+		lineageTag: 50d6483f-53fb-4ceb-a92d-3d90f0e6795f
 		summarizeBy: none
 		sourceColumn: Student_Address
 
@@ -54,14 +54,14 @@ table DimStudent
 	column Student_Birthdate
 		dataType: dateTime
 		formatString: Long Date
-		lineageTag: 57855985-4ed9-4259-a8b7-4c1eeb5438c5
+		lineageTag: 95473c3e-f603-4745-b85e-f2777146d54b
 		summarizeBy: none
 		sourceColumn: Student_Birthdate
 
 		variation Variation
 			isDefault
-			relationship: 765f284e-65f5-493f-b7fb-aab788e5abd8
-			defaultHierarchy: LocalDateTable_a72cc324-0a18-478b-b0c8-74babc6dd898.'Date Hierarchy'
+			relationship: c97076b7-1d2c-45d3-b01c-254c6eb21330
+			defaultHierarchy: LocalDateTable_872af1ea-694b-4fd6-a457-f5c393adf202.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -69,7 +69,7 @@ table DimStudent
 
 	column Phone
 		dataType: string
-		lineageTag: 4b1a6479-3962-4182-bdf5-757887b929e1
+		lineageTag: cc3d4ff7-0f62-49b0-97aa-59ee9fdd182d
 		summarizeBy: none
 		sourceColumn: Phone
 
@@ -77,7 +77,7 @@ table DimStudent
 
 	column Student_Marital_Status
 		dataType: string
-		lineageTag: e282a0fa-0fe5-4c06-aaab-62e8e507ad86
+		lineageTag: 8f0165ee-baef-4156-9c7f-d3da9788369a
 		summarizeBy: none
 		sourceColumn: Student_Marital_Status
 
@@ -85,7 +85,7 @@ table DimStudent
 
 	column Student_Faculty
 		dataType: string
-		lineageTag: e4235c22-495b-4b57-b007-186450bfb7d2
+		lineageTag: 9e6db8c6-7872-46d9-9edd-f0b0fac7699c
 		summarizeBy: none
 		sourceColumn: Student_Faculty
 
@@ -93,7 +93,7 @@ table DimStudent
 
 	column Student_Faculty_Grade
 		dataType: string
-		lineageTag: 117d8476-1624-4a97-a2a2-dfc526bb0b05
+		lineageTag: 6818a168-fa64-4372-9f35-8cbfdf9ccd16
 		summarizeBy: none
 		sourceColumn: Student_Faculty_Grade
 
@@ -101,55 +101,42 @@ table DimStudent
 
 	column Student_ITI_Status
 		dataType: string
-		lineageTag: c4dae6cb-b4a7-4493-95a6-504e48bb7f48
+		lineageTag: 19c6d91d-41d2-4fee-847f-76832aa2359a
 		summarizeBy: none
 		sourceColumn: Student_ITI_Status
 
 		annotation SummarizationSetBy = Automatic
 
-	column Track_Name
-		dataType: string
-		lineageTag: b95666da-5aad-47c2-b69a-4e125683eb65
+	column TrackKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a5f8fb7f-413a-4e47-91fd-f75cefc89414
 		summarizeBy: none
-		sourceColumn: Track_Name
+		sourceColumn: TrackKey
 
 		annotation SummarizationSetBy = Automatic
 
-	column Branch_Name
-		dataType: string
-		lineageTag: 3d0d50c5-92ce-482a-bcd4-f34be8b4b1be
+	column BranchKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 85465ae2-01ec-49d1-8574-123692086091
 		summarizeBy: none
-		sourceColumn: Branch_Name
+		sourceColumn: BranchKey
 
 		annotation SummarizationSetBy = Automatic
 
-	column Intake_Name
-		dataType: string
-		lineageTag: 065f5da9-97c2-4c99-bd17-73622a3dace7
+	column IntakeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e7df60a-dfb7-433a-a7b9-1b5235864630
 		summarizeBy: none
-		sourceColumn: Intake_Name
+		sourceColumn: IntakeKey
 
 		annotation SummarizationSetBy = Automatic
-
-	column Expected_Graduation_Date
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 54d48c91-9063-4a25-a403-7f0237bb0605
-		summarizeBy: none
-		sourceColumn: Expected_Graduation_Date
-
-		variation Variation
-			isDefault
-			relationship: c7696021-d02c-4fc4-adab-e80c68385733
-			defaultHierarchy: LocalDateTable_c5752f76-6b26-498b-bd0a-271ec2dee2cb.'Date Hierarchy'
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
 
 	column Social_Facebook
 		dataType: string
-		lineageTag: 1f26ecaa-b4c8-4afa-a44d-6cb286c655c6
+		lineageTag: cc0ff4d0-6489-4cef-bf97-c65e15d5b377
 		summarizeBy: none
 		sourceColumn: Social_Facebook
 
@@ -157,7 +144,7 @@ table DimStudent
 
 	column Social_LinkedIn
 		dataType: string
-		lineageTag: eb9818b0-a6cb-4d57-9867-4a2fa6ff684e
+		lineageTag: 4f4c4d58-7fbd-4fa5-81f5-cedb508597d0
 		summarizeBy: none
 		sourceColumn: Social_LinkedIn
 
@@ -165,7 +152,7 @@ table DimStudent
 
 	column Social_GitHub
 		dataType: string
-		lineageTag: 11c8a4cd-8fd1-4b68-a6ff-8636a9645f33
+		lineageTag: 937cbabf-9a4e-4f50-ba06-27ba01e4f92e
 		summarizeBy: none
 		sourceColumn: Social_GitHub
 
@@ -173,7 +160,7 @@ table DimStudent
 
 	column Social_X
 		dataType: string
-		lineageTag: ae448138-d038-45cf-b702-516e6dd2983d
+		lineageTag: cbaa9d90-569f-453c-968f-2936fc79c370
 		summarizeBy: none
 		sourceColumn: Social_X
 
@@ -181,7 +168,7 @@ table DimStudent
 
 	column Social_Instagram
 		dataType: string
-		lineageTag: 285e6f6a-8289-44cd-bee1-c8890190588e
+		lineageTag: a0f7c299-8c6c-4492-91f7-f6565a9dc622
 		summarizeBy: none
 		sourceColumn: Social_Instagram
 
@@ -196,4 +183,8 @@ table DimStudent
 				    dbo_DimStudent = ITI_DW{[Schema="dbo",Item="DimStudent"]}[Data]
 				in
 				    dbo_DimStudent
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

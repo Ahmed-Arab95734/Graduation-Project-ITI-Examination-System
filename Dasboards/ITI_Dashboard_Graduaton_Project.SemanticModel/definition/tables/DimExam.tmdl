@@ -1,10 +1,10 @@
 table DimExam
-	lineageTag: b6f041cb-d81c-440f-b613-f34588bc57c7
+	lineageTag: e4382d2f-e421-4bca-b0b4-bb8686f6e0e3
 
 	column ExamKey
 		dataType: int64
 		formatString: 0
-		lineageTag: b02cfe36-911a-497d-93d7-8680c1528e61
+		lineageTag: e07e5a2a-7ca3-4f22-ace3-0d26e0d7fb7e
 		summarizeBy: none
 		sourceColumn: ExamKey
 
@@ -13,7 +13,7 @@ table DimExam
 	column Exam_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: e1a97424-b477-4279-acfd-90c2c3f21729
+		lineageTag: 7597afc5-c091-4f70-ad12-946c1ed80ebd
 		summarizeBy: none
 		sourceColumn: Exam_ID
 
@@ -21,7 +21,7 @@ table DimExam
 
 	column Exam_Type
 		dataType: string
-		lineageTag: 9ba749c5-c1fe-47b9-864a-348028fe5ac7
+		lineageTag: 7b44c84e-90df-459a-b852-6d0bd59ccae0
 		summarizeBy: none
 		sourceColumn: Exam_Type
 
@@ -30,7 +30,7 @@ table DimExam
 	column Exam_Duration_Minutes
 		dataType: int64
 		formatString: 0
-		lineageTag: 931a29c1-762e-46da-9056-3cb2aa2d5f8d
+		lineageTag: 9bf74f5e-592c-4f85-b90c-9160d1f02275
 		summarizeBy: none
 		sourceColumn: Exam_Duration_Minutes
 
@@ -45,4 +45,8 @@ table DimExam
 				    dbo_DimExam = ITI_DW{[Schema="dbo",Item="DimExam"]}[Data]
 				in
 				    dbo_DimExam
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

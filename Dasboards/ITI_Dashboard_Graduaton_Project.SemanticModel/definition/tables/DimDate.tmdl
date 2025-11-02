@@ -1,10 +1,10 @@
 table DimDate
-	lineageTag: b4da776c-94bb-4b86-a888-eb70561634be
+	lineageTag: c1c2408c-b29f-4c48-94bf-ddac7b4d15b1
 
 	column DateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 907b16d3-b118-4049-973f-e01ff410195c
+		lineageTag: 0eef4da2-531e-4571-a05c-b3178b209a56
 		summarizeBy: none
 		sourceColumn: DateKey
 
@@ -13,14 +13,14 @@ table DimDate
 	column FullDate
 		dataType: dateTime
 		formatString: Long Date
-		lineageTag: 2a914e39-7116-4f57-a3a2-7c25eca55806
+		lineageTag: 4b25159d-98fa-43d5-b204-d1844fae022a
 		summarizeBy: none
 		sourceColumn: FullDate
 
 		variation Variation
 			isDefault
-			relationship: a6be97a1-dbba-4247-8afb-001645988eb4
-			defaultHierarchy: LocalDateTable_f2a67918-980d-4d15-a8ee-cc706ec72628.'Date Hierarchy'
+			relationship: bb90443b-a64d-48a7-a681-f8cd5b7849a9
+			defaultHierarchy: LocalDateTable_ed44020d-a536-42de-9b46-c7958ae1bf1d.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -28,7 +28,7 @@ table DimDate
 
 	column DayNameOfWeek
 		dataType: string
-		lineageTag: 8c5a59ed-7919-430f-8213-a6b39a94eddb
+		lineageTag: e2ec6ed7-ff34-44d4-958e-87d627de2d01
 		summarizeBy: none
 		sourceColumn: DayNameOfWeek
 
@@ -36,7 +36,7 @@ table DimDate
 
 	column MonthName
 		dataType: string
-		lineageTag: f92cec61-1b6d-4cac-a35d-5a82013b146b
+		lineageTag: 7d86e69f-623c-4fee-b1a8-2d23d2b6aacb
 		summarizeBy: none
 		sourceColumn: MonthName
 
@@ -45,7 +45,7 @@ table DimDate
 	column MonthNumberOfYear
 		dataType: int64
 		formatString: 0
-		lineageTag: 2f6139e4-75ac-4d32-9eff-cf5b52cf6d4e
+		lineageTag: 3267fd31-461e-4d95-af1a-9da46d23d44e
 		summarizeBy: sum
 		sourceColumn: MonthNumberOfYear
 
@@ -54,7 +54,7 @@ table DimDate
 	column CalendarQuarter
 		dataType: int64
 		formatString: 0
-		lineageTag: 84b4d069-aa20-4d59-ae59-4546486b0134
+		lineageTag: 3663d966-4fce-4914-b911-cc12f1222c96
 		summarizeBy: sum
 		sourceColumn: CalendarQuarter
 
@@ -63,11 +63,11 @@ table DimDate
 	column CalendarYear
 		dataType: int64
 		formatString: 0
-		lineageTag: 38c1c524-4d4b-4b3c-a244-6ef9565574ea
-		summarizeBy: none
+		lineageTag: 2b4779e1-99f9-41b2-8c7a-3fbcc814a158
+		summarizeBy: sum
 		sourceColumn: CalendarYear
 
-		annotation SummarizationSetBy = User
+		annotation SummarizationSetBy = Automatic
 
 	partition DimDate = m
 		mode: import
@@ -78,4 +78,8 @@ table DimDate
 				    dbo_DimDate = ITI_DW{[Schema="dbo",Item="DimDate"]}[Data]
 				in
 				    dbo_DimDate
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

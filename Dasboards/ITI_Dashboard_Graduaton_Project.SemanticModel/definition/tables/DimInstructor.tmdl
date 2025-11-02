@@ -1,10 +1,10 @@
 table DimInstructor
-	lineageTag: 08ef8eb5-8796-461a-bfc9-91ed5d9c7464
+	lineageTag: b1059ebf-790f-4213-a30f-2a7180a9a542
 
 	column InstructorKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 59d9bb7c-3b96-4442-8dbc-07c2ce722c87
+		lineageTag: 55e12e7d-c9f8-4b1e-87dd-526794d597e6
 		summarizeBy: none
 		sourceColumn: InstructorKey
 
@@ -13,7 +13,7 @@ table DimInstructor
 	column Instructor_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: 438cad1b-eea4-4999-ad11-6ec6eb50a10b
+		lineageTag: d789c2bf-86ec-4c42-9e74-e46afcb545a3
 		summarizeBy: count
 		sourceColumn: Instructor_ID
 
@@ -21,7 +21,7 @@ table DimInstructor
 
 	column Instructor_FullName
 		dataType: string
-		lineageTag: 057f8295-f0de-4112-af58-1d1a7d199d1a
+		lineageTag: 51ad7cbe-813b-4b82-9614-5e7f4fd3385a
 		summarizeBy: none
 		sourceColumn: Instructor_FullName
 
@@ -29,7 +29,7 @@ table DimInstructor
 
 	column Instructor_Gender
 		dataType: string
-		lineageTag: 96d5ef56-9311-4dfc-9db6-ea2424d005c3
+		lineageTag: dcdcb934-849c-4a63-a67e-728fa8ba9abb
 		summarizeBy: none
 		sourceColumn: Instructor_Gender
 
@@ -38,14 +38,14 @@ table DimInstructor
 	column Instructor_Birthdate
 		dataType: dateTime
 		formatString: Long Date
-		lineageTag: 72b73230-e230-47bd-8f11-8b87f6c89e3b
+		lineageTag: e9ff6406-1dd2-46b7-b5d8-ac56eacf4e40
 		summarizeBy: none
 		sourceColumn: Instructor_Birthdate
 
 		variation Variation
 			isDefault
-			relationship: aa60bfee-d6df-47c6-8509-7e7faaf6e516
-			defaultHierarchy: LocalDateTable_2eaae032-c3ea-455b-96e3-d0f30194d572.'Date Hierarchy'
+			relationship: 9db6ebc3-857f-442b-8d83-15163ba74c90
+			defaultHierarchy: LocalDateTable_648ff91c-d05b-411e-a19d-eb59dee588a5.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -53,7 +53,7 @@ table DimInstructor
 
 	column Instructor_Marital_Status
 		dataType: string
-		lineageTag: 9e040f43-dcdd-49dc-93f7-2161117c2384
+		lineageTag: b4edf742-0735-4ac4-b3c7-13a154d91a71
 		summarizeBy: none
 		sourceColumn: Instructor_Marital_Status
 
@@ -61,7 +61,7 @@ table DimInstructor
 
 	column Instructor_Contract_Type
 		dataType: string
-		lineageTag: 19732253-d23e-45c1-920b-9ba5af116007
+		lineageTag: 819348fb-15d5-4f0b-8c32-535d506563fc
 		summarizeBy: none
 		sourceColumn: Instructor_Contract_Type
 
@@ -70,7 +70,7 @@ table DimInstructor
 	column Instructor_Salary
 		dataType: int64
 		formatString: 0
-		lineageTag: cbe3a8c6-bf45-4df9-b78b-bc70de365b42
+		lineageTag: 73997478-a012-46f0-9b6c-db69f8622ba1
 		summarizeBy: sum
 		sourceColumn: Instructor_Salary
 
@@ -78,7 +78,7 @@ table DimInstructor
 
 	column Instructor_Email
 		dataType: string
-		lineageTag: f7194016-1c2f-4904-a071-e503a6496efd
+		lineageTag: 4c7db3e6-fd06-4770-97d7-ae9b605ef2fa
 		summarizeBy: none
 		sourceColumn: Instructor_Email
 
@@ -86,25 +86,18 @@ table DimInstructor
 
 	column Phone
 		dataType: string
-		lineageTag: 3efb9668-6ae9-4641-80e4-80466ca0de76
+		lineageTag: 7aa09801-b9f2-458c-9751-556f5a2c665c
 		summarizeBy: none
 		sourceColumn: Phone
 
 		annotation SummarizationSetBy = Automatic
 
-	column Is_Manger
-		dataType: string
-		lineageTag: 0263e27d-4c46-42db-83c2-30785299d669
-		summarizeBy: none
-		sourceColumn: Is_Manger
-
-		annotation SummarizationSetBy = Automatic
-
-	column Department_Name
-		dataType: string
-		lineageTag: 91ca9b10-698b-4c67-98ec-ab88bd7fb4d8
-		summarizeBy: none
-		sourceColumn: Department_Name
+	column DepartmentKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a9cce972-8a7d-4e6f-93ac-868810867df4
+		summarizeBy: count
+		sourceColumn: DepartmentKey
 
 		annotation SummarizationSetBy = Automatic
 
@@ -117,4 +110,8 @@ table DimInstructor
 				    dbo_DimInstructor = ITI_DW{[Schema="dbo",Item="DimInstructor"]}[Data]
 				in
 				    dbo_DimInstructor
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

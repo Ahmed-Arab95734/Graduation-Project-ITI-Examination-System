@@ -1,10 +1,10 @@
 table DimTopic
-	lineageTag: 879c7566-5b00-40f5-8526-1ded3f5d6d43
+	lineageTag: c668ae53-a56e-4632-8b5d-18a7e96ed8cf
 
 	column TopicKey
 		dataType: int64
 		formatString: 0
-		lineageTag: f0524ccd-ab2d-4b14-852c-a4917e27cfb4
+		lineageTag: 3cf98db2-f39d-433c-ab4b-3c608bbbae35
 		summarizeBy: count
 		sourceColumn: TopicKey
 
@@ -13,7 +13,7 @@ table DimTopic
 	column Topic_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: e485f854-8ab9-467c-85db-a7769cfabba3
+		lineageTag: ef9242f2-d80d-4e3f-a9c5-e49703e570fa
 		summarizeBy: count
 		sourceColumn: Topic_ID
 
@@ -21,7 +21,7 @@ table DimTopic
 
 	column Topic_Name
 		dataType: string
-		lineageTag: 94c5810f-8aa5-4a61-9b40-c04d676927cb
+		lineageTag: 224ab7fc-1197-438d-8ae2-74775355c4ef
 		summarizeBy: none
 		sourceColumn: Topic_Name
 
@@ -30,7 +30,7 @@ table DimTopic
 	column CourseKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 49244fff-45d0-40c4-bb5c-2323a37f6ce8
+		lineageTag: 121b79fc-b4a7-42d9-bde5-9f81134c458e
 		summarizeBy: none
 		sourceColumn: CourseKey
 
@@ -45,4 +45,8 @@ table DimTopic
 				    dbo_DimTopic = ITI_DW{[Schema="dbo",Item="DimTopic"]}[Data]
 				in
 				    dbo_DimTopic
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

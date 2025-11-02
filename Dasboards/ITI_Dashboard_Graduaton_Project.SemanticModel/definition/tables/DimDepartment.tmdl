@@ -1,0 +1,52 @@
+table DimDepartment
+	lineageTag: 58c1326e-3edf-404d-ac60-198b4425f950
+
+	column DepartmentKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c14d6738-1857-473a-8996-f9a3f5222713
+		summarizeBy: none
+		sourceColumn: DepartmentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 20a1a172-f8fa-4c40-9743-d3e93c5bcc7d
+		summarizeBy: none
+		sourceColumn: Department_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department_Name
+		dataType: string
+		lineageTag: 4e5e0030-f857-4474-9932-e5bb722b09e8
+		summarizeBy: none
+		sourceColumn: Department_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manager_InstructorKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 92fdc9f7-ed7c-4020-9ccf-22abdf4f6eb9
+		summarizeBy: none
+		sourceColumn: Manager_InstructorKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDepartment = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
+				    dbo_DimDepartment = ITI_DW{[Schema="dbo",Item="DimDepartment"]}[Data]
+				in
+				    dbo_DimDepartment
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
