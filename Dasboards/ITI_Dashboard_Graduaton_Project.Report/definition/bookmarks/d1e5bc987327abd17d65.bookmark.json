@@ -186,24 +186,13 @@
                   "name": "a2ec8923db90102a590a",
                   "type": "Advanced",
                   "expression": {
-                    "HierarchyLevel": {
+                    "Column": {
                       "Expression": {
-                        "Hierarchy": {
-                          "Expression": {
-                            "PropertyVariationSource": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Name": "Variation",
-                              "Property": "FullDate"
-                            }
-                          },
-                          "Hierarchy": "Date Hierarchy"
+                        "SourceRef": {
+                          "Entity": "DimDate"
                         }
                       },
-                      "Level": "Year"
+                      "Property": "FullDate"
                     }
                   },
                   "howCreated": 0
@@ -212,24 +201,13 @@
                   "name": "071dd014f4ba5537a983",
                   "type": "Categorical",
                   "expression": {
-                    "HierarchyLevel": {
+                    "Column": {
                       "Expression": {
-                        "Hierarchy": {
-                          "Expression": {
-                            "PropertyVariationSource": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Name": "Variation",
-                              "Property": "FullDate"
-                            }
-                          },
-                          "Hierarchy": "Date Hierarchy"
+                        "SourceRef": {
+                          "Entity": "DimDate"
                         }
                       },
-                      "Level": "Quarter"
+                      "Property": "FullDate"
                     }
                   },
                   "howCreated": 0
@@ -238,24 +216,13 @@
                   "name": "886dfd62ab6800e0c1db",
                   "type": "Categorical",
                   "expression": {
-                    "HierarchyLevel": {
+                    "Column": {
                       "Expression": {
-                        "Hierarchy": {
-                          "Expression": {
-                            "PropertyVariationSource": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Name": "Variation",
-                              "Property": "FullDate"
-                            }
-                          },
-                          "Hierarchy": "Date Hierarchy"
+                        "SourceRef": {
+                          "Entity": "DimDate"
                         }
                       },
-                      "Level": "Month"
+                      "Property": "FullDate"
                     }
                   },
                   "howCreated": 0
@@ -264,24 +231,13 @@
                   "name": "bdb99e0c56e85b7ba999",
                   "type": "Advanced",
                   "expression": {
-                    "HierarchyLevel": {
+                    "Column": {
                       "Expression": {
-                        "Hierarchy": {
-                          "Expression": {
-                            "PropertyVariationSource": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Name": "Variation",
-                              "Property": "FullDate"
-                            }
-                          },
-                          "Hierarchy": "Date Hierarchy"
+                        "SourceRef": {
+                          "Entity": "DimDate"
                         }
                       },
-                      "Level": "Day"
+                      "Property": "FullDate"
                     }
                   },
                   "howCreated": 0
@@ -309,24 +265,13 @@
               "activeProjections": {
                 "Category": [
                   {
-                    "HierarchyLevel": {
+                    "Column": {
                       "Expression": {
-                        "Hierarchy": {
-                          "Expression": {
-                            "PropertyVariationSource": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Name": "Variation",
-                              "Property": "FullDate"
-                            }
-                          },
-                          "Hierarchy": "Date Hierarchy"
+                        "SourceRef": {
+                          "Entity": "DimDate"
                         }
                       },
-                      "Level": "Month"
+                      "Property": "FullDate"
                     }
                   }
                 ]
@@ -921,24 +866,13 @@
                   "name": "39c7c8e1251534249492",
                   "type": "Advanced",
                   "expression": {
-                    "HierarchyLevel": {
+                    "Column": {
                       "Expression": {
-                        "Hierarchy": {
-                          "Expression": {
-                            "PropertyVariationSource": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Name": "Variation",
-                              "Property": "FullDate"
-                            }
-                          },
-                          "Hierarchy": "Date Hierarchy"
+                        "SourceRef": {
+                          "Entity": "DimDate"
                         }
                       },
-                      "Level": "Year"
+                      "Property": "FullDate"
                     }
                   },
                   "howCreated": 0
@@ -947,24 +881,13 @@
                   "name": "d48191ada0163c1a1529",
                   "type": "Categorical",
                   "expression": {
-                    "HierarchyLevel": {
+                    "Column": {
                       "Expression": {
-                        "Hierarchy": {
-                          "Expression": {
-                            "PropertyVariationSource": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Name": "Variation",
-                              "Property": "FullDate"
-                            }
-                          },
-                          "Hierarchy": "Date Hierarchy"
+                        "SourceRef": {
+                          "Entity": "DimDate"
                         }
                       },
-                      "Level": "Quarter"
+                      "Property": "FullDate"
                     }
                   },
                   "howCreated": 0
@@ -973,24 +896,13 @@
                   "name": "376be04fb6d83b95f889",
                   "type": "Categorical",
                   "expression": {
-                    "HierarchyLevel": {
+                    "Column": {
                       "Expression": {
-                        "Hierarchy": {
-                          "Expression": {
-                            "PropertyVariationSource": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Name": "Variation",
-                              "Property": "FullDate"
-                            }
-                          },
-                          "Hierarchy": "Date Hierarchy"
+                        "SourceRef": {
+                          "Entity": "DimDate"
                         }
                       },
-                      "Level": "Month"
+                      "Property": "FullDate"
                     }
                   },
                   "howCreated": 0
@@ -999,24 +911,13 @@
                   "name": "773cae848643f8e7ccfa",
                   "type": "Advanced",
                   "expression": {
-                    "HierarchyLevel": {
+                    "Column": {
                       "Expression": {
-                        "Hierarchy": {
-                          "Expression": {
-                            "PropertyVariationSource": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Name": "Variation",
-                              "Property": "FullDate"
-                            }
-                          },
-                          "Hierarchy": "Date Hierarchy"
+                        "SourceRef": {
+                          "Entity": "DimDate"
                         }
                       },
-                      "Level": "Day"
+                      "Property": "FullDate"
                     }
                   },
                   "howCreated": 0
@@ -1044,24 +945,13 @@
               "activeProjections": {
                 "Category": [
                   {
-                    "HierarchyLevel": {
+                    "Column": {
                       "Expression": {
-                        "Hierarchy": {
-                          "Expression": {
-                            "PropertyVariationSource": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Name": "Variation",
-                              "Property": "FullDate"
-                            }
-                          },
-                          "Hierarchy": "Date Hierarchy"
+                        "SourceRef": {
+                          "Entity": "DimDate"
                         }
                       },
-                      "Level": "Month"
+                      "Property": "FullDate"
                     }
                   }
                 ]

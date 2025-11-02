@@ -1,10 +1,10 @@
 table FactStudentPerformance
-	lineageTag: f740dd05-8fbe-4d92-91dc-989ec5be58b5
+	lineageTag: 3d41984b-a018-4606-a7a3-3a02ab204817
 
 	column StudentKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 4331ce63-1a6b-4037-b713-269e3395577f
+		lineageTag: 461f99b7-6ec9-4935-8e61-d3c5eb7e13ea
 		summarizeBy: count
 		sourceColumn: StudentKey
 
@@ -13,7 +13,7 @@ table FactStudentPerformance
 	column CourseKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 9382a50e-ce1e-48ca-bba6-9f689d7c1235
+		lineageTag: 5f595a49-b4a4-4c8d-8b1a-99367944a91d
 		summarizeBy: none
 		sourceColumn: CourseKey
 
@@ -22,8 +22,8 @@ table FactStudentPerformance
 	column InstructorKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 9d817250-37b4-4acf-838b-85b9e2217ecb
-		summarizeBy: none
+		lineageTag: 15a949e5-4a09-4ba1-af55-be00774d5ca6
+		summarizeBy: count
 		sourceColumn: InstructorKey
 
 		annotation SummarizationSetBy = Automatic
@@ -31,7 +31,7 @@ table FactStudentPerformance
 	column ExamKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 75524efb-c425-4d59-aa59-f9171bd4bf85
+		lineageTag: 2719c0e4-677a-4ae7-abec-01d6f2d7799c
 		summarizeBy: none
 		sourceColumn: ExamKey
 
@@ -40,7 +40,7 @@ table FactStudentPerformance
 	column QuestionKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 38ac5623-fbd8-410e-8367-235c2bc5c0f2
+		lineageTag: 7793f6f5-d8eb-431d-8ee4-79df3dd43916
 		summarizeBy: none
 		sourceColumn: QuestionKey
 
@@ -49,7 +49,7 @@ table FactStudentPerformance
 	column ExamDateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 525f7791-2d37-46cc-b043-aabd98c4d9ec
+		lineageTag: 50ca6db4-ed80-4b39-9540-43ca5fd9a0da
 		summarizeBy: none
 		sourceColumn: ExamDateKey
 
@@ -57,7 +57,7 @@ table FactStudentPerformance
 
 	column Student_Grade
 		dataType: double
-		lineageTag: 0c1a9099-6dba-4d53-b70e-f00ca71b46c4
+		lineageTag: 7a5e0b92-5b5d-479d-81ba-b238c60fba50
 		summarizeBy: sum
 		sourceColumn: Student_Grade
 
@@ -74,8 +74,4 @@ table FactStudentPerformance
 				    dbo_FactStudentPerformance = ITI_DW{[Schema="dbo",Item="FactStudentPerformance"]}[Data]
 				in
 				    dbo_FactStudentPerformance
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
 

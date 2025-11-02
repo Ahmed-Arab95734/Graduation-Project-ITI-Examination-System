@@ -1,10 +1,10 @@
 table DimBranch
-	lineageTag: 5c318a1b-0829-4729-8d70-90db924a62fb
+	lineageTag: 52b45747-e78f-47ff-bf68-09d41cf9e8c7
 
 	column BranchKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 60d16c17-0881-4099-a5db-1494adf11ee8
+		lineageTag: 08fab4a5-322b-425e-b540-0b50fef17382
 		summarizeBy: none
 		sourceColumn: BranchKey
 
@@ -13,7 +13,7 @@ table DimBranch
 	column Branch_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: 97dc6695-6960-4a12-8168-4968769b7673
+		lineageTag: 36cf4a8b-aadd-4adf-9829-cfbb2b7e36e8
 		summarizeBy: count
 		sourceColumn: Branch_ID
 
@@ -21,7 +21,7 @@ table DimBranch
 
 	column Branch_Name
 		dataType: string
-		lineageTag: c5e717d3-9e4e-45b1-8d9c-cf61e8905a1d
+		lineageTag: c332b6a0-b391-432d-995c-90b8c1a3435a
 		summarizeBy: none
 		sourceColumn: Branch_Name
 
@@ -29,7 +29,7 @@ table DimBranch
 
 	column Branch_Location
 		dataType: string
-		lineageTag: 0291030c-3b8a-4f0f-9704-98d7b4bed3d9
+		lineageTag: eaed5422-38bc-4217-bbd3-4bf119f12f52
 		summarizeBy: none
 		sourceColumn: Branch_Location
 
@@ -38,14 +38,14 @@ table DimBranch
 	column Branch_Start_Date
 		dataType: dateTime
 		formatString: Long Date
-		lineageTag: f90b3a50-8aae-42ef-bf72-4f26c7195ff6
+		lineageTag: b067a6d0-360b-47b3-95a4-cc2770074d23
 		summarizeBy: none
 		sourceColumn: Branch_Start_Date
 
 		variation Variation
 			isDefault
-			relationship: 43d4943e-8879-4f00-9150-85fbe982e617
-			defaultHierarchy: LocalDateTable_8015eab8-0c77-41be-836e-d82b92152063.'Date Hierarchy'
+			relationship: 084766d6-76a5-4d19-ab2b-1dc4d2753394
+			defaultHierarchy: LocalDateTable_41b3f5e3-d52c-4871-aa25-be8d2da95f41.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -60,8 +60,4 @@ table DimBranch
 				    dbo_DimBranch = ITI_DW{[Schema="dbo",Item="DimBranch"]}[Data]
 				in
 				    dbo_DimBranch
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
 

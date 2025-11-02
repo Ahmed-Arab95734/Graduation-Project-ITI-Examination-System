@@ -1,10 +1,10 @@
 table FactFreelanceJob
-	lineageTag: f3f1545a-09a5-4421-aace-9cceceb3b83b
+	lineageTag: 8dce9456-0b96-43a2-b368-502f092a0aee
 
 	column FreelanceJobKey
 		dataType: int64
 		formatString: 0
-		lineageTag: c87fdab8-c2b6-46ee-beb3-4b467308b388
+		lineageTag: 17dd183d-2f8d-485a-8a38-e419e7ee40a2
 		summarizeBy: count
 		sourceColumn: FreelanceJobKey
 
@@ -13,7 +13,7 @@ table FactFreelanceJob
 	column StudentKey
 		dataType: int64
 		formatString: 0
-		lineageTag: fa757886-5ea6-42db-9155-3dc37fbaa3db
+		lineageTag: c2c519aa-5fb7-453c-8717-db1a9b3c57b6
 		summarizeBy: none
 		sourceColumn: StudentKey
 
@@ -22,7 +22,7 @@ table FactFreelanceJob
 	column JobDateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 56194977-1ff4-4ef1-90e5-c236b5322328
+		lineageTag: b9af89ba-8099-441c-b55a-9be1899c2485
 		summarizeBy: none
 		sourceColumn: JobDateKey
 
@@ -31,7 +31,7 @@ table FactFreelanceJob
 	column JobSiteKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 382fcc93-7382-44bb-95c2-59cb681d6b54
+		lineageTag: 3902d5ec-a3aa-490e-9404-3cf83df8852c
 		summarizeBy: none
 		sourceColumn: JobSiteKey
 
@@ -39,7 +39,7 @@ table FactFreelanceJob
 
 	column Job_Earn
 		dataType: double
-		lineageTag: baa28e2f-f0dc-4600-94aa-35a1567f1853
+		lineageTag: f4626448-2050-4ef2-98fe-cd7f0fbbc924
 		summarizeBy: sum
 		sourceColumn: Job_Earn
 
@@ -56,8 +56,4 @@ table FactFreelanceJob
 				    dbo_FactFreelanceJob = ITI_DW{[Schema="dbo",Item="FactFreelanceJob"]}[Data]
 				in
 				    dbo_FactFreelanceJob
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
 

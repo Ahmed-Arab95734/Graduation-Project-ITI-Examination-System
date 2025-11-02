@@ -1,10 +1,10 @@
 table DimTrack
-	lineageTag: eab75356-075f-41e8-932c-01a5ecf1a006
+	lineageTag: c8eebeb7-c62c-44d6-9db6-431fe741b996
 
 	column TrackKey
 		dataType: int64
 		formatString: 0
-		lineageTag: b3e9556a-2032-4870-bcad-1bd76f928a46
+		lineageTag: 83fbd8ae-4a42-41c7-b847-22695db35575
 		summarizeBy: none
 		sourceColumn: TrackKey
 
@@ -13,7 +13,7 @@ table DimTrack
 	column Track_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: 953fa655-a17f-4b1b-86a9-51b5cc40ee98
+		lineageTag: 0a373b1f-b2b1-4c1c-b339-c71843d6d948
 		summarizeBy: count
 		sourceColumn: Track_ID
 
@@ -21,7 +21,7 @@ table DimTrack
 
 	column Track_Name
 		dataType: string
-		lineageTag: 6e73e0dc-73dd-410d-a266-44d22fe86892
+		lineageTag: ae278bc2-df97-4cf4-bd19-f5d45a4506c8
 		summarizeBy: none
 		sourceColumn: Track_Name
 
@@ -30,7 +30,7 @@ table DimTrack
 	column DepartmentKey
 		dataType: int64
 		formatString: 0
-		lineageTag: f4c00dbf-bfbb-471f-9ce7-f1ac431b1161
+		lineageTag: 902a1986-1096-4b21-934e-1ee92b0b0718
 		summarizeBy: none
 		sourceColumn: DepartmentKey
 
@@ -45,8 +45,4 @@ table DimTrack
 				    dbo_DimTrack = ITI_DW{[Schema="dbo",Item="DimTrack"]}[Data]
 				in
 				    dbo_DimTrack
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
 

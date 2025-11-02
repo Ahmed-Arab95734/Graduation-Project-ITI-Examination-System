@@ -1,10 +1,10 @@
 table DimQuestion
-	lineageTag: 3ae1c2ae-a4b2-4d38-b204-5e6ad2410c8a
+	lineageTag: 5ca94893-e8d6-49d6-8188-be8da78cbf97
 
 	column QuestionKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 217f2892-063a-42e0-8897-7c4deec47c54
+		lineageTag: 1f24ff14-ab6c-46e0-b991-8d3106f2abce
 		summarizeBy: none
 		sourceColumn: QuestionKey
 
@@ -13,7 +13,7 @@ table DimQuestion
 	column Question_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: e6ea6983-de21-456c-8925-2b281001e988
+		lineageTag: dd2b5fc8-3662-4533-890a-1ac54f18e15f
 		summarizeBy: none
 		sourceColumn: Question_ID
 
@@ -21,7 +21,7 @@ table DimQuestion
 
 	column Question_Type
 		dataType: string
-		lineageTag: de727274-994a-4553-bcce-cb6e8c6220c1
+		lineageTag: ec3e0013-b7c2-4084-b12c-9f37bde84ec4
 		summarizeBy: none
 		sourceColumn: Question_Type
 
@@ -29,7 +29,7 @@ table DimQuestion
 
 	column Question_Description
 		dataType: string
-		lineageTag: d1ca69c4-ff42-4e6d-bb0f-ca6e47e4bebd
+		lineageTag: 50bc7160-f992-4bae-85c7-f6d7e2e70477
 		summarizeBy: none
 		sourceColumn: Question_Description
 
@@ -44,8 +44,4 @@ table DimQuestion
 				    dbo_DimQuestion = ITI_DW{[Schema="dbo",Item="DimQuestion"]}[Data]
 				in
 				    dbo_DimQuestion
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
 

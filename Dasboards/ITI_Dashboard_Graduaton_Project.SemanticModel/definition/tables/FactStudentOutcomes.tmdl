@@ -1,10 +1,10 @@
 table FactStudentOutcomes
-	lineageTag: 805fa673-e984-4a5c-882e-61f95285b81d
+	lineageTag: fbdf076b-943b-46e8-978a-c1a3cc665585
 
 	column StudentKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 4e57abfb-6f5c-4d1a-9bbd-ade148ab5a5e
+		lineageTag: c5b82ba8-9244-4000-b323-671d3cb60612
 		summarizeBy: none
 		sourceColumn: StudentKey
 
@@ -13,7 +13,7 @@ table FactStudentOutcomes
 	column CompanyKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 13030029-f3fc-46a9-8e3b-49ca6988537e
+		lineageTag: 1677fc69-ef1c-4f06-9818-34402f2e6e59
 		summarizeBy: none
 		sourceColumn: CompanyKey
 
@@ -22,7 +22,7 @@ table FactStudentOutcomes
 	column HireDateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 34b2c9db-5c8e-46a5-9b36-c12e7ec001e5
+		lineageTag: 7730a3c9-9f13-4b97-8b13-b2365cc30f6e
 		summarizeBy: none
 		sourceColumn: HireDateKey
 
@@ -30,7 +30,7 @@ table FactStudentOutcomes
 
 	column Salary
 		dataType: double
-		lineageTag: c1db6e87-c2ca-4a40-9303-59ca370b6e8c
+		lineageTag: 2d3a0d38-362e-44ce-b0f4-134625a50d52
 		summarizeBy: sum
 		sourceColumn: Salary
 
@@ -41,7 +41,7 @@ table FactStudentOutcomes
 	column DaysToHire
 		dataType: int64
 		formatString: 0
-		lineageTag: dcd0986d-8e32-4066-b46f-be317fc9b528
+		lineageTag: cdf1ea9f-d0cc-4f1f-bcd5-4fab15d2a220
 		summarizeBy: sum
 		sourceColumn: DaysToHire
 
@@ -56,8 +56,4 @@ table FactStudentOutcomes
 				    dbo_FactStudentOutcomes = ITI_DW{[Schema="dbo",Item="FactStudentOutcomes"]}[Data]
 				in
 				    dbo_FactStudentOutcomes
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
 

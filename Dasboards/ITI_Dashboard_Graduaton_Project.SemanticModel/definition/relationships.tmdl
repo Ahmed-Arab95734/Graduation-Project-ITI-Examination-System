@@ -1,122 +1,126 @@
-relationship 43d4943e-8879-4f00-9150-85fbe982e617
+relationship 084766d6-76a5-4d19-ab2b-1dc4d2753394
 	joinOnDateBehavior: datePartOnly
 	fromColumn: DimBranch.Branch_Start_Date
-	toColumn: LocalDateTable_8015eab8-0c77-41be-836e-d82b92152063.Date
+	toColumn: LocalDateTable_41b3f5e3-d52c-4871-aa25-be8d2da95f41.Date
 
-relationship bb90443b-a64d-48a7-a681-f8cd5b7849a9
+relationship d0bb2553-09c4-4c42-9404-178be33afb3b
 	joinOnDateBehavior: datePartOnly
 	fromColumn: DimDate.FullDate
-	toColumn: LocalDateTable_ed44020d-a536-42de-9b46-c7958ae1bf1d.Date
+	toColumn: LocalDateTable_21cd4a7a-6dc2-4aff-afcc-cf1ac3bc1fcd.Date
 
-relationship 9db6ebc3-857f-442b-8d83-15163ba74c90
+relationship 08ddcca2-3445-4fb4-bd81-88219c07d293
 	joinOnDateBehavior: datePartOnly
 	fromColumn: DimInstructor.Instructor_Birthdate
-	toColumn: LocalDateTable_648ff91c-d05b-411e-a19d-eb59dee588a5.Date
+	toColumn: LocalDateTable_9a92575a-a35c-4ea4-81ed-c01b14233ace.Date
 
-relationship ac55c810-b83e-4e8c-9bbe-b173a027bc93
+relationship 6b971a5c-9d9d-4bec-873e-cfa7d5bd5312
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimIntake.Intake_Start_Date
+	toColumn: LocalDateTable_40255671-f28b-41ee-9522-f05c71e035fc.Date
+
+relationship 66e51aab-dc3d-4561-a152-e0ad76224b77
 	joinOnDateBehavior: datePartOnly
 	fromColumn: DimIntake.Intake_End_Date
-	toColumn: LocalDateTable_6a0608fb-2c93-449d-a7d1-103f9ff05784.Date
+	toColumn: LocalDateTable_a38857e3-d591-481e-b414-dbb737d009e9.Date
 
-relationship c97076b7-1d2c-45d3-b01c-254c6eb21330
+relationship db9514d4-d53e-4856-8892-f56fe1884548
 	joinOnDateBehavior: datePartOnly
 	fromColumn: DimStudent.Student_Birthdate
-	toColumn: LocalDateTable_872af1ea-694b-4fd6-a457-f5c393adf202.Date
+	toColumn: LocalDateTable_798cbbd7-3e4a-4a16-b9e2-b70a1ffc0aa1.Date
 
-relationship 1f31a500-2f3e-45d7-aee8-370dea5709f0
-	isActive: false
+relationship 016f9104-fd06-4630-9405-fa72476e5da5
+	fromColumn: DimCourse.TrackKey
+	toColumn: DimTrack.TrackKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 78f208d2-86a9-48fa-973e-cd123000c254
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
-	fromColumn: DimDepartment.Manager_InstructorKey
-	toColumn: DimInstructor.InstructorKey
+	fromColumn: DimInstructor.CourseKey
+	toColumn: DimCourse.CourseKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship 5bf6cb56-50b2-4af5-9082-fecac0469e43
-	fromColumn: DimInstructor.DepartmentKey
-	toColumn: DimDepartment.DepartmentKey
-
-	annotation PBI_IsFromSource = FS
-
-relationship 22b789cf-f3e6-4f38-a44e-426a114be643
+relationship 5aea2984-a5ba-4057-a5b0-fa4c245034d3
 	fromColumn: DimStudent.BranchKey
 	toColumn: DimBranch.BranchKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship a0f6add7-cceb-416d-b3ae-7fa6a0801006
+relationship f35f7582-ce4a-473f-9f28-7dbb4e3044e6
 	fromColumn: DimStudent.IntakeKey
 	toColumn: DimIntake.IntakeKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship 3b183e7f-094a-4e00-b205-a558263dc65b
+relationship 7d0cdca0-790d-496b-91b5-ae65f2164091
 	fromColumn: DimStudent.TrackKey
 	toColumn: DimTrack.TrackKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship d6ee79ce-4718-4185-a0cd-75004346860c
+relationship 6e422025-7fc1-4d0d-b24f-75aabfea69b4
 	fromColumn: DimTopic.CourseKey
 	toColumn: DimCourse.CourseKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship 455c1b5c-3d48-4e5d-92f6-c9f93b5cbed3
-	fromColumn: FactCertificate.ProviderKey
-	toColumn: DimCertificateProvider.ProviderKey
-
-	annotation PBI_IsFromSource = FS
-
-relationship a60ee454-4b3f-4c42-af9d-36354bc0cf36
-	fromColumn: FactCertificate.CertificateKey
-	toColumn: DimCertificate.CertificateKey
-
-	annotation PBI_IsFromSource = FS
-
-relationship 9007d3a2-de70-4407-b5c3-b51d8f8c891f
-	fromColumn: FactCertificate.CertificateDateKey
-	toColumn: DimDate.DateKey
-
-	annotation PBI_IsFromSource = FS
-
-relationship 5059b64d-9ca4-408c-b63f-b061b3cab0bd
-	fromColumn: FactCertificate.StudentKey
-	toColumn: DimStudent.StudentKey
-
-	annotation PBI_IsFromSource = FS
-
-relationship 42124f1b-2f66-4e61-9ad8-f43f13e5ac17
+relationship 59a244f9-33fe-4d3d-b7c7-0b3a5e7d6630
 	fromColumn: DimTrack.DepartmentKey
 	toColumn: DimDepartment.DepartmentKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship 1e059d9b-32f8-47d5-a4dd-710f4346702d
+relationship 6d73f5c9-fe44-4b09-b927-d256b1333176
+	fromColumn: FactCertificate.CertificateKey
+	toColumn: DimCertificate.CertificateKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship c19c2f6a-818b-416c-a0cb-31f7b63dd495
+	fromColumn: FactCertificate.ProviderKey
+	toColumn: DimCertificateProvider.ProviderKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship c074652c-7d2c-42c6-ad75-61159f184180
+	fromColumn: FactCertificate.CertificateDateKey
+	toColumn: DimDate.DateKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship b0331383-e6c0-4dfe-b9ec-e009e8be0019
+	fromColumn: FactCertificate.StudentKey
+	toColumn: DimStudent.StudentKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 0f9fb139-a297-477b-b5ed-f5b471ad32c1
 	fromColumn: FactFreelanceJob.JobDateKey
 	toColumn: DimDate.DateKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship 8e22dbab-88e0-4ebc-afc1-fb0ba65c1630
+relationship fc24472a-c673-40e8-8b34-b185b17acee5
 	fromColumn: FactFreelanceJob.JobSiteKey
 	toColumn: DimJobSite.JobSiteKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship 168a11f5-950b-40f9-a3f7-f17d1e4c6347
+relationship a52a85d8-0465-4f57-84df-b50c326fec6a
 	fromColumn: FactFreelanceJob.StudentKey
 	toColumn: DimStudent.StudentKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship d71de220-7fb5-41b9-af34-215a1616b0c4
+relationship 907efb69-eb50-4bee-a7ea-47c102b67e82
 	fromColumn: FactStudentFailure.FailureReasonKey
 	toColumn: DimFailureReason.FailureReasonKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship fae3f4b3-a387-4907-835d-5b3e4d18e99e
+relationship 1c72f460-0d1e-4b72-83fb-0ed678478e0f
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: FactStudentFailure.StudentKey
@@ -124,85 +128,79 @@ relationship fae3f4b3-a387-4907-835d-5b3e4d18e99e
 
 	annotation PBI_IsFromSource = FS
 
-relationship 151b8810-519d-4a15-95d7-bd75a681deda
-	fromColumn: FactStudentOutcomes.CompanyKey
-	toColumn: DimCompany.CompanyKey
-
-	annotation PBI_IsFromSource = FS
-
-relationship 3402b5aa-6e10-49b9-8146-c026ff5da9a6
-	fromColumn: FactStudentOutcomes.HireDateKey
-	toColumn: DimDate.DateKey
-
-	annotation PBI_IsFromSource = FS
-
-relationship 1f50f81f-a2af-452e-95e4-2aa51c93a891
-	crossFilteringBehavior: bothDirections
-	fromColumn: FactStudentOutcomes.StudentKey
-	toColumn: DimStudent.StudentKey
-
-	annotation PBI_IsFromSource = FS
-
-relationship 4dd17f58-44d7-47e0-9a79-f82f29a9f3ce
+relationship 2ec8c4b1-139a-4fc1-8f21-9e34e9e8cfbd
 	fromColumn: FactStudentPerformance.CourseKey
 	toColumn: DimCourse.CourseKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship bb0a1653-0fec-457b-9fc7-e231cd0f3651
+relationship 3c0ae2a8-0ff4-47a1-acea-d17f8581101b
 	fromColumn: FactStudentPerformance.ExamDateKey
 	toColumn: DimDate.DateKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship b75db3c6-a979-4c7f-8369-e0871477b729
+relationship 59958c0f-9898-42c2-b8f5-c7dc15e612f7
 	fromColumn: FactStudentPerformance.ExamKey
 	toColumn: DimExam.ExamKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship 3e959aa9-de33-4bbf-b39c-b8ee2356295a
+relationship a4a6d30c-a570-4507-b9bd-ef0674745fea
+	isActive: false
 	fromColumn: FactStudentPerformance.InstructorKey
 	toColumn: DimInstructor.InstructorKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship 4824f329-d2fc-419b-b0a3-e457ce803900
+relationship f3f04394-528c-40c6-9748-6881a4ae34fb
 	fromColumn: FactStudentPerformance.QuestionKey
 	toColumn: DimQuestion.QuestionKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship 00e820fb-ddd1-49d4-971b-3c0a716576c0
+relationship 76c4e7b3-28d8-4bc8-8042-01fbd09003f8
 	isActive: false
 	fromColumn: FactStudentPerformance.StudentKey
 	toColumn: DimStudent.StudentKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship 18f22e8c-7a31-4233-85bc-e22aa6eb8e3c
+relationship 8e37a742-7c62-4336-8572-934fb91dda96
+	fromColumn: FactStudentOutcomes.CompanyKey
+	toColumn: DimCompany.CompanyKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship ff24a327-7b9a-4db5-82e1-399aba065828
+	fromColumn: FactStudentOutcomes.HireDateKey
+	toColumn: DimDate.DateKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 700ec380-7f92-41f4-8569-de90fbbd5428
+	crossFilteringBehavior: bothDirections
+	fromColumn: FactStudentOutcomes.StudentKey
+	toColumn: DimStudent.StudentKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 03f1c1db-9c88-46b6-9eff-8e52a3a48a07
 	fromColumn: FactStudentRating.RateDateKey
 	toColumn: DimDate.DateKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship d1f77542-40ad-4cd4-bd7d-ab9ab89baa9c
+relationship 120e6121-a9a3-4849-9202-f4c399bb1d76
 	fromColumn: FactStudentRating.InstructorKey
 	toColumn: DimInstructor.InstructorKey
 
 	annotation PBI_IsFromSource = FS
 
-relationship 316fe649-4172-483f-a7a4-9dba0895152b
+relationship c7f9cea1-f8f5-4862-85f8-a5c9ea7f2c16
 	isActive: false
 	fromColumn: FactStudentRating.StudentKey
 	toColumn: DimStudent.StudentKey
 
 	annotation PBI_IsFromSource = FS
-
-relationship 4bfe0f73-1535-dd93-1b82-7429d517e0be
-	isActive: false
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: DimIntake.Intake_Start_Date
-	toColumn: DimDate.FullDate
 

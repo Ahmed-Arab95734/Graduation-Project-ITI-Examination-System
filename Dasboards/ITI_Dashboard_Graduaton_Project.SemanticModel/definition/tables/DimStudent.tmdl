@@ -1,10 +1,10 @@
 table DimStudent
-	lineageTag: ca816423-ba23-469a-b54e-0c84bc109538
+	lineageTag: c28fdf97-2dc6-4faa-b7b7-c24cb7613f81
 
 	column StudentKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 99e2c9ef-12d8-4c27-84e6-74335676003e
+		lineageTag: e2574d2d-081d-40b7-8f5b-2bcfb63ccefd
 		summarizeBy: none
 		sourceColumn: StudentKey
 
@@ -13,7 +13,7 @@ table DimStudent
 	column Student_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: 8a232c99-c50a-4798-9750-88263b764451
+		lineageTag: 14f56878-cdad-4289-ae8b-b64f5b6799a8
 		summarizeBy: count
 		sourceColumn: Student_ID
 
@@ -21,7 +21,7 @@ table DimStudent
 
 	column Student_FullName
 		dataType: string
-		lineageTag: 649e2ec0-193c-40eb-b8d2-0931a341f1f7
+		lineageTag: 3db7258a-8931-47b5-a630-9a675cb69221
 		summarizeBy: none
 		sourceColumn: Student_FullName
 
@@ -29,7 +29,7 @@ table DimStudent
 
 	column Student_Gender
 		dataType: string
-		lineageTag: 706000cb-3a53-46f0-894f-e26fdb917c57
+		lineageTag: 2cc0280f-9d22-4020-9b06-26306dca58fb
 		summarizeBy: none
 		sourceColumn: Student_Gender
 
@@ -37,23 +37,31 @@ table DimStudent
 
 	column Student_Mail
 		dataType: string
-		lineageTag: 56175ea4-e698-4785-96f5-a83b758215e2
+		lineageTag: 3d411bc3-d4de-45ac-9f03-505976a0f8c8
 		summarizeBy: none
 		sourceColumn: Student_Mail
+
+		annotation SummarizationSetBy = Automatic
+
+	column Student_Address
+		dataType: string
+		lineageTag: 9c6ebb3e-7f34-433c-9594-80565985307e
+		summarizeBy: none
+		sourceColumn: Student_Address
 
 		annotation SummarizationSetBy = Automatic
 
 	column Student_Birthdate
 		dataType: dateTime
 		formatString: Long Date
-		lineageTag: 95473c3e-f603-4745-b85e-f2777146d54b
+		lineageTag: ff4f0d69-a203-4e59-bc21-b7c21c7d7aa8
 		summarizeBy: none
 		sourceColumn: Student_Birthdate
 
 		variation Variation
 			isDefault
-			relationship: c97076b7-1d2c-45d3-b01c-254c6eb21330
-			defaultHierarchy: LocalDateTable_872af1ea-694b-4fd6-a457-f5c393adf202.'Date Hierarchy'
+			relationship: db9514d4-d53e-4856-8892-f56fe1884548
+			defaultHierarchy: LocalDateTable_798cbbd7-3e4a-4a16-b9e2-b70a1ffc0aa1.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -61,7 +69,7 @@ table DimStudent
 
 	column Phone
 		dataType: string
-		lineageTag: cc3d4ff7-0f62-49b0-97aa-59ee9fdd182d
+		lineageTag: 35dcc432-7359-498f-9072-1ace543466cd
 		summarizeBy: none
 		sourceColumn: Phone
 
@@ -69,7 +77,7 @@ table DimStudent
 
 	column Student_Marital_Status
 		dataType: string
-		lineageTag: 8f0165ee-baef-4156-9c7f-d3da9788369a
+		lineageTag: 45e36a30-ede2-4ede-90b3-874825581340
 		summarizeBy: none
 		sourceColumn: Student_Marital_Status
 
@@ -77,7 +85,7 @@ table DimStudent
 
 	column Student_Faculty
 		dataType: string
-		lineageTag: 9e6db8c6-7872-46d9-9edd-f0b0fac7699c
+		lineageTag: f48129cd-73e8-4eb7-8888-ec39167fdf21
 		summarizeBy: none
 		sourceColumn: Student_Faculty
 
@@ -85,7 +93,7 @@ table DimStudent
 
 	column Student_Faculty_Grade
 		dataType: string
-		lineageTag: 6818a168-fa64-4372-9f35-8cbfdf9ccd16
+		lineageTag: f4939cbe-b580-4032-b499-3a8411f6fcb7
 		summarizeBy: none
 		sourceColumn: Student_Faculty_Grade
 
@@ -93,7 +101,7 @@ table DimStudent
 
 	column Student_ITI_Status
 		dataType: string
-		lineageTag: 19c6d91d-41d2-4fee-847f-76832aa2359a
+		lineageTag: b41fdeb2-d47b-4f48-98bb-37c680b5cad4
 		summarizeBy: none
 		sourceColumn: Student_ITI_Status
 
@@ -102,7 +110,7 @@ table DimStudent
 	column TrackKey
 		dataType: int64
 		formatString: 0
-		lineageTag: a5f8fb7f-413a-4e47-91fd-f75cefc89414
+		lineageTag: d95f0e06-72c2-4863-aba2-afe7c95759cb
 		summarizeBy: none
 		sourceColumn: TrackKey
 
@@ -111,7 +119,7 @@ table DimStudent
 	column BranchKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 85465ae2-01ec-49d1-8574-123692086091
+		lineageTag: 2cc1036d-7012-4fde-9a2d-33b8de25645f
 		summarizeBy: none
 		sourceColumn: BranchKey
 
@@ -120,7 +128,7 @@ table DimStudent
 	column IntakeKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 4e7df60a-dfb7-433a-a7b9-1b5235864630
+		lineageTag: b29915d1-7db6-437b-974a-45186cb632f9
 		summarizeBy: none
 		sourceColumn: IntakeKey
 
@@ -128,7 +136,7 @@ table DimStudent
 
 	column Social_Facebook
 		dataType: string
-		lineageTag: cc0ff4d0-6489-4cef-bf97-c65e15d5b377
+		lineageTag: 88a410e8-29b0-4372-93a7-5508dff67a49
 		summarizeBy: none
 		sourceColumn: Social_Facebook
 
@@ -136,7 +144,7 @@ table DimStudent
 
 	column Social_LinkedIn
 		dataType: string
-		lineageTag: 4f4c4d58-7fbd-4fa5-81f5-cedb508597d0
+		lineageTag: 59ec5eb8-f57b-44c1-b90a-cbc2248ca026
 		summarizeBy: none
 		sourceColumn: Social_LinkedIn
 
@@ -144,7 +152,7 @@ table DimStudent
 
 	column Social_GitHub
 		dataType: string
-		lineageTag: 937cbabf-9a4e-4f50-ba06-27ba01e4f92e
+		lineageTag: 6ab4ee99-6580-4ddd-b0cd-8c855369dc90
 		summarizeBy: none
 		sourceColumn: Social_GitHub
 
@@ -152,7 +160,7 @@ table DimStudent
 
 	column Social_X
 		dataType: string
-		lineageTag: cbaa9d90-569f-453c-968f-2936fc79c370
+		lineageTag: 2eaf6618-c978-4157-a3e4-1a33b156b365
 		summarizeBy: none
 		sourceColumn: Social_X
 
@@ -160,17 +168,9 @@ table DimStudent
 
 	column Social_Instagram
 		dataType: string
-		lineageTag: a0f7c299-8c6c-4492-91f7-f6565a9dc622
+		lineageTag: 0a4ec387-0e4d-47e0-8705-a668f31df066
 		summarizeBy: none
 		sourceColumn: Social_Instagram
-
-		annotation SummarizationSetBy = Automatic
-
-	column County
-		dataType: string
-		lineageTag: 45efe471-5c2d-4f67-9bfb-e54e1df888a8
-		summarizeBy: none
-		sourceColumn: County
 
 		annotation SummarizationSetBy = Automatic
 
@@ -180,17 +180,7 @@ table DimStudent
 				let
 				    Source = Sql.Databases("."),
 				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
-				    dbo_DimStudent = ITI_DW{[Schema="dbo",Item="DimStudent"]}[Data],
-				    #"Split Column by Delimiter" = Table.SplitColumn(dbo_DimStudent, "Student_Address", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), {"Student_Address.1", "Student_Address.2"}),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Student_Address.1", type text}, {"Student_Address.2", type text}}),
-				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "County", each if [Student_Address.2] = null then [Student_Address.1] else [Student_Address.2]),
-				    #"Removed Columns" = Table.RemoveColumns(#"Added Conditional Column",{"Student_Address.1", "Student_Address.2"}),
-				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"County", type text}}),
-				    #"Trimmed Text" = Table.TransformColumns(#"Changed Type1",{{"County", Text.Trim, type text}})
+				    dbo_DimStudent = ITI_DW{[Schema="dbo",Item="DimStudent"]}[Data]
 				in
-				    #"Trimmed Text"
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
+				    dbo_DimStudent
 

@@ -1,10 +1,10 @@
 table DimCourse
-	lineageTag: c810a799-b3a4-411e-b35f-ddb43f7da4be
+	lineageTag: 8313dd33-05c7-424c-98ce-9efb91ec4e4f
 
 	column CourseKey
 		dataType: int64
 		formatString: 0
-		lineageTag: e73d816a-f0c8-4658-8ee0-dcfde97d6be2
+		lineageTag: 9279886e-4d10-417e-8416-e01567ad0f9d
 		summarizeBy: none
 		sourceColumn: CourseKey
 
@@ -13,7 +13,7 @@ table DimCourse
 	column Course_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: d71917aa-ed57-453f-89c5-9612b8ef6ee0
+		lineageTag: 10113c57-9879-4d8d-a78e-1fd1250a2a38
 		summarizeBy: count
 		sourceColumn: Course_ID
 
@@ -21,9 +21,18 @@ table DimCourse
 
 	column Course_Name
 		dataType: string
-		lineageTag: db0e1ca6-d7e4-4eea-895e-31e6c781b51d
+		lineageTag: 9b188e9f-c59e-425c-b02f-b449347492f5
 		summarizeBy: none
 		sourceColumn: Course_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrackKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f2ed049b-d7de-4b1a-8c20-ec03bf70bcb7
+		summarizeBy: none
+		sourceColumn: TrackKey
 
 		annotation SummarizationSetBy = Automatic
 
@@ -36,8 +45,4 @@ table DimCourse
 				    dbo_DimCourse = ITI_DW{[Schema="dbo",Item="DimCourse"]}[Data]
 				in
 				    dbo_DimCourse
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
 

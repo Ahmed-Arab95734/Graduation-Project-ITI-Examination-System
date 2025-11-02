@@ -1,10 +1,10 @@
 table FactStudentFailure
-	lineageTag: 3087171c-2510-43fb-afc3-5173a0df2faa
+	lineageTag: 36cf1cf8-c1bf-4582-8b8a-01451fb66c6a
 
 	column StudentKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 05bafe16-140d-49f7-b8ce-487e1e23a552
+		lineageTag: 89f77bde-1117-4290-b5b5-cd82b68cc15b
 		summarizeBy: none
 		sourceColumn: StudentKey
 
@@ -13,7 +13,7 @@ table FactStudentFailure
 	column FailureReasonKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 9c8f6e4c-22b7-4c16-a8a0-3ae13eb69a55
+		lineageTag: b335e760-9c7d-457a-a05a-f23ed13d5ad3
 		summarizeBy: none
 		sourceColumn: FailureReasonKey
 
@@ -28,8 +28,4 @@ table FactStudentFailure
 				    dbo_FactStudentFailure = ITI_DW{[Schema="dbo",Item="FactStudentFailure"]}[Data]
 				in
 				    dbo_FactStudentFailure
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
 

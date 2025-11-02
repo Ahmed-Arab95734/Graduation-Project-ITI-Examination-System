@@ -1,10 +1,10 @@
 table FactStudentRating
-	lineageTag: 767836fd-70ee-4ace-9757-e9b6ed0ed2ed
+	lineageTag: f9b48c12-d050-4de0-af62-e9bfc478619e
 
 	column StudentKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 3e20e827-4b25-4fb0-ae3a-c7fda91f77bb
+		lineageTag: dcbddeb1-3f00-4a45-a151-ea123a901f48
 		summarizeBy: count
 		sourceColumn: StudentKey
 
@@ -13,7 +13,7 @@ table FactStudentRating
 	column InstructorKey
 		dataType: int64
 		formatString: 0
-		lineageTag: aa7e075d-3e55-4c99-b069-38b00b61c243
+		lineageTag: 4b7981bf-014b-4359-bb1b-7677dd1f4ef9
 		summarizeBy: none
 		sourceColumn: InstructorKey
 
@@ -22,7 +22,7 @@ table FactStudentRating
 	column RatingValue
 		dataType: int64
 		formatString: 0
-		lineageTag: 9414e789-1e22-4c2f-b98c-0d4016f1af2a
+		lineageTag: 99e1cd40-5583-4b7d-bec1-6f5197233c95
 		summarizeBy: sum
 		sourceColumn: RatingValue
 
@@ -31,7 +31,7 @@ table FactStudentRating
 	column RateDateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: e93ae974-2672-4fc7-a494-3abc3af5b243
+		lineageTag: 53473957-bee6-416d-8158-101f9c2985ca
 		summarizeBy: none
 		sourceColumn: RateDateKey
 
@@ -46,8 +46,4 @@ table FactStudentRating
 				    dbo_FactStudentRating = ITI_DW{[Schema="dbo",Item="FactStudentRating"]}[Data]
 				in
 				    dbo_FactStudentRating
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
 

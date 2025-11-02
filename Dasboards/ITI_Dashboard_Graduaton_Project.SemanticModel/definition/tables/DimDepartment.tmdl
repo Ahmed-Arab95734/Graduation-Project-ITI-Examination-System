@@ -1,10 +1,10 @@
 table DimDepartment
-	lineageTag: 58c1326e-3edf-404d-ac60-198b4425f950
+	lineageTag: 74669d2a-e882-4a9c-ad1e-994429004c38
 
 	column DepartmentKey
 		dataType: int64
 		formatString: 0
-		lineageTag: c14d6738-1857-473a-8996-f9a3f5222713
+		lineageTag: a1be438a-d7e1-4fef-80f9-1b9e2b2c0549
 		summarizeBy: none
 		sourceColumn: DepartmentKey
 
@@ -13,26 +13,17 @@ table DimDepartment
 	column Department_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: 20a1a172-f8fa-4c40-9743-d3e93c5bcc7d
-		summarizeBy: count
+		lineageTag: 567a70c6-d3b1-4c98-bc8b-6321eab99ac6
+		summarizeBy: none
 		sourceColumn: Department_ID
 
 		annotation SummarizationSetBy = Automatic
 
 	column Department_Name
 		dataType: string
-		lineageTag: 4e5e0030-f857-4474-9932-e5bb722b09e8
+		lineageTag: c8babcd8-ec24-4288-a930-1845f6c65a9d
 		summarizeBy: none
 		sourceColumn: Department_Name
-
-		annotation SummarizationSetBy = Automatic
-
-	column Manager_InstructorKey
-		dataType: int64
-		formatString: 0
-		lineageTag: 92fdc9f7-ed7c-4020-9ccf-22abdf4f6eb9
-		summarizeBy: count
-		sourceColumn: Manager_InstructorKey
 
 		annotation SummarizationSetBy = Automatic
 
@@ -45,8 +36,4 @@ table DimDepartment
 				    dbo_DimDepartment = ITI_DW{[Schema="dbo",Item="DimDepartment"]}[Data]
 				in
 				    dbo_DimDepartment
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
 

@@ -118,6 +118,10 @@ table AhmedMeasures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure Total_Students = DISTINCTCOUNT(DimStudent[Student_ID])
+		formatString: 0
+		lineageTag: af295509-b63f-4c64-a7a9-16078af6123b
+
 	column Column
 		formatString: 0
 		lineageTag: 1223e819-24cd-4981-b07f-4c3bfb0e5836

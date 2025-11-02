@@ -1,10 +1,10 @@
 table DimIntake
-	lineageTag: 5b529ec5-271c-4495-af13-43977410c045
+	lineageTag: a4545049-b048-4ecb-9950-a6d1c2347d3a
 
 	column IntakeKey
 		dataType: int64
 		formatString: 0
-		lineageTag: dbf87753-d872-4241-bb36-bf62d6c8c092
+		lineageTag: feb065c6-20d1-4fb0-a592-e73342c2d3e6
 		summarizeBy: none
 		sourceColumn: IntakeKey
 
@@ -13,7 +13,7 @@ table DimIntake
 	column Intake_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: ed7e3a0f-e797-492e-8ad9-7cdd635ff09d
+		lineageTag: d4493769-be40-4f5f-8ad1-05a40ecbdff8
 		summarizeBy: count
 		sourceColumn: Intake_ID
 
@@ -21,7 +21,7 @@ table DimIntake
 
 	column Intake_Name
 		dataType: string
-		lineageTag: 523d4b0b-fae7-4a61-b244-fb2c861be6c7
+		lineageTag: e2dee2ae-bf9d-4cb7-bcee-aee2b6fa62fb
 		summarizeBy: none
 		sourceColumn: Intake_Name
 
@@ -29,7 +29,7 @@ table DimIntake
 
 	column Intake_Type
 		dataType: string
-		lineageTag: c270c2cf-e9eb-4cbd-8025-6b39accb9975
+		lineageTag: fd505939-ec84-43e1-bc92-a654ae11fc22
 		summarizeBy: none
 		sourceColumn: Intake_Type
 
@@ -38,9 +38,14 @@ table DimIntake
 	column Intake_Start_Date
 		dataType: dateTime
 		formatString: Long Date
-		lineageTag: f40f3d80-0a33-45b9-a1bf-1aafacfd85ab
+		lineageTag: 938525d7-709a-45f8-ba44-877c90a53c4a
 		summarizeBy: none
 		sourceColumn: Intake_Start_Date
+
+		variation Variation
+			isDefault
+			relationship: 6b971a5c-9d9d-4bec-873e-cfa7d5bd5312
+			defaultHierarchy: LocalDateTable_40255671-f28b-41ee-9522-f05c71e035fc.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -49,14 +54,14 @@ table DimIntake
 	column Intake_End_Date
 		dataType: dateTime
 		formatString: Long Date
-		lineageTag: f236e8df-2a04-4005-aa4a-4ed28c73034b
+		lineageTag: 8209bdf2-25c5-4ac0-aaae-6199b80a99bb
 		summarizeBy: none
 		sourceColumn: Intake_End_Date
 
 		variation Variation
 			isDefault
-			relationship: ac55c810-b83e-4e8c-9bbe-b173a027bc93
-			defaultHierarchy: LocalDateTable_6a0608fb-2c93-449d-a7d1-103f9ff05784.'Date Hierarchy'
+			relationship: 66e51aab-dc3d-4561-a152-e0ad76224b77
+			defaultHierarchy: LocalDateTable_a38857e3-d591-481e-b414-dbb737d009e9.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -71,8 +76,4 @@ table DimIntake
 				    dbo_DimIntake = ITI_DW{[Schema="dbo",Item="DimIntake"]}[Data]
 				in
 				    dbo_DimIntake
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
 

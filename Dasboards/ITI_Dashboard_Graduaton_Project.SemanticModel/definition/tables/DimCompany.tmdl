@@ -1,10 +1,10 @@
 table DimCompany
-	lineageTag: 2f9140b2-d625-4165-b326-4ab14d17130a
+	lineageTag: d305daa1-dff5-4ceb-9039-0b50348b1485
 
 	column CompanyKey
 		dataType: int64
 		formatString: 0
-		lineageTag: fb4716af-f483-467e-9c81-482755099077
+		lineageTag: 621138b7-18d9-4344-9b7f-fb35576b62e8
 		summarizeBy: none
 		sourceColumn: CompanyKey
 
@@ -13,7 +13,7 @@ table DimCompany
 	column Company_ID
 		dataType: int64
 		formatString: 0
-		lineageTag: bd31bbcf-b9ac-4a65-a49a-b47ea8e52c27
+		lineageTag: 56afadd4-4cee-4fb9-a25b-0726616f4f3b
 		summarizeBy: none
 		sourceColumn: Company_ID
 
@@ -21,7 +21,7 @@ table DimCompany
 
 	column Company_Name
 		dataType: string
-		lineageTag: b96e1265-1288-4d15-bfde-9854910441ca
+		lineageTag: 49a7db31-a068-4789-9ec8-138d2b8a8f30
 		summarizeBy: none
 		sourceColumn: Company_Name
 
@@ -29,7 +29,7 @@ table DimCompany
 
 	column Company_Location
 		dataType: string
-		lineageTag: 2529eeb5-21e0-4bc0-b719-c9d61e865d22
+		lineageTag: ff600b11-49ca-409c-98cc-281fa795071b
 		summarizeBy: none
 		sourceColumn: Company_Location
 
@@ -37,17 +37,9 @@ table DimCompany
 
 	column Company_Type
 		dataType: string
-		lineageTag: 2afb7411-3aad-4dc9-a8ff-a309e4eabe83
+		lineageTag: 6294af76-4742-4411-b3f1-a3e20f1d5580
 		summarizeBy: none
 		sourceColumn: Company_Type
-
-		annotation SummarizationSetBy = Automatic
-
-	column Field
-		dataType: string
-		lineageTag: aa1ebc73-9cc1-449a-beda-6f08c900353c
-		summarizeBy: none
-		sourceColumn: Field
 
 		annotation SummarizationSetBy = Automatic
 
@@ -57,16 +49,7 @@ table DimCompany
 				let
 				    Source = Sql.Databases("."),
 				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
-				    dbo_DimCompany = ITI_DW{[Schema="dbo",Item="DimCompany"]}[Data],
-				    #"Merged Queries" = Table.NestedJoin(dbo_DimCompany, {"CompanyKey"}, #"Companies Fileds", {"CompanKey"}, "Companies Fileds", JoinKind.LeftOuter),
-				    #"Expanded Companies Fileds" = Table.ExpandTableColumn(#"Merged Queries", "Companies Fileds", {"Field"}, {"Field"}),
-				    #"Reordered Columns" = Table.ReorderColumns(#"Expanded Companies Fileds",{"CompanyKey", "Company_ID", "Company_Name", "Company_Location", "Company_Type", "Field", "FactStudentOutcomes"}),
-				    #"Replaced Value" = Table.ReplaceValue(#"Reordered Columns","Smart Village, Giza","Smart Village",Replacer.ReplaceText,{"Company_Location"}),
-				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","6th of October, Giza","6th of October",Replacer.ReplaceText,{"Company_Location"})
+				    dbo_DimCompany = ITI_DW{[Schema="dbo",Item="DimCompany"]}[Data]
 				in
-				    #"Replaced Value1"
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
+				    dbo_DimCompany
 
