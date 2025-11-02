@@ -50,11 +50,11 @@ table HaithamMeasures
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Certified Students' = DISTINCTCOUNT(FactCertificate[StudentKey])
-		formatString: 0.0
+		formatString: 0
 		lineageTag: 1a864770-054d-4a60-9195-28e3db5d6659
 
 	measure 'Average Earnings' = AVERAGE(FactFreelanceJob[Job_Earn])
-		formatString: \$#,0;(\$#,0);\$#,0
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 47d05000-3696-4d89-bee0-2af7b172188f
 
 	measure 'Distinct Both Certified and Freelance' =
