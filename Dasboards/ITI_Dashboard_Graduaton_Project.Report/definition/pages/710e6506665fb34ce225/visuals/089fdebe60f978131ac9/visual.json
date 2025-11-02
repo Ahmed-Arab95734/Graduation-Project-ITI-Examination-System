@@ -1,21 +1,18 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "eb62bef092c867af597c",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "089fdebe60f978131ac9",
   "position": {
-    "x": 753.09957924263676,
-    "y": 466.76016830294532,
-    "z": 6000,
-    "height": 245.04908835904629,
-    "width": 494.58625525946707,
-    "tabOrder": 4000
+    "x": 218.49084249084248,
+    "y": 207.23809523809524,
+    "z": 5001,
+    "height": 245.68498168498169,
+    "width": 495.12087912087912,
+    "tabOrder": 5001
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "map",
     "query": {
       "queryState": {
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
         "Category": {
           "projections": [
             {
@@ -23,22 +20,37 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimTrack"
+                      "Entity": "DimBranch"
                     }
                   },
-                  "Property": "Track_Name"
+                  "Property": "Branch_Location"
                 }
               },
-              "queryRef": "DimTrack.Track_Name",
-              "nativeQueryRef": "Track_Name",
+              "queryRef": "DimBranch.Branch_Location",
+              "nativeQueryRef": "Branch_Location",
               "active": true
             }
           ]
         },
-=======
->>>>>>> f5897d555c468a10c30f933f4095dde475ae7687
->>>>>>> Stashed changes
-        "Y": {
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimBranch"
+                    }
+                  },
+                  "Property": "Branch_Name"
+                }
+              },
+              "queryRef": "DimBranch.Branch_Name",
+              "nativeQueryRef": "Branch_Name"
+            }
+          ]
+        },
+        "Size": {
           "projections": [
             {
               "field": {
@@ -48,112 +60,50 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg. Days-to-Hire"
+                  "Property": "Total Graduates"
                 }
               },
-              "queryRef": "_Ziad.Avg. Days-to-Hire",
-              "nativeQueryRef": "Avg. Days-to-Hire"
+              "queryRef": "_Ziad.Total Graduates",
+              "nativeQueryRef": "Total Graduates"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Ziad"
-                  }
-                },
-                "Property": "Avg. Days-to-Hire"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "objects": {
-      "categoryAxis": [
-        {
-          "properties": {
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "labelPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'InsideEnd'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "ribbonBands": [
+      "legend": [
         {
           "properties": {
             "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "mapStyles": [
+        {
+          "properties": {
+            "mapTheme": {
+              "expr": {
+                "Literal": {
+                  "Value": "'canvasLight'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "bubbles": [
+        {
+          "properties": {
+            "bubbleSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "-5L"
                 }
               }
             }
@@ -236,7 +186,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Days to Hire Per Track'"
+                  "Value": "'Graduates Per Location'"
                 }
               }
             }

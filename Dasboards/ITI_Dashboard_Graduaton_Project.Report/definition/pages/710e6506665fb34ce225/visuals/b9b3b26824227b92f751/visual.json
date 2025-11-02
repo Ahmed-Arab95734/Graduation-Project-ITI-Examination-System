@@ -13,6 +13,31 @@
     "visualType": "barChart",
     "query": {
       "queryState": {
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimIntake"
+                    }
+                  },
+                  "Property": "Intake_Name"
+                }
+              },
+              "queryRef": "DimIntake.Intake_Name",
+              "nativeQueryRef": "Intake_Name",
+              "active": true
+            }
+          ]
+        },
+=======
+>>>>>>> f5897d555c468a10c30f933f4095dde475ae7687
+>>>>>>> Stashed changes
         "Y": {
           "projections": [
             {

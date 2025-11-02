@@ -32,7 +32,6 @@ ref table DimFailureReason
 ref table DimInstructor
 ref table LocalDateTable_648ff91c-d05b-411e-a19d-eb59dee588a5
 ref table DimIntake
-ref table LocalDateTable_86ce843e-ed53-4f40-b194-098e9b29e737
 ref table LocalDateTable_6a0608fb-2c93-449d-a7d1-103f9ff05784
 ref table DimJobSite
 ref table DimQuestion

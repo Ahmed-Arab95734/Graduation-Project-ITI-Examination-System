@@ -1,21 +1,18 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "eb62bef092c867af597c",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "e956f48db4032d69121a",
   "position": {
-    "x": 753.09957924263676,
-    "y": 466.76016830294532,
-    "z": 6000,
-    "height": 245.04908835904629,
-    "width": 494.58625525946707,
-    "tabOrder": 4000
+    "x": 752.996336996337,
+    "y": 466.989010989011,
+    "z": 6001,
+    "height": 244.74725274725276,
+    "width": 494.18315018315019,
+    "tabOrder": 5001
   },
   "visual": {
     "visualType": "barChart",
     "query": {
       "queryState": {
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
         "Category": {
           "projections": [
             {
@@ -23,21 +20,18 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimTrack"
+                      "Entity": "DimIntake"
                     }
                   },
-                  "Property": "Track_Name"
+                  "Property": "Intake_Type"
                 }
               },
-              "queryRef": "DimTrack.Track_Name",
-              "nativeQueryRef": "Track_Name",
+              "queryRef": "DimIntake.Intake_Type",
+              "nativeQueryRef": "Intake_Type",
               "active": true
             }
           ]
         },
-=======
->>>>>>> f5897d555c468a10c30f933f4095dde475ae7687
->>>>>>> Stashed changes
         "Y": {
           "projections": [
             {
@@ -48,11 +42,11 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg. Days-to-Hire"
+                  "Property": "Avg. St. Salary"
                 }
               },
-              "queryRef": "_Ziad.Avg. Days-to-Hire",
-              "nativeQueryRef": "Avg. Days-to-Hire"
+              "queryRef": "_Ziad.Avg. St. Salary",
+              "nativeQueryRef": "Avg. St. Salary"
             }
           ]
         }
@@ -67,7 +61,7 @@
                     "Entity": "_Ziad"
                   }
                 },
-                "Property": "Avg. Days-to-Hire"
+                "Property": "Avg. St. Salary"
               }
             },
             "direction": "Descending"
@@ -236,7 +230,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Days to Hire Per Track'"
+                  "Value": "'Average Student Salary Per Intake Type'"
                 }
               }
             }

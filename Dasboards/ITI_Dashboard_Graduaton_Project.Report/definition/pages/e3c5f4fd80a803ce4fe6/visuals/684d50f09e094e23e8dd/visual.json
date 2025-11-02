@@ -1,5 +1,13 @@
 {
+<<<<<<< Updated upstream
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+=======
+<<<<<<< HEAD
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+=======
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+>>>>>>> f5897d555c468a10c30f933f4095dde475ae7687
+>>>>>>> Stashed changes
   "name": "684d50f09e094e23e8dd",
   "position": {
     "x": 534.92328321141406,

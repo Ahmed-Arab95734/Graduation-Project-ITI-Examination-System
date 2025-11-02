@@ -17,18 +17,55 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimDate"
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "DimDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "FullDate"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
                     }
                   },
-                  "Property": "FullDate"
+                  "Level": "Year"
                 }
               },
               "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Year",
               "nativeQueryRef": "FullDate Year",
               "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "DimDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "FullDate"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Quarter"
+                }
+              },
+              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Quarter",
+              "nativeQueryRef": "FullDate Quarter",
+              "active": false
             }
           ]
         },

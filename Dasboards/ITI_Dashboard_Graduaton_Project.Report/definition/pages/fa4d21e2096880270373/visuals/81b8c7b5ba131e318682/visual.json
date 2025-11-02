@@ -19,14 +19,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Ziad"
+                      "Entity": "_Mahmoud"
                     }
                   },
-                  "Property": "Avg. St. Grade"
+                  "Property": "Avg. Grade"
                 }
               },
-              "queryRef": "_Ziad.Avg. St. Grade",
-              "nativeQueryRef": "Avg. St. Grade"
+              "queryRef": "_Mahmoud.Avg. Grade",
+              "nativeQueryRef": "Avg. Grade"
             }
           ]
         }
@@ -38,10 +38,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Ziad"
+                    "Entity": "_Mahmoud"
                   }
                 },
-                "Property": "Avg. St. Grade"
+                "Property": "Avg. Grade"
               }
             },
             "direction": "Descending"
