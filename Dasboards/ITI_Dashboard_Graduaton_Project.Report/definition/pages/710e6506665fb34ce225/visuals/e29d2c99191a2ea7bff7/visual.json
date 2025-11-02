@@ -11,46 +11,6 @@
   },
   "visual": {
     "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Ziad"
-                    }
-                  },
-                  "Property": "Avg. No. Students Per Intake"
-                }
-              },
-              "queryRef": "_Ziad.Avg. No. Students Per Track",
-              "nativeQueryRef": "Avg. No. Students Per Intake"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Ziad"
-                  }
-                },
-                "Property": "Avg. No. Students Per Intake"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    },
     "objects": {
       "categoryLabels": [
         {

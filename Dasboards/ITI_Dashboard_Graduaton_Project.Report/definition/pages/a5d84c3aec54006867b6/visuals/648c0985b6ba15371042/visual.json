@@ -13,28 +13,6 @@
     "visualType": "barChart",
     "query": {
       "queryState": {
-<<<<<<< HEAD
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimBranch"
-                    }
-                  },
-                  "Property": "Branch_Name"
-                }
-              },
-              "queryRef": "DimBranch.Branch_Name",
-              "nativeQueryRef": "Branch_Name",
-              "active": true
-            }
-          ]
-        },
-=======
->>>>>>> f5897d555c468a10c30f933f4095dde475ae7687
         "Y": {
           "projections": [
             {

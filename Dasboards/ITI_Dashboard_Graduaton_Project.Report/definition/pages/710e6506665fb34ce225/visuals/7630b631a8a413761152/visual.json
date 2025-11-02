@@ -2,47 +2,17 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "7630b631a8a413761152",
   "position": {
-<<<<<<< HEAD
-    "x": 218.49084249084248,
-    "y": 466.989010989011,
-    "z": 5000,
-    "height": 244.74725274725276,
-    "width": 495.12087912087912,
-=======
     "x": 219.08355795148248,
     "y": 466.63072776280319,
     "z": 5000,
     "height": 244.95956873315362,
     "width": 494.23180592991912,
->>>>>>> f5897d555c468a10c30f933f4095dde475ae7687
     "tabOrder": 4000
   },
   "visual": {
     "visualType": "barChart",
     "query": {
       "queryState": {
-<<<<<<< HEAD
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimIntake"
-                    }
-                  },
-                  "Property": "Intake_Type"
-                }
-              },
-              "queryRef": "DimIntake.Intake_Type",
-              "nativeQueryRef": "Intake_Type",
-              "active": true
-            }
-          ]
-        },
-=======
->>>>>>> f5897d555c468a10c30f933f4095dde475ae7687
         "Y": {
           "projections": [
             {
@@ -241,7 +211,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Employment Rate Per Intake Type'"
+                  "Value": "'Employment Rate Per Intake'"
                 }
               }
             }

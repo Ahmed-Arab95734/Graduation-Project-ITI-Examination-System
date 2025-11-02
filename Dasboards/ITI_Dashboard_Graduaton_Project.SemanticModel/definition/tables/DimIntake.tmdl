@@ -42,6 +42,11 @@ table DimIntake
 		summarizeBy: none
 		sourceColumn: Intake_Start_Date
 
+		variation Variation
+			isDefault
+			relationship: 275d50d7-b70f-46c5-abcb-b19db02bb5ff
+			defaultHierarchy: LocalDateTable_86ce843e-ed53-4f40-b194-098e9b29e737.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

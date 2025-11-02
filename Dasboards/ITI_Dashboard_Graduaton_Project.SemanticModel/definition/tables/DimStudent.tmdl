@@ -43,14 +43,6 @@ table DimStudent
 
 		annotation SummarizationSetBy = Automatic
 
-	column Student_Address
-		dataType: string
-		lineageTag: 50d6483f-53fb-4ceb-a92d-3d90f0e6795f
-		summarizeBy: none
-		sourceColumn: Student_Address
-
-		annotation SummarizationSetBy = Automatic
-
 	column Student_Birthdate
 		dataType: dateTime
 		formatString: Long Date
@@ -174,15 +166,29 @@ table DimStudent
 
 		annotation SummarizationSetBy = Automatic
 
+	column County
+		dataType: string
+		lineageTag: 45efe471-5c2d-4f67-9bfb-e54e1df888a8
+		summarizeBy: none
+		sourceColumn: County
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimStudent = m
 		mode: import
 		source =
 				let
 				    Source = Sql.Databases("."),
 				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
-				    dbo_DimStudent = ITI_DW{[Schema="dbo",Item="DimStudent"]}[Data]
+				    dbo_DimStudent = ITI_DW{[Schema="dbo",Item="DimStudent"]}[Data],
+				    #"Split Column by Delimiter" = Table.SplitColumn(dbo_DimStudent, "Student_Address", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), {"Student_Address.1", "Student_Address.2"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Student_Address.1", type text}, {"Student_Address.2", type text}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "County", each if [Student_Address.2] = null then [Student_Address.1] else [Student_Address.2]),
+				    #"Removed Columns" = Table.RemoveColumns(#"Added Conditional Column",{"Student_Address.1", "Student_Address.2"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"County", type text}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Changed Type1",{{"County", Text.Trim, type text}})
 				in
-				    dbo_DimStudent
+				    #"Trimmed Text"
 
 	annotation PBI_NavigationStepName = Navigation
 
