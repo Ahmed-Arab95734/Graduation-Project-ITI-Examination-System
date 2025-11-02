@@ -11,46 +11,6 @@
   },
   "visual": {
     "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "HaithamMeasures"
-                    }
-                  },
-                  "Property": "Avg Age"
-                }
-              },
-              "queryRef": "HaithamMeasures.Avg Age",
-              "nativeQueryRef": "Avg Age"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "HaithamMeasures"
-                  }
-                },
-                "Property": "Avg Age"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    },
     "objects": {
       "categoryLabels": [
         {

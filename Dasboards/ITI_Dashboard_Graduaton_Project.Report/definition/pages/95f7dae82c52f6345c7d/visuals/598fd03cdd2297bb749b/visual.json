@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "598fd03cdd2297bb749b",
   "position": {
     "x": 746.83788121990369,
     "y": 141.76565008025682,
     "z": 5000,
     "height": 280.44943820224722,
-    "width": 521.86195826645269,
-    "tabOrder": 1000
+    "width": 521.86195826645269
   },
   "visual": {
     "visualType": "columnChart",
@@ -424,7 +423,7 @@
         "type": "Advanced"
       },
       {
-        "name": "457a524e0a64a4809302",
+        "name": "68605a112dda1fa4ee56",
         "field": {
           "Column": {
             "Expression": {
@@ -435,94 +434,7 @@
             "Property": "County"
           }
         },
-        "type": "TopN",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "subquery",
-              "Expression": {
-                "Subquery": {
-                  "Query": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "d",
-                        "Entity": "DimStudent",
-                        "Type": 0
-                      },
-                      {
-                        "Name": "h",
-                        "Entity": "HimaMeasures",
-                        "Type": 0
-                      }
-                    ],
-                    "Select": [
-                      {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Source": "d"
-                            }
-                          },
-                          "Property": "County"
-                        },
-                        "Name": "field"
-                      }
-                    ],
-                    "OrderBy": [
-                      {
-                        "Direction": 2,
-                        "Expression": {
-                          "Measure": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "h"
-                              }
-                            },
-                            "Property": "Total student Salary"
-                          }
-                        }
-                      }
-                    ],
-                    "Top": 5
-                  }
-                }
-              },
-              "Type": 2
-            },
-            {
-              "Name": "d",
-              "Entity": "DimStudent",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "County"
-                      }
-                    }
-                  ],
-                  "Table": {
-                    "SourceRef": {
-                      "Source": "subquery"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
+        "type": "Categorical"
       }
     ],
     "filterSortOrder": "Custom"

@@ -11,46 +11,6 @@
   },
   "visual": {
     "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "HaithamMeasures"
-                    }
-                  },
-                  "Property": "Min Age"
-                }
-              },
-              "queryRef": "HaithamMeasures.Min Age",
-              "nativeQueryRef": "Min Age"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "HaithamMeasures"
-                  }
-                },
-                "Property": "Min Age"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    },
     "objects": {
       "categoryLabels": [
         {

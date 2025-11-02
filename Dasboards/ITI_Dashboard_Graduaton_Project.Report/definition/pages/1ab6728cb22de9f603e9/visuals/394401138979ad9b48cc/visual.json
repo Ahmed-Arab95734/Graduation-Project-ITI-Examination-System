@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "394401138979ad9b48cc",
   "position": {
     "x": 267.3904766515605,
     "y": 0,
     "z": 1000,
     "height": 122.70003994141925,
-    "width": 227.28190515382639,
-    "tabOrder": 1000
+    "width": 227.28190515382639
   },
   "visual": {
     "visualType": "card",
@@ -271,23 +270,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "c5667f1ba19a483ddc54",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4740f8f3ea93606d4e5d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "AhmedMeasures"
-              }
-            },
-            "Property": "Total_Students"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "c5667f1ba19a483ddc54"
 }

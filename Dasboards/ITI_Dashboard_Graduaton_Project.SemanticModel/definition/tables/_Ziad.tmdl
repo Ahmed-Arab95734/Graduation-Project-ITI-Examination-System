@@ -1,7 +1,8 @@
 table _Ziad
 	lineageTag: 5ebf4a66-578b-4a14-b996-65f6ef14f39c
 
-	measure 'Total Students' = CALCULATE( DISTINCTCOUNT(DimStudent[Student_ID], USERELATIONSHIP(DimIntake[Intake_Start_Date], DimDate[FullDate])))
+	measure 'Total Students' = CALCULATE( DISTINCTCOUNT(DimStudent[Student_ID]), USERELATIONSHIP(DimIntake[Intake_Start_Date], DimDate[FullDate]))
+		formatString: 0
 		lineageTag: ef07c578-94e4-4c2c-84d4-b58549e9c665
 
 	measure 'Total Graduates' = CALCULATE(COUNT(DimStudent[Student_ID]), DimStudent[Student_ITI_Status] = "Graduated" )

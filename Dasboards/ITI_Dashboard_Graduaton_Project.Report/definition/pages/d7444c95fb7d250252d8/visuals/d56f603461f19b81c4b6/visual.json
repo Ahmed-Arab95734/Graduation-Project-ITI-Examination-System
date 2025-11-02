@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 245.55555555555554,
     "width": 494.44444444444446,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "barChart",
@@ -31,42 +31,9 @@
               "active": true
             }
           ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Ziad"
-                    }
-                  },
-                  "Property": "Total Students"
-                }
-              },
-              "queryRef": "_Ziad.Total Students",
-              "nativeQueryRef": "Total Students"
-            }
-          ]
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Ziad"
-                  }
-                },
-                "Property": "Total Students"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
     },

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "9892886a3c87cf0b71f5",
   "position": {
     "x": 746.83788121990369,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 281.47672552166938,
     "width": 520.83467094703053,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "columnChart",
@@ -495,6 +495,34 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "97d9d625e40e5d29b245",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTrack"
+              }
+            },
+            "Property": "Track_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a2ccab32f092faddd3c5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Total student Salary"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

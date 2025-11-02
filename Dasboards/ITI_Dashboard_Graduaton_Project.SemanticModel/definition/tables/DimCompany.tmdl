@@ -43,13 +43,29 @@ table DimCompany
 
 		annotation SummarizationSetBy = Automatic
 
+	column Field
+		dataType: string
+		lineageTag: 84646b4a-546b-49ff-afe4-42e5297d18b8
+		summarizeBy: none
+		sourceColumn: Field
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimCompany = m
 		mode: import
 		source =
 				let
 				    Source = Sql.Databases("."),
 				    ITI_DW = Source{[Name="ITI_DW"]}[Data],
-				    dbo_DimCompany = ITI_DW{[Schema="dbo",Item="DimCompany"]}[Data]
+				    dbo_DimCompany = ITI_DW{[Schema="dbo",Item="DimCompany"]}[Data],
+				    #"Merged Queries" = Table.NestedJoin(dbo_DimCompany, {"CompanyKey"}, #"Companies Fileds", {"CompanKey"}, "Companies Fileds", JoinKind.LeftOuter),
+				    #"Expanded Companies Fileds" = Table.ExpandTableColumn(#"Merged Queries", "Companies Fileds", {"Field"}, {"Field"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Expanded Companies Fileds","Smart Village, Giza","Smart Village",Replacer.ReplaceText,{"Company_Location"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","6th of October, Giza","6th of October",Replacer.ReplaceText,{"Company_Location"})
 				in
-				    dbo_DimCompany
+				    #"Replaced Value1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

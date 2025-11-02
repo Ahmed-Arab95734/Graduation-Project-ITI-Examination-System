@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 502.37121831561734,
     "width": 495.04497138184792,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "decompositionTreeVisual",
@@ -450,65 +450,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ae7acf181f244d2c67ff",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Avg Grade (All Students)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2ca4f7d3a3d283455bea",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimStudent"
-              }
-            },
-            "Property": "Has Certificate"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "004500f68dfe8745d738",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimStudent"
-              }
-            },
-            "Property": "Has Freelance"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "e9be2a3bf74008b9924b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTrack"
-              }
-            },
-            "Property": "Track_Name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }
