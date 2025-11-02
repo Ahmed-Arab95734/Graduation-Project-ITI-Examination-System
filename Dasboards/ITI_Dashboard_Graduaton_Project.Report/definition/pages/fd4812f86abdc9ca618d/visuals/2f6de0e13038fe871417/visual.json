@@ -23,11 +23,11 @@
                       "Entity": "HaithamMeasures"
                     }
                   },
-                  "Property": "Avg Earning per Job"
+                  "Property": "Average Earnings"
                 }
               },
-              "queryRef": "HaithamMeasures.Avg Earning per Job",
-              "nativeQueryRef": "Avg Earning per Job"
+              "queryRef": "HaithamMeasures.Average Earnings",
+              "nativeQueryRef": "Average Earnings"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "HaithamMeasures"
                   }
                 },
-                "Property": "Avg Earning per Job"
+                "Property": "Average Earnings"
               }
             },
             "direction": "Descending"
@@ -227,7 +227,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Avg. Freelance Earning per Job'"
+                  "Value": "'Avg. Freelance Earning'"
                 }
               }
             },
