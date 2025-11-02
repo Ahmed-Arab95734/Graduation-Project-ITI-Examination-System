@@ -1,37 +1,18 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "598fd03cdd2297bb749b",
+  "name": "900b60c837af8a4b5d9b",
   "position": {
-    "x": 746.83788121990369,
-    "y": 141.76565008025682,
-    "z": 5000,
-    "height": 280.44943820224722,
-    "width": 521.86195826645269
+    "x": 821.56870485137983,
+    "y": 0,
+    "z": 3000,
+    "height": 117.54577074223094,
+    "width": 232.777799707891
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimStudent"
-                    }
-                  },
-                  "Property": "County"
-                }
-              },
-              "queryRef": "DimStudent.County",
-              "nativeQueryRef": "County",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -41,11 +22,11 @@
                       "Entity": "HimaMeasures"
                     }
                   },
-                  "Property": "Total student Salary"
+                  "Property": "Total Freelancers"
                 }
               },
-              "queryRef": "HimaMeasures.Total student Salary",
-              "nativeQueryRef": "Total student Salary"
+              "queryRef": "HimaMeasures.Total Freelancers",
+              "nativeQueryRef": "Total Freelancers"
             }
           ]
         }
@@ -60,7 +41,7 @@
                     "Entity": "HimaMeasures"
                   }
                 },
-                "Property": "Total student Salary"
+                "Property": "Total Freelancers"
               }
             },
             "direction": "Descending"
@@ -70,50 +51,7 @@
       }
     },
     "objects": {
-      "legend": [
-        {
-          "properties": {
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
+      "categoryLabels": [
         {
           "properties": {
             "show": {
@@ -123,7 +61,7 @@
                 }
               }
             },
-            "labelColor": {
+            "color": {
               "solid": {
                 "color": {
                   "expr": {
@@ -134,11 +72,17 @@
                   }
                 }
               }
-            },
-            "showAxisTitle": {
+            }
+          }
+        }
+      ],
+      "wordWrap": [
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
@@ -148,76 +92,24 @@
       "labels": [
         {
           "properties": {
-            "show": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "36D"
                 }
               }
             },
-            "labelPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'OutsideEnd'"
-                }
-              }
-            },
-            "enableBackground": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "backgroundColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#5BC0DE'"
-                    }
-                  }
-                }
-              }
-            },
-            "backgroundTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "10L"
-                }
-              }
-            },
-            "enableTitleDataLabel": {
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
             },
-            "enableDetailDataLabel": {
+            "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "ribbonBands": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "borderShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "0D"
                 }
               }
             }
@@ -226,13 +118,108 @@
       ]
     },
     "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "90D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2E3757'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "25D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
       "title": [
         {
           "properties": {
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 5 Total Students Salaries by County'"
+                  "Value": "'Total Freelancers'"
                 }
               }
             },
@@ -246,7 +233,7 @@
             "heading": {
               "expr": {
                 "Literal": {
-                  "Value": "'Heading3'"
+                  "Value": "'Heading4'"
                 }
               }
             },
@@ -307,95 +294,34 @@
           }
         }
       ],
-      "background": [
+      "padding": [
         {
           "properties": {
-            "show": {
+            "top": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "1D"
                 }
               }
             },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
-                    }
-                  }
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             },
-            "transparency": {
+            "left": {
               "expr": {
                 "Literal": {
-                  "Value": "90D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "border": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "1D"
                 }
               }
             },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#2E3757'"
-                    }
-                  }
-                }
-              }
-            },
-            "radius": {
+            "right": {
               "expr": {
                 "Literal": {
-                  "Value": "25D"
-                }
-              }
-            },
-            "width": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "dropShadow": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
-                    }
-                  }
+                  "Value": "1D"
                 }
               }
             }
@@ -405,38 +331,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "40b97e038535c04246f6",
-        "ordinal": 0,
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Total student Salary"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "68605a112dda1fa4ee56",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimStudent"
-              }
-            },
-            "Property": "County"
-          }
-        },
-        "type": "Categorical"
-      }
-    ],
-    "filterSortOrder": "Custom"
-  }
+  "parentGroupName": "8fec34e3f85de01a9c06"
 }

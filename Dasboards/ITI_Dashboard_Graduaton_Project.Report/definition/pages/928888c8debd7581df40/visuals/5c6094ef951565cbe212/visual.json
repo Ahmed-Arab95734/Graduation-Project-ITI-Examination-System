@@ -6,10 +6,51 @@
     "y": 1.3334719549107916,
     "z": 1000,
     "height": 117.83185709805872,
-    "width": 233.36498941875286
+    "width": 233.36498941875286,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HimaMeasures"
+                    }
+                  },
+                  "Property": "Graduation %"
+                }
+              },
+              "queryRef": "HimaMeasures.Graduation %",
+              "nativeQueryRef": "Graduation %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "HimaMeasures"
+                  }
+                },
+                "Property": "Graduation %"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "categoryLabels": [
         {

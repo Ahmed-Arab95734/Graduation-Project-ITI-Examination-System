@@ -1,16 +1,56 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "5b0f01859f83045354cf",
+  "name": "bdbecad696703faae7b2",
   "position": {
-    "x": 822.09668341289535,
-    "y": 0,
-    "z": 3000,
-    "height": 118.04375429851596,
-    "width": 232.92739363365376,
+    "x": 273.71046336841209,
+    "y": 1.3278465229660092,
+    "z": 1000,
+    "height": 117.3347674587969,
+    "width": 233.2151144540347,
     "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HimaMeasures"
+                    }
+                  },
+                  "Property": "Average Certicates cost"
+                }
+              },
+              "queryRef": "HimaMeasures.Average Certicates cost",
+              "nativeQueryRef": "Average Certicates cost"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "HimaMeasures"
+                  }
+                },
+                "Property": "Average Certicates cost"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "categoryLabels": [
         {
@@ -180,7 +220,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Students'"
+                  "Value": "'Average certificate Costs'"
                 }
               }
             },
@@ -292,5 +332,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "3174251a4a468147f5a0"
+  "parentGroupName": "8fec34e3f85de01a9c06"
 }

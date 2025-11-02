@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 299.57446808510639,
     "width": 507.72036474164133,
-    "tabOrder": 11000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "columnChart",
@@ -424,8 +424,8 @@
                         "Type": 0
                       },
                       {
-                        "Name": "h",
-                        "Entity": "HimaMeasures",
+                        "Name": "_",
+                        "Entity": "_Ziad",
                         "Type": 0
                       }
                     ],
@@ -449,10 +449,10 @@
                           "Measure": {
                             "Expression": {
                               "SourceRef": {
-                                "Source": "h"
+                                "Source": "_"
                               }
                             },
-                            "Property": "Avg Hired Graduates Salaries"
+                            "Property": "Avg. St. Salary"
                           }
                         }
                       }
@@ -497,5 +497,6 @@
         }
       }
     ]
-  }
+  },
+  "isHidden": true
 }

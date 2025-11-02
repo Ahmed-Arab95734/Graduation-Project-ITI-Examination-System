@@ -7,10 +7,50 @@
     "z": 3000,
     "height": 118.04375429851596,
     "width": 232.92739363365376,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AhmedMeasures"
+                    }
+                  },
+                  "Property": "Total_Students"
+                }
+              },
+              "queryRef": "AhmedMeasures.Total_Students",
+              "nativeQueryRef": "Total_Students"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AhmedMeasures"
+                  }
+                },
+                "Property": "Total_Students"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "categoryLabels": [
         {

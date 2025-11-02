@@ -34,6 +34,15 @@ table HimaMeasures
 		formatString: 0
 		lineageTag: ee375a55-aed8-42eb-8345-4a45e52bcdac
 
+	measure 'Total Counties' = DISTINCTCOUNT(DimStudent[County])
+		formatString: 0
+		lineageTag: e2ab95af-db22-4dd6-8e15-abd93bacc364
+
+	measure 'Total Certicates cost' = CALCULATE(sum(FactCertificate[Certificate_Cost]))
+		lineageTag: cb3e609f-b302-4b64-8dfd-a2f0f165f56f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Column
 		formatString: 0
 		lineageTag: 6e458eb2-9f3f-44e3-a01b-49ce6d3b49de

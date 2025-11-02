@@ -200,9 +200,10 @@ table DimStudent
 				    #"Split Column by Delimiter" = Table.SplitColumn(dbo_DimStudent, "Student_Address", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), {"Student_Address.1", "Student_Address.2"}),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Student_Address.1", type text}, {"Student_Address.2", type text}}),
 				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "County", each if [Student_Address.2] = null then [Student_Address.1] else [Student_Address.2]),
-				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Conditional Column",{{"County", type text}})
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Conditional Column",{{"County", type text}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Changed Type1",{{"County", Text.Trim, type text}})
 				in
-				    #"Changed Type1"
+				    #"Trimmed Text"
 
 	annotation PBI_NavigationStepName = Navigation
 

@@ -7,7 +7,7 @@
     "z": 11000,
     "height": 248.99696048632219,
     "width": 1054.3465045592707,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "lineChart",
@@ -499,35 +499,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "c1f7988623ed41570d34",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Average Earnings"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "99610e2d884a172ac96c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Average Certicates cost"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3dfe10519b0200d190c9",
+        "name": "b312dc2613264e47534c",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -552,7 +524,7 @@
         "type": "Advanced"
       },
       {
-        "name": "23f389b3780ce581732f",
+        "name": "df811b9f0669ae31208f",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -577,7 +549,7 @@
         "type": "Categorical"
       },
       {
-        "name": "d91810cbfd4ceef9e653",
+        "name": "97a7d6427f5c5ec56ddb",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -602,7 +574,7 @@
         "type": "Categorical"
       },
       {
-        "name": "d45642813526d0e9dcf8",
+        "name": "d08726f17aca78ac173a",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -622,6 +594,34 @@
               }
             },
             "Level": "Day"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "05c62b4396e4eb5be1c1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Average Earnings"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "22a21619d75ee45b5d5b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Average Certicates cost"
           }
         },
         "type": "Advanced"

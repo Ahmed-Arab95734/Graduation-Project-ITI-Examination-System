@@ -55,6 +55,9 @@
       }
     ]
   },
+  "publicCustomVisuals": [
+    "histogramF963F133BA02A0B35D286F09F80E9C78"
+  ],
   "resourcePackages": [
     {
       "name": "SharedResources",

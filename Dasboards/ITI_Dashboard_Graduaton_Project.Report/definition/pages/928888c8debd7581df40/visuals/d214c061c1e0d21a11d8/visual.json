@@ -6,8 +6,7 @@
     "y": 141.76565008025682,
     "z": 7000,
     "height": 280.44943820224722,
-    "width": 507.47993579454254,
-    "tabOrder": 1000
+    "width": 507.47993579454254
   },
   "visual": {
     "visualType": "columnChart",
@@ -33,10 +32,40 @@
           ]
         },
         "Y": {
-          "projections": []
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AhmedMeasures"
+                    }
+                  },
+                  "Property": "Total_Students"
+                }
+              },
+              "queryRef": "AhmedMeasures.Total_Students",
+              "nativeQueryRef": "Total_Students"
+            }
+          ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AhmedMeasures"
+                  }
+                },
+                "Property": "Total_Students"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
@@ -257,7 +286,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 5 Total Students by Track'"
+                  "Value": "'Top 5 Total Students by Branch'"
                 }
               }
             }

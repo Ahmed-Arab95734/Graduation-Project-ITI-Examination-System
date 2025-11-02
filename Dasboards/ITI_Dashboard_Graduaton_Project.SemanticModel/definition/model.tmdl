@@ -12,6 +12,8 @@ annotation PBI_ProTooling = ["DevMode"]
 
 annotation PBI_QueryOrder = ["Companies Fileds","DimBranch","DimCertificate","DimCertificateProvider","DimCompany","DimCourse","DimDate","DimDepartment","DimExam","DimFailureReason","DimInstructor","DimIntake","DimJobSite","DimQuestion","DimStudent","DimTopic","DimTrack","FactCertificate","FactFreelanceJob","FactStudentFailure","FactStudentPerformance","FactStudentOutcomes","FactStudentRating"]
 
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+
 ref table _Ziad
 ref table HaithamMeasures
 ref table _Mahmoud

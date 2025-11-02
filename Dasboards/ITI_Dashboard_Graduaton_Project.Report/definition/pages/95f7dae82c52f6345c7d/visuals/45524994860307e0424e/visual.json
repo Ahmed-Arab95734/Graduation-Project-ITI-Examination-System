@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "1d8a92f54a3401c6b15f",
+  "name": "45524994860307e0424e",
   "position": {
-    "x": 213.67576243980741,
-    "y": 430.43338683788124,
-    "z": 2000,
-    "height": 281.47672552166938,
-    "width": 507.47993579454254,
-    "tabOrder": 6000
+    "x": 746.99088145896656,
+    "y": 145.89665653495442,
+    "z": 5000,
+    "height": 299.57446808510639,
+    "width": 521.33738601823711,
+    "tabOrder": 5000
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "hundredPercentStackedBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -39,6 +39,20 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
+                      "Entity": "HimaMeasures"
+                    }
+                  },
+                  "Property": "Average Certicates cost"
+                }
+              },
+              "queryRef": "HimaMeasures.Average Certicates cost",
+              "nativeQueryRef": "Average Certicates cost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
                       "Entity": "HaithamMeasures"
                     }
                   },
@@ -58,10 +72,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "HaithamMeasures"
+                    "Entity": "HimaMeasures"
                   }
                 },
-                "Property": "Average Earnings"
+                "Property": "Average Certicates cost"
               }
             },
             "direction": "Descending"
@@ -74,6 +88,13 @@
       "legend": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "labelColor": {
               "solid": {
                 "color": {
@@ -83,6 +104,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "showGradientLegend": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -187,7 +215,105 @@
                   "Value": "10L"
                 }
               }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableValueDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "detailContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Percent of total'"
+                }
+              }
             }
+          }
+        },
+        {
+          "properties": {
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#5bc0de'"
+                    }
+                  }
+                }
+              }
+            },
+            "enableValueDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "HimaMeasures.Average Certicates cost"
+          }
+        },
+        {
+          "properties": {
+            "enableValueDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "HaithamMeasures.Average Earnings"
           }
         }
       ],
@@ -210,6 +336,22 @@
             }
           }
         }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "borderShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "HimaMeasures.Average Certicates cost"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -219,7 +361,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 5 Total Students Earnings by Branch'"
+                  "Value": "'Top 5 Average Earnings Vs Costs Per County'"
                 }
               }
             },
@@ -395,22 +537,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "34c800c4dfb5ab4b5e4e",
-        "ordinal": 0,
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Average Earnings"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1013a7370193720206b6",
+        "name": "36d28671b84684451579",
         "field": {
           "Column": {
             "Expression": {
@@ -421,9 +548,95 @@
             "Property": "County"
           }
         },
-        "type": "Categorical"
+        "type": "TopN",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "subquery",
+              "Expression": {
+                "Subquery": {
+                  "Query": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "DimStudent",
+                        "Type": 0
+                      },
+                      {
+                        "Name": "h",
+                        "Entity": "HaithamMeasures",
+                        "Type": 0
+                      }
+                    ],
+                    "Select": [
+                      {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "d"
+                            }
+                          },
+                          "Property": "County"
+                        },
+                        "Name": "field"
+                      }
+                    ],
+                    "OrderBy": [
+                      {
+                        "Direction": 2,
+                        "Expression": {
+                          "Measure": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "h"
+                              }
+                            },
+                            "Property": "Average Earnings"
+                          }
+                        }
+                      }
+                    ],
+                    "Top": 5
+                  }
+                }
+              },
+              "Type": 2
+            },
+            {
+              "Name": "d",
+              "Entity": "DimStudent",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "County"
+                      }
+                    }
+                  ],
+                  "Table": {
+                    "SourceRef": {
+                      "Source": "subquery"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
-    ],
-    "filterSortOrder": "Custom"
+    ]
   }
 }
