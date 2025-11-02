@@ -11,46 +11,6 @@
   },
   "visual": {
     "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Ziad"
-                    }
-                  },
-                  "Property": "Total Intakes"
-                }
-              },
-              "queryRef": "_Ziad.Total Intakes",
-              "nativeQueryRef": "Total Intakes"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Ziad"
-                  }
-                },
-                "Property": "Total Intakes"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    },
     "objects": {
       "categoryLabels": [
         {

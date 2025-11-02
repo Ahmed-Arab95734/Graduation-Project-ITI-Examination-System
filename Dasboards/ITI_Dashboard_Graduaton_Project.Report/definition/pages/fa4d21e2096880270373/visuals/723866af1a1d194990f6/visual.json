@@ -42,11 +42,11 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg. St. Grade . Ins"
+                  "Property": "Avg. St. Grade"
                 }
               },
-              "queryRef": "_Ziad.Avg. St. Grade . Ins",
-              "nativeQueryRef": "Avg. St. Grade . Ins",
+              "queryRef": "_Ziad.Avg. St. Grade",
+              "nativeQueryRef": "Avg. St. Grade",
               "active": true
             }
           ]
@@ -320,37 +320,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7ab61b5aebac055ae57d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Instructor_FullName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1ed36699d72f4dee6b7f",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. Instructor Rating"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -1,25 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "8e09edefd73854efab88",
   "position": {
     "x": 218.18254912142584,
     "y": 10.977738320574884,
     "z": 1000,
-<<<<<<< Updated upstream
     "height": 122.12733881639559,
     "width": 1029.1629675538954,
     "tabOrder": 2000
-=======
-<<<<<<< HEAD
-    "height": 122.70003994141925,
-    "width": 1029.4533351085076,
-    "tabOrder": 3000
-=======
-    "height": 122.12733881639559,
-    "width": 1029.1629675538954,
-    "tabOrder": 2000
->>>>>>> f5897d555c468a10c30f933f4095dde475ae7687
->>>>>>> Stashed changes
   },
   "visualGroup": {
     "displayName": "Group 1",
