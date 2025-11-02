@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 2321.2394986521667,
-        "y": 316.54482161544627
+        "x": 1804.0962519859979,
+        "y": 317.24204624294845
       },
       "nodes": [
         {
@@ -341,6 +341,19 @@
           "nodeIndex": "AhmedMeasures",
           "size": {
             "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3923.1375233624394,
+            "y": 773.49612021521
+          },
+          "nodeIndex": "HimaMeasures",
+          "nodeLineageTag": "6099bf17-07d4-458a-b783-1ce10be9c732",
+          "size": {
+            "height": 300,
             "width": 234
           },
           "zIndex": 0
