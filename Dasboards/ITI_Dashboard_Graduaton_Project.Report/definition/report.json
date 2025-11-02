@@ -11,11 +11,11 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Red-Blue_Plexus2537938869631434.json",
+      "name": "Red-Blue_Plexus5555384546545425.json",
       "reportVersionAtImport": {
         "visual": "2.1.0",
-        "report": "3.0.0",
-        "page": "2.3.0"
+        "report": "2.1.0",
+        "page": "2.0.0"
       },
       "type": "RegisteredResources"
     }
@@ -112,8 +112,8 @@
           "type": "Image"
         },
         {
-          "name": "Red-Blue_Plexus2537938869631434.json",
-          "path": "Red-Blue_Plexus2537938869631434.json",
+          "name": "Red-Blue_Plexus5555384546545425.json",
+          "path": "Red-Blue_Plexus5555384546545425.json",
           "type": "CustomTheme"
         }
       ]

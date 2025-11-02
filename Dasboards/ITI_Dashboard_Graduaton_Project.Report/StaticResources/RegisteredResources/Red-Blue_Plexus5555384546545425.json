@@ -538,6 +538,31 @@
               }
             }
           }
+        ],
+        "outspacePane": [
+          {
+            "foregroundColor": {
+              "solid": {
+                "color": "#080000"
+              }
+            }
+          }
+        ],
+        "filterCard": [
+          {
+            "$id": "Available",
+            "backgroundColor": {
+              "solid": {
+                "color": "#FAFBFF"
+              }
+            },
+            "foregroundColor": {
+              "solid": {
+                "color": "#0C0600"
+              }
+            },
+            "transparency": 0
+          }
         ]
       }
     },
