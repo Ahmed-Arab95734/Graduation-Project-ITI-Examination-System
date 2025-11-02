@@ -7,7 +7,7 @@
     "z": 8000,
     "height": 280.44943820224722,
     "width": 507.47993579454254,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "columnChart",
@@ -494,20 +494,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "1a5a8b657b68bdf203a2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Total Students"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

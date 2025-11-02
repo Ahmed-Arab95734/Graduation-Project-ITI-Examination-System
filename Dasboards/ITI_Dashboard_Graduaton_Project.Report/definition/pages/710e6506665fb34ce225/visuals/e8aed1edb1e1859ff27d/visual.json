@@ -6,7 +6,8 @@
     "y": 1.3860713182211413,
     "z": 1000,
     "height": 122.47978436657681,
-    "width": 227.70889487870619
+    "width": 227.70889487870619,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -331,23 +332,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "6fc3a79dc6786bce81db",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "13e246f6cb9e4a9cbc54",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Branches Above Target"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "6fc3a79dc6786bce81db"
 }

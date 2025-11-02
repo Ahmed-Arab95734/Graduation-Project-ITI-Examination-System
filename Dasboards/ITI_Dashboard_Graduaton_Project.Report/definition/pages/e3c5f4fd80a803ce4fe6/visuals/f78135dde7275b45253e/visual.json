@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 122.47978436657681,
     "width": 227.70889487870619,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
@@ -332,23 +332,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "aac6fe31baa1946afcee",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "f555a6ca49b9d0dda9d5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Total Graduates"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "aac6fe31baa1946afcee"
 }

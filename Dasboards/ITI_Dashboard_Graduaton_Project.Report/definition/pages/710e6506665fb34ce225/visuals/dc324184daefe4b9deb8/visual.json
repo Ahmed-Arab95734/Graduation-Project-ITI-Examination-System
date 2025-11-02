@@ -6,7 +6,8 @@
     "y": 207.34922861150071,
     "z": 3000,
     "height": 245.94670406732118,
-    "width": 494.58625525946707
+    "width": 494.58625525946707,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "barChart",
@@ -333,37 +334,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "09c3b055d238ba6868a6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. St. Grade"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6a1169d06cb7f205bc0c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimBranch"
-              }
-            },
-            "Property": "Branch_Name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "e132df0eacb05a0521e1",
   "position": {
     "x": 1036.2947027782375,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 403.67293654733669,
     "width": 210.87392207696692,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "donutChart",

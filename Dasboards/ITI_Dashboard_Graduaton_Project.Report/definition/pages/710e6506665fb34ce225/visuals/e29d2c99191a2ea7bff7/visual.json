@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 122.70003994141925,
     "width": 227.28190515382639,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -325,23 +325,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "6fc3a79dc6786bce81db",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "a2a2b5dbf160d1624022",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. No. Students Per Intake"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "6fc3a79dc6786bce81db"
 }
