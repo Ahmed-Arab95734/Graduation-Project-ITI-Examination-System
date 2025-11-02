@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "6e8c262dd381d7b4f983",
+  "position": {
+    "x": 354.79967293540483,
+    "y": 305.60915780866719,
+    "z": 1000,
+    "height": 219.7874080130826,
+    "width": 655.17579721995094
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimTrack"
+                    }
+                  },
+                  "Property": "Track_Name"
+                }
+              },
+              "queryRef": "DimTrack.Track_Name",
+              "nativeQueryRef": "Track_Name",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HaithamMeasures"
+                    }
+                  },
+                  "Property": "Avg Grade (All Students)"
+                }
+              },
+              "queryRef": "HaithamMeasures.Avg Grade (All Students)",
+              "nativeQueryRef": "Avg Grade (All Students)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "HaithamMeasures"
+                  }
+                },
+                "Property": "Avg Grade (All Students)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
