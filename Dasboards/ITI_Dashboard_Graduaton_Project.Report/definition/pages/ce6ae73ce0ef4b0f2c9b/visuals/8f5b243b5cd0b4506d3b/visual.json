@@ -11,36 +11,6 @@
   },
   "visual": {
     "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "DimStudent"
-                        }
-                      },
-                      "Property": "EmploymentStatus"
-                    }
-                  },
-                  "Function": 3
-                }
-              },
-              "queryRef": "Min(DimStudent.EmploymentStatus)",
-              "nativeQueryRef": "First EmploymentStatus"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "isDefaultSort": true
-      }
-    },
     "objects": {
       "categoryLabels": [
         {

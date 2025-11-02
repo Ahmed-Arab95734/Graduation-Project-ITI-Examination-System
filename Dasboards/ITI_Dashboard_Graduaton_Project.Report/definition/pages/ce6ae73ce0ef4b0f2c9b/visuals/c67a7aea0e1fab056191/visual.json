@@ -33,40 +33,10 @@
           ]
         },
         "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "HaithamMeasures"
-                    }
-                  },
-                  "Property": "Total Grade (Per Student)"
-                }
-              },
-              "queryRef": "HaithamMeasures.Total Grade (Per Student)",
-              "nativeQueryRef": "Total Grade (Per Student)"
-            }
-          ]
+          "projections": []
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "HaithamMeasures"
-                  }
-                },
-                "Property": "Total Grade (Per Student)"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
     },
@@ -331,20 +301,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "3c1d480ad18bb7f16cc0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Total Grade (Per Student)"
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "bdee732ad763c8821fcd",
         "field": {
