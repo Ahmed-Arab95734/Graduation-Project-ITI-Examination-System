@@ -141,6 +141,28 @@ table AhmedMeasures
 	measure 'Easiest Course' = TOPN(1, VALUES(DimCourse[Course_Name]), [Avg. Grade], DESC)
 		lineageTag: d7d473ea-9460-4aec-bfb7-bbcc7b1cc15e
 
+	measure 'Distinct Students Taught' = DISTINCTCOUNT(FactStudentPerformance[StudentKey])
+		formatString: 0
+		lineageTag: a82d5411-f3a7-4a11-84c4-69cd956f4231
+
+	measure 'Instructor Count' = DISTINCTCOUNT(DimInstructor[InstructorKey])
+		formatString: 0
+		lineageTag: 10835fcd-512d-4dce-8c91-fb4e8b234702
+
+	measure 'Students per Instructor' = DIVIDE([Distinct Students Taught], [Instructor Count])
+		lineageTag: 5adadfb4-2617-457b-991d-b6e70e836361
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Full-Time %' =
+			
+			VAR FullTimeCount = CALCULATE([Instructor Count], DimInstructor[Instructor_Contract_Type] = "Full-Time")
+			VAR TotalStaff = [Instructor Count]
+			RETURN
+			DIVIDE(FullTimeCount, TotalStaff)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 45f72caa-fb1e-45d6-a243-3a19ce64b73e
+
 	column Column
 		formatString: 0
 		lineageTag: 1223e819-24cd-4981-b07f-4c3bfb0e5836

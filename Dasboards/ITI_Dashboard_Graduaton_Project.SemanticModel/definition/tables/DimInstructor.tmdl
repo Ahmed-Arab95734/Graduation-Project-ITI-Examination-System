@@ -124,6 +124,13 @@ table DimInstructor
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Instructor Age' = DATEDIFF(DimInstructor[Instructor_Birthdate], TODAY(), YEAR)
+		formatString: 0
+		lineageTag: ffc3e01a-0bf9-4364-bf83-526f1b924fc5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
 	partition DimInstructor = m
 		mode: import
 		source =
