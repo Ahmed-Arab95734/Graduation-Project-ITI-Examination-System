@@ -7,10 +7,37 @@
     "z": 1000,
     "height": 99.42763695829926,
     "width": 230.25347506132462,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimStudent"
+                        }
+                      },
+                      "Property": "EmploymentStatus"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(DimStudent.EmploymentStatus)",
+              "nativeQueryRef": "First EmploymentStatus"
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "categoryLabels": [
         {

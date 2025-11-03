@@ -4,10 +4,9 @@
   "position": {
     "x": 392.47751430907607,
     "y": 7.3262469337694194,
-    "z": 8000,
+    "z": 6000,
     "height": 64.889615699100574,
-    "width": 495.04497138184792,
-    "tabOrder": 1000
+    "width": 495.04497138184792
   },
   "visual": {
     "visualType": "card",
@@ -318,5 +317,28 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6591ae6d98602c645b6f",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimStudent"
+                  }
+                },
+                "Property": "Student_FullName"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

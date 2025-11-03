@@ -6,8 +6,7 @@
     "y": 207.22812755519215,
     "z": 4000,
     "height": 244.90596892886344,
-    "width": 495.04497138184792,
-    "tabOrder": 1000
+    "width": 495.04497138184792
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -27,7 +26,7 @@
                 }
               },
               "queryRef": "HaithamMeasures.Avg Salary (With Certs)",
-              "nativeQueryRef": "Avg Salary (With Certs)"
+              "nativeQueryRef": "Avg Salary (With Certs)1"
             },
             {
               "field": {
@@ -41,7 +40,7 @@
                 }
               },
               "queryRef": "HaithamMeasures.Avg Salary (Without Certs)",
-              "nativeQueryRef": "Avg Salary (Without Certs)"
+              "nativeQueryRef": "Avg Salary (Without Certs)1"
             }
           ]
         }

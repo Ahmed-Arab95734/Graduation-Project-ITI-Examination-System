@@ -26,7 +26,7 @@
                   "Property": "Avg Grade (Students with Freelance)"
                 }
               },
-              "queryRef": "HaithamMeasures.Avg. Freelancer Grade",
+              "queryRef": "HaithamMeasures.Avg Grade (Students with Freelance)",
               "nativeQueryRef": "Avg Grade (Students with Freelance)"
             }
           ]
@@ -42,7 +42,7 @@
                     "Entity": "HaithamMeasures"
                   }
                 },
-                "Property": "Avg Grade (Students with Freelance)"
+                "Property": "Avg Earnings (Freelancers Only)"
               }
             },
             "direction": "Descending"

@@ -206,3 +206,8 @@ relationship 05b68d1a-092f-6257-9ecb-d3aa2ec14229
 	fromColumn: DimIntake.Intake_Start_Date
 	toColumn: DimDate.FullDate
 
+relationship c0d06ef9-4d04-5879-f21a-7b5c53e2f7ae
+	isActive: false
+	fromColumn: FactStudentPerformance.'Exam Date'
+	toColumn: DimDate.FullDate
+

@@ -1,39 +1,48 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "e2f538f4b8f80f0896b3",
+  "name": "1b74f26261dc87ddcd48",
   "position": {
-    "x": 794.37448896156991,
-    "y": 465.73998364677027,
-    "z": 6000,
-    "height": 243.85936222403924,
-    "width": 453.18070318887982,
-    "tabOrder": 11000
+    "x": 774.70925470925476,
+    "y": 217.00245700245702,
+    "z": 10004,
+    "height": 230.63063063063063,
+    "width": 472.7927927927928,
+    "tabOrder": 10004
   },
   "visual": {
-    "visualType": "donutChart",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Category": {
+        "Values": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimStudent"
+                      "Entity": "DimInstructor"
                     }
                   },
-                  "Property": "Student_Marital_Status"
+                  "Property": "Instructor_FullName"
                 }
               },
-              "queryRef": "DimStudent.Student_Marital_Status",
-              "nativeQueryRef": "Student_Marital_Status",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
+              "queryRef": "DimInstructor.Instructor_FullName",
+              "nativeQueryRef": "Instructor_FullName"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCourse"
+                    }
+                  },
+                  "Property": "Course_Name"
+                }
+              },
+              "queryRef": "DimCourse.Course_Name",
+              "nativeQueryRef": "Course_Name"
+            },
             {
               "field": {
                 "Measure": {
@@ -42,33 +51,38 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Total Students"
+                  "Property": "Avg. Instructor Rating"
                 }
               },
-              "queryRef": "_Ziad.Total Students",
-              "nativeQueryRef": "Total Students"
+              "queryRef": "_Ziad.Avg. Instructor Rating",
+              "nativeQueryRef": "Avg. Instructor Rating"
             }
           ]
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Ziad"
-                  }
-                },
-                "Property": "Total Students"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -145,7 +159,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Instructor Rating vs. Number of Ratings'"
+                  "Value": "'Certificates Acquired by Certificate Provider'"
                 }
               }
             }
@@ -249,5 +263,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1de5ecd333270a7c6151",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor"
+              }
+            },
+            "Property": "Instructor_FullName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "12b9062f592210bc8be6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCourse"
+              }
+            },
+            "Property": "Course_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "afd85f4838c41d663cd1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. Instructor Rating"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

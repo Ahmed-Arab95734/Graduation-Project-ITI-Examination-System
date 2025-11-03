@@ -2984,28 +2984,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "haitham_measure.avg_grade_all_students": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "HaithamMeasures",
-			          "ConceptualProperty": "Avg Grade (All Students)"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "avg grade (all students)": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "avg grade": {
-			            "State": "Generated",
-			            "Weight": 0.75
-			          }
-			        }
-			      ]
-			    },
 			    "entity__mahmoud": {
 			      "Definition": {
 			        "Binding": {

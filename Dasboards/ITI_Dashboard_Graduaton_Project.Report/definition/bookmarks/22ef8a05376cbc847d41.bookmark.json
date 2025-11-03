@@ -229,7 +229,7 @@
                           "Entity": "HaithamMeasures"
                         }
                       },
-                      "Property": "Avg Grade (Students with Freelance)"
+                      "Property": "Avg Earnings (Freelancers Only)"
                     }
                   },
                   "howCreated": 0
@@ -249,7 +249,7 @@
                           "Entity": "HaithamMeasures"
                         }
                       },
-                      "Property": "Avg Grade (Students with Freelance)"
+                      "Property": "Avg Earnings (Freelancers Only)"
                     }
                   }
                 }

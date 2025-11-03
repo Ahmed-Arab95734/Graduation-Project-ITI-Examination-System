@@ -6,8 +6,7 @@
     "y": 207.77777777777777,
     "z": 4000,
     "height": 245.55555555555554,
-    "width": 494.44444444444446,
-    "tabOrder": 1000
+    "width": 494.44444444444446
   },
   "visual": {
     "visualType": "donutChart",
@@ -31,9 +30,42 @@
               "active": true
             }
           ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Ziad"
+                    }
+                  },
+                  "Property": "Total Students"
+                }
+              },
+              "queryRef": "_Ziad.Total Students",
+              "nativeQueryRef": "Total Students"
+            }
+          ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Ziad"
+                  }
+                },
+                "Property": "Total Students"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
@@ -52,6 +84,13 @@
                   }
                 }
               }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Student Gender'"
+                }
+              }
             }
           }
         }
@@ -64,7 +103,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ratings by Time'"
+                  "Value": "'Total Students by Gender'"
                 }
               }
             },
@@ -236,5 +275,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f329935806e6206b0b4a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimStudent"
+              }
+            },
+            "Property": "Student_Gender"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "69f9292e84b1aff8a02d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Total Students"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -66,12 +66,121 @@ table HaithamMeasures
 		formatString: 0
 		lineageTag: bfe02baf-01c1-4245-9b23-228234f23a11
 
-	measure 'Avg Grade (All Students)' =
+	measure 'Avg Earnings (Freelancers Only)' =
 			
-			AVERAGE(FactStudentPerformance[Student_Grade])*10
-		lineageTag: 47003e73-a53c-4967-8d4a-58f5f3380fb8
+			AVERAGEX(
+			    FILTER(
+			        VALUES(DimStudent[StudentKey]),
+			        CALCULATE(COUNTROWS(FactFreelanceJob)) > 0
+			    ),
+			    CALCULATE([Total Freelance Earnings])
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 17d4b512-3880-4be7-b919-d702f967b8c3
+
+	measure 'Avg Grade (Students with Freelance)' = ```
+			
+			CALCULATE(
+			    [Avg. St. Grade],
+			    FILTER(
+			        VALUES(DimStudent[StudentKey]),
+			        CALCULATE(COUNTROWS(FactFreelanceJob)) > 0
+			    )
+			)
+			
+			```
+		lineageTag: 3cdc3e28-1628-45e9-865b-47e13046c487
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Earnings (Freelance + Certificate)' =
+			
+			AVERAGEX(
+			    FILTER(
+			        VALUES(DimStudent[StudentKey]),
+			        CALCULATE(
+			            COUNTROWS(FactFreelanceJob),
+			            USERELATIONSHIP(DimStudent[StudentKey], FactFreelanceJob[StudentKey])
+			        ) > 0 &&
+			        CALCULATE(
+			            COUNTROWS(FactCertificate),
+			            USERELATIONSHIP(DimStudent[StudentKey], FactCertificate[StudentKey])
+			        ) > 0
+			    ),
+			    CALCULATE(
+			        [Total Freelance Earnings],
+			        USERELATIONSHIP(DimStudent[StudentKey], FactFreelanceJob[StudentKey])
+			    )
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 97528ce6-d618-4f7c-906d-e9dc0f861679
+
+	measure 'Avg Salary (With Certs)' =
+			
+			CALCULATE(
+			    [Avg. St. Salary],
+			    FILTER(VALUES(DimStudent[StudentKey]),
+			        CALCULATE(COUNTROWS(FactCertificate)) > 0)
+			)
+		lineageTag: eb01d257-b463-4c27-8463-7dc7ca3a7d8b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Salary (Without Certs)' =
+			
+			CALCULATE(
+			    [Avg. St. Salary],
+			    FILTER(VALUES(DimStudent[StudentKey]),
+			        CALCULATE(COUNTROWS(FactCertificate)) = 0)
+			)
+		lineageTag: 59a17b1e-b2b3-4f11-83e4-4bf52d079ebd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Grade (With Certs)' =
+			
+			CALCULATE(
+			    [Avg. St. Grade],
+			    FILTER(VALUES(DimStudent[StudentKey]),
+			        CALCULATE(COUNTROWS(FactCertificate)) > 0)
+			)
+		lineageTag: 834f00b7-223f-42e2-a92f-b4e017ebda03
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Grade (Without Certs)' =
+			
+			CALCULATE(
+			    [Avg. St. Grade],
+			    FILTER(VALUES(DimStudent[StudentKey]),
+			        CALCULATE(COUNTROWS(FactCertificate)) = 0)
+			)
+		lineageTag: c5c54c5f-7115-4eae-94f3-310abc319478
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Age' = AVERAGE(DimStudent[Age])
+		lineageTag: 29638f44-61b5-4bd4-a2eb-72ec6eec104d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Min Age' =
+			
+			MINX(
+			    DimStudent,
+			    DATEDIFF(DimStudent[Student_Birthdate], TODAY(), YEAR)
+			)
+		formatString: 0
+		lineageTag: 3386591a-0f14-4982-98f3-2e3714d15e70
+
+	measure 'Max Age' =
+			
+			MAXX(
+			    DimStudent,
+			    DATEDIFF(DimStudent[Student_Birthdate], TODAY(), YEAR)
+			)
+		formatString: 0
+		lineageTag: e46aa084-8321-419a-8e65-4b093d9e495f
 
 	column Column
 		formatString: 0

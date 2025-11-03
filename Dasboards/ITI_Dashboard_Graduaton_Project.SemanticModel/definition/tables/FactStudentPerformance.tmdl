@@ -65,6 +65,21 @@ table FactStudentPerformance
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column 'Exam Date' = ```
+			
+			DATE(
+			    INT(DIVIDE(FactStudentPerformance[ExamDateKey], 10000)),           -- Year
+			    INT(MOD(DIVIDE(FactStudentPerformance[ExamDateKey], 100), 100)),   -- Month
+			    INT(MOD(FactStudentPerformance[ExamDateKey], 100))                 -- Day
+			)
+			
+			```
+		formatString: General Date
+		lineageTag: 90d03654-228a-457c-a4fe-fe24d7995eea
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactStudentPerformance = m
 		mode: import
 		source =

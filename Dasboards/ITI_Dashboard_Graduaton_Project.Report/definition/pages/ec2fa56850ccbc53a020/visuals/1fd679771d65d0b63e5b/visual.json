@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "1fd679771d65d0b63e5b",
   "position": {
-    "x": 753.556827473426,
-    "y": 465.73998364677027,
+    "x": 219.09909909909911,
+    "y": 207.56756756756758,
     "z": 6000,
-    "height": 244.90596892886344,
-    "width": 495.04497138184792,
+    "height": 245.30712530712532,
+    "width": 494.80753480753481,
     "tabOrder": 4000
   },
   "visual": {
@@ -27,7 +27,7 @@
                 }
               },
               "queryRef": "DimStudent.Freelance Level",
-              "nativeQueryRef": "Freelance Level",
+              "nativeQueryRef": "Freelance Level1",
               "active": true
             }
           ]
@@ -39,14 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "HaithamMeasures"
+                      "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg St. Salary"
+                  "Property": "Avg. St. Salary"
                 }
               },
-              "queryRef": "HaithamMeasures.Avg St. Salary",
-              "nativeQueryRef": "Avg St. Salary"
+              "queryRef": "_Ziad.Avg. St. Salary",
+              "nativeQueryRef": "Avg. St. Salary"
             }
           ]
         }
@@ -338,5 +338,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7565634ae52910c38879",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimStudent"
+              }
+            },
+            "Property": "Freelance Level"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a332c0c21b5096616bd8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Salary"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

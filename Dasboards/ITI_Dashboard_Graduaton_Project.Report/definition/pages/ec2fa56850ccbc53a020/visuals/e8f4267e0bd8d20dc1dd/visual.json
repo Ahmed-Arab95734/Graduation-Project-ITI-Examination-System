@@ -27,7 +27,7 @@
                 }
               },
               "queryRef": "HaithamMeasures.Average Earnings",
-              "nativeQueryRef": "Avg Earnings (Freelancers Only)"
+              "nativeQueryRef": "Avg Earnings (Freelancers Only)1"
             }
           ]
         }
@@ -117,7 +117,7 @@
             "labelPrecision": {
               "expr": {
                 "Literal": {
-                  "Value": "1L"
+                  "Value": "2L"
                 }
               }
             }

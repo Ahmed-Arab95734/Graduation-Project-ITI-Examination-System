@@ -190,6 +190,91 @@ table DimStudent
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Has Freelance' =
+			
+			IF(
+			    CALCULATE(COUNTROWS(FactFreelanceJob)) > 0,
+			    "Yes", "No"
+			)
+		lineageTag: ab47923b-7155-4b5e-b310-99cfe38140f8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Has Certificate' =
+			
+			IF(
+			    CALCULATE(COUNTROWS(FactCertificate)) > 0,
+			    "Yes", "No"
+			)
+		lineageTag: fd7ea080-19d6-4125-b30e-fa10c81629cb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Freelance Count' =
+			
+			COUNTROWS(RELATEDTABLE(FactFreelanceJob))
+		formatString: 0
+		lineageTag: ffd6806e-0697-4e7f-af2a-9fa204d5afb4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Freelance Level' = ```
+			
+			SWITCH(
+			    TRUE(),
+			    [Freelance Count] = 0, "None",
+			    [Freelance Count] <= 2, "1–2 Jobs",
+			    [Freelance Count] <= 5, "3–5 Jobs",
+			    "6+ Jobs"
+			)
+			
+			```
+		lineageTag: 25fb81b2-edc0-4c37-b63d-69e7d9c8c07d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmploymentStatus =
+			
+			VAR HasMatch =
+			    LOOKUPVALUE(
+			        FactStudentOutcomes[StudentKey],
+			        FactStudentOutcomes[StudentKey],
+			        DimStudent[StudentKey]
+			    )
+			RETURN
+			IF(NOT(ISBLANK(HasMatch)), "Employed", "Not Employed")
+		lineageTag: db780c68-af8c-43a4-9243-c5380c427b4a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Salary' = ```
+			
+			LOOKUPVALUE(
+			    FactStudentOutcomes[Salary],      -- column we want
+			    FactStudentOutcomes[StudentKey],   -- search column
+			    DimStudent[StudentKey]             -- match this student's ID
+			)
+			
+			```
+		lineageTag: eaa35fae-37e0-41cb-bfbb-9412bf7e2956
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Age = DATEDIFF(DimStudent[Student_Birthdate], TODAY(), YEAR)
+		formatString: 0
+		lineageTag: 6db6122d-56bc-471f-973e-910a92735797
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimStudent = m
 		mode: import
 		source =

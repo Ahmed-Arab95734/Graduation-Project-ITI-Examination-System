@@ -1,12 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "c67a7aea0e1fab056191",
+  "name": "af2d272be2957b85fdb7",
   "position": {
-    "x": 280.49059689288634,
-    "y": 216.64758789860997,
-    "z": 4000,
-    "height": 231.30008176614882,
-    "width": 464.69337694194604
+    "x": 774.70925470925476,
+    "y": 479.08271908271911,
+    "z": 10001,
+    "height": 231.67895167895168,
+    "width": 472.7927927927928,
+    "tabOrder": 10001
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -30,9 +31,42 @@
               "active": true
             }
           ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Ziad"
+                    }
+                  },
+                  "Property": "Avg. St. Grade"
+                }
+              },
+              "queryRef": "_Ziad.Avg. St. Grade",
+              "nativeQueryRef": "Avg. St. Grade"
+            }
+          ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Ziad"
+                  }
+                },
+                "Property": "Avg. St. Grade"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
@@ -56,13 +90,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
                 }
               }
             }
@@ -190,7 +217,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Grades by Course'"
+                  "Value": "'Avg. Grades by Course'"
                 }
               }
             }
@@ -294,5 +321,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6f8aa9349f669317c6b8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Grade"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1c3d57c1ca6b5648d5ad",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCourse"
+              }
+            },
+            "Property": "Course_Name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

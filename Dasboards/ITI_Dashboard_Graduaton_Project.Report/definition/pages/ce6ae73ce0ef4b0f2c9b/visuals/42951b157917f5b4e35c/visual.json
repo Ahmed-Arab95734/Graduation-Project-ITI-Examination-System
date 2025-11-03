@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 100.47424366312347,
     "width": 230.25347506132462,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "card",
@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "HaithamMeasures"
+                      "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg Grade (All Students)"
+                  "Property": "Avg. St. Grade"
                 }
               },
-              "queryRef": "HaithamMeasures.Avg Grade (All Students)",
-              "nativeQueryRef": "Avg Grade (All Students)"
+              "queryRef": "_Ziad.Avg. St. Grade",
+              "nativeQueryRef": "Avg. St. Grade"
             }
           ]
         }
@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "HaithamMeasures"
+                    "Entity": "_Ziad"
                   }
                 },
-                "Property": "Avg Grade (All Students)"
+                "Property": "Avg. St. Grade"
               }
             },
             "direction": "Descending"

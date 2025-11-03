@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "HaithamMeasures"
+                      "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg Grade (All Students)"
+                  "Property": "Avg. St. Grade"
                 }
               },
-              "queryRef": "HaithamMeasures.Avg Grade (All Students)",
-              "nativeQueryRef": "Avg Grade (All Students)"
+              "queryRef": "_Ziad.Avg. St. Grade",
+              "nativeQueryRef": "Avg. St. Grade"
             }
           ]
         }
@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "HaithamMeasures"
+                    "Entity": "_Ziad"
                   }
                 },
-                "Property": "Avg Grade (All Students)"
+                "Property": "Avg. St. Grade"
               }
             },
             "direction": "Descending"
