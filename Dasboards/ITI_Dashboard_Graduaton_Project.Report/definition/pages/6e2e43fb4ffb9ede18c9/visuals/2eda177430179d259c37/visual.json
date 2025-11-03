@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "2eda177430179d259c37",
   "position": {
     "x": 12.644376899696049,
     "y": 391.00303951367783,
-    "z": 6002,
+    "z": 8000,
     "height": 92.401215805471125,
     "width": 190.63829787234044,
-    "tabOrder": 6002
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -164,23 +164,5 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "52750144c29996644d6b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTrack"
-              }
-            },
-            "Property": "Track_Name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

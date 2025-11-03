@@ -109,6 +109,21 @@ table DimInstructor
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Salary Band' = ```
+			
+			    SWITCH(
+			        TRUE(),
+			        DimInstructor[Instructor_Salary] < 12000, "8 - 12k",
+			        DimInstructor[Instructor_Salary] < 15000, "12k - 15k",
+			        DimInstructor[Instructor_Salary] < 20000, "15k - 20k",
+			        "20k+"
+			    )
+			```
+		lineageTag: fd2e338f-19e6-4177-bcdf-d91fa3e1d81f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimInstructor = m
 		mode: import
 		source =
