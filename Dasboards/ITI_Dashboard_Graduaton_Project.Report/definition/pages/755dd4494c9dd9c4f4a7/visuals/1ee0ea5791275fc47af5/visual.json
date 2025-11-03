@@ -1,56 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "1ee0ea5791275fc47af5",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "a19e13d8760157d5521e",
   "position": {
     "x": 802.17142995468123,
     "y": 0,
     "z": 3000,
     "height": 122.70003994141925,
     "width": 227.28190515382639,
-    "tabOrder": 2000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "AhmedMeasures"
-                    }
-                  },
-                  "Property": "Avg. Salary"
-                }
-              },
-              "queryRef": "AhmedMeasures.Avg. Salary",
-              "nativeQueryRef": "Avg. Salary"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "AhmedMeasures"
-                  }
-                },
-                "Property": "Avg. Salary"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    },
     "objects": {
       "categoryLabels": [
         {
@@ -261,7 +221,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Avg. Salary (Manager)'"
+                  "Value": "'Avg. Grade'"
                 }
               }
             }
@@ -271,63 +231,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "2cfbe20f21c174169637",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "53fef3433ab131b5615a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Is_Manager"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DimInstructor",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Is_Manager"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Yes'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
-      }
-    ]
-  }
+  "parentGroupName": "3adc01371bf7f7f8cf06"
 }

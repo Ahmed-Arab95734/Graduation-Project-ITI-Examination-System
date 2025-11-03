@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "aeed404fd1ce5a9968a8",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "715a0f758c7a73b53e02",
   "position": {
     "x": 534.780953303121,
     "y": 0,
     "z": 2000,
     "height": 122.70003994141925,
     "width": 227.28190515382639,
-    "tabOrder": 1000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "AhmedMeasures"
+                      "Entity": "_Mahmoud"
                     }
                   },
-                  "Property": "Avg. Salary"
+                  "Property": "Total Active Students"
                 }
               },
-              "queryRef": "AhmedMeasures.Avg. Salary",
-              "nativeQueryRef": "Avg. Salary"
+              "queryRef": "_Mahmoud.Total Active Students",
+              "nativeQueryRef": "Total Active Students"
             }
           ]
         }
@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "AhmedMeasures"
+                    "Entity": "_Mahmoud"
                   }
                 },
-                "Property": "Avg. Salary"
+                "Property": "Total Active Students"
               }
             },
             "direction": "Descending"
@@ -261,7 +261,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Avg. Salary (Part Time)'"
+                  "Value": "'Active Student'"
                 }
               }
             }
@@ -271,62 +271,22 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "2cfbe20f21c174169637",
+  "parentGroupName": "3adc01371bf7f7f8cf06",
   "filterConfig": {
     "filters": [
       {
-        "name": "23ee4f998cbe9ba8760d",
+        "name": "8c2fe155bb96eb1cb7b3",
         "field": {
-          "Column": {
+          "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "DimInstructor"
+                "Entity": "_Mahmoud"
               }
             },
-            "Property": "Instructor_Contract_Type"
+            "Property": "Total Active Students"
           }
         },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DimInstructor",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Instructor_Contract_Type"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Part-Time'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
+        "type": "Advanced"
       }
     ]
   }

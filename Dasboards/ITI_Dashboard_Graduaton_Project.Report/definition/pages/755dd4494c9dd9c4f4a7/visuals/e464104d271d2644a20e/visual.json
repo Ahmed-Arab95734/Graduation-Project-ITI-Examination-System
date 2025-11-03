@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "e464104d271d2644a20e",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "394401138979ad9b48cc",
   "position": {
     "x": 267.3904766515605,
     "y": 0,
     "z": 1000,
     "height": 122.70003994141925,
-    "width": 227.28190515382639
+    "width": 227.28190515382639,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -22,11 +23,11 @@
                       "Entity": "AhmedMeasures"
                     }
                   },
-                  "Property": "Avg. Salary"
+                  "Property": "Total_Students"
                 }
               },
-              "queryRef": "AhmedMeasures.Avg. Salary",
-              "nativeQueryRef": "Avg. Salary"
+              "queryRef": "AhmedMeasures.Total_Students",
+              "nativeQueryRef": "Total_Students"
             }
           ]
         }
@@ -41,7 +42,7 @@
                     "Entity": "AhmedMeasures"
                   }
                 },
-                "Property": "Avg. Salary"
+                "Property": "Total_Students"
               }
             },
             "direction": "Descending"
@@ -260,7 +261,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Avg. Salary (Full Time)'"
+                  "Value": "'Total Students'"
                 }
               }
             }
@@ -270,62 +271,22 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "2cfbe20f21c174169637",
+  "parentGroupName": "c5667f1ba19a483ddc54",
   "filterConfig": {
     "filters": [
       {
-        "name": "76ee743334f34341fa00",
+        "name": "08f43a29db5665792a7a",
         "field": {
-          "Column": {
+          "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "DimInstructor"
+                "Entity": "AhmedMeasures"
               }
             },
-            "Property": "Instructor_Contract_Type"
+            "Property": "Total_Students"
           }
         },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DimInstructor",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Instructor_Contract_Type"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Full-Time'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
+        "type": "Advanced"
       }
     ]
   }

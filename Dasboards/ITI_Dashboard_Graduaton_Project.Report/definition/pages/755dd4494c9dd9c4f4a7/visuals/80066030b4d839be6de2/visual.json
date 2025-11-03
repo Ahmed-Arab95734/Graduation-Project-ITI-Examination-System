@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "80066030b4d839be6de2",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "f531b4df4192045095e9",
   "position": {
     "x": 0,
     "y": 0,
     "z": 0,
     "height": 122.70003994141925,
-    "width": 227.28190515382639,
-    "tabOrder": 3000
+    "width": 227.28190515382639
   },
   "visual": {
     "visualType": "card",
@@ -20,14 +19,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "AhmedMeasures"
+                      "Entity": "_Mahmoud"
                     }
                   },
-                  "Property": "Total Salary (Payroll)"
+                  "Property": "Avg. Grade"
                 }
               },
-              "queryRef": "AhmedMeasures.Total Salary (Payroll)",
-              "nativeQueryRef": "Total Salary (Payroll)"
+              "queryRef": "_Mahmoud.Avg. Grade",
+              "nativeQueryRef": "Avg. Grade"
             }
           ]
         }
@@ -39,10 +38,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "AhmedMeasures"
+                    "Entity": "_Mahmoud"
                   }
                 },
-                "Property": "Total Salary (Payroll)"
+                "Property": "Avg. Grade"
               }
             },
             "direction": "Descending"
@@ -186,7 +185,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Salary (Payroll) '"
+                  "Value": "'AVG. Grade'"
                 }
               }
             },
@@ -243,5 +242,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "2cfbe20f21c174169637"
+  "parentGroupName": "3adc01371bf7f7f8cf06",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "dab2c4401854423fe5b3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Mahmoud"
+              }
+            },
+            "Property": "Avg. Grade"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }
