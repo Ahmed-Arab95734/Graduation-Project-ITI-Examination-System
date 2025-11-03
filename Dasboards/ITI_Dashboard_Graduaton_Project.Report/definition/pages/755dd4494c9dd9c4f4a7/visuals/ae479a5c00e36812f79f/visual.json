@@ -32,6 +32,24 @@
             }
           ]
         },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimInstructor"
+                    }
+                  },
+                  "Property": "Instructor_Contract_Type"
+                }
+              },
+              "queryRef": "DimInstructor.Instructor_Contract_Type",
+              "nativeQueryRef": "Instructor_Contract_Type"
+            }
+          ]
+        },
         "X": {
           "projections": [
             {
@@ -389,5 +407,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9851b037e9d6c44008a4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor"
+              }
+            },
+            "Property": "Instructor_FullName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "097912be7900c8253ce8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AhmedMeasures"
+              }
+            },
+            "Property": "Avg. Rating"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "433303e3d00ccdb4a030",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AhmedMeasures"
+              }
+            },
+            "Property": "Avg. Salary"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "efdbedf6b6d5947d5c58",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor"
+              }
+            },
+            "Property": "Instructor_Contract_Type"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
