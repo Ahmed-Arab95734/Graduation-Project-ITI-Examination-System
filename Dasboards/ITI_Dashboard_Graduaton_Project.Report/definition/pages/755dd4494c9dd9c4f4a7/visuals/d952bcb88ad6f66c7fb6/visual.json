@@ -1,141 +1,34 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "661f433e67f6609f39e1",
   "position": {
-    "x": 218.10210397109415,
-    "y": 161.45220683574502,
+    "x": 219.5547664114977,
+    "y": 434.99288095277979,
     "z": 5000,
-    "height": 271.91950624967586,
-    "width": 494.27035250592121,
+    "height": 271.69902343422842,
+    "width": 493.99822442586981,
     "tabOrder": 8000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Year"
-                }
-              },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Year",
-              "nativeQueryRef": "FullDate Year",
-              "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Quarter"
-                }
-              },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Quarter",
-              "nativeQueryRef": "FullDate Quarter",
-              "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Month"
-                }
-              },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Month",
-              "nativeQueryRef": "FullDate Month",
-              "active": false
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Day"
-                }
-              },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Day",
-              "nativeQueryRef": "FullDate Day",
-              "active": false
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
-            {
-              "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimDate"
+                      "Entity": "DimInstructor"
                     }
                   },
-                  "Property": "CalendarYear"
+                  "Property": "Salary Band"
                 }
               },
-              "queryRef": "DimDate.CalendarYear",
-              "nativeQueryRef": "CalendarYear"
+              "queryRef": "DimInstructor.Salary Band",
+              "nativeQueryRef": "Salary Band",
+              "active": true
             }
           ]
         },
@@ -146,17 +39,35 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Mahmoud"
+                      "Entity": "AhmedMeasures"
                     }
                   },
-                  "Property": "Avg. Grade"
+                  "Property": "Total Instructors"
                 }
               },
-              "queryRef": "_Mahmoud.Avg. Grade",
-              "nativeQueryRef": "Avg. Grade"
+              "queryRef": "AhmedMeasures.Total Instructors",
+              "nativeQueryRef": "Total Instructors"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AhmedMeasures"
+                  }
+                },
+                "Property": "Total Instructors"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -425,129 +336,29 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "4e0bed8c6518d2e0dfbf",
+        "name": "e966992bf3ff3f2c74e3",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "DimDate"
+                "Entity": "DimInstructor"
               }
             },
-            "Property": "CalendarYear"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "08f94fdad86a92ee4362",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "DimDate"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "FullDate"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e67c045ef20e425fa3c7",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "DimDate"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "FullDate"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Quarter"
+            "Property": "Salary Band"
           }
         },
         "type": "Categorical"
       },
       {
-        "name": "459800e8b1455510b142",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "DimDate"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "FullDate"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Month"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1ea57a4ae00f9d53e9cb",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "DimDate"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "FullDate"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Day"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6d61bdbc13771cb336c8",
+        "name": "989f80fb4288baf5884a",
         "field": {
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "_Mahmoud"
+                "Entity": "AhmedMeasures"
               }
             },
-            "Property": "Avg. Grade"
+            "Property": "Total Instructors"
           }
         },
         "type": "Advanced"
