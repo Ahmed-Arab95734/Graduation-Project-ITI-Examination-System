@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "960113e555fb9fe989f9",
+  "position": {
+    "x": 176.07224378946668,
+    "y": 221.11398057281863,
+    "z": 0,
+    "height": 251.14180509505326,
+    "width": 586.90747929822226
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mahmoud"
+                    }
+                  },
+                  "Property": "Students Passing Exam1"
+                }
+              },
+              "queryRef": "_Mahmoud.Students Passing Exam1",
+              "nativeQueryRef": "Students Passing Exam1"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Mahmoud"
+                  }
+                },
+                "Property": "Students Passing Exam1"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

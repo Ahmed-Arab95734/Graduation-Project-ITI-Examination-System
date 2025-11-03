@@ -3231,22 +3231,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "entity__mahmoud.entity_2024_vs_2023_grade_trend_": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Mahmoud",
-			          "ConceptualProperty": "2024 vs 2023 Grade Trend %"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "2024 vs 2023 grade trend %": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "haitham_measure.avg_earnings_freelancers_only": {
 			      "Definition": {
 			        "Binding": {

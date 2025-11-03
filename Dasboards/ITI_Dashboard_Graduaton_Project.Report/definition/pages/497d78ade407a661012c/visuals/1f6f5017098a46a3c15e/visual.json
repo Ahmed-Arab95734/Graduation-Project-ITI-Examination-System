@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "1f6f5017098a46a3c15e",
   "position": {
     "x": 220.35376836514072,
     "y": 146.4376308755682,
-    "z": 3000,
+    "z": 2000,
     "height": 281.71810892252171,
     "width": 647.11486405965377,
-    "tabOrder": 4000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "decompositionTreeVisual",
@@ -481,51 +481,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "8c5a081a6b797035b0d3",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDepartment"
-              }
-            },
-            "Property": "Department_Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "e4e22d13c285638ffb00",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTrack"
-              }
-            },
-            "Property": "Track_Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6941ce7f6e0a0be19107",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "AhmedMeasures"
-              }
-            },
-            "Property": "Total_Students"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

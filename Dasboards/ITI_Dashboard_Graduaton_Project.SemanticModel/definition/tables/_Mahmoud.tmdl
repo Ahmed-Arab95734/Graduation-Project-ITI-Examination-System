@@ -5,33 +5,68 @@ table _Mahmoud
 		formatString: 0.00
 		lineageTag: d9d7b15e-c6bb-414d-a156-d2f437091c86
 
-	measure '2024 vs 2023 Grade Trend %' = ```
-			
-			VAR Grade2024 = 
-			    CALCULATE(
-			       AVERAGE(FactStudentPerformance[Student_Grade],
-			        'DimDate'[ = 2024
-			    )
-			VAR Grade2023 = 
-			    CALCULATE(
-			        [Overall Avg. Grade],
-			        'DimDate'[Year] = 2025
-			    )
-			RETURN
-			    IF(
-			        NOT ISBLANK(Grade2024) && NOT ISBLANK(Grade2023) && Grade2023 <> 0,
-			        DIVIDE(Grade2024 - Grade2023, Grade2023, 0),
-			        BLANK()
-			    )
-			```
-		lineageTag: 844cdb98-57b4-4a9b-bb17-a603c1fd4095
-
 	measure 'Total Active Students' = ```
 			DISTINCTCOUNT(FactStudentPerformance[StudentKey])
 			
 			```
 		formatString: 0.0
 		lineageTag: 586e05b4-56b3-4901-9cf0-ad6fa0f70ce5
+
+	measure 'Students Passing Exam' =
+			
+			VAR StudentExamGrades =
+			    SUMMARIZE(
+			        FactStudentPerformance,
+			        FactStudentPerformance[StudentKey],
+			        FactStudentPerformance[ExamKey],
+			        "ExamGrade", SUM(FactStudentPerformance[Student_Grade])
+			    )
+			RETURN
+			    COUNTROWS(
+			        FILTER(
+			            StudentExamGrades,
+			            [ExamGrade] >=6
+			        )
+			    )
+		formatString: 0
+		lineageTag: be3f6af5-b504-49fe-bbaf-734af4c6bf39
+
+	measure Failure = countrows(FactStudentFailure)
+		formatString: 0
+		lineageTag: d9ecc246-484b-4c23-83ff-0220f0fe057c
+
+	measure 'Students Passing Exam1' =
+			
+			VAR StudentExamGrades =
+			    SUMMARIZE(
+			        FactStudentPerformance,
+			        FactStudentPerformance[StudentKey],
+			        FactStudentPerformance[ExamKey],
+			        "TotalGrade", SUM(FactStudentPerformance[Student_Grade])
+			    )
+			VAR PassingStudents =
+			    FILTER(
+			        StudentExamGrades,
+			        [TotalGrade] >= 6
+			    )
+			RETURN
+			    COUNTROWS(
+			        SUMMARIZE(
+			            PassingStudents,
+			            [StudentKey]  // Group by StudentKey only to get unique students
+			        )
+			    )
+		formatString: 0
+		lineageTag: 2a57e05b-6201-43a2-ad07-13ca33ce1871
+
+	measure 'Total Students per Instructor' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(FactStudentPerformance[StudentKey]),
+			    USERELATIONSHIP(DimInstructor[InstructorKey], FactStudentPerformance[InstructorKey])
+			)
+		formatString: 0
+		lineageTag: 5d9accfc-a1a2-4a37-9d14-4969dc411a6e
 
 	column Column
 		formatString: 0

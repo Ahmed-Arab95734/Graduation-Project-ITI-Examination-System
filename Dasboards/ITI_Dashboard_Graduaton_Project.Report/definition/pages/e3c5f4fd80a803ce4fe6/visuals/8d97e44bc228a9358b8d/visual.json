@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "8d97e44bc228a9358b8d",
   "position": {
     "x": 12.644376899696049,
@@ -159,23 +159,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0d91c3754ad5c7a44a53",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimBranch"
-              }
-            },
-            "Property": "Branch_Name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

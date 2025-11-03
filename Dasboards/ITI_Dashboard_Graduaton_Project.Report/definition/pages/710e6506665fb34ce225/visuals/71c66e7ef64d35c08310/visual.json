@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "71c66e7ef64d35c08310",
   "position": {
     "x": 12.644376899696049,
     "y": 359.87841945288756,
-    "z": 6003,
+    "z": 9000,
     "height": 92,
     "width": 190,
-    "tabOrder": 6003
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "slicer",
@@ -222,23 +222,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "75fb19f216ebf71dc294",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimIntake"
-              }
-            },
-            "Property": "Intake_Type"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

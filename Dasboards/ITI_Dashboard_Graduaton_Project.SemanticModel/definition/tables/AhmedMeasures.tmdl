@@ -20,7 +20,7 @@ table AhmedMeasures
 			
 			    DISTINCTCOUNT(FactStudentPerformance[ExamKey])
 			```
-		formatString: 0.00%;-0.00%;0.00%
+		formatString: 0.00
 		lineageTag: bb4ab897-c330-4c64-801c-e21f630fe8ca
 
 	measure 'Total Instructors' = ```
