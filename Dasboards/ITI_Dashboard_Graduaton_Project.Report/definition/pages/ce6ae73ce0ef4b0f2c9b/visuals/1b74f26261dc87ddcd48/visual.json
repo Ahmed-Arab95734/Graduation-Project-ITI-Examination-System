@@ -4,10 +4,10 @@
   "position": {
     "x": 774.70925470925476,
     "y": 217.00245700245702,
-    "z": 10004,
+    "z": 13000,
     "height": 230.63063063063063,
     "width": 472.7927927927928,
-    "tabOrder": 10004
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "tableEx",
@@ -263,51 +263,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "1de5ecd333270a7c6151",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Instructor_FullName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "12b9062f592210bc8be6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCourse"
-              }
-            },
-            "Property": "Course_Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "afd85f4838c41d663cd1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. Instructor Rating"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

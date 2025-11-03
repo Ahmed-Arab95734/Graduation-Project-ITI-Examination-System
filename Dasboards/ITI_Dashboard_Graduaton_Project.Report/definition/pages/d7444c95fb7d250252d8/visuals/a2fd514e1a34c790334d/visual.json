@@ -339,23 +339,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "64ffb20d2eb196081cd2",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "c0e5e8146b21327844f6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Avg Age"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "64ffb20d2eb196081cd2"
 }

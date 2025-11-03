@@ -6,8 +6,7 @@
     "y": 2.0514208790070825,
     "z": 2000,
     "height": 122.22222222222221,
-    "width": 227.77777777777777,
-    "tabOrder": 1000
+    "width": 227.77777777777777
   },
   "visual": {
     "visualType": "card",
@@ -332,23 +331,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "ac683e372d329eaf7db3",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "c43b9a0d6429e7ef3f51",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Max Age"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "ac683e372d329eaf7db3"
 }

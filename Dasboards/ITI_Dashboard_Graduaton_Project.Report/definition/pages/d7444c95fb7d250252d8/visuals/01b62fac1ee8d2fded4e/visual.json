@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 244.44444444444443,
     "width": 494.44444444444446,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "donutChart",
@@ -249,37 +249,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "f79a223d196fbf5639b6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimStudent"
-              }
-            },
-            "Property": "Student_Marital_Status"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "8c7ca774c68f7469fb00",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Total Students"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

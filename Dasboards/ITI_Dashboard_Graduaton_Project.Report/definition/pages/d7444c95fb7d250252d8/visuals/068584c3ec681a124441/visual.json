@@ -332,23 +332,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "64ffb20d2eb196081cd2",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "d503d21993fd1faa4cdc",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Min Age"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "64ffb20d2eb196081cd2"
 }

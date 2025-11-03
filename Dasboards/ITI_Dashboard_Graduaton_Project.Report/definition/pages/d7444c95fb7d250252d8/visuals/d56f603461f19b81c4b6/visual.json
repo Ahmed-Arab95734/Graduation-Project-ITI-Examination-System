@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 245.55555555555554,
     "width": 494.44444444444446,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "barChart",
@@ -321,37 +321,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4ecd44bd1bf9dc0c2779",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimStudent"
-              }
-            },
-            "Property": "Student_Faculty_Grade"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3d3d222f2b197e9e80b7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Total Students"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

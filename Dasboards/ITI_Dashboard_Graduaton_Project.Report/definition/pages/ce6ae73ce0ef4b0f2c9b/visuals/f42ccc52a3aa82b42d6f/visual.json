@@ -4,10 +4,10 @@
   "position": {
     "x": 272.5634725634726,
     "y": 217.00245700245702,
-    "z": 10002,
+    "z": 11000,
     "height": 230.63063063063063,
     "width": 472.7927927927928,
-    "tabOrder": 10002
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -321,37 +321,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ad20ec9303255faf9f11",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Total Certificates Acquired"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d900f40d47821e8fc45a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCertificateProvider"
-              }
-            },
-            "Property": "Provider_Name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

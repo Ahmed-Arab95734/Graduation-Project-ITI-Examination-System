@@ -6,8 +6,7 @@
     "y": 207.34922861150071,
     "z": 2000,
     "height": 245.94670406732118,
-    "width": 494.58625525946707,
-    "tabOrder": 1000
+    "width": 494.58625525946707
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -424,20 +423,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "f30630b5b3d3a178a4e7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Total Certificates Acquired"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

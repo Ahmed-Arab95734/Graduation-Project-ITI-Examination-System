@@ -4,10 +4,10 @@
   "position": {
     "x": 774.70925470925476,
     "y": 479.08271908271911,
-    "z": 10001,
+    "z": 10000,
     "height": 231.67895167895168,
     "width": 472.7927927927928,
-    "tabOrder": 10001
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -321,37 +321,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "6f8aa9349f669317c6b8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. St. Grade"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1c3d57c1ca6b5648d5ad",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCourse"
-              }
-            },
-            "Property": "Course_Name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

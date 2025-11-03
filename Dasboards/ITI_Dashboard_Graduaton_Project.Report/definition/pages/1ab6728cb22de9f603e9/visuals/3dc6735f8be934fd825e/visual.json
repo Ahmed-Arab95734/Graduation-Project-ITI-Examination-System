@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 91.938558434814652,
     "width": 190.73820331998863,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "slicer",
@@ -57,47 +57,6 @@
                   "Value": "0D"
                 }
               }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "d",
-                    "Entity": "DimTrack",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "d"
-                                }
-                              },
-                              "Property": "Track_Name"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Industrial Automation'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
             }
           }
         }
@@ -120,6 +79,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Track_Name",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

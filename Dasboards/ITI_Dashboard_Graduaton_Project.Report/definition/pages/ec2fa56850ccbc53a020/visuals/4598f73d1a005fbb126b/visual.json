@@ -6,8 +6,7 @@
     "y": 465.4545454545455,
     "z": 5000,
     "height": 245.30712530712532,
-    "width": 1028.4029484029484,
-    "tabOrder": 1000
+    "width": 1028.4029484029484
   },
   "visual": {
     "visualType": "decompositionTreeVisual",
@@ -449,65 +448,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ca09422342d3a8a63218",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTrack"
-              }
-            },
-            "Property": "Track_Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "78e0c420e2d8d9c91f11",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimStudent"
-              }
-            },
-            "Property": "Has Certificate"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "54ea344c82db383fcc7f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimStudent"
-              }
-            },
-            "Property": "Has Freelance"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b9b28a305f1e6f5018f1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. St. Grade"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

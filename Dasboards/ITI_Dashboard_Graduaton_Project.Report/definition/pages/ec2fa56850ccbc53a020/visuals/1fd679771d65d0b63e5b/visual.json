@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 245.30712530712532,
     "width": 494.80753480753481,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -338,37 +338,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7565634ae52910c38879",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimStudent"
-              }
-            },
-            "Property": "Freelance Level"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a332c0c21b5096616bd8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. St. Salary"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
