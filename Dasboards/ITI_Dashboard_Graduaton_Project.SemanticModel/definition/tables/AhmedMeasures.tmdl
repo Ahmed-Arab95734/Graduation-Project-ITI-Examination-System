@@ -20,9 +20,8 @@ table AhmedMeasures
 			
 			    DISTINCTCOUNT(FactStudentPerformance[ExamKey])
 			```
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: bb4ab897-c330-4c64-801c-e21f630fe8ca
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Instructors' = ```
 			
@@ -80,9 +79,8 @@ table AhmedMeasures
 			            DIVIDE(CurrentYear - PrevYear, PrevYear)
 			        )
 			```
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: cd0ed6f8-a35e-4e2f-9ae9-5b63eb5318b9
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg. Grade (Prev. Year)' = ```
 			
@@ -106,21 +104,42 @@ table AhmedMeasures
 			        )
 			
 			```
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 666f6b08-2247-47c2-9843-90ba62474ff4
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg.Grade' = ```
 			
-			    AVERAGE(FactStudentPerformance[Student_Grade])*10
+			    AVERAGE(FactStudentPerformance[Student_Grade])
 			```
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 10f23101-5372-438e-bb6d-9dcc1b83d0cb
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Total_Students = DISTINCTCOUNT(DimStudent[Student_ID])
 		formatString: 0
 		lineageTag: af295509-b63f-4c64-a7a9-16078af6123b
+
+	measure 'Total Courses' = ```
+			DISTINCTCOUNT(DimCourse[CourseKey])
+			
+			```
+		formatString: 0
+		lineageTag: ba3e9ab1-2c4a-452a-9cba-2e2e360e7946
+
+	measure 'Total Topics' = ```
+			DISTINCTCOUNT(DimTopic[TopicKey])
+			
+			```
+		formatString: 0
+		lineageTag: 0cebefc1-afd9-4f32-89d4-4d818a742373
+
+	measure 'Hardest Course' = ```
+			TOPN(1, VALUES(DimCourse[Course_Name]), [Avg. Grade], ASC)
+			
+			```
+		lineageTag: da137bb1-4b98-4427-b37f-f79c40c39f19
+
+	measure 'Easiest Course' = TOPN(1, VALUES(DimCourse[Course_Name]), [Avg. Grade], DESC)
+		lineageTag: d7d473ea-9460-4aec-bfb7-bbcc7b1cc15e
 
 	column Column
 		formatString: 0

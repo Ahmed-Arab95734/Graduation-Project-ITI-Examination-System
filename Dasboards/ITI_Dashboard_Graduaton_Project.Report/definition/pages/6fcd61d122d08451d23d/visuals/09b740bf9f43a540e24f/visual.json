@@ -268,5 +268,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "982b99ac964e395b0e32",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor"
+              }
+            },
+            "Property": "Is_Manager"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "482edbade3cad707452c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AhmedMeasures"
+              }
+            },
+            "Property": "Avg. Rating"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
