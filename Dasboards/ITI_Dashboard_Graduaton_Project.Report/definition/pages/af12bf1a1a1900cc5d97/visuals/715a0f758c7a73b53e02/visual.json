@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "715a0f758c7a73b53e02",
   "position": {
     "x": 534.780953303121,
@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "AhmedMeasures"
+                      "Entity": "_Mahmoud"
                     }
                   },
-                  "Property": "Avg. Rating"
+                  "Property": "Total Active Students"
                 }
               },
-              "queryRef": "AhmedMeasures.Avg. Rating",
-              "nativeQueryRef": "Avg. Rating"
+              "queryRef": "_Mahmoud.Total Active Students",
+              "nativeQueryRef": "Total Active Students"
             }
           ]
         }
@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "AhmedMeasures"
+                    "Entity": "_Mahmoud"
                   }
                 },
-                "Property": "Avg. Rating"
+                "Property": "Total Active Students"
               }
             },
             "direction": "Descending"
@@ -261,7 +261,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Avg. Rating'"
+                  "Value": "'Active Student'"
                 }
               }
             }
@@ -271,5 +271,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "3adc01371bf7f7f8cf06"
+  "parentGroupName": "3adc01371bf7f7f8cf06",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8c2fe155bb96eb1cb7b3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Mahmoud"
+              }
+            },
+            "Property": "Total Active Students"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

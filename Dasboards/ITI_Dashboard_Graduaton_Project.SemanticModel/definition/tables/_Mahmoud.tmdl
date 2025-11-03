@@ -1,8 +1,8 @@
 table _Mahmoud
 	lineageTag: 8d7c7134-3f40-4e57-81e5-19f25b820a6c
 
-	measure 'Avg. Grade' = AVERAGE(FactStudentPerformance[Student_Grade])
-		formatString: 0.00%;-0.00%;0.00%
+	measure 'Avg. Grade' = AVERAGE(FactStudentPerformance[Student_Grade])*10
+		formatString: 0.00
 		lineageTag: d9d7b15e-c6bb-414d-a156-d2f437091c86
 
 	measure '2024 vs 2023 Grade Trend %' = ```
@@ -25,6 +25,13 @@ table _Mahmoud
 			    )
 			```
 		lineageTag: 844cdb98-57b4-4a9b-bb17-a603c1fd4095
+
+	measure 'Total Active Students' = ```
+			DISTINCTCOUNT(FactStudentPerformance[StudentKey])
+			
+			```
+		formatString: 0.0
+		lineageTag: 586e05b4-56b3-4901-9cf0-ad6fa0f70ce5
 
 	column Column
 		formatString: 0

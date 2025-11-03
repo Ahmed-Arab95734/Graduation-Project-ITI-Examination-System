@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "f531b4df4192045095e9",
   "position": {
     "x": 0,
@@ -242,5 +242,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "3adc01371bf7f7f8cf06"
+  "parentGroupName": "3adc01371bf7f7f8cf06",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "dab2c4401854423fe5b3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Mahmoud"
+              }
+            },
+            "Property": "Avg. Grade"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

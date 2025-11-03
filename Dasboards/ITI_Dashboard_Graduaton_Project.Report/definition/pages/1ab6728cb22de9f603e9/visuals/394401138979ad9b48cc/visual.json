@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "394401138979ad9b48cc",
   "position": {
     "x": 267.3904766515605,
@@ -271,5 +271,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "c5667f1ba19a483ddc54"
+  "parentGroupName": "c5667f1ba19a483ddc54",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "08f43a29db5665792a7a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AhmedMeasures"
+              }
+            },
+            "Property": "Total_Students"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }
