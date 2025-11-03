@@ -4,10 +4,10 @@
   "position": {
     "x": 219.5547664114977,
     "y": 434.99288095277979,
-    "z": 5000,
+    "z": 3000,
     "height": 271.69902343422842,
     "width": 493.99822442586981,
-    "tabOrder": 8000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -332,37 +332,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "e966992bf3ff3f2c74e3",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Salary Band"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "989f80fb4288baf5884a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "AhmedMeasures"
-              }
-            },
-            "Property": "Total Instructors"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

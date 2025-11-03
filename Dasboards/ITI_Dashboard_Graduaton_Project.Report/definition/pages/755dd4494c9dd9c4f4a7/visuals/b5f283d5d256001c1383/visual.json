@@ -4,10 +4,10 @@
   "position": {
     "x": 12.349955610646745,
     "y": 366.38201644918678,
-    "z": 9000,
+    "z": 7000,
     "height": 67.238647213521162,
     "width": 190.73820331998863,
-    "tabOrder": 9000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -163,20 +163,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "e5dbed4ca66f3112d537",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Salary Band"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }
