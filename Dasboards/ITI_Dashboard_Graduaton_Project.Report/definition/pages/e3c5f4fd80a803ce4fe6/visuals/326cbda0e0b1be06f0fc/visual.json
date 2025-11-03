@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "326cbda0e0b1be06f0fc",
   "position": {
     "x": 802.17142995468112,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 122.70003994141925,
     "width": 227.28190515382639,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -23,11 +23,11 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg. St. Salary"
+                  "Property": "Avg. St. Salary non egp"
                 }
               },
-              "queryRef": "_Ziad.Avg. St. Salary",
-              "nativeQueryRef": "Avg. St. Salary"
+              "queryRef": "_Ziad.Avg. St. Salary non egp",
+              "nativeQueryRef": "Avg. St. Salary non egp"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Ziad"
                   }
                 },
-                "Property": "Avg. St. Salary"
+                "Property": "Avg. St. Salary non egp"
               }
             },
             "direction": "Descending"
@@ -325,5 +325,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "aac6fe31baa1946afcee"
+  "parentGroupName": "aac6fe31baa1946afcee",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fb3151c476b4cf5f0de7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Salary non egp"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }
