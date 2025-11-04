@@ -1,7 +1,8 @@
-streamlit 
-streamlit.components.v1 as components
-pandas as pd
+streamlit
+pandas
 requests
-Path
+networkx
+pyvis
+pbixray
+pathlib
 tempfile
-io
