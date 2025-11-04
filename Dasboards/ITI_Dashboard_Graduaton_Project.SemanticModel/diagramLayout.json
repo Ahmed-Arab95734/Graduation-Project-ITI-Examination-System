@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 621.25705486336119,
-        "y": 1143.9640565254483
+        "x": 3406.3121464159221,
+        "y": 927.64448498676347
       },
       "nodes": [
         {
@@ -340,7 +340,7 @@
           "nodeIndex": "FactStudentPerformance",
           "nodeLineageTag": "3d41984b-a018-4606-a7a3-3a02ab204817",
           "size": {
-            "height": 248,
+            "height": 260.42238979291687,
             "width": 234
           },
           "zIndex": 27
@@ -353,14 +353,14 @@
           "nodeIndex": "FactStudentRating",
           "nodeLineageTag": "f9b48c12-d050-4de0-af62-e9bfc478619e",
           "size": {
-            "height": 176,
+            "height": 191.18292085800954,
             "width": 234
           },
           "zIndex": 25
         }
       ],
       "name": "All tables",
-      "zoomValue": 72.449827690414978,
+      "zoomValue": 56.659634600580553,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

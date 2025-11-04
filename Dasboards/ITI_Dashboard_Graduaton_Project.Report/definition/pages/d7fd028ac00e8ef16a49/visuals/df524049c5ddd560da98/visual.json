@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "df524049c5ddd560da98",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 493.09732616500258,
+    "width": 365.79920338650044
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimBranch"
+                    }
+                  },
+                  "Property": "Branch_Name"
+                }
+              },
+              "queryRef": "DimBranch.Branch_Name",
+              "nativeQueryRef": "Branch_Name",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mahmoud"
+                    }
+                  },
+                  "Property": "Overall Failure Rate"
+                }
+              },
+              "queryRef": "_Mahmoud.Overall Failure Rate",
+              "nativeQueryRef": "Overall Failure Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mahmoud"
+                    }
+                  },
+                  "Property": "Is High Risk Track"
+                }
+              },
+              "queryRef": "_Mahmoud.Is High Risk Track",
+              "nativeQueryRef": "Is High Risk Track"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Mahmoud"
+                  }
+                },
+                "Property": "Overall Failure Rate"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

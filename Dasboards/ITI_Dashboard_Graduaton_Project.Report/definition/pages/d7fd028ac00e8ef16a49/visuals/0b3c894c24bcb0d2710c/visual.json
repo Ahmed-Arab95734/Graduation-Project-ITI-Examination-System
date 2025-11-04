@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "0b3c894c24bcb0d2710c",
+  "position": {
+    "x": 403.84232053869647,
+    "y": 0,
+    "z": 1000,
+    "height": 493.09732616500258,
+    "width": 425.7902727418865,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimStudent"
+                    }
+                  },
+                  "Property": "Student_FullName"
+                }
+              },
+              "queryRef": "DimStudent.Student_FullName",
+              "nativeQueryRef": "Student_FullName",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mahmoud"
+                    }
+                  },
+                  "Property": "Overall Failure Rate"
+                }
+              },
+              "queryRef": "_Mahmoud.Overall Failure Rate",
+              "nativeQueryRef": "Overall Failure Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mahmoud"
+                    }
+                  },
+                  "Property": "Is High Risk Track"
+                }
+              },
+              "queryRef": "_Mahmoud.Is High Risk Track",
+              "nativeQueryRef": "Is High Risk Track"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Mahmoud"
+                  }
+                },
+                "Property": "Is High Risk Track"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

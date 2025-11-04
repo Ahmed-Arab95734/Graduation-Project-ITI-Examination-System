@@ -68,6 +68,110 @@ table _Mahmoud
 		formatString: 0
 		lineageTag: 5d9accfc-a1a2-4a37-9d14-4969dc411a6e
 
+	measure 'Avg. Course Grade' =
+			
+			CALCULATE(
+			    AVERAGE(FactStudentPerformance[Student_Grade]),
+			    ALLEXCEPT(DimCourse, DimCourse[CourseKey])
+			)
+		lineageTag: 546ea337-e0b6-4594-be6c-b4ff0bdcb73f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hardest Course1' =
+			
+			VAR CourseGrades =
+			    SUMMARIZE(
+			        DimCourse,
+			        DimCourse[Course_Name],
+			        "AvgGrade", [Avg. Course Grade]
+			    )
+			VAR MinGrade = MINX(CourseGrades, [AvgGrade])
+			RETURN
+			    MAXX(
+			        FILTER(CourseGrades, [AvgGrade] = MinGrade),
+			        DimCourse[Course_Name]
+			    )
+		lineageTag: 1747152d-1055-4f36-8599-7c258b25d1a1
+
+	measure 'Total Distinct Exams' =
+			
+			DISTINCTCOUNT(FactStudentPerformance[ExamKey])
+		formatString: 0
+		lineageTag: a4947d85-bca3-4330-a2a6-ad8e264e154f
+
+	measure 'Overall Failure Rate' =
+			
+			DIVIDE(
+			    [Failure],
+			    [Total Students],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 35309638-cfe8-4d5e-99f1-b44c1604f713
+
+	measure 'Track Failure Rate' = ```
+			
+			VAR StudentsInTrack = 
+			    CALCULATE(
+			        COUNTROWS(DimStudent),
+			        ALLEXCEPT(DimTrack, DimTrack[Track_Name])
+			    )
+			VAR FailuresInTrack = 
+			    CALCULATE(
+			        [Failure],
+			        ALLEXCEPT(DimTrack, DimTrack[Track_Name])
+			    )
+			RETURN
+			DIVIDE(FailuresInTrack, StudentsInTrack, 0)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ada080ed-dabb-4e5b-bbac-b6c9eb25c7a5
+
+	measure 'Avg Performance of Failed Students' = ```
+			
+			CALCULATE(
+			    AVERAGE(FactStudentPerformance[Student_Grade]),
+			    DimStudent[Student_ITI_Status] = "Failed to Graduate"
+			)
+			
+			
+			
+			```
+		lineageTag: 62937361-dbba-4539-a490-2d78e5d18f57
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Performance of Graduated Students' = ```
+			
+			CALCULATE(
+			    AVERAGE(FactStudentPerformance[Student_Grade]),
+			    DimStudent[Student_ITI_Status] = "Graduated"
+			)
+			
+			
+			```
+		lineageTag: 2ac4126d-2b31-4237-9ef9-3b5ed0afe499
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Performance Gap' = ```
+			
+			[Avg Performance of Graduated Students] - [Avg Performance of Failed Students]
+			
+			```
+		lineageTag: 5b55fccf-fa79-4118-ad46-b5a56d996579
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Is High Risk Track' = ```
+			
+			IF([Overall Failure Rate]> 0.10, "⚠️ High Risk", "✓ Normal")
+			
+			```
+		lineageTag: d91e661a-1ee0-45f3-88e9-cb82b5ad4dc0
+
 	column Column
 		formatString: 0
 		lineageTag: d6fbd1cd-cb24-445c-b463-c743d36d5720

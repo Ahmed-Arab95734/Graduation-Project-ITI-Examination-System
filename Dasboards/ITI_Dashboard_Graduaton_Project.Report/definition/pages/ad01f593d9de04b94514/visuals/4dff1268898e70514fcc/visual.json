@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "4dff1268898e70514fcc",
   "position": {
     "x": 753.44363190014349,
@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 253.50828968068737,
     "width": 494.27035250592121,
-    "tabOrder": 8000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "scatterChart",
@@ -450,48 +450,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "dc1bbff28e4f61be6f32",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "AhmedMeasures"
-              }
-            },
-            "Property": "Avg. Rating"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6ab7207d5ee179766bf8",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Instructor_FullName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "95197969640f9043ea3d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Is_Manager"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "ae479a5c00e36812f79f",
   "position": {
     "x": 753.44363190014349,
@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 253.50828968068737,
     "width": 494.27035250592121,
-    "tabOrder": 8000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "scatterChart",
@@ -407,65 +407,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "9851b037e9d6c44008a4",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Instructor_FullName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "097912be7900c8253ce8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "AhmedMeasures"
-              }
-            },
-            "Property": "Avg. Rating"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "433303e3d00ccdb4a030",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "AhmedMeasures"
-              }
-            },
-            "Property": "Avg. Salary"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "efdbedf6b6d5947d5c58",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Instructor_Contract_Type"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }
