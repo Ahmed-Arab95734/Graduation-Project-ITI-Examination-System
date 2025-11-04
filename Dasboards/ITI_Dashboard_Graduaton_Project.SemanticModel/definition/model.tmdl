@@ -10,7 +10,9 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["Companies Fileds","DimBranch","DimCertificate","DimCertificateProvider","DimCompany","DimCourse","DimDate","DimDepartment","DimExam","DimFailureReason","DimInstructor","DimIntake","DimJobSite","DimQuestion","DimStudent","DimTopic","DimTrack","FactCertificate","FactFreelanceJob","FactStudentFailure","FactStudentPerformance","FactStudentOutcomes","FactStudentRating"]
+annotation PBI_QueryOrder = ["Companies Fileds","DimBranch","DimCertificate","DimCertificateProvider","DimCompany","DimCourse","DimDate","DimDepartment","DimExam","DimFailureReason","DimInstructor","DimIntake","DimJobSite","DimQuestion","DimStudent","DimTopic","DimTrack","FactCertificate","FactFreelanceJob","FactStudentFailure","FactStudentPerformance","FactStudentOutcomes","FactStudentRating","FactSocial"]
+
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
 
 ref table _Ziad
 ref table HaithamMeasures
@@ -45,6 +47,10 @@ ref table FactStudentFailure
 ref table FactStudentPerformance
 ref table FactStudentOutcomes
 ref table FactStudentRating
+ref table FactSocial
+ref table LocalDateTable_e8a099f7-9140-4e3e-aa9a-4b7f0dd54d49
+ref table SocialMeasures
+ref table LocalDateTable_5733a8ca-9ff9-4ee6-8f9c-bf31ab0bc451
 
 ref cultureInfo en-US
 

@@ -1,0 +1,40 @@
+table SocialMeasures
+	lineageTag: 8fe4673d-4014-4bdb-9f57-955a5e6f3fbc
+
+	measure 'Total Posts' = COUNTROWS(FactSocial)
+		formatString: 0
+		lineageTag: 76881cff-4fa8-4b06-97a1-7b98bdf80b2d
+
+	measure Firstposted = MIN(FactSocial[Date])
+		formatString: General Date
+		lineageTag: 1221b421-7522-4e30-8715-0c8c995140d8
+
+	measure lastposted = max(FactSocial[Date])
+		formatString: General Date
+		lineageTag: cfb8ba28-a23c-48f1-82d2-fdc5ffd6350d
+
+	measure 'Total Caption Posts' = CALCULATE([Total Posts], FactSocial[CoptionsTypes] = "written Caption" )
+		formatString: 0
+		lineageTag: cf9b59db-7bf9-47a7-bf64-c080f8db0fb5
+
+	measure 'Caption %' = DIVIDE([Total Caption Posts], [Total Posts])
+		formatString: 0%;-0%;0%
+		lineageTag: a0a9b0e9-0946-4973-ad23-98ff23237e31
+
+	column Column
+		formatString: 0
+		lineageTag: 7ea779cf-15c6-4b47-ad85-af927cf9a3c1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SocialMeasures = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 2eda144622ef48f2859d1de4653aef35
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

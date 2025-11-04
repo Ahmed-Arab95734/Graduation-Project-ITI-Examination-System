@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 3406.3121464159221,
-        "y": 927.64448498676347
+        "x": 5448.4335648314891,
+        "y": 417.7466193586605
       },
       "nodes": [
         {
@@ -49,10 +49,11 @@
         },
         {
           "location": {
-            "x": 5830.768648265459,
-            "y": 1410.2239174359488
+            "x": 5687.8097312674836,
+            "y": 1106.6568344279028
           },
           "nodeIndex": "AhmedMeasures",
+          "nodeLineageTag": "08be5da3-9ab9-4be7-ab77-e40fac1bab09",
           "size": {
             "height": 200,
             "width": 234
@@ -357,10 +358,35 @@
             "width": 234
           },
           "zIndex": 25
+        },
+        {
+          "location": {
+            "x": 6023.4403636767665,
+            "y": 560.37652820304788
+          },
+          "nodeIndex": "FactSocial",
+          "nodeLineageTag": "a14893c8-ee25-479c-8aaa-154749bb5324",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 28
+        },
+        {
+          "location": {
+            "x": 6518.7279455934568,
+            "y": 824.05184045908231
+          },
+          "nodeIndex": "SocialMeasures",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
-      "zoomValue": 56.659634600580553,
+      "zoomValue": 89.527953708920052,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
