@@ -3,11 +3,11 @@
   "name": "45524994860307e0424e",
   "position": {
     "x": 746.99088145896656,
-    "y": 145.89665653495442,
-    "z": 5000,
-    "height": 299.57446808510639,
+    "y": 201.33738601823708,
+    "z": 4000,
+    "height": 244.13373860182372,
     "width": 521.33738601823711,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "hundredPercentStackedBarChart",

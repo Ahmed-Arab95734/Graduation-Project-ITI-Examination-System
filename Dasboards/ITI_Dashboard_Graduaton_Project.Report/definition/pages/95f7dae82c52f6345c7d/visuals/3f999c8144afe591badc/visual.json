@@ -4,10 +4,10 @@
   "position": {
     "x": 746.99088145896656,
     "y": 459.08814589665656,
-    "z": 7000,
+    "z": 6000,
     "height": 248.99696048632219,
     "width": 521.33738601823711,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "columnChart",

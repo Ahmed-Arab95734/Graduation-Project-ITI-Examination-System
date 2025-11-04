@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 251.33239831697057,
     "width": 495.48387096774195,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "barChart",
@@ -334,5 +334,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2c819dacad3733da51d4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTrack"
+              }
+            },
+            "Property": "Track_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f3bd9137d32296715977",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Grade"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
