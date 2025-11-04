@@ -265,5 +265,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5a48c9c8c4d7666848db",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimBranch"
+              }
+            },
+            "Property": "Branch_Location"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

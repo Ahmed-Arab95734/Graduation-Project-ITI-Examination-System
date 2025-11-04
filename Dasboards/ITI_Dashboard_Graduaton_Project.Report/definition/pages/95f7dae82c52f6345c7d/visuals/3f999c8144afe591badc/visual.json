@@ -548,34 +548,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "3fdd386b846f1b20811c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Total Freelance Earnings"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "8de5f15504796da151d3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Total Certicates cost"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
