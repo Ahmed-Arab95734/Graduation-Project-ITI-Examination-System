@@ -23,20 +23,6 @@ relationship db9514d4-d53e-4856-8892-f56fe1884548
 	fromColumn: DimStudent.Student_Birthdate
 	toColumn: LocalDateTable_798cbbd7-3e4a-4a16-b9e2-b70a1ffc0aa1.Date
 
-relationship 016f9104-fd06-4630-9405-fa72476e5da5
-	fromColumn: DimCourse.TrackKey
-	toColumn: DimTrack.TrackKey
-
-	annotation PBI_IsFromSource = FS
-
-relationship 78f208d2-86a9-48fa-973e-cd123000c254
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: DimInstructor.CourseKey
-	toColumn: DimCourse.CourseKey
-
-	annotation PBI_IsFromSource = FS
-
 relationship 5aea2984-a5ba-4057-a5b0-fa4c245034d3
 	fromColumn: DimStudent.BranchKey
 	toColumn: DimBranch.BranchKey

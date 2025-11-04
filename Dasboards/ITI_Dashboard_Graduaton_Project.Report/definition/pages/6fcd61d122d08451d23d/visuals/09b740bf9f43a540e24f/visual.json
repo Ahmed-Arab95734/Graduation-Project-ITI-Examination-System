@@ -14,23 +14,7 @@
     "query": {
       "queryState": {
         "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimInstructor"
-                    }
-                  },
-                  "Property": "Is_Manager"
-                }
-              },
-              "queryRef": "DimInstructor.Is_Manager",
-              "nativeQueryRef": "Is_Manager",
-              "active": true
-            }
-          ]
+          "projections": []
         },
         "Y": {
           "projections": [
@@ -268,5 +252,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b0dec46c3a108eb86e4c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AhmedMeasures"
+              }
+            },
+            "Property": "Avg. Rating"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

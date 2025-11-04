@@ -28,3 +28,5 @@ table DimCertificateProvider
 				in
 				    dbo_DimCertificateProvider
 
+	annotation PBI_ResultType = Table
+

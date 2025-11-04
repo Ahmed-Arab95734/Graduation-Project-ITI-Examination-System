@@ -1,0 +1,1309 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "Hiring Demographics",
+  "name": "834d5b4dfab23ee7d82d",
+  "options": {
+    "targetVisualNames": [
+      "9e860606d35668673c0d"
+    ]
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "38ab093660668a52865b",
+    "sections": {
+      "38ab093660668a52865b": {
+        "visualContainers": {
+          "48326e1b3e1e29f36715": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c613414f608815321679",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimDepartment"
+                        }
+                      },
+                      "Property": "Department_Name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Basic'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimDepartment"
+                        }
+                      },
+                      "Property": "Department_Name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4bbc5ed3a39983f943cc": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f0e7504a0c5213eec0e7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HimaMeasures"
+                        }
+                      },
+                      "Property": "Avg Hired Graduates Salaries"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Avg. St. Salary"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "5239222f2f22df54c208": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "58ad9316e0260b9ad3d4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HimaMeasures"
+                        }
+                      },
+                      "Property": "Total Companies"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HimaMeasures"
+                        }
+                      },
+                      "Property": "Graduation %"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "5e816b11854b74f1a9b4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d03360f27306fead4c2a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Employment Rate %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Employment Rate %"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "e0b9f296c90a99e15a1c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7dd6e232a38482424af6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HimaMeasures"
+                        }
+                      },
+                      "Property": "Total Hired Graduates"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Total Students"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "55437ca1661d7abc551d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d94cb4b63c4d33d1fdec",
+                  "type": "TopN",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "subquery",
+                        "Expression": {
+                          "Subquery": {
+                            "Query": {
+                              "Version": 2,
+                              "From": [
+                                {
+                                  "Name": "d",
+                                  "Entity": "DimCompany",
+                                  "Type": 0
+                                },
+                                {
+                                  "Name": "h",
+                                  "Entity": "HimaMeasures",
+                                  "Type": 0
+                                }
+                              ],
+                              "Select": [
+                                {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "d"
+                                      }
+                                    },
+                                    "Property": "Field"
+                                  },
+                                  "Name": "field"
+                                }
+                              ],
+                              "OrderBy": [
+                                {
+                                  "Direction": 2,
+                                  "Expression": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "h"
+                                        }
+                                      },
+                                      "Property": "Avg Hired Graduates Salaries"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Top": 5
+                            }
+                          }
+                        },
+                        "Type": 2
+                      },
+                      {
+                        "Name": "d",
+                        "Entity": "DimCompany",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "Field"
+                                }
+                              }
+                            ],
+                            "Table": {
+                              "SourceRef": {
+                                "Source": "subquery"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Field"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7a38fec4259984c9f819",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HimaMeasures"
+                        }
+                      },
+                      "Property": "Avg Hired Graduates Salaries"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HimaMeasures"
+                        }
+                      },
+                      "Property": "Avg Hired Graduates Salaries"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Field"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "57405a2540d800e731b5": {
+            "singleVisual": {
+              "visualType": "bookmarkNavigator",
+              "objects": {}
+            }
+          },
+          "77be2e5339d17e46d026": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ffe9ff4eaf92dcbd3e3f",
+                  "type": "TopN",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "subquery",
+                        "Expression": {
+                          "Subquery": {
+                            "Query": {
+                              "Version": 2,
+                              "From": [
+                                {
+                                  "Name": "d",
+                                  "Entity": "DimCompany",
+                                  "Type": 0
+                                },
+                                {
+                                  "Name": "_",
+                                  "Entity": "_Ziad",
+                                  "Type": 0
+                                }
+                              ],
+                              "Select": [
+                                {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "d"
+                                      }
+                                    },
+                                    "Property": "Company_Name"
+                                  },
+                                  "Name": "field"
+                                }
+                              ],
+                              "OrderBy": [
+                                {
+                                  "Direction": 2,
+                                  "Expression": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "_"
+                                        }
+                                      },
+                                      "Property": "Total Graduates"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Top": 5
+                            }
+                          }
+                        },
+                        "Type": 2
+                      },
+                      {
+                        "Name": "d",
+                        "Entity": "DimCompany",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "Company_Name"
+                                }
+                              }
+                            ],
+                            "Table": {
+                              "SourceRef": {
+                                "Source": "subquery"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Company_Name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d2bd8c0af20bcd9ffcaf",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Total Graduates"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Total Graduates"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Company_Name"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "9e860606d35668673c0d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ffe9ff4eaf92dcbd3e3f",
+                  "type": "TopN",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "subquery",
+                        "Expression": {
+                          "Subquery": {
+                            "Query": {
+                              "Version": 2,
+                              "From": [
+                                {
+                                  "Name": "d",
+                                  "Entity": "DimCompany",
+                                  "Type": 0
+                                },
+                                {
+                                  "Name": "_",
+                                  "Entity": "_Ziad",
+                                  "Type": 0
+                                }
+                              ],
+                              "Select": [
+                                {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "d"
+                                      }
+                                    },
+                                    "Property": "Company_Name"
+                                  },
+                                  "Name": "field"
+                                }
+                              ],
+                              "OrderBy": [
+                                {
+                                  "Direction": 2,
+                                  "Expression": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "_"
+                                        }
+                                      },
+                                      "Property": "Avg. St. Salary"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Top": 5
+                            }
+                          }
+                        },
+                        "Type": 2
+                      },
+                      {
+                        "Name": "d",
+                        "Entity": "DimCompany",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "Company_Name"
+                                }
+                              }
+                            ],
+                            "Table": {
+                              "SourceRef": {
+                                "Source": "subquery"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Company_Name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e76de3314abeb2fa66ad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Avg. St. Salary"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Avg. St. Salary"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Company_Name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "a211b16329790341f293": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d9d3e0eb46deab8e245b",
+                  "type": "TopN",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "subquery",
+                        "Expression": {
+                          "Subquery": {
+                            "Query": {
+                              "Version": 2,
+                              "From": [
+                                {
+                                  "Name": "d",
+                                  "Entity": "DimCompany",
+                                  "Type": 0
+                                },
+                                {
+                                  "Name": "_",
+                                  "Entity": "_Ziad",
+                                  "Type": 0
+                                }
+                              ],
+                              "Select": [
+                                {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "d"
+                                      }
+                                    },
+                                    "Property": "Field"
+                                  },
+                                  "Name": "field"
+                                }
+                              ],
+                              "OrderBy": [
+                                {
+                                  "Direction": 2,
+                                  "Expression": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "_"
+                                        }
+                                      },
+                                      "Property": "Total Graduates"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Top": 5
+                            }
+                          }
+                        },
+                        "Type": 2
+                      },
+                      {
+                        "Name": "d",
+                        "Entity": "DimCompany",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "Field"
+                                }
+                              }
+                            ],
+                            "Table": {
+                              "SourceRef": {
+                                "Source": "subquery"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Field"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e001ec99ea809b7f7352",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Total Graduates"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Total Graduates"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Field"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "bb0bcc6da619fff0573e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "01695e446917b735e2de",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "DimDate"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "FullDate"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d652de7fe6bc7c6d292e",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "DimDate"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "FullDate"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Quarter"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9200958b3241d5f19c55",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "DimDate"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "FullDate"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5961a3a2fbc8ce2c8c31",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "DimDate"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "FullDate"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Day"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "43ae23b3a73a7e1d1a01",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Total Graduates"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "DimDate"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "FullDate"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "e3b122d2ffd36b20ccf9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "74ec298384f1bb31b3c5",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimBranch"
+                        }
+                      },
+                      "Property": "Branch_Location"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimBranch"
+                        }
+                      },
+                      "Property": "Branch_Location"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "e9e17cc13f85b0ce65f5": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "397d3566110126ebf3b1",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Company_Location"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b200841917666901bc63",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HimaMeasures"
+                        }
+                      },
+                      "Property": "Avg Hired Graduates Salaries"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HimaMeasures"
+                        }
+                      },
+                      "Property": "Avg Hired Graduates Salaries"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Company_Location"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "f2b72cad92cd555bc69a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d604163b721db02e9e72",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Company_Type"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Basic'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Company_Type"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "fbca30e1e498bbbdab33": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "9833749ecddc044dfe40": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "02a69d357494c6d41092",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Company_Location"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "02567d52c5eddd5b58f7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Total Graduates"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Ziad"
+                        }
+                      },
+                      "Property": "Total Graduates"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCompany"
+                        }
+                      },
+                      "Property": "Company_Location"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

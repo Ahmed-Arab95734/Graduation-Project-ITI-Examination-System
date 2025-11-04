@@ -46,3 +46,5 @@ table DimExam
 				in
 				    dbo_DimExam
 
+	annotation PBI_ResultType = Table
+

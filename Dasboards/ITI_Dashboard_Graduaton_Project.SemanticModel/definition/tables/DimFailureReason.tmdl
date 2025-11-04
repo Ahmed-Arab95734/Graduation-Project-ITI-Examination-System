@@ -28,3 +28,5 @@ table DimFailureReason
 				in
 				    dbo_DimFailureReason
 
+	annotation PBI_ResultType = Table
+

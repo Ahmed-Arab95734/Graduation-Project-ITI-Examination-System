@@ -66,3 +66,5 @@ table FactCertificate
 				in
 				    dbo_FactCertificate
 
+	annotation PBI_ResultType = Table
+

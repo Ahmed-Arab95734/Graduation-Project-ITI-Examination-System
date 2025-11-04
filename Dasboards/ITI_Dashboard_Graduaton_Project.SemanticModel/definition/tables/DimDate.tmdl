@@ -79,3 +79,5 @@ table DimDate
 				in
 				    dbo_DimDate
 
+	annotation PBI_ResultType = Table
+

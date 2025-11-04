@@ -38,6 +38,21 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
+                      "Entity": "DimCourse"
+                    }
+                  },
+                  "Property": "Course_Name"
+                }
+              },
+              "queryRef": "DimCourse.Course_Name",
+              "nativeQueryRef": "Course_Name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
                       "Entity": "DimDepartment"
                     }
                   },
@@ -61,21 +76,6 @@
               },
               "queryRef": "DimTrack.Track_Name",
               "nativeQueryRef": "Track_Name",
-              "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimCourse"
-                    }
-                  },
-                  "Property": "Course_Name"
-                }
-              },
-              "queryRef": "DimCourse.Course_Name",
-              "nativeQueryRef": "Course_Name",
               "active": true
             },
             {
@@ -124,6 +124,28 @@
         "levels": [
           {
             "queryRefs": [
+              "DimCourse.Course_Name"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCourse"
+                    }
+                  },
+                  "Property": "Course_Name"
+                }
+              }
+            ],
+            "isPinned": true,
+            "AIInformation": {
+              "method": "MaxSplit"
+            }
+          },
+          {
+            "queryRefs": [
               "DimDepartment.Department_Name"
             ],
             "isCollapsed": true,
@@ -168,28 +190,6 @@
           },
           {
             "queryRefs": [
-              "DimCourse.Course_Name"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimCourse"
-                    }
-                  },
-                  "Property": "Course_Name"
-                }
-              }
-            ],
-            "isPinned": true,
-            "AIInformation": {
-              "method": "MaxSplit"
-            }
-          },
-          {
-            "queryRefs": [
               "DimInstructor.Instructor_FullName"
             ],
             "isCollapsed": true,
@@ -205,7 +205,7 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'System Development'"
+                    "Value": "'Intro to Data Analytics & Power BI'"
                   }
                 }
               ],
@@ -215,7 +215,7 @@
                   "identityValues": [
                     {
                       "Literal": {
-                        "Value": "'Power BI Development'"
+                        "Value": "'System Development'"
                       }
                     }
                   ],
@@ -225,7 +225,7 @@
                       "identityValues": [
                         {
                           "Literal": {
-                            "Value": "'SQL for Analysts'"
+                            "Value": "'Power BI Development'"
                           }
                         }
                       ],
@@ -340,15 +340,15 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "DimDepartment"
+                            "Entity": "DimCourse"
                           }
                         },
-                        "Property": "Department_Name"
+                        "Property": "Course_Name"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'System Development'"
+                        "Value": "'Intro to Data Analytics & Power BI'"
                       }
                     }
                   }
@@ -369,109 +369,6 @@
           },
           "selector": {
             "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "DimDepartment"
-                          }
-                        },
-                        "Property": "Department_Name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'System Development'"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "DimTrack"
-                          }
-                        },
-                        "Property": "Track_Name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Power BI Development'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "isAINode": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "DimDepartment"
-                          }
-                        },
-                        "Property": "Department_Name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'System Development'"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "DimTrack"
-                          }
-                        },
-                        "Property": "Track_Name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Power BI Development'"
-                      }
-                    }
-                  }
-                }
-              },
               {
                 "scopeId": {
                   "Comparison": {
@@ -488,7 +385,29 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'SQL for Analysts'"
+                        "Value": "'Intro to Data Analytics & Power BI'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimDepartment"
+                          }
+                        },
+                        "Property": "Department_Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'System Development'"
                       }
                     }
                   }
@@ -509,6 +428,28 @@
           },
           "selector": {
             "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimCourse"
+                          }
+                        },
+                        "Property": "Course_Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Intro to Data Analytics & Power BI'"
+                      }
+                    }
+                  }
+                }
+              },
               {
                 "scopeId": {
                   "Comparison": {
@@ -552,7 +493,22 @@
                     }
                   }
                 }
-              },
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "isAINode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
               {
                 "scopeId": {
                   "Comparison": {
@@ -569,7 +525,51 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'SQL for Analysts'"
+                        "Value": "'Intro to Data Analytics & Power BI'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimDepartment"
+                          }
+                        },
+                        "Property": "Department_Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'System Development'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimTrack"
+                          }
+                        },
+                        "Property": "Track_Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Power BI Development'"
                       }
                     }
                   }
@@ -591,7 +591,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Walid Said'"
+                        "Value": "'Youssef Kamal'"
                       }
                     }
                   }

@@ -33,22 +33,7 @@
           ]
         },
         "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimInstructor"
-                    }
-                  },
-                  "Property": "Is_Manager"
-                }
-              },
-              "queryRef": "DimInstructor.Is_Manager",
-              "nativeQueryRef": "Is_Manager"
-            }
-          ]
+          "projections": []
         },
         "X": {
           "projections": [
@@ -450,6 +435,34 @@
             }
           ]
         }
+      },
+      {
+        "name": "f6eb9263a9ad22d18fd1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor"
+              }
+            },
+            "Property": "Instructor_FullName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2aae9579f95192f9e419",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AhmedMeasures"
+              }
+            },
+            "Property": "Avg. Rating"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

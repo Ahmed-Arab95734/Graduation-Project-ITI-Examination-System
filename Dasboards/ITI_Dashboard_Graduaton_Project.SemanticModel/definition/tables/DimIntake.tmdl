@@ -72,3 +72,5 @@ table DimIntake
 				in
 				    dbo_DimIntake
 
+	annotation PBI_ResultType = Table
+

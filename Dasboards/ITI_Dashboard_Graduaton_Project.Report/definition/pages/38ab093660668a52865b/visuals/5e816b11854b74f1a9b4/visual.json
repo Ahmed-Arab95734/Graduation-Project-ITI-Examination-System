@@ -338,5 +338,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "5331beda69e535d8ae3d"
+  "parentGroupName": "5331beda69e535d8ae3d",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ee7c21baff827dee517c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Employment Rate %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

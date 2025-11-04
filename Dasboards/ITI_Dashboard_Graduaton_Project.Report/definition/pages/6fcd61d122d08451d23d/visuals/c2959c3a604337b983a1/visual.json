@@ -11,29 +11,6 @@
   },
   "visual": {
     "visualType": "slicer",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimInstructor"
-                    }
-                  },
-                  "Property": "Is_Manager"
-                }
-              },
-              "queryRef": "DimInstructor.Is_Manager",
-              "nativeQueryRef": "Is_Manager",
-              "active": true
-            }
-          ]
-        }
-      }
-    },
     "objects": {
       "data": [
         {
@@ -81,69 +58,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "e64c1bc6d28502ce1ada",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Is_Manager"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DimInstructor",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Is_Manager"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'No'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Yes'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      }
-    ]
   }
 }

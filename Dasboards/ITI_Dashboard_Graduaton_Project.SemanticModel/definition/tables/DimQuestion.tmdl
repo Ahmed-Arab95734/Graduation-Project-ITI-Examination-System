@@ -45,3 +45,5 @@ table DimQuestion
 				in
 				    dbo_DimQuestion
 
+	annotation PBI_ResultType = Table
+

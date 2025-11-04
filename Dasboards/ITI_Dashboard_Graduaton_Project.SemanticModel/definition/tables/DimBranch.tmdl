@@ -61,3 +61,5 @@ table DimBranch
 				in
 				    dbo_DimBranch
 
+	annotation PBI_ResultType = Table
+

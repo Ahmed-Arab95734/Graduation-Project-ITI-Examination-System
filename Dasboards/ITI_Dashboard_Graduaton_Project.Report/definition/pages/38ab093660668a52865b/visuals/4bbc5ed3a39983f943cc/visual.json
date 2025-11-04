@@ -220,7 +220,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Student Salary'"
+                  "Value": "'Average Graduated Salary'"
                 }
               }
             },
@@ -332,5 +332,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "5331beda69e535d8ae3d"
+  "parentGroupName": "5331beda69e535d8ae3d",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "dba3da83480f27118164",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Avg Hired Graduates Salaries"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

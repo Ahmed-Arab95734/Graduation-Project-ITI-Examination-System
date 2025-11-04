@@ -57,3 +57,5 @@ table FactStudentOutcomes
 				in
 				    dbo_FactStudentOutcomes
 
+	annotation PBI_ResultType = Table
+

@@ -29,3 +29,5 @@ table FactStudentFailure
 				in
 				    dbo_FactStudentFailure
 
+	annotation PBI_ResultType = Table
+

@@ -46,3 +46,5 @@ table DimTopic
 				in
 				    dbo_DimTopic
 
+	annotation PBI_ResultType = Table
+

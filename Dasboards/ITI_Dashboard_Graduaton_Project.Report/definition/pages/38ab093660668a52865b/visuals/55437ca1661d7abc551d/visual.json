@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "55437ca1661d7abc551d",
   "position": {
-    "x": 746.99088145896656,
-    "y": 145.89665653495442,
-    "z": 4000,
-    "height": 299.57446808510639,
-    "width": 521.33738601823711
+    "x": 746.92493946731236,
+    "y": 145.66585956416466,
+    "z": 10062,
+    "height": 295.98062953995162,
+    "width": 520.677966101695
   },
   "visual": {
     "visualType": "columnChart",
@@ -184,6 +184,20 @@
               "expr": {
                 "Literal": {
                   "Value": "10L"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "1L"
                 }
               }
             }
@@ -390,6 +404,111 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d94cb4b63c4d33d1fdec",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCompany"
+              }
+            },
+            "Property": "Field"
+          }
+        },
+        "type": "TopN",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "subquery",
+              "Expression": {
+                "Subquery": {
+                  "Query": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "DimCompany",
+                        "Type": 0
+                      },
+                      {
+                        "Name": "h",
+                        "Entity": "HimaMeasures",
+                        "Type": 0
+                      }
+                    ],
+                    "Select": [
+                      {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "d"
+                            }
+                          },
+                          "Property": "Field"
+                        },
+                        "Name": "field"
+                      }
+                    ],
+                    "OrderBy": [
+                      {
+                        "Direction": 2,
+                        "Expression": {
+                          "Measure": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "h"
+                              }
+                            },
+                            "Property": "Avg Hired Graduates Salaries"
+                          }
+                        }
+                      }
+                    ],
+                    "Top": 5
+                  }
+                }
+              },
+              "Type": 2
+            },
+            {
+              "Name": "d",
+              "Entity": "DimCompany",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Field"
+                      }
+                    }
+                  ],
+                  "Table": {
+                    "SourceRef": {
+                      "Source": "subquery"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "isHidden": true
 }

@@ -27,6 +27,15 @@ table DimDepartment
 
 		annotation SummarizationSetBy = Automatic
 
+	column Manager_InstructorKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 1cdee26f-1ecc-4289-b2aa-a1224b83cd01
+		summarizeBy: none
+		sourceColumn: Manager_InstructorKey
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimDepartment = m
 		mode: import
 		source =
@@ -36,4 +45,6 @@ table DimDepartment
 				    dbo_DimDepartment = ITI_DW{[Schema="dbo",Item="DimDepartment"]}[Data]
 				in
 				    dbo_DimDepartment
+
+	annotation PBI_ResultType = Table
 

@@ -46,3 +46,5 @@ table DimTrack
 				in
 				    dbo_DimTrack
 
+	annotation PBI_ResultType = Table
+

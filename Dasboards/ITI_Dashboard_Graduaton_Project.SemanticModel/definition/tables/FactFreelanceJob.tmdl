@@ -57,3 +57,5 @@ table FactFreelanceJob
 				in
 				    dbo_FactFreelanceJob
 
+	annotation PBI_ResultType = Table
+

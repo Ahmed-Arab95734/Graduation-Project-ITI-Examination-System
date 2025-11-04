@@ -4,7 +4,7 @@
   "position": {
     "x": 213.67576243980741,
     "y": 459.19743178170148,
-    "z": 8000,
+    "z": 10500,
     "height": 248.60353130016051,
     "width": 1053.996789727127,
     "tabOrder": 6000
@@ -481,5 +481,124 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "852c2c00da491c5458f6",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "516064ea5af22de9a661",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Quarter"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "abdc57472fce335d3341",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Month"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "eb08b91854b94cc8833f",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Day"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9a059f11adca725f8592",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Total Graduates"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  },
+  "isHidden": true
 }

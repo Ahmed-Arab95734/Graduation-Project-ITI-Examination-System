@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "3f999c8144afe591badc",
   "position": {
-    "x": 213.98176291793314,
+    "x": 746.99088145896656,
     "y": 459.08814589665656,
     "z": 7000,
     "height": 248.99696048632219,
-    "width": 1054.3465045592707,
+    "width": 521.33738601823711,
     "tabOrder": 7000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -39,28 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Ziad"
-                    }
-                  },
-                  "Property": "Total Freelance Earnings"
-                }
-              },
-              "queryRef": "_Ziad.Total Freelance Earnings",
-              "nativeQueryRef": "Total Freelance Earnings"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
                       "Entity": "HimaMeasures"
                     }
                   },
-                  "Property": "Total Certicates cost"
+                  "Property": "Total student Salary"
                 }
               },
-              "queryRef": "HimaMeasures.Total Certicates cost",
-              "nativeQueryRef": "Total Certicates cost"
+              "queryRef": "HimaMeasures.Total student Salary",
+              "nativeQueryRef": "Total student Salary"
             }
           ]
         }
@@ -72,10 +58,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Ziad"
+                    "Entity": "HimaMeasures"
                   }
                 },
-                "Property": "Total Freelance Earnings"
+                "Property": "Total student Salary"
               }
             },
             "direction": "Descending"
@@ -168,33 +154,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "lineStyles": [
-        {
-          "properties": {
-            "lineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'solid'"
-                }
-              }
-            },
-            "lineChartType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'step'"
-                }
-              }
-            },
-            "interpolationStep": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
                 }
               }
             }
@@ -341,7 +300,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Freelance Earnings Vs total Certificate Costs Per County'"
+                  "Value": "'Top 5 Total Student Salary Per County'"
                 }
               }
             }
@@ -477,8 +436,8 @@
                         "Type": 0
                       },
                       {
-                        "Name": "_",
-                        "Entity": "_Ziad",
+                        "Name": "h",
+                        "Entity": "HimaMeasures",
                         "Type": 0
                       }
                     ],
@@ -502,15 +461,15 @@
                           "Measure": {
                             "Expression": {
                               "SourceRef": {
-                                "Source": "_"
+                                "Source": "h"
                               }
                             },
-                            "Property": "Total Freelance Earnings"
+                            "Property": "Total student Salary"
                           }
                         }
                       }
                     ],
-                    "Top": 10
+                    "Top": 5
                   }
                 }
               },

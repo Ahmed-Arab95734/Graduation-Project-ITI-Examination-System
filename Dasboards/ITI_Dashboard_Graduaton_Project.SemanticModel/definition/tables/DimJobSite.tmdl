@@ -28,3 +28,5 @@ table DimJobSite
 				in
 				    dbo_DimJobSite
 
+	annotation PBI_ResultType = Table
+

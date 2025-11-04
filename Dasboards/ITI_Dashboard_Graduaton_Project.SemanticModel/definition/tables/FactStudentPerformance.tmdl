@@ -90,3 +90,5 @@ table FactStudentPerformance
 				in
 				    dbo_FactStudentPerformance
 
+	annotation PBI_ResultType = Table
+
