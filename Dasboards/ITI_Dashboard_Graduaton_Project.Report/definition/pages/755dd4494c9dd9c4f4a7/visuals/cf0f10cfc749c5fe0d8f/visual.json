@@ -85,7 +85,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "e64c1bc6d28502ce1ada",
+        "name": "fc74e6781a85c4c3f957",
         "field": {
           "Column": {
             "Expression": {
@@ -93,57 +93,10 @@
                 "Entity": "DimInstructor"
               }
             },
-            "Property": "Is_Manager"
+            "Property": "Instructor_Contract_Type"
           }
         },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DimInstructor",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Is_Manager"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'No'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Yes'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
+        "type": "Categorical"
       }
     ]
   }
