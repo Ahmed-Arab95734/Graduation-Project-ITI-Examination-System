@@ -6,6 +6,7 @@ import tempfile
 import requests
 import networkx as nx
 from pyvis.network import Network
+import base64
 
 # Try to import pbixray
 try:
@@ -21,6 +22,31 @@ st.set_page_config(
     layout="wide",
 )
 
+# BACKGROUND IMAGE SETUP
+
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+def set_background(png_file):
+    bin_str = get_base64_of_bin_file(png_file)
+    page_bg_img = f'''
+    <style>
+    .stApp {{
+        background-image: url("data:image/png;base64,{bin_str}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }}
+    </style>
+    '''
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
+set_background("ITI_Background17601951402362703.png")
+
+
 # --- Session state ---
 if 'pbi_model' not in st.session_state:
     st.session_state.pbi_model = None
@@ -34,32 +60,31 @@ tab_powerbi, tab_tableau, tab_inspector = st.tabs([
     "🧩 PBIX Inspector"
 ])
 
-# ==============================================================================
+# =====================================================================
 # 🔷 TAB 1: Power BI Dashboard
-# ==============================================================================
+# =====================================================================
 with tab_powerbi:
     st.markdown("<h2 style='text-align:center;'>🎓 ITI Examination System — Power BI Dashboard</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align:center;'>This dashboard is embedded directly from the Power BI Service.</p>", unsafe_allow_html=True)
 
     report_url = "https://app.powerbi.com/reportEmbed?reportId=469d6c4a-986b-4f01-bd21-f24cfaf961d1&autoAuth=true&ctid=aee5de94-75d5-4ee4-bcc5-4267ccd37fe2"
 
-    # Make dashboard full width using CSS
     st.markdown("""
         <style>
         iframe[title="streamlit.components.v1.html"] {
             width: 100% !important;
             height: 90vh !important;
+            border-radius: 12px;
         }
         </style>
     """, unsafe_allow_html=True)
 
     components.iframe(report_url, height=850, scrolling=True)
-
     st.info("This is a live Power BI report. You can interact with filters and visuals directly.")
 
-# ==============================================================================
+# =====================================================================
 # 🔶 TAB 2: Tableau Dashboard
-# ==============================================================================
+# =====================================================================
 with tab_tableau:
     st.markdown("<h2 style='text-align:center;'>📈 ITI Examination System — Tableau Dashboard</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align:center;'>This dashboard is embedded from Tableau Public.</p>", unsafe_allow_html=True)
@@ -71,17 +96,17 @@ with tab_tableau:
         iframe[title="streamlit.components.v1.html"] {
             width: 100% !important;
             height: 90vh !important;
+            border-radius: 12px;
         }
         </style>
     """, unsafe_allow_html=True)
 
     components.iframe(tableau_url, height=850, scrolling=True)
-
     st.info("This view is published from Tableau Public and mirrors your ITI Examination dashboard.")
 
-# ==============================================================================
-# 🧩 TAB 3: PBIX Inspector (Auto-loads from GitHub)
-# ==============================================================================
+# =====================================================================
+# 🧩 TAB 3: PBIX Inspector
+# =====================================================================
 with tab_inspector:
     st.markdown("<h2 style='text-align:center;'>🧠 PBIX Model Inspector</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align:center;'>Automatically analyzes your ITI Examination System Power BI model.</p>", unsafe_allow_html=True)
