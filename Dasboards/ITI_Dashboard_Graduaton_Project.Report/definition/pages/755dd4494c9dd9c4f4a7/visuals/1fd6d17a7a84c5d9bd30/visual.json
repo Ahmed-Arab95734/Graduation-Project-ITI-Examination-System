@@ -6,7 +6,8 @@
     "y": 146.11263178342486,
     "z": 3000,
     "height": 282.098645522454,
-    "width": 1028.5750613664859
+    "width": 1028.5750613664859,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "decompositionTreeVisual",

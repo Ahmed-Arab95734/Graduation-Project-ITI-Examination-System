@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 301.51975683890578,
     "width": 513.55623100303956,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "barChart",
@@ -426,37 +426,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7acef6414b6e4e3cc695",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactSocial"
-              }
-            },
-            "Property": "WeekDay"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ac76446c9aa88f784e23",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "SocialMeasures"
-              }
-            },
-            "Property": "Total Posts"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

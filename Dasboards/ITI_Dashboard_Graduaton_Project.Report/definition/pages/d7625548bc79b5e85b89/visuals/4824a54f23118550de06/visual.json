@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 303.46504559270517,
     "width": 515.50151975683889,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "donutChart",
@@ -366,34 +366,6 @@
         },
         "type": "TopN",
         "howCreated": "User"
-      },
-      {
-        "name": "76fc203db3b4bef6d04d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "SocialMeasures"
-              }
-            },
-            "Property": "Total Posts"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d4d4cbad67470834292b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactSocial"
-              }
-            },
-            "Property": "CoptionsTypes"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

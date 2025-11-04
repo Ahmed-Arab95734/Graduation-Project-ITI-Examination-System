@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "3f999c8144afe591badc",
   "position": {
-    "x": 203.28267477203647,
+    "x": 213.98176291793314,
     "y": 459.08814589665656,
     "z": 7000,
     "height": 248.99696048632219,
-    "width": 1054.3465045592707
+    "width": 1054.3465045592707,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "lineChart",
@@ -16,107 +17,18 @@
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
+                    "SourceRef": {
+                      "Entity": "DimStudent"
                     }
                   },
-                  "Level": "Year"
+                  "Property": "County"
                 }
               },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Year",
-              "nativeQueryRef": "FullDate Year",
-              "active": false
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Quarter"
-                }
-              },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Quarter",
-              "nativeQueryRef": "FullDate Quarter",
-              "active": false
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Month"
-                }
-              },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Month",
-              "nativeQueryRef": "FullDate Month",
+              "queryRef": "DimStudent.County",
+              "nativeQueryRef": "County",
               "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Day"
-                }
-              },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Day",
-              "nativeQueryRef": "FullDate Day",
-              "active": false
             }
           ]
         },
@@ -127,14 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "HaithamMeasures"
+                      "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Average Earnings"
+                  "Property": "Total Freelance Earnings"
                 }
               },
-              "queryRef": "HaithamMeasures.Average Earnings",
-              "nativeQueryRef": "Average Earnings"
+              "queryRef": "_Ziad.Total Freelance Earnings",
+              "nativeQueryRef": "Total Freelance Earnings"
             },
             {
               "field": {
@@ -144,14 +56,32 @@
                       "Entity": "HimaMeasures"
                     }
                   },
-                  "Property": "Average Certicates cost"
+                  "Property": "Total Certicates cost"
                 }
               },
-              "queryRef": "HimaMeasures.Average Certicates cost",
-              "nativeQueryRef": "Average Certicates cost"
+              "queryRef": "HimaMeasures.Total Certicates cost",
+              "nativeQueryRef": "Total Certicates cost"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Ziad"
+                  }
+                },
+                "Property": "Total Freelance Earnings"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -189,6 +119,20 @@
               }
             },
             "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "maxMarginFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "27L"
+                }
+              }
+            },
+            "concatenateLabels": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -263,7 +207,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -308,6 +252,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000D"
                 }
               }
             }
@@ -390,7 +341,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Earnings Vs Costs by Month'"
+                  "Value": "'Total Freelance Earnings Vs total Certificate Costs Per County'"
                 }
               }
             }
@@ -494,5 +445,138 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ed0e0019edc80f802b43",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimStudent"
+              }
+            },
+            "Property": "County"
+          }
+        },
+        "type": "TopN",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "subquery",
+              "Expression": {
+                "Subquery": {
+                  "Query": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "DimStudent",
+                        "Type": 0
+                      },
+                      {
+                        "Name": "_",
+                        "Entity": "_Ziad",
+                        "Type": 0
+                      }
+                    ],
+                    "Select": [
+                      {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "d"
+                            }
+                          },
+                          "Property": "County"
+                        },
+                        "Name": "field"
+                      }
+                    ],
+                    "OrderBy": [
+                      {
+                        "Direction": 2,
+                        "Expression": {
+                          "Measure": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "_"
+                              }
+                            },
+                            "Property": "Total Freelance Earnings"
+                          }
+                        }
+                      }
+                    ],
+                    "Top": 10
+                  }
+                }
+              },
+              "Type": 2
+            },
+            {
+              "Name": "d",
+              "Entity": "DimStudent",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "County"
+                      }
+                    }
+                  ],
+                  "Table": {
+                    "SourceRef": {
+                      "Source": "subquery"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "3fdd386b846f1b20811c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Total Freelance Earnings"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8de5f15504796da151d3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Total Certicates cost"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

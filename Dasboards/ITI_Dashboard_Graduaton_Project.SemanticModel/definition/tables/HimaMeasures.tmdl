@@ -43,6 +43,11 @@ table HimaMeasures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Employment Rate % per County' = CALCULATE(DIVIDE(COUNT(FactStudentOutcomes[StudentKey]), [Total Graduates]),DimStudent[County])
+		lineageTag: 46cd60d1-22d5-41b7-a36f-05e6a125a23a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Column
 		formatString: 0
 		lineageTag: 6e458eb2-9f3f-44e3-a01b-49ce6d3b49de
