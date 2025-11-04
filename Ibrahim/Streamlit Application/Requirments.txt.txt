@@ -1,0 +1,7 @@
+streamlit 
+streamlit.components.v1 as components
+pandas as pd
+requests
+Path
+tempfile
+io
