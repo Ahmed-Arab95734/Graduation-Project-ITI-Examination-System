@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 91.938558434814652,
     "width": 190.73820331998863,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "slicer",
@@ -81,23 +81,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fc74e6781a85c4c3f957",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Instructor_Contract_Type"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

@@ -7,7 +7,7 @@
     "z": 10031,
     "height": 275.05241090146751,
     "width": 520.587002096436,
-    "tabOrder": 9000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "columnChart",
@@ -404,37 +404,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "e55318b57f1da04643f4",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCompany"
-              }
-            },
-            "Property": "Company_Location"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5ce7c9e7c8b6a183f937",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Avg Hired Graduates Salaries"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

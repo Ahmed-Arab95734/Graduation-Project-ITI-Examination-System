@@ -7,7 +7,7 @@
     "z": 12000,
     "height": 275.05241090146751,
     "width": 507.16981132075466,
-    "tabOrder": 12000
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "columnChart",
@@ -404,37 +404,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "d7846ff134a45e3c465c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCompany"
-              }
-            },
-            "Property": "Company_Location"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f91eaca135313ace02a2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Total Graduates"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -7,7 +7,7 @@
     "z": 11000,
     "height": 275.05241090146751,
     "width": 507.16981132075466,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "columnChart",
@@ -513,20 +513,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "3b44cece83116725cfdb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Total Graduates"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

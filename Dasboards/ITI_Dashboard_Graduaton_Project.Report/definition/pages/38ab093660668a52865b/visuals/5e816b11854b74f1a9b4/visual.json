@@ -6,7 +6,8 @@
     "y": 0,
     "z": 0,
     "height": 117.54577074223094,
-    "width": 232.777799707891
+    "width": 232.777799707891,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -338,23 +339,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "5331beda69e535d8ae3d",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ee7c21baff827dee517c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Employment Rate %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "5331beda69e535d8ae3d"
 }

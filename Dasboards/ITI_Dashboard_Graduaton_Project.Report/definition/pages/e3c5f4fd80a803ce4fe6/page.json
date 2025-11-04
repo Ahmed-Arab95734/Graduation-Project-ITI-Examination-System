@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
   "name": "e3c5f4fd80a803ce4fe6",
-  "displayName": "Institute Health Overview (INPROGRESS)",
+  "displayName": "Institute Health Overview",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,

@@ -11,12 +11,6 @@
     "sections": {
       "ec2fa56850ccbc53a020": {
         "visualContainers": {
-          "5ce85662d1d92fb237be": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
           "e7e19f7ed11af9f62853": {
             "filters": {
               "byExpr": [

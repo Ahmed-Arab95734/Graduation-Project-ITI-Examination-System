@@ -37,7 +37,7 @@ table _Ziad
 		formatString: 0
 		lineageTag: bd036146-514f-4201-b67a-cf676e0885bb
 
-	measure 'Avg. Instructor Rating' = AVERAGE(FactStudentRating[RatingValue])
+	measure 'Avg. Instructor Rating' = CALCULATE(AVERAGE(FactStudentRating[RatingValue]), USERELATIONSHIP(FactStudentRating[StudentKey], DimStudent[StudentKey]))
 		lineageTag: 7705061f-f6f2-47f7-94a6-c9a911d2d9fb
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}

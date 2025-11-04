@@ -6,7 +6,8 @@
     "y": 0,
     "z": 0,
     "height": 146.0130475302889,
-    "width": 202.45506590334176
+    "width": 202.45506590334176,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "image",
@@ -35,6 +36,40 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualLink": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "tooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Home Page'"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'PageNavigation'"
+                }
+              }
+            },
+            "navigationSection": {
+              "expr": {
+                "Literal": {
+                  "Value": "'0073d991346bf0c67bea'"
                 }
               }
             }

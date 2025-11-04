@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 253.50828968068737,
     "width": 494.27035250592121,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "scatterChart",
@@ -31,9 +31,6 @@
               "active": true
             }
           ]
-        },
-        "Series": {
-          "projections": []
         },
         "X": {
           "projections": [
@@ -435,34 +432,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "f6eb9263a9ad22d18fd1",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Instructor_FullName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2aae9579f95192f9e419",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "AhmedMeasures"
-              }
-            },
-            "Property": "Avg. Rating"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
