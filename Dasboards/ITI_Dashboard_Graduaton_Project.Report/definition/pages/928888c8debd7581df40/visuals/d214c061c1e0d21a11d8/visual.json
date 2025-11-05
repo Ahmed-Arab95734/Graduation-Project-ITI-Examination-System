@@ -5,7 +5,7 @@
     "x": 213.98176291793314,
     "y": 209.11854103343467,
     "z": 6000,
-    "height": 230.51671732522797,
+    "height": 239.27051671732525,
     "width": 506.74772036474167,
     "tabOrder": 9000
   },
@@ -494,6 +494,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "ea0459bf6d5f7f281a44",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Employment Rate %"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

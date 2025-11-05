@@ -3,14 +3,14 @@
   "name": "9892886a3c87cf0b71f5",
   "position": {
     "x": 746.99088145896656,
-    "y": 448.38905775075989,
+    "y": 459.08814589665656,
     "z": 2000,
-    "height": 263.58662613981767,
+    "height": 252.88753799392097,
     "width": 520.36474164133745,
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -110,6 +110,13 @@
                   "Value": "false"
                 }
               }
+            },
+            "maxMarginFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
+                }
+              }
             }
           }
         }
@@ -185,26 +192,6 @@
               "expr": {
                 "Literal": {
                   "Value": "10L"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "ribbonBands": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "borderShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             }
@@ -496,7 +483,7 @@
         }
       },
       {
-        "name": "c2c368e2be76e3345e72",
+        "name": "d60404fd73fc67de7c1c",
         "field": {
           "Measure": {
             "Expression": {

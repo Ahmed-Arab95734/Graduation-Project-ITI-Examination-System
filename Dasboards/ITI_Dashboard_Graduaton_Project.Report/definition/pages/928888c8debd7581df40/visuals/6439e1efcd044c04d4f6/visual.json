@@ -5,12 +5,12 @@
     "x": 746.99088145896656,
     "y": 217.87234042553192,
     "z": 5000,
-    "height": 221.76291793313072,
+    "height": 230.51671732522797,
     "width": 521.33738601823711,
     "tabOrder": 5000
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -85,6 +85,13 @@
                   }
                 }
               }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -108,6 +115,13 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "maxMarginFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
                 }
               }
             }
@@ -212,24 +226,9 @@
           }
         }
       ],
-      "ribbonBands": [
+      "layout": [
         {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "borderShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ]
     },
@@ -516,6 +515,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "aeba5a8aaaeda7b15d78",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Employment Rate %"
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"
