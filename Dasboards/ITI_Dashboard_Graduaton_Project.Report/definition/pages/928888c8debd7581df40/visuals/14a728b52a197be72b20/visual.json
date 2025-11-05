@@ -42,11 +42,11 @@
                       "Entity": "HimaMeasures"
                     }
                   },
-                  "Property": "Total student Salary"
+                  "Property": "Total Branch Salary %"
                 }
               },
-              "queryRef": "HimaMeasures.Total student Salary",
-              "nativeQueryRef": "Total student Salary"
+              "queryRef": "HimaMeasures.Total Branch Salary %",
+              "nativeQueryRef": "Total Branch Salary %"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "HimaMeasures"
                   }
                 },
-                "Property": "Total student Salary"
+                "Property": "Total Branch Salary %"
               }
             },
             "direction": "Descending"
@@ -219,7 +219,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 5 Total Students Salary by Branch'"
+                  "Value": "'Top 5 Total Students Salary % by Branch'"
                 }
               }
             },
@@ -494,6 +494,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "6a31de1cec65af7ec6a7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Total Branch Salary %"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

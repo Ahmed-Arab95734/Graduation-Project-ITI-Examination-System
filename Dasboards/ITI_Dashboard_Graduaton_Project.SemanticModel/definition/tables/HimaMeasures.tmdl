@@ -48,6 +48,24 @@ table HimaMeasures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Total Branch Salary %' =
+			
+			DIVIDE(
+			    [Total student Salary],
+			    CALCULATE([Total student Salary], ALL(DimBranch))
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b155b2a9-c2f8-4fc9-8f56-2083ca11ef96
+
+	measure 'Total Track Salary %' =
+			
+			DIVIDE(
+			    [Total student Salary],
+			    CALCULATE([Total student Salary], ALL(DimTrack))
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0a5b18d0-fa0f-48cf-869a-2d473980309f
+
 	column Column
 		formatString: 0
 		lineageTag: 6e458eb2-9f3f-44e3-a01b-49ce6d3b49de

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "9e860606d35668673c0d",
   "position": {
-    "x": 213.84987893462471,
-    "y": 145.66585956416466,
+    "x": 213.98176291793314,
+    "y": 201.33738601823708,
     "z": 7000,
-    "height": 295.98062953995162,
-    "width": 508.2808716707022,
+    "height": 240.24316109422494,
+    "width": 506.74772036474167,
     "tabOrder": 13000
   },
   "visual": {
@@ -495,8 +495,21 @@
             }
           ]
         }
+      },
+      {
+        "name": "40ad19ff6ee589e2d25f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Salary"
+          }
+        },
+        "type": "Advanced"
       }
     ]
-  },
-  "isHidden": true
+  }
 }

@@ -404,5 +404,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "isHidden": true
 }

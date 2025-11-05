@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "HimaMeasures"
+                      "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg Hired Graduates Salaries"
+                  "Property": "Total Hired Graduates Salaries"
                 }
               },
-              "queryRef": "HimaMeasures.Avg Hired Graduates Salaries",
-              "nativeQueryRef": "Avg Hired Graduates Salaries"
+              "queryRef": "_Ziad.Total Hired Graduates Salaries",
+              "nativeQueryRef": "Total Hired Graduates Salaries"
             }
           ]
         }
@@ -220,7 +220,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Graduated Salary'"
+                  "Value": "'Total Hired Salaries'"
                 }
               }
             },
@@ -332,5 +332,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "5331beda69e535d8ae3d"
+  "parentGroupName": "5331beda69e535d8ae3d",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "970ef91c130ee08ec198",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Total Hired Graduates Salaries"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }
