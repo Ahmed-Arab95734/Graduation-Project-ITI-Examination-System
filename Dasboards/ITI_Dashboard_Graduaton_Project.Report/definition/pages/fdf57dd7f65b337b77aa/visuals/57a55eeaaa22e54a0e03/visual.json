@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 243.16109422492403,
     "width": 507.72036474164133,
-    "tabOrder": 11000
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "hundredPercentStackedBarChart",
@@ -604,34 +604,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "d2a1cdb5c254881c064d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Average Earnings"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "401d0c78ab560fa6ea9b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Average Certicates cost"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

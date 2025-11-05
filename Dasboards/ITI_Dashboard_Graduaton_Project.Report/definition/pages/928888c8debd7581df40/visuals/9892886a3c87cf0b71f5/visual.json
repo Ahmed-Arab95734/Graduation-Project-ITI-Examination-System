@@ -6,8 +6,7 @@
     "y": 459.08814589665656,
     "z": 2000,
     "height": 252.88753799392097,
-    "width": 520.36474164133745,
-    "tabOrder": 1000
+    "width": 520.36474164133745
   },
   "visual": {
     "visualType": "lineChart",
@@ -481,20 +480,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "d60404fd73fc67de7c1c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Total Track Salary %"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

@@ -7,7 +7,7 @@
     "z": 10000,
     "height": 231.67895167895168,
     "width": 472.7927927927928,
-    "tabOrder": 13000
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -321,5 +321,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ef867dc6d67fbb31cc28",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCourse"
+              }
+            },
+            "Property": "Course_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "89ab2adafe0def309aa2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Grade"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

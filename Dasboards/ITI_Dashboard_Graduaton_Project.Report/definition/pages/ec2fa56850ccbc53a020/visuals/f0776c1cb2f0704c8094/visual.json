@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Ziad"
+                    "Entity": "HaithamMeasures"
                   }
                 },
-                "Property": "Avg. St. Grade"
+                "Property": "Avg Grade (All Students)"
               }
             },
             "direction": "Descending"

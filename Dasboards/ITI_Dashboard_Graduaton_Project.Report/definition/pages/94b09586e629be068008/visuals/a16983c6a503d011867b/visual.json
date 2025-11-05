@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 245.94670406732118,
     "width": 494.58625525946707,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -326,6 +326,7 @@
     "filters": [
       {
         "name": "dd9b97f05973fa7df0f1",
+        "ordinal": 0,
         "field": {
           "Column": {
             "Expression": {
@@ -334,6 +335,21 @@
               }
             },
             "Property": "Student_FullName"
+          }
+        },
+        "type": "TopN"
+      },
+      {
+        "name": "a7ca8888d560c5b60881",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimStudent"
+              }
+            },
+            "Property": "StudentKey"
           }
         },
         "type": "TopN",
@@ -366,7 +382,7 @@
                               "Source": "d"
                             }
                           },
-                          "Property": "Student_FullName"
+                          "Property": "StudentKey"
                         },
                         "Name": "field"
                       }
@@ -410,7 +426,7 @@
                             "Source": "d"
                           }
                         },
-                        "Property": "Student_FullName"
+                        "Property": "StudentKey"
                       }
                     }
                   ],
@@ -423,8 +439,25 @@
               }
             }
           ]
-        }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "c894e707f9c7c7309de0",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Total Certificates Acquired"
+          }
+        },
+        "type": "Advanced"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

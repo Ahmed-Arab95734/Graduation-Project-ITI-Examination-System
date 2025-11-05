@@ -6,7 +6,8 @@
     "y": 217.00245700245702,
     "z": 11000,
     "height": 230.63063063063063,
-    "width": 472.7927927927928
+    "width": 472.7927927927928,
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -320,5 +321,40 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ae6f5e045eaeba4af8ba",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCertificateProvider"
+              }
+            },
+            "Property": "Provider_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2a655cf24c9a33696a3c",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Total Certificates Acquired"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
   }
 }

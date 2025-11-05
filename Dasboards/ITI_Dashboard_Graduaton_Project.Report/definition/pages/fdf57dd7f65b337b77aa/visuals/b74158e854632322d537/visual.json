@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 243.16109422492403,
     "width": 521.33738601823711,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "hundredPercentStackedBarChart",
@@ -637,48 +637,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "b2e41fdb606192d440b1",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTrack"
-              }
-            },
-            "Property": "Track_Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5fa64733850e6cb0bd67",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Average Certicates cost"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5f7aeb4db13e329750fc",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Average Earnings"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

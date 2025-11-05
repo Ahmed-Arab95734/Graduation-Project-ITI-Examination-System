@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 245.94670406732118,
     "width": 494.58625525946707,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -326,6 +326,7 @@
     "filters": [
       {
         "name": "04493085e636bc290b86",
+        "ordinal": 0,
         "field": {
           "Column": {
             "Expression": {
@@ -334,6 +335,52 @@
               }
             },
             "Property": "Student_FullName"
+          }
+        },
+        "type": "TopN"
+      },
+      {
+        "name": "04cb85a31331fdd03820",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimStudent"
+              }
+            },
+            "Property": "StudentKey"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "5e13dd43ca0e182ac68c",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Total Freelance Jobs"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f7408f4cc71abee0b1e6",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimStudent"
+              }
+            },
+            "Property": "StudentKey"
           }
         },
         "type": "TopN",
@@ -366,7 +413,7 @@
                               "Source": "d"
                             }
                           },
-                          "Property": "Student_FullName"
+                          "Property": "StudentKey"
                         },
                         "Name": "field"
                       }
@@ -410,7 +457,7 @@
                             "Source": "d"
                           }
                         },
-                        "Property": "Student_FullName"
+                        "Property": "StudentKey"
                       }
                     }
                   ],
@@ -423,8 +470,10 @@
               }
             }
           ]
-        }
+        },
+        "howCreated": "User"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

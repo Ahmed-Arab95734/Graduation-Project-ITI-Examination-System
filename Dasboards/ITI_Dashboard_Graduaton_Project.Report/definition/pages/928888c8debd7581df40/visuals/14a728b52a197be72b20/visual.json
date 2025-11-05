@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 252.88753799392097,
     "width": 506.74772036474167,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "columnChart",
@@ -494,20 +494,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "6a31de1cec65af7ec6a7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Total Branch Salary %"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

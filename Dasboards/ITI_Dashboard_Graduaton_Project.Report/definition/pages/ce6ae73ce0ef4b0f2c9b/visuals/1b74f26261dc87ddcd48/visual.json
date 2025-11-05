@@ -7,7 +7,7 @@
     "z": 13000,
     "height": 230.63063063063063,
     "width": 472.7927927927928,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -159,7 +159,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Certificates Acquired by Certificate Provider'"
+                  "Value": "'Student Ratings by Course Instructor'"
                 }
               }
             }
@@ -263,5 +263,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3776af0d72fab02312bf",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor"
+              }
+            },
+            "Property": "Instructor_FullName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "82ddc3caec82f4c660f6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCourse"
+              }
+            },
+            "Property": "Course_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "26b5a86644f1d6ed8725",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. Instructor Rating"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

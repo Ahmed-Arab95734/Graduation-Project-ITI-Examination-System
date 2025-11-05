@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 117.14685194631141,
     "width": 247.92900869315972,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
@@ -332,23 +332,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "5331beda69e535d8ae3d",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "970ef91c130ee08ec198",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Total Hired Graduates Salaries"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "5331beda69e535d8ae3d"
 }

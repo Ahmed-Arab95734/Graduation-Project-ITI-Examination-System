@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 239.27051671732525,
     "width": 506.74772036474167,
-    "tabOrder": 9000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "columnChart",
@@ -494,20 +494,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "ea0459bf6d5f7f281a44",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Employment Rate %"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

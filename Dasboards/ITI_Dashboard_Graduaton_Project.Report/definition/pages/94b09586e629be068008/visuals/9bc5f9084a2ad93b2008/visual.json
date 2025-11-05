@@ -321,5 +321,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8f627a7f1ca15b352d27",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCertificateProvider"
+              }
+            },
+            "Property": "Provider_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9d8feae83d753190aa49",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Total Certificates Acquired"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

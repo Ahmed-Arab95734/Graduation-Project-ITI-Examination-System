@@ -153,6 +153,7 @@
           }
         ],
         "root": {
+          "isToggled": true,
           "children": [
             {
               "identityValues": [
@@ -168,7 +169,7 @@
                   "identityValues": [
                     {
                       "Literal": {
-                        "Value": "'No'"
+                        "Value": "'Yes'"
                       }
                     }
                   ],

@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 240.24316109422494,
     "width": 520.36474164133745,
-    "tabOrder": 9000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "columnChart",
@@ -508,20 +508,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "bf3a9eb7e0cbc02258e2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Avg Hired Graduates Salaries"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
