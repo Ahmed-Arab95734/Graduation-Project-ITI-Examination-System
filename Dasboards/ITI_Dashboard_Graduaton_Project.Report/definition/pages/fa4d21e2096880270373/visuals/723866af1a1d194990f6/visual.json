@@ -108,7 +108,19 @@
             "showAxisTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
@@ -133,7 +145,19 @@
             "showAxisTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
@@ -320,5 +344,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ebf036893df6c4bae190",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor"
+              }
+            },
+            "Property": "Instructor_FullName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a9eebbc25165e22d2971",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Grade"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e5782d95b98efb5e0850",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. Instructor Rating"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

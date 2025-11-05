@@ -232,7 +232,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Earnings'"
+                  "Value": "'AVG Student Grade & Instructor Rating'"
                 }
               }
             },
@@ -404,5 +404,137 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4ea8a9fda2d7919f142e",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e2c04f0bbcb355351f6d",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Quarter"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "98b068ca2160712cbd4d",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Month"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c61cbe9782bc1e011acc",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Day"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "883f153c320d49daa45b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Grade"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7c3e6e798d3b722f3206",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. Instructor Rating"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

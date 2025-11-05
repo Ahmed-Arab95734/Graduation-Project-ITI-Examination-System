@@ -9,7 +9,7 @@ table _Ziad
 		formatString: 0.0
 		lineageTag: 98bc678d-601a-4d3d-bf14-62187efc084b
 
-	measure 'Avg. St. Grade' = CALCULATE(AVERAGEX(SUMMARIZE(FactStudentPerformance, FactStudentPerformance[StudentKey], FactStudentPerformance[ExamKey], "Exam Grade", SUM(FactStudentPerformance[Student_Grade])), [Exam Grade]), USERELATIONSHIP(FactStudentPerformance[StudentKey], DimStudent[StudentKey]))
+	measure 'Avg. St. Grade' = CALCULATE(AVERAGEX(SUMMARIZE(FactStudentPerformance, FactStudentPerformance[StudentKey], FactStudentPerformance[ExamKey], "Exam Grade", SUM(FactStudentPerformance[Student_Grade])), [Exam Grade]), USERELATIONSHIP(FactStudentPerformance[StudentKey], DimStudent[StudentKey]), USERELATIONSHIP(DimInstructor[InstructorKey], FactStudentPerformance[InstructorKey]))
 		formatString: 0.00
 		lineageTag: fd2e6261-6e4b-4a16-b047-314081808e4f
 

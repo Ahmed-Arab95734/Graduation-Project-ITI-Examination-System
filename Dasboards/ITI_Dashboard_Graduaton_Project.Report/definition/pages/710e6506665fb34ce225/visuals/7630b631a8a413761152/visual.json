@@ -92,6 +92,13 @@
                   "Value": "false"
                 }
               }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -112,6 +119,13 @@
               }
             },
             "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -230,7 +244,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Employment Rate Per Intake'"
+                  "Value": "'Employment Rate Per Intake Type'"
                 }
               }
             }
@@ -334,5 +348,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3113a4b596b20e071614",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimIntake"
+              }
+            },
+            "Property": "Intake_Type"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3d7cda415213e3b28ff3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Employment Rate %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
