@@ -103,7 +103,7 @@ def get_gemini_response(question, prompt):
 # -----------------------------
 def read_sql_query(query):
     DRIVER_NAME = 'SQL Server'
-    SERVER_NAME = 'Haitham'
+    SERVER_NAME = 'HIMA'
     DATABASE_NAME = 'ITIExaminationSystem'
     CONNECTION_STRING = f'DRIVER={{{DRIVER_NAME}}};SERVER={SERVER_NAME};DATABASE={DATABASE_NAME};Trusted_Connection=yes;'
 

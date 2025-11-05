@@ -1,0 +1,10 @@
+streamlit
+pandas
+requests
+networkx
+pyvis
+python-dotenv
+pypyodbc
+google-generativeai
+joblib
+catboost
