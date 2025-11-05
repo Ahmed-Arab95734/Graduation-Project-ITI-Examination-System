@@ -6,11 +6,11 @@ table SocialMeasures
 		lineageTag: 76881cff-4fa8-4b06-97a1-7b98bdf80b2d
 
 	measure Firstposted = MIN(FactSocial[created_time])
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: 1221b421-7522-4e30-8715-0c8c995140d8
 
 	measure lastposted = max(FactSocial[created_time])
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: cfb8ba28-a23c-48f1-82d2-fdc5ffd6350d
 
 	measure 'Total Caption Posts' = CALCULATE([Total Posts], FactSocial[CoptionsWritten] = "written Caption" )
