@@ -212,7 +212,7 @@
             "backgroundTransparency": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "0L"
                 }
               }
             }
@@ -604,6 +604,34 @@
             }
           ]
         }
+      },
+      {
+        "name": "d2a1cdb5c254881c064d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Average Earnings"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "401d0c78ab560fa6ea9b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Average Certicates cost"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

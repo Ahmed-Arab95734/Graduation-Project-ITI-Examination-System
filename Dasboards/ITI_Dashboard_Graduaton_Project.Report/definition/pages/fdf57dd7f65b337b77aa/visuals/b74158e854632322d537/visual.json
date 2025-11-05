@@ -212,7 +212,28 @@
             "backgroundTransparency": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "0L"
+                }
+              }
+            },
+            "detailTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "enableValueDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -616,6 +637,48 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "b2e41fdb606192d440b1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTrack"
+              }
+            },
+            "Property": "Track_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5fa64733850e6cb0bd67",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Average Certicates cost"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5f7aeb4db13e329750fc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Average Earnings"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }
