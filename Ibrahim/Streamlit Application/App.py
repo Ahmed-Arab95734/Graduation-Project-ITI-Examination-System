@@ -46,7 +46,47 @@ def set_background(png_file):
 
 set_background("ITI_Background17601951402362703.png")
 
+def get_base64_image(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
 
+
+logo_path = "Gemini_Generated_Image_pwn1v3p13472503787887624.png"
+logo_base64 = get_base64_image(logo_path)
+
+# --- Header ---
+st.markdown(
+    f"""
+    <style>
+    .header-container {{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 15px 30px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+    }}
+    .header-container img {{
+        height: 120px;  /* Increase logo size here */
+        margin-right: 20px;
+        border-radius: 12px;
+    }}
+    .header-title {{
+        font-size: 34px;  /* Slightly larger text */
+        font-weight: 800;
+        color: white;
+        letter-spacing: 0.5px;
+    }}
+    </style>
+
+    <div class="header-container">
+        <img src="data:image/png;base64,{logo_base64}" alt="Logo">
+        <div class="header-title">🎓 ITI Examination System Dashboard</div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 # --- Session state ---
 if 'pbi_model' not in st.session_state:
     st.session_state.pbi_model = None
@@ -91,19 +131,39 @@ with tab_tableau:
 
     tableau_url = "https://public.tableau.com/views/SalesDashboard_17579406008640/SalesDashboard?:showVizHome=no&:embed=true"
 
-    st.markdown("""
-        <style>
-        iframe[title="streamlit.components.v1.html"] {
-            width: 100% !important;
-            height: 90vh !important;
-            border-radius: 12px;
-        }
-        </style>
-    """, unsafe_allow_html=True)
+    # --- FIX: Center the dashboard ---
+    # We wrap the iframe in a <div> with 'margin: 0 auto' to center it.
+    
+    # These are the correct dimensions from your embed code
+    DASH_WIDTH = 1200
+    DASH_HEIGHT = 827
 
-    components.iframe(tableau_url, height=850, scrolling=True)
+    # Create the HTML string
+    iframe_html = f"""
+    <div style="
+        width: {DASH_WIDTH}px;      /* Set the fixed width */
+        height: {DASH_HEIGHT}px;   /* Set the fixed height */
+        margin: 0 auto;          /* This centers the <div> horizontally */
+        overflow: hidden;        /* Hides scrollbars from the container */
+        border-radius: 12px;     /* Optional: adds rounded corners */
+        ">
+        <iframe
+            src="{tableau_url}"
+            width="100%"
+            height="100%"
+            scrolling="yes"
+            frameborder="0"
+            style="border-radius: 12px;"
+        >
+        </iframe>
+    </div>
+    """
+    
+    # Use components.html to render the centered iframe
+    # Set the component height slightly taller to avoid cut-off
+    components.html(iframe_html, height=DASH_HEIGHT + 20) 
+
     st.info("This view is published from Tableau Public and mirrors your ITI Examination dashboard.")
-
 # =====================================================================
 # 🧩 TAB 3: PBIX Inspector
 # =====================================================================
