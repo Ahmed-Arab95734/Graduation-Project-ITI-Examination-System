@@ -5,21 +5,34 @@ table SocialMeasures
 		formatString: 0
 		lineageTag: 76881cff-4fa8-4b06-97a1-7b98bdf80b2d
 
-	measure Firstposted = MIN(FactSocial[Date])
+	measure Firstposted = MIN(FactSocial[created_time])
 		formatString: General Date
 		lineageTag: 1221b421-7522-4e30-8715-0c8c995140d8
 
-	measure lastposted = max(FactSocial[Date])
+	measure lastposted = max(FactSocial[created_time])
 		formatString: General Date
 		lineageTag: cfb8ba28-a23c-48f1-82d2-fdc5ffd6350d
 
-	measure 'Total Caption Posts' = CALCULATE([Total Posts], FactSocial[CoptionsTypes] = "written Caption" )
+	measure 'Total Caption Posts' = CALCULATE([Total Posts], FactSocial[CoptionsWritten] = "written Caption" )
 		formatString: 0
 		lineageTag: cf9b59db-7bf9-47a7-bf64-c080f8db0fb5
 
 	measure 'Caption %' = DIVIDE([Total Caption Posts], [Total Posts])
 		formatString: 0%;-0%;0%
 		lineageTag: a0a9b0e9-0946-4973-ad23-98ff23237e31
+
+	measure 'Total Reations' = sum(FactSocial[reactions.total_count])
+		formatString: 0
+		lineageTag: 59cf1ed7-de5d-473b-9330-de1e183a0f67
+
+	measure 'Average Reactions' = AVERAGE(FactSocial[reactions.total_count])
+		lineageTag: 75a162a6-c81b-40f5-8332-26d84692562a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Reactions Per Post %' = [Total Reations] / [Total Posts]
+		formatString: 0%;-0%;0%
+		lineageTag: 5d4c35d0-e680-4ae7-970c-6bc715392048
 
 	column Column
 		formatString: 0

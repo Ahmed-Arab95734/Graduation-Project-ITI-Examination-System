@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 303.46504559270517,
     "width": 515.50151975683889,
-    "tabOrder": 7000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "donutChart",
@@ -23,11 +23,11 @@
                       "Entity": "FactSocial"
                     }
                   },
-                  "Property": "CoptionsTypes"
+                  "Property": "CoptionsWritten"
                 }
               },
-              "queryRef": "FactSocial.CoptionsTypes",
-              "nativeQueryRef": "CoptionsTypes",
+              "queryRef": "FactSocial.CoptionsWritten",
+              "nativeQueryRef": "CoptionsWritten",
               "active": true
             }
           ]
@@ -177,7 +177,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Caption Types Rate'"
+                  "Value": "'Caption Types by Total Posts'"
                 }
               }
             },

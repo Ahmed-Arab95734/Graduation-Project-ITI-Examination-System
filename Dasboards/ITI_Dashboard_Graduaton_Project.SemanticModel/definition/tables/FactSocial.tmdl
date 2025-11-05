@@ -1,17 +1,9 @@
 table FactSocial
-	lineageTag: a14893c8-ee25-479c-8aaa-154749bb5324
-
-	column name
-		dataType: string
-		lineageTag: e380f5a7-2d05-42b0-a34f-081f3e9acfdc
-		summarizeBy: none
-		sourceColumn: name
-
-		annotation SummarizationSetBy = Automatic
+	lineageTag: 2155e027-d013-4695-9c7c-66bfca93cca9
 
 	column first_name
 		dataType: string
-		lineageTag: 30648f4a-4680-4ea7-82ee-2ce32d63791d
+		lineageTag: 38c4b5ba-2bc8-4084-8181-0dac9d9aa728
 		summarizeBy: none
 		sourceColumn: first_name
 
@@ -19,7 +11,7 @@ table FactSocial
 
 	column middle_name
 		dataType: string
-		lineageTag: 7c9ed3be-c873-443a-bd09-cd72b75ad3c6
+		lineageTag: 312a42e7-5783-4319-b24d-783f189f7e4f
 		summarizeBy: none
 		sourceColumn: middle_name
 
@@ -27,71 +19,148 @@ table FactSocial
 
 	column last_name
 		dataType: string
-		lineageTag: 47df0dab-8156-4014-9b7b-ca1a88cd666f
+		lineageTag: 08180a3a-d7dc-40c7-90a7-dac8a02195f4
 		summarizeBy: none
 		sourceColumn: last_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'picture.data.url'
+		dataType: string
+		lineageTag: 887089b7-82dc-4714-9f67-48441dade7ff
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: picture.data.url
+
+		annotation SummarizationSetBy = Automatic
+
+	column message
+		dataType: string
+		lineageTag: 6b70c942-12e6-46d0-a7c3-343f91af5565
+		summarizeBy: none
+		sourceColumn: message
 
 		annotation SummarizationSetBy = Automatic
 
 	column created_time
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 159d180c-78ef-4818-b27b-2fc91dd0741e
+		lineageTag: b3385225-17f9-4c41-949c-96f4b23e184a
 		summarizeBy: none
 		sourceColumn: created_time
 
 		variation Variation
 			isDefault
-			relationship: 3ac60f02-872a-4eec-a729-63ac2dde20ef
-			defaultHierarchy: LocalDateTable_e8a099f7-9140-4e3e-aa9a-4b7f0dd54d49.'Date Hierarchy'
+			relationship: bbe255ae-37fd-4205-acc9-d8ca6fdbc9d9
+			defaultHierarchy: LocalDateTable_16b0038e-35fa-4308-8913-3ea4b7ba4ece.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
-	column message
+	column 'reactions.total_count'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d40f224-45be-4e9a-893e-edae9c82ac81
+		summarizeBy: sum
+		sourceColumn: reactions.total_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column height
 		dataType: string
-		lineageTag: 0c3d8ca7-56ec-4097-b3c4-211852983ceb
+		lineageTag: f77f2706-c024-49a0-80f9-0274035a7289
 		summarizeBy: none
-		sourceColumn: message
+		sourceColumn: height
 
 		annotation SummarizationSetBy = Automatic
 
-	column Date
-		dataType: dateTime
-		formatString: Short Date
-		lineageTag: 71675e58-21ef-474d-b762-52dd4f7edae7
+	column src
+		dataType: string
+		lineageTag: d5c26fa0-26a9-4448-ade6-e780a1e4d234
 		summarizeBy: none
-		sourceColumn: Date
-
-		variation Variation
-			isDefault
-			relationship: fa20ffa8-c198-4eaf-a093-b0848ee877b9
-			defaultHierarchy: LocalDateTable_5733a8ca-9ff9-4ee6-8f9c-bf31ab0bc451.'Date Hierarchy'
+		sourceColumn: src
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation UnderlyingDateTimeDataType = Date
-
-	column Time
-		dataType: dateTime
-		formatString: Long Time
-		lineageTag: f1a0c40a-3b49-4c45-b646-7968221f4d34
+	column width
+		dataType: string
+		lineageTag: 4846c41d-c67f-4b15-bb8d-e94fc9b498b2
 		summarizeBy: none
-		sourceColumn: Time
+		sourceColumn: width
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation UnderlyingDateTimeDataType = Time
-
-	column CoptionsTypes = IF(ISBLANK(FactSocial[message])  ,"Empty Captions", "written Caption")
-		lineageTag: 5c633353-e7b8-45a5-99e2-b6b53ee24f55
+	column unshimmed_url
+		dataType: string
+		lineageTag: e4b6345b-e33d-4a61-8f8e-67e0fdac6dba
 		summarizeBy: none
+		sourceColumn: unshimmed_url
 
 		annotation SummarizationSetBy = Automatic
 
-	column WeekDay = ```
-			FORMAT(FactSocial[Date],"dddd") 
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: f4af379a-8a9e-40a8-aa94-b7c023b41462
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 5eccadbf-6336-4f19-aff9-95ac0d2c5406
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = User
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 609d48bd-92ea-43ec-be82-8877c68a98fb
+		summarizeBy: sum
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week of Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: bd9252a9-cf96-4b4f-bc27-631abab6f497
+		summarizeBy: sum
+		sourceColumn: Week of Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: int64
+		formatString: 0
+		lineageTag: 535a75ac-9f03-407e-a297-0242572ed104
+		summarizeBy: sum
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 04ede245-ecb7-47e0-ad19-91f26c64ccf7
+		summarizeBy: none
+		sourceColumn: Day Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CoptionsWritten = ```
+			IF(ISBLANK(FactSocial[message]) ,"No Caption", "Written Caption")
+			
 			```
-		lineageTag: a90f43ed-2e89-47a1-b467-b046e2e81c59
+		lineageTag: fa1186e9-4596-4a7e-b31f-fe4f1dc92fb5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Full Name' = FactSocial[first_name] & " " & FactSocial[middle_name]& " " &FactSocial[last_name]
+		lineageTag: bdb17650-b3d5-499d-aaa7-f6d7910aa4ca
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
@@ -100,20 +169,37 @@ table FactSocial
 		mode: import
 		source =
 				let
-				    Source = Json.Document(Web.Contents("https://graph.facebook.com/v24.0/me?fields=id,name,first_name,middle_name,last_name,posts.limit(1000)&access_token=EAA8b8Y8L2EYBP6k3MJMDjLY6gYsMhXFjHmdlx4KSVBuONR9QnMrq0ZCeVolIcAGilLWMQ6SEbCib3unb2xjcGhjh7HI1RxETkcZA5OHqB7CTWzSIfzrRHdnuZAHxLnQx3LoH5Uzw0rGfUwVLjEDVvWH6Hb0NAmZBCiRYwRdLFX1tdw8EyHpMQ0YHbUEt5HlA")),
+				    Source = Json.Document(Web.Contents("https://graph.facebook.com/v24.0/me?fields=first_name,middle_name,%20last_name,picture.width(10000).height(10000){url},%20posts.limit(200){%20%20%20%20%20id,%20%20%20%20%20message,%20%20%20%20%20created_time,%20%20%20%20%20reactions.summary(total_count),%20%20%20%20%20attachments{media,unshimmed_url,subattachments}%20}&access_token=EAA8b8Y8L2EYBP4XJS3J2YVCvRA5bGwv8QXKHrjn8O0sQdPjoyZCq3db0PhY0hZBtcHfNqc0HCrFIWF4UvIyO78sZBuYCCMBxsVXTfE5vSaFveZBedmbzkfxUcRgZBSbPVYs6vmhWEwbtvC1FxE2909RUoZBmAy0VfHdDJo5V50KM8oA74uR4N2ftIkJIjRC6X7")),
 				    #"Converted to Table" = Table.FromRecords({Source}),
-				    #"Expanded posts" = Table.ExpandRecordColumn(#"Converted to Table", "posts", {"data", "paging"}, {"posts.data", "posts.paging"}),
+				    #"Expanded picture" = Table.ExpandRecordColumn(#"Converted to Table", "picture", {"data"}, {"picture.data"}),
+				    #"Expanded picture.data" = Table.ExpandRecordColumn(#"Expanded picture", "picture.data", {"url"}, {"picture.data.url"}),
+				    #"Expanded posts" = Table.ExpandRecordColumn(#"Expanded picture.data", "posts", {"data", "paging"}, {"posts.data", "posts.paging"}),
 				    #"Expanded posts.data" = Table.ExpandListColumn(#"Expanded posts", "posts.data"),
-				    #"Expanded posts.data1" = Table.ExpandRecordColumn(#"Expanded posts.data", "posts.data", {"created_time", "id", "message"}, {"created_time", "id.1", "message"}),
-				    #"Expanded posts.paging" = Table.ExpandRecordColumn(#"Expanded posts.data1", "posts.paging", {"previous", "next"}, {"posts.paging.previous", "posts.paging.next"}),
-				    #"Removed Columns" = Table.RemoveColumns(#"Expanded posts.paging",{"id", "posts.paging.previous", "posts.paging.next"}),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns",{{"message", type text}}),
-				    #"Removed Columns1" = Table.RemoveColumns(#"Changed Type",{"id.1"}),
-				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns1",{{"created_time", type datetime}}),
-				    #"Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([created_time]), type date),
-				    #"Inserted Time" = Table.AddColumn(#"Inserted Date", "Time", each DateTime.Time([created_time]), type time)
+				    #"Expanded posts.data1" = Table.ExpandRecordColumn(#"Expanded posts.data", "posts.data", {"id", "message", "created_time", "reactions", "attachments"}, {"posts.data.id", "posts.data.message", "posts.data.created_time", "posts.data.reactions", "posts.data.attachments"}),
+				    #"Expanded posts.data.reactions" = Table.ExpandRecordColumn(#"Expanded posts.data1", "posts.data.reactions", {"data", "paging", "summary"}, {"posts.data.reactions.data", "posts.data.reactions.paging", "posts.data.reactions.summary"}),
+				    #"Expanded posts.data.reactions.paging" = Table.ExpandRecordColumn(#"Expanded posts.data.reactions", "posts.data.reactions.paging", {"cursors"}, {"posts.data.reactions.paging.cursors"}),
+				    #"Expanded posts.data.reactions.paging.cursors" = Table.ExpandRecordColumn(#"Expanded posts.data.reactions.paging", "posts.data.reactions.paging.cursors", {"before", "after"}, {"posts.data.reactions.paging.cursors.before", "posts.data.reactions.paging.cursors.after"}),
+				    #"Expanded posts.data.reactions.summary" = Table.ExpandRecordColumn(#"Expanded posts.data.reactions.paging.cursors", "posts.data.reactions.summary", {"total_count"}, {"posts.data.reactions.summary.total_count"}),
+				    #"Expanded posts.data.attachments" = Table.ExpandRecordColumn(#"Expanded posts.data.reactions.summary", "posts.data.attachments", {"data"}, {"posts.data.attachments.data"}),
+				    #"Expanded posts.paging" = Table.ExpandRecordColumn(#"Expanded posts.data.attachments", "posts.paging", {"previous", "next"}, {"posts.paging.previous", "posts.paging.next"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded posts.paging",{{"first_name", type text}, {"middle_name", type text}, {"last_name", type text}, {"picture.data.url", type text}, {"posts.data.id", type text}, {"posts.data.message", type text}, {"posts.data.created_time", type datetime}, {"posts.data.reactions.data", type any}, {"posts.data.reactions.paging.cursors.before", type text}, {"posts.data.reactions.paging.cursors.after", type text}, {"posts.data.reactions.summary.total_count", Int64.Type}, {"posts.data.attachments.data", type any}, {"posts.paging.previous", type text}, {"posts.paging.next", type text}, {"id", Int64.Type}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"posts.paging.previous", "posts.paging.next", "id"}),
+				    #"Expanded posts.data.attachments.data" = Table.ExpandListColumn(#"Removed Columns", "posts.data.attachments.data"),
+				    #"Expanded posts.data.attachments.data1" = Table.ExpandRecordColumn(#"Expanded posts.data.attachments.data", "posts.data.attachments.data", {"media", "unshimmed_url"}, {"media", "unshimmed_url"}),
+				    #"Expanded media" = Table.ExpandRecordColumn(#"Expanded posts.data.attachments.data1", "media", {"image"}, {"image"}),
+				    #"Expanded image" = Table.ExpandRecordColumn(#"Expanded media", "image", {"height", "src", "width"}, {"height", "src", "width"}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Expanded image",{"posts.data.reactions.paging.cursors.before", "posts.data.reactions.paging.cursors.after"}),
+				    #"Expanded posts.data.reactions.data" = Table.ExpandListColumn(#"Removed Columns1", "posts.data.reactions.data"),
+				    #"Removed Columns2" = Table.RemoveColumns(#"Expanded posts.data.reactions.data",{"posts.data.reactions.data", "posts.data.id"}),
+				    #"Inserted Year" = Table.AddColumn(#"Removed Columns2", "Year", each Date.Year([posts.data.created_time]), Int64.Type),
+				    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.Month([posts.data.created_time]), Int64.Type),
+				    #"Inserted Quarter" = Table.AddColumn(#"Inserted Month", "Quarter", each Date.QuarterOfYear([posts.data.created_time]), Int64.Type),
+				    #"Inserted Week of Year" = Table.AddColumn(#"Inserted Quarter", "Week of Year", each Date.WeekOfYear([posts.data.created_time]), Int64.Type),
+				    #"Inserted Day" = Table.AddColumn(#"Inserted Week of Year", "Day", each Date.Day([posts.data.created_time]), Int64.Type),
+				    #"Inserted Day Name" = Table.AddColumn(#"Inserted Day", "Day Name", each Date.DayOfWeekName([posts.data.created_time]), type text),
+				    #"Renamed Columns" = Table.RenameColumns(#"Inserted Day Name",{{"posts.data.message", "message"}, {"posts.data.created_time", "created_time"}, {"posts.data.reactions.summary.total_count", "reactions.total_count"}})
 				in
-				    #"Inserted Time"
+				    #"Renamed Columns"
 
 	annotation PBI_NavigationStepName = Navigation
 

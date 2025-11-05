@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 245.94670406732118,
     "width": 494,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "scatterChart",
@@ -320,51 +320,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "020c2efaf68cde8e9c09",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Instructor_FullName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2d3d0dd189f31f6397d9",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. Instructor Rating"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2a2b96b671ab93fa0630",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. St. Grade"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

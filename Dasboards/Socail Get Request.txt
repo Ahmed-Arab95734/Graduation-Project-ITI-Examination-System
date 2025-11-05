@@ -1,0 +1,1 @@
+me?fields=first_name,last_name,middle_name,picture.width(1000).height(1000){url},posts.limit(200){id,reactions.summary(total_count),attachments{media,unshimmed_url,subattachments},message,created_time}
