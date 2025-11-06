@@ -28455,12 +28455,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "reactions": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
 			          "average response": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -28501,46 +28495,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "response": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "feedback": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "rejoinder": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "antiphon": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
 			          "average reply": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -28558,6 +28512,46 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average retort": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average return": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average consequence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "average outcome": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
 			          }
 			        }
 			      ]
@@ -30506,9 +30500,2218 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "hima_measure.total_branch_salary_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "HimaMeasures",
+			          "ConceptualProperty": "Total Branch Salary %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total branch salary %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "total branch salary percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "total branch salary pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "aggregate branch salary %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "overall branch salary %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "hima_measure.total_track_salary_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "HimaMeasures",
+			          "ConceptualProperty": "Total Track Salary %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total track salary %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "total track salary percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "total track salary pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "aggregate track salary %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "overall track salary %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "hima_measure.avg_costs_freelance__certificate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "HimaMeasures",
+			          "ConceptualProperty": "Avg Costs (Freelance + Certificate)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "avg costs (freelance + certificate)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "avg costs": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
+			    },
+			    "fact_social.full_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactSocial",
+			          "ConceptualProperty": "Full Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "full name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "full nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "full title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "full label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "full tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "full surname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "complete name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "entire name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "whole name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "full given name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "dim_branch_branch_start_date_date_hierarchy_has_dim_branch_branch_start_date_month": {
+			      "Binding": {
+			        "ConceptualEntity": "DimBranch"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_branch.branch_start_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "dim_branch.branch_start_date.date_hierarchy"
+			          }
+			        },
+			        "dim_branch.branch_start_date.month": {
+			          "Target": {
+			            "Entity": "dim_branch.branch_start_date.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_branch.branch_start_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "dim_branch.branch_start_date.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "branch_start_date_hierarchies_have_branch_start_months"
+			        }
+			      ]
+			    },
+			    "dim_branch_branch_start_date_date_hierarchy_has_dim_branch_branch_start_date_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "DimBranch"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_branch.branch_start_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "dim_branch.branch_start_date.date_hierarchy"
+			          }
+			        },
+			        "dim_branch.branch_start_date.quarter": {
+			          "Target": {
+			            "Entity": "dim_branch.branch_start_date.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_branch.branch_start_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "dim_branch.branch_start_date.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "branch_start_date_hierarchies_have_branch_start_quarters"
+			        }
+			      ]
+			    },
+			    "dim_branch_branch_start_date_date_hierarchy_has_dim_branch_branch_start_date_year": {
+			      "Binding": {
+			        "ConceptualEntity": "DimBranch"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_branch.branch_start_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "dim_branch.branch_start_date.date_hierarchy"
+			          }
+			        },
+			        "dim_branch.branch_start_date.year": {
+			          "Target": {
+			            "Entity": "dim_branch.branch_start_date.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_branch.branch_start_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "dim_branch.branch_start_date.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "branch_start_date_hierarchies_have_branch_start_years"
+			        }
+			      ]
+			    },
+			    "dim_branch_branch_start_date_has_date_hierarchy": {
+			      "Binding": {
+			        "ConceptualEntity": "DimBranch"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_branch.branch_start_date": {
+			          "Target": {
+			            "Entity": "dim_branch.branch_start_date"
+			          }
+			        },
+			        "dim_branch.branch_start_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "dim_branch.branch_start_date.date_hierarchy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_branch.branch_start_date"
+			            },
+			            "Object": {
+			              "Role": "dim_branch.branch_start_date.date_hierarchy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "branch_start_dates_have_branch_start_date_hierarchies"
+			        }
+			      ]
+			    },
+			    "fact_student_rating_has_dim_instructor": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentRating"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_rating": {
+			          "Target": {
+			            "Entity": "fact_student_rating"
+			          }
+			        },
+			        "dim_instructor": {
+			          "Target": {
+			            "Entity": "dim_instructor"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_rating"
+			            },
+			            "Object": {
+			              "Role": "dim_instructor"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_rating_have_dim_instructors"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_instructor"
+			            },
+			            "Object": {
+			              "Role": "fact_student_rating"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_instructors_have_fact_student_rating"
+			        }
+			      ]
+			    },
+			    "fact_student_rating_has_dim_date": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentRating"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_rating": {
+			          "Target": {
+			            "Entity": "fact_student_rating"
+			          }
+			        },
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_rating"
+			            },
+			            "Object": {
+			              "Role": "dim_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_rating_have_dim_dates"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "fact_student_rating"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_fact_student_rating"
+			        }
+			      ]
+			    },
+			    "fact_student_outcome_has_dim_student": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentOutcomes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_outcome": {
+			          "Target": {
+			            "Entity": "fact_student_outcome"
+			          }
+			        },
+			        "dim_student": {
+			          "Target": {
+			            "Entity": "dim_student"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_outcome"
+			            },
+			            "Object": {
+			              "Role": "dim_student"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_outcomes_have_dim_students"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_student"
+			            },
+			            "Object": {
+			              "Role": "fact_student_outcome"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_students_have_fact_student_outcomes"
+			        }
+			      ]
+			    },
+			    "fact_student_outcome_has_dim_date": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentOutcomes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_outcome": {
+			          "Target": {
+			            "Entity": "fact_student_outcome"
+			          }
+			        },
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_outcome"
+			            },
+			            "Object": {
+			              "Role": "dim_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_outcomes_have_dim_dates"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "fact_student_outcome"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_fact_student_outcomes"
+			        }
+			      ]
+			    },
+			    "fact_student_outcome_has_dim_company": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentOutcomes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_outcome": {
+			          "Target": {
+			            "Entity": "fact_student_outcome"
+			          }
+			        },
+			        "dim_company": {
+			          "Target": {
+			            "Entity": "dim_company"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_outcome"
+			            },
+			            "Object": {
+			              "Role": "dim_company"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_outcomes_have_dim_companies"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_company"
+			            },
+			            "Object": {
+			              "Role": "fact_student_outcome"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_companies_have_fact_student_outcomes"
+			        }
+			      ]
+			    },
+			    "fact_student_performance_has_dim_question": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentPerformance"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_performance": {
+			          "Target": {
+			            "Entity": "fact_student_performance"
+			          }
+			        },
+			        "dim_question": {
+			          "Target": {
+			            "Entity": "dim_question"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_performance"
+			            },
+			            "Object": {
+			              "Role": "dim_question"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_performances_have_dim_questions"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_question"
+			            },
+			            "Object": {
+			              "Role": "fact_student_performance"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_questions_have_fact_student_performances"
+			        }
+			      ]
+			    },
+			    "fact_student_performance_has_dim_exam": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentPerformance"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_performance": {
+			          "Target": {
+			            "Entity": "fact_student_performance"
+			          }
+			        },
+			        "dim_exam": {
+			          "Target": {
+			            "Entity": "dim_exam"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_performance"
+			            },
+			            "Object": {
+			              "Role": "dim_exam"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_performances_have_dim_exams"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_exam"
+			            },
+			            "Object": {
+			              "Role": "fact_student_performance"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_exams_have_fact_student_performances"
+			        }
+			      ]
+			    },
+			    "fact_student_performance_has_dim_date": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentPerformance"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_performance": {
+			          "Target": {
+			            "Entity": "fact_student_performance"
+			          }
+			        },
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_performance"
+			            },
+			            "Object": {
+			              "Role": "dim_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_performances_have_dim_dates"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "fact_student_performance"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_fact_student_performances"
+			        }
+			      ]
+			    },
+			    "fact_student_performance_has_dim_course": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentPerformance"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_performance": {
+			          "Target": {
+			            "Entity": "fact_student_performance"
+			          }
+			        },
+			        "dim_course": {
+			          "Target": {
+			            "Entity": "dim_course"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_performance"
+			            },
+			            "Object": {
+			              "Role": "dim_course"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_performances_have_dim_courses"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_course"
+			            },
+			            "Object": {
+			              "Role": "fact_student_performance"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_courses_have_fact_student_performances"
+			        }
+			      ]
+			    },
+			    "fact_student_failure_has_dim_student": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentFailure"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_failure": {
+			          "Target": {
+			            "Entity": "fact_student_failure"
+			          }
+			        },
+			        "dim_student": {
+			          "Target": {
+			            "Entity": "dim_student"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_failure"
+			            },
+			            "Object": {
+			              "Role": "dim_student"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_failures_have_dim_students"
+			        }
+			      ]
+			    },
+			    "fact_student_failure_has_dim_failure_reason": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentFailure"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_failure": {
+			          "Target": {
+			            "Entity": "fact_student_failure"
+			          }
+			        },
+			        "dim_failure_reason": {
+			          "Target": {
+			            "Entity": "dim_failure_reason"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_failure"
+			            },
+			            "Object": {
+			              "Role": "dim_failure_reason"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_failures_have_dim_failure_reasons"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_failure_reason"
+			            },
+			            "Object": {
+			              "Role": "fact_student_failure"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_failure_reasons_have_fact_student_failures"
+			        }
+			      ]
+			    },
+			    "fact_freelance_job_has_dim_student": {
+			      "Binding": {
+			        "ConceptualEntity": "FactFreelanceJob"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_freelance_job": {
+			          "Target": {
+			            "Entity": "fact_freelance_job"
+			          }
+			        },
+			        "dim_student": {
+			          "Target": {
+			            "Entity": "dim_student"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_freelance_job"
+			            },
+			            "Object": {
+			              "Role": "dim_student"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_freelance_jobs_have_dim_students"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_student"
+			            },
+			            "Object": {
+			              "Role": "fact_freelance_job"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_students_have_fact_freelance_jobs"
+			        }
+			      ]
+			    },
+			    "fact_freelance_job_has_dim_job_site": {
+			      "Binding": {
+			        "ConceptualEntity": "FactFreelanceJob"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_freelance_job": {
+			          "Target": {
+			            "Entity": "fact_freelance_job"
+			          }
+			        },
+			        "dim_job_site": {
+			          "Target": {
+			            "Entity": "dim_job_site"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_freelance_job"
+			            },
+			            "Object": {
+			              "Role": "dim_job_site"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_freelance_jobs_have_dim_job_sites"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_job_site"
+			            },
+			            "Object": {
+			              "Role": "fact_freelance_job"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_job_sites_have_fact_freelance_jobs"
+			        }
+			      ]
+			    },
+			    "fact_freelance_job_has_dim_date": {
+			      "Binding": {
+			        "ConceptualEntity": "FactFreelanceJob"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_freelance_job": {
+			          "Target": {
+			            "Entity": "fact_freelance_job"
+			          }
+			        },
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_freelance_job"
+			            },
+			            "Object": {
+			              "Role": "dim_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_freelance_jobs_have_dim_dates"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "fact_freelance_job"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_fact_freelance_jobs"
+			        }
+			      ]
+			    },
+			    "fact_certificate_has_dim_student": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCertificate"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_certificate": {
+			          "Target": {
+			            "Entity": "fact_certificate"
+			          }
+			        },
+			        "dim_student": {
+			          "Target": {
+			            "Entity": "dim_student"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_certificate"
+			            },
+			            "Object": {
+			              "Role": "dim_student"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_certificates_have_dim_students"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_student"
+			            },
+			            "Object": {
+			              "Role": "fact_certificate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_students_have_fact_certificates"
+			        }
+			      ]
+			    },
+			    "fact_certificate_has_dim_date": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCertificate"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_certificate": {
+			          "Target": {
+			            "Entity": "fact_certificate"
+			          }
+			        },
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_certificate"
+			            },
+			            "Object": {
+			              "Role": "dim_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_certificates_have_dim_dates"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "fact_certificate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_fact_certificates"
+			        }
+			      ]
+			    },
+			    "fact_certificate_has_dim_certificate_provider": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCertificate"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_certificate": {
+			          "Target": {
+			            "Entity": "fact_certificate"
+			          }
+			        },
+			        "dim_certificate_provider": {
+			          "Target": {
+			            "Entity": "dim_certificate_provider"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_certificate"
+			            },
+			            "Object": {
+			              "Role": "dim_certificate_provider"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_certificates_have_dim_certificate_providers"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_certificate_provider"
+			            },
+			            "Object": {
+			              "Role": "fact_certificate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_certificate_providers_have_fact_certificates"
+			        }
+			      ]
+			    },
+			    "fact_certificate_has_dim_certificate": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCertificate"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_certificate": {
+			          "Target": {
+			            "Entity": "fact_certificate"
+			          }
+			        },
+			        "dim_certificate": {
+			          "Target": {
+			            "Entity": "dim_certificate"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_certificate"
+			            },
+			            "Object": {
+			              "Role": "dim_certificate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_certificates_have_dim_certificates"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_certificate"
+			            },
+			            "Object": {
+			              "Role": "fact_certificate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_certificates_have_fact_certificates"
+			        }
+			      ]
+			    },
+			    "dim_track_has_dim_department": {
+			      "Binding": {
+			        "ConceptualEntity": "DimTrack"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_track": {
+			          "Target": {
+			            "Entity": "dim_track"
+			          }
+			        },
+			        "dim_department": {
+			          "Target": {
+			            "Entity": "dim_department"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_track"
+			            },
+			            "Object": {
+			              "Role": "dim_department"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_tracks_have_dim_departments"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_department"
+			            },
+			            "Object": {
+			              "Role": "dim_track"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_departments_have_dim_tracks"
+			        }
+			      ]
+			    },
+			    "dim_topic_has_dim_course": {
+			      "Binding": {
+			        "ConceptualEntity": "DimTopic"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_topic": {
+			          "Target": {
+			            "Entity": "dim_topic"
+			          }
+			        },
+			        "dim_course": {
+			          "Target": {
+			            "Entity": "dim_course"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_topic"
+			            },
+			            "Object": {
+			              "Role": "dim_course"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_topics_have_dim_courses"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_course"
+			            },
+			            "Object": {
+			              "Role": "dim_topic"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_courses_have_dim_topics"
+			        }
+			      ]
+			    },
+			    "dim_student_has_fact_student_failure": {
+			      "Binding": {
+			        "ConceptualEntity": "DimStudent"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_student": {
+			          "Target": {
+			            "Entity": "dim_student"
+			          }
+			        },
+			        "fact_student_failure": {
+			          "Target": {
+			            "Entity": "fact_student_failure"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_student"
+			            },
+			            "Object": {
+			              "Role": "fact_student_failure"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_students_have_fact_student_failures"
+			        }
+			      ]
+			    },
+			    "dim_student_has_dim_track": {
+			      "Binding": {
+			        "ConceptualEntity": "DimStudent"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_student": {
+			          "Target": {
+			            "Entity": "dim_student"
+			          }
+			        },
+			        "dim_track": {
+			          "Target": {
+			            "Entity": "dim_track"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_student"
+			            },
+			            "Object": {
+			              "Role": "dim_track"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_students_have_dim_tracks"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_track"
+			            },
+			            "Object": {
+			              "Role": "dim_student"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_tracks_have_dim_students"
+			        }
+			      ]
+			    },
+			    "dim_student_has_dim_intake": {
+			      "Binding": {
+			        "ConceptualEntity": "DimStudent"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_student": {
+			          "Target": {
+			            "Entity": "dim_student"
+			          }
+			        },
+			        "dim_intake": {
+			          "Target": {
+			            "Entity": "dim_intake"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_student"
+			            },
+			            "Object": {
+			              "Role": "dim_intake"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_students_have_dim_intakes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_intake"
+			            },
+			            "Object": {
+			              "Role": "dim_student"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_intakes_have_dim_students"
+			        }
+			      ]
+			    },
+			    "dim_student_has_dim_branch": {
+			      "Binding": {
+			        "ConceptualEntity": "DimStudent"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_student": {
+			          "Target": {
+			            "Entity": "dim_student"
+			          }
+			        },
+			        "dim_branch": {
+			          "Target": {
+			            "Entity": "dim_branch"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_student"
+			            },
+			            "Object": {
+			              "Role": "dim_branch"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_students_have_dim_branches"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_branch"
+			            },
+			            "Object": {
+			              "Role": "dim_student"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_branches_have_dim_students"
+			        }
+			      ]
+			    },
+			    "fact_social_has_full_name": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.full_name": {
+			          "Target": {
+			            "Entity": "fact_social.full_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.full_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_full_names"
+			        }
+			      ]
+			    },
+			    "fact_certificate_has_hima_measure_avg_costs_freelance__certificate": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCertificate"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_certificate": {
+			          "Target": {
+			            "Entity": "fact_certificate"
+			          }
+			        },
+			        "hima_measure.avg_costs_freelance__certificate": {
+			          "Target": {
+			            "Entity": "hima_measure.avg_costs_freelance__certificate"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_certificate"
+			            },
+			            "Object": {
+			              "Role": "hima_measure.avg_costs_freelance__certificate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_certificates_have_avg_costs_freelance__certificate"
+			        }
+			      ]
+			    },
+			    "dim_student_has_hima_measure_avg_costs_freelance__certificate": {
+			      "Binding": {
+			        "ConceptualEntity": "DimStudent"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_student": {
+			          "Target": {
+			            "Entity": "dim_student"
+			          }
+			        },
+			        "hima_measure.avg_costs_freelance__certificate": {
+			          "Target": {
+			            "Entity": "hima_measure.avg_costs_freelance__certificate"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_student"
+			            },
+			            "Object": {
+			              "Role": "hima_measure.avg_costs_freelance__certificate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_students_have_avg_costs_freelance__certificate"
+			        }
+			      ]
+			    },
+			    "fact_student_outcome_has_hima_measure_total_track_salary_": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentOutcomes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_outcome": {
+			          "Target": {
+			            "Entity": "fact_student_outcome"
+			          }
+			        },
+			        "hima_measure.total_track_salary_": {
+			          "Target": {
+			            "Entity": "hima_measure.total_track_salary_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_outcome"
+			            },
+			            "Object": {
+			              "Role": "hima_measure.total_track_salary_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_outcomes_have_total_track_salary_"
+			        }
+			      ]
+			    },
+			    "fact_student_outcome_has_hima_measure_total_branch_salary_": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStudentOutcomes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_student_outcome": {
+			          "Target": {
+			            "Entity": "fact_student_outcome"
+			          }
+			        },
+			        "hima_measure.total_branch_salary_": {
+			          "Target": {
+			            "Entity": "hima_measure.total_branch_salary_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_student_outcome"
+			            },
+			            "Object": {
+			              "Role": "hima_measure.total_branch_salary_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_student_outcomes_have_total_branch_salary_"
+			        }
+			      ]
+			    },
+			    "fact_social_has_coption_written": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.coption_written": {
+			          "Target": {
+			            "Entity": "fact_social.coption_written"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.coption_written"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_coption_written"
+			        }
+			      ]
+			    },
+			    "fact_social_has_day_name": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.day_name": {
+			          "Target": {
+			            "Entity": "fact_social.day_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.day_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_day_names"
+			        }
+			      ]
+			    },
+			    "fact_social_has_day": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.day": {
+			          "Target": {
+			            "Entity": "fact_social.day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_days"
+			        }
+			      ]
+			    },
+			    "fact_social_has_week_of_year": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.week_of_year": {
+			          "Target": {
+			            "Entity": "fact_social.week_of_year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.week_of_year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_week_of_year"
+			        }
+			      ]
+			    },
+			    "fact_social_has_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.quarter": {
+			          "Target": {
+			            "Entity": "fact_social.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_quarters"
+			        }
+			      ]
+			    },
+			    "fact_social_has_month": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.month": {
+			          "Target": {
+			            "Entity": "fact_social.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_months"
+			        }
+			      ]
+			    },
+			    "fact_social_has_year": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.year": {
+			          "Target": {
+			            "Entity": "fact_social.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_years"
+			        }
+			      ]
+			    },
+			    "fact_social_has_unshimmed_url": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.unshimmed_url": {
+			          "Target": {
+			            "Entity": "fact_social.unshimmed_url"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.unshimmed_url"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_unshimmed_urls"
+			        }
+			      ]
+			    },
+			    "fact_social_has_width": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.width": {
+			          "Target": {
+			            "Entity": "fact_social.width"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.width"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_widths"
+			        }
+			      ]
+			    },
+			    "fact_social_has_src": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.src": {
+			          "Target": {
+			            "Entity": "fact_social.src"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.src"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_srcs"
+			        }
+			      ]
+			    },
+			    "fact_social_has_height": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.height": {
+			          "Target": {
+			            "Entity": "fact_social.height"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.height"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_heights"
+			        }
+			      ]
+			    },
+			    "fact_social_has_reactions_total_count": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.reactions_total_count": {
+			          "Target": {
+			            "Entity": "fact_social.reactions_total_count"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.reactions_total_count"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_reactions_total_counts"
+			        }
+			      ]
+			    },
+			    "fact_social_has_created_time": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.created_time": {
+			          "Target": {
+			            "Entity": "fact_social.created_time"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.created_time"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_created_times"
+			        }
+			      ]
+			    },
+			    "fact_social_has_message": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.message": {
+			          "Target": {
+			            "Entity": "fact_social.message"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.message"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_messages"
+			        }
+			      ]
+			    },
+			    "fact_social_has_picture_data_url": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.picture_data_url": {
+			          "Target": {
+			            "Entity": "fact_social.picture_data_url"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.picture_data_url"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_picture_data_urls"
+			        }
+			      ]
+			    },
+			    "fact_social_has_last_name": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.last_name": {
+			          "Target": {
+			            "Entity": "fact_social.last_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.last_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_last_names"
+			        }
+			      ]
+			    },
+			    "fact_social_has_middle_name": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.middle_name": {
+			          "Target": {
+			            "Entity": "fact_social.middle_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.middle_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_middle_names"
+			        }
+			      ]
+			    },
+			    "fact_social_has_first_name": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSocial"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_social": {
+			          "Target": {
+			            "Entity": "fact_social"
+			          }
+			        },
+			        "fact_social.first_name": {
+			          "Target": {
+			            "Entity": "fact_social.first_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_social"
+			            },
+			            "Object": {
+			              "Role": "fact_social.first_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_socials_have_first_names"
+			        }
+			      ]
+			    },
 			    "fact_social_has_social_measure_reactions_per_post_": {
 			      "Binding": {
 			        "ConceptualEntity": "FactSocial"
@@ -38810,1810 +41013,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "dim_branches_are_started_on_branch_start_dates"
-			        }
-			      ]
-			    },
-			    "fact_social_has_first_name": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.first_name": {
-			          "Target": {
-			            "Entity": "fact_social.first_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.first_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_first_names"
-			        }
-			      ]
-			    },
-			    "fact_social_has_middle_name": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.middle_name": {
-			          "Target": {
-			            "Entity": "fact_social.middle_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.middle_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_middle_names"
-			        }
-			      ]
-			    },
-			    "fact_social_has_last_name": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.last_name": {
-			          "Target": {
-			            "Entity": "fact_social.last_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.last_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_last_names"
-			        }
-			      ]
-			    },
-			    "fact_social_has_picture_data_url": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.picture_data_url": {
-			          "Target": {
-			            "Entity": "fact_social.picture_data_url"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.picture_data_url"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_picture_data_urls"
-			        }
-			      ]
-			    },
-			    "fact_social_has_message": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.message": {
-			          "Target": {
-			            "Entity": "fact_social.message"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.message"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_messages"
-			        }
-			      ]
-			    },
-			    "fact_social_has_created_time": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.created_time": {
-			          "Target": {
-			            "Entity": "fact_social.created_time"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.created_time"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_created_times"
-			        }
-			      ]
-			    },
-			    "fact_social_has_reactions_total_count": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.reactions_total_count": {
-			          "Target": {
-			            "Entity": "fact_social.reactions_total_count"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.reactions_total_count"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_reactions_total_counts"
-			        }
-			      ]
-			    },
-			    "fact_social_has_height": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.height": {
-			          "Target": {
-			            "Entity": "fact_social.height"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.height"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_heights"
-			        }
-			      ]
-			    },
-			    "fact_social_has_src": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.src": {
-			          "Target": {
-			            "Entity": "fact_social.src"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.src"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_srcs"
-			        }
-			      ]
-			    },
-			    "fact_social_has_width": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.width": {
-			          "Target": {
-			            "Entity": "fact_social.width"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.width"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_widths"
-			        }
-			      ]
-			    },
-			    "fact_social_has_unshimmed_url": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.unshimmed_url": {
-			          "Target": {
-			            "Entity": "fact_social.unshimmed_url"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.unshimmed_url"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_unshimmed_urls"
-			        }
-			      ]
-			    },
-			    "fact_social_has_year": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.year": {
-			          "Target": {
-			            "Entity": "fact_social.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_years"
-			        }
-			      ]
-			    },
-			    "fact_social_has_month": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.month": {
-			          "Target": {
-			            "Entity": "fact_social.month"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.month"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_months"
-			        }
-			      ]
-			    },
-			    "fact_social_has_quarter": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.quarter": {
-			          "Target": {
-			            "Entity": "fact_social.quarter"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.quarter"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_quarters"
-			        }
-			      ]
-			    },
-			    "fact_social_has_week_of_year": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.week_of_year": {
-			          "Target": {
-			            "Entity": "fact_social.week_of_year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.week_of_year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_week_of_year"
-			        }
-			      ]
-			    },
-			    "fact_social_has_day": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.day": {
-			          "Target": {
-			            "Entity": "fact_social.day"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.day"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_days"
-			        }
-			      ]
-			    },
-			    "fact_social_has_day_name": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.day_name": {
-			          "Target": {
-			            "Entity": "fact_social.day_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.day_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_day_names"
-			        }
-			      ]
-			    },
-			    "fact_social_has_coption_written": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSocial"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_social": {
-			          "Target": {
-			            "Entity": "fact_social"
-			          }
-			        },
-			        "fact_social.coption_written": {
-			          "Target": {
-			            "Entity": "fact_social.coption_written"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_social"
-			            },
-			            "Object": {
-			              "Role": "fact_social.coption_written"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_socials_have_coption_written"
-			        }
-			      ]
-			    },
-			    "dim_student_has_dim_branch": {
-			      "Binding": {
-			        "ConceptualEntity": "DimStudent"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_student": {
-			          "Target": {
-			            "Entity": "dim_student"
-			          }
-			        },
-			        "dim_branch": {
-			          "Target": {
-			            "Entity": "dim_branch"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_student"
-			            },
-			            "Object": {
-			              "Role": "dim_branch"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_students_have_dim_branches"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_branch"
-			            },
-			            "Object": {
-			              "Role": "dim_student"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_branches_have_dim_students"
-			        }
-			      ]
-			    },
-			    "dim_student_has_dim_intake": {
-			      "Binding": {
-			        "ConceptualEntity": "DimStudent"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_student": {
-			          "Target": {
-			            "Entity": "dim_student"
-			          }
-			        },
-			        "dim_intake": {
-			          "Target": {
-			            "Entity": "dim_intake"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_student"
-			            },
-			            "Object": {
-			              "Role": "dim_intake"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_students_have_dim_intakes"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_intake"
-			            },
-			            "Object": {
-			              "Role": "dim_student"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_intakes_have_dim_students"
-			        }
-			      ]
-			    },
-			    "dim_student_has_dim_track": {
-			      "Binding": {
-			        "ConceptualEntity": "DimStudent"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_student": {
-			          "Target": {
-			            "Entity": "dim_student"
-			          }
-			        },
-			        "dim_track": {
-			          "Target": {
-			            "Entity": "dim_track"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_student"
-			            },
-			            "Object": {
-			              "Role": "dim_track"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_students_have_dim_tracks"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_track"
-			            },
-			            "Object": {
-			              "Role": "dim_student"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_tracks_have_dim_students"
-			        }
-			      ]
-			    },
-			    "dim_student_has_fact_student_failure": {
-			      "Binding": {
-			        "ConceptualEntity": "DimStudent"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_student": {
-			          "Target": {
-			            "Entity": "dim_student"
-			          }
-			        },
-			        "fact_student_failure": {
-			          "Target": {
-			            "Entity": "fact_student_failure"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_student"
-			            },
-			            "Object": {
-			              "Role": "fact_student_failure"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_students_have_fact_student_failures"
-			        }
-			      ]
-			    },
-			    "dim_topic_has_dim_course": {
-			      "Binding": {
-			        "ConceptualEntity": "DimTopic"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_topic": {
-			          "Target": {
-			            "Entity": "dim_topic"
-			          }
-			        },
-			        "dim_course": {
-			          "Target": {
-			            "Entity": "dim_course"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_topic"
-			            },
-			            "Object": {
-			              "Role": "dim_course"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_topics_have_dim_courses"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_course"
-			            },
-			            "Object": {
-			              "Role": "dim_topic"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_courses_have_dim_topics"
-			        }
-			      ]
-			    },
-			    "dim_track_has_dim_department": {
-			      "Binding": {
-			        "ConceptualEntity": "DimTrack"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_track": {
-			          "Target": {
-			            "Entity": "dim_track"
-			          }
-			        },
-			        "dim_department": {
-			          "Target": {
-			            "Entity": "dim_department"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_track"
-			            },
-			            "Object": {
-			              "Role": "dim_department"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_tracks_have_dim_departments"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_department"
-			            },
-			            "Object": {
-			              "Role": "dim_track"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_departments_have_dim_tracks"
-			        }
-			      ]
-			    },
-			    "fact_certificate_has_dim_certificate": {
-			      "Binding": {
-			        "ConceptualEntity": "FactCertificate"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_certificate": {
-			          "Target": {
-			            "Entity": "fact_certificate"
-			          }
-			        },
-			        "dim_certificate": {
-			          "Target": {
-			            "Entity": "dim_certificate"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_certificate"
-			            },
-			            "Object": {
-			              "Role": "dim_certificate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_certificates_have_dim_certificates"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_certificate"
-			            },
-			            "Object": {
-			              "Role": "fact_certificate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_certificates_have_fact_certificates"
-			        }
-			      ]
-			    },
-			    "fact_certificate_has_dim_certificate_provider": {
-			      "Binding": {
-			        "ConceptualEntity": "FactCertificate"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_certificate": {
-			          "Target": {
-			            "Entity": "fact_certificate"
-			          }
-			        },
-			        "dim_certificate_provider": {
-			          "Target": {
-			            "Entity": "dim_certificate_provider"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_certificate"
-			            },
-			            "Object": {
-			              "Role": "dim_certificate_provider"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_certificates_have_dim_certificate_providers"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_certificate_provider"
-			            },
-			            "Object": {
-			              "Role": "fact_certificate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_certificate_providers_have_fact_certificates"
-			        }
-			      ]
-			    },
-			    "fact_certificate_has_dim_date": {
-			      "Binding": {
-			        "ConceptualEntity": "FactCertificate"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_certificate": {
-			          "Target": {
-			            "Entity": "fact_certificate"
-			          }
-			        },
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_certificate"
-			            },
-			            "Object": {
-			              "Role": "dim_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_certificates_have_dim_dates"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "fact_certificate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_fact_certificates"
-			        }
-			      ]
-			    },
-			    "fact_certificate_has_dim_student": {
-			      "Binding": {
-			        "ConceptualEntity": "FactCertificate"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_certificate": {
-			          "Target": {
-			            "Entity": "fact_certificate"
-			          }
-			        },
-			        "dim_student": {
-			          "Target": {
-			            "Entity": "dim_student"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_certificate"
-			            },
-			            "Object": {
-			              "Role": "dim_student"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_certificates_have_dim_students"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_student"
-			            },
-			            "Object": {
-			              "Role": "fact_certificate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_students_have_fact_certificates"
-			        }
-			      ]
-			    },
-			    "fact_freelance_job_has_dim_date": {
-			      "Binding": {
-			        "ConceptualEntity": "FactFreelanceJob"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_freelance_job": {
-			          "Target": {
-			            "Entity": "fact_freelance_job"
-			          }
-			        },
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_freelance_job"
-			            },
-			            "Object": {
-			              "Role": "dim_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_freelance_jobs_have_dim_dates"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "fact_freelance_job"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_fact_freelance_jobs"
-			        }
-			      ]
-			    },
-			    "fact_freelance_job_has_dim_job_site": {
-			      "Binding": {
-			        "ConceptualEntity": "FactFreelanceJob"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_freelance_job": {
-			          "Target": {
-			            "Entity": "fact_freelance_job"
-			          }
-			        },
-			        "dim_job_site": {
-			          "Target": {
-			            "Entity": "dim_job_site"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_freelance_job"
-			            },
-			            "Object": {
-			              "Role": "dim_job_site"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_freelance_jobs_have_dim_job_sites"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_job_site"
-			            },
-			            "Object": {
-			              "Role": "fact_freelance_job"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_job_sites_have_fact_freelance_jobs"
-			        }
-			      ]
-			    },
-			    "fact_freelance_job_has_dim_student": {
-			      "Binding": {
-			        "ConceptualEntity": "FactFreelanceJob"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_freelance_job": {
-			          "Target": {
-			            "Entity": "fact_freelance_job"
-			          }
-			        },
-			        "dim_student": {
-			          "Target": {
-			            "Entity": "dim_student"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_freelance_job"
-			            },
-			            "Object": {
-			              "Role": "dim_student"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_freelance_jobs_have_dim_students"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_student"
-			            },
-			            "Object": {
-			              "Role": "fact_freelance_job"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_students_have_fact_freelance_jobs"
-			        }
-			      ]
-			    },
-			    "fact_student_failure_has_dim_failure_reason": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStudentFailure"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_student_failure": {
-			          "Target": {
-			            "Entity": "fact_student_failure"
-			          }
-			        },
-			        "dim_failure_reason": {
-			          "Target": {
-			            "Entity": "dim_failure_reason"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_student_failure"
-			            },
-			            "Object": {
-			              "Role": "dim_failure_reason"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_student_failures_have_dim_failure_reasons"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_failure_reason"
-			            },
-			            "Object": {
-			              "Role": "fact_student_failure"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_failure_reasons_have_fact_student_failures"
-			        }
-			      ]
-			    },
-			    "fact_student_failure_has_dim_student": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStudentFailure"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_student_failure": {
-			          "Target": {
-			            "Entity": "fact_student_failure"
-			          }
-			        },
-			        "dim_student": {
-			          "Target": {
-			            "Entity": "dim_student"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_student_failure"
-			            },
-			            "Object": {
-			              "Role": "dim_student"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_student_failures_have_dim_students"
-			        }
-			      ]
-			    },
-			    "fact_student_performance_has_dim_course": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStudentPerformance"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_student_performance": {
-			          "Target": {
-			            "Entity": "fact_student_performance"
-			          }
-			        },
-			        "dim_course": {
-			          "Target": {
-			            "Entity": "dim_course"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_student_performance"
-			            },
-			            "Object": {
-			              "Role": "dim_course"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_student_performances_have_dim_courses"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_course"
-			            },
-			            "Object": {
-			              "Role": "fact_student_performance"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_courses_have_fact_student_performances"
-			        }
-			      ]
-			    },
-			    "fact_student_performance_has_dim_date": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStudentPerformance"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_student_performance": {
-			          "Target": {
-			            "Entity": "fact_student_performance"
-			          }
-			        },
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_student_performance"
-			            },
-			            "Object": {
-			              "Role": "dim_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_student_performances_have_dim_dates"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "fact_student_performance"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_fact_student_performances"
-			        }
-			      ]
-			    },
-			    "fact_student_performance_has_dim_exam": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStudentPerformance"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_student_performance": {
-			          "Target": {
-			            "Entity": "fact_student_performance"
-			          }
-			        },
-			        "dim_exam": {
-			          "Target": {
-			            "Entity": "dim_exam"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_student_performance"
-			            },
-			            "Object": {
-			              "Role": "dim_exam"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_student_performances_have_dim_exams"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_exam"
-			            },
-			            "Object": {
-			              "Role": "fact_student_performance"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_exams_have_fact_student_performances"
-			        }
-			      ]
-			    },
-			    "fact_student_performance_has_dim_question": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStudentPerformance"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_student_performance": {
-			          "Target": {
-			            "Entity": "fact_student_performance"
-			          }
-			        },
-			        "dim_question": {
-			          "Target": {
-			            "Entity": "dim_question"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_student_performance"
-			            },
-			            "Object": {
-			              "Role": "dim_question"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_student_performances_have_dim_questions"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_question"
-			            },
-			            "Object": {
-			              "Role": "fact_student_performance"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_questions_have_fact_student_performances"
-			        }
-			      ]
-			    },
-			    "fact_student_outcome_has_dim_company": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStudentOutcomes"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_student_outcome": {
-			          "Target": {
-			            "Entity": "fact_student_outcome"
-			          }
-			        },
-			        "dim_company": {
-			          "Target": {
-			            "Entity": "dim_company"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_student_outcome"
-			            },
-			            "Object": {
-			              "Role": "dim_company"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_student_outcomes_have_dim_companies"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_company"
-			            },
-			            "Object": {
-			              "Role": "fact_student_outcome"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_companies_have_fact_student_outcomes"
-			        }
-			      ]
-			    },
-			    "fact_student_outcome_has_dim_date": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStudentOutcomes"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_student_outcome": {
-			          "Target": {
-			            "Entity": "fact_student_outcome"
-			          }
-			        },
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_student_outcome"
-			            },
-			            "Object": {
-			              "Role": "dim_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_student_outcomes_have_dim_dates"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "fact_student_outcome"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_fact_student_outcomes"
-			        }
-			      ]
-			    },
-			    "fact_student_outcome_has_dim_student": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStudentOutcomes"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_student_outcome": {
-			          "Target": {
-			            "Entity": "fact_student_outcome"
-			          }
-			        },
-			        "dim_student": {
-			          "Target": {
-			            "Entity": "dim_student"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_student_outcome"
-			            },
-			            "Object": {
-			              "Role": "dim_student"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_student_outcomes_have_dim_students"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_student"
-			            },
-			            "Object": {
-			              "Role": "fact_student_outcome"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_students_have_fact_student_outcomes"
-			        }
-			      ]
-			    },
-			    "fact_student_rating_has_dim_date": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStudentRating"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_student_rating": {
-			          "Target": {
-			            "Entity": "fact_student_rating"
-			          }
-			        },
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_student_rating"
-			            },
-			            "Object": {
-			              "Role": "dim_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_student_rating_have_dim_dates"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "fact_student_rating"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_fact_student_rating"
-			        }
-			      ]
-			    },
-			    "fact_student_rating_has_dim_instructor": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStudentRating"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_student_rating": {
-			          "Target": {
-			            "Entity": "fact_student_rating"
-			          }
-			        },
-			        "dim_instructor": {
-			          "Target": {
-			            "Entity": "dim_instructor"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_student_rating"
-			            },
-			            "Object": {
-			              "Role": "dim_instructor"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_student_rating_have_dim_instructors"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_instructor"
-			            },
-			            "Object": {
-			              "Role": "fact_student_rating"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_instructors_have_fact_student_rating"
-			        }
-			      ]
-			    },
-			    "dim_branch_branch_start_date_has_date_hierarchy": {
-			      "Binding": {
-			        "ConceptualEntity": "DimBranch"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_branch.branch_start_date": {
-			          "Target": {
-			            "Entity": "dim_branch.branch_start_date"
-			          }
-			        },
-			        "dim_branch.branch_start_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "dim_branch.branch_start_date.date_hierarchy"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_branch.branch_start_date"
-			            },
-			            "Object": {
-			              "Role": "dim_branch.branch_start_date.date_hierarchy"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "branch_start_dates_have_branch_start_date_hierarchies"
-			        }
-			      ]
-			    },
-			    "dim_branch_branch_start_date_date_hierarchy_has_dim_branch_branch_start_date_year": {
-			      "Binding": {
-			        "ConceptualEntity": "DimBranch"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_branch.branch_start_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "dim_branch.branch_start_date.date_hierarchy"
-			          }
-			        },
-			        "dim_branch.branch_start_date.year": {
-			          "Target": {
-			            "Entity": "dim_branch.branch_start_date.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_branch.branch_start_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "dim_branch.branch_start_date.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "branch_start_date_hierarchies_have_branch_start_years"
-			        }
-			      ]
-			    },
-			    "dim_branch_branch_start_date_date_hierarchy_has_dim_branch_branch_start_date_quarter": {
-			      "Binding": {
-			        "ConceptualEntity": "DimBranch"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_branch.branch_start_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "dim_branch.branch_start_date.date_hierarchy"
-			          }
-			        },
-			        "dim_branch.branch_start_date.quarter": {
-			          "Target": {
-			            "Entity": "dim_branch.branch_start_date.quarter"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_branch.branch_start_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "dim_branch.branch_start_date.quarter"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "branch_start_date_hierarchies_have_branch_start_quarters"
-			        }
-			      ]
-			    },
-			    "dim_branch_branch_start_date_date_hierarchy_has_dim_branch_branch_start_date_month": {
-			      "Binding": {
-			        "ConceptualEntity": "DimBranch"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_branch.branch_start_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "dim_branch.branch_start_date.date_hierarchy"
-			          }
-			        },
-			        "dim_branch.branch_start_date.month": {
-			          "Target": {
-			            "Entity": "dim_branch.branch_start_date.month"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_branch.branch_start_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "dim_branch.branch_start_date.month"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "branch_start_date_hierarchies_have_branch_start_months"
 			        }
 			      ]
 			    },

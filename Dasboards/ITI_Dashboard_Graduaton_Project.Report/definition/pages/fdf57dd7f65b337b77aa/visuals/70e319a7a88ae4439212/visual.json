@@ -131,11 +131,12 @@
                       "Entity": "HaithamMeasures"
                     }
                   },
-                  "Property": "Average Earnings"
+                  "Property": "Avg Earnings (Freelance + Certificate)"
                 }
               },
-              "queryRef": "HaithamMeasures.Average Earnings",
-              "nativeQueryRef": "Average Earnings"
+              "queryRef": "HaithamMeasures.Avg Earnings (Freelance + Certificate)",
+              "nativeQueryRef": "Avg Earnings",
+              "displayName": "Avg Earnings"
             },
             {
               "field": {
@@ -145,11 +146,12 @@
                       "Entity": "HimaMeasures"
                     }
                   },
-                  "Property": "Average Certicates cost"
+                  "Property": "Avg Costs (Freelance + Certificate)"
                 }
               },
-              "queryRef": "HimaMeasures.Average Certicates cost",
-              "nativeQueryRef": "Average Certicates cost"
+              "queryRef": "HimaMeasures.Avg Costs (Freelance + Certificate)",
+              "nativeQueryRef": "Avg Costs",
+              "displayName": "Avg Costs"
             }
           ]
         }
@@ -495,5 +497,137 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "da41a7cc2774a2c3ad62",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8517cbbc21147467bdc8",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Quarter"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "749f62a84305d19cf5a9",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Month"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4793c1c7a246680efa91",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Day"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c9c8d1c61d1032662341",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Avg Earnings (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6d8ce135d6bd617233c4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Avg Costs (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

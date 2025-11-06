@@ -46,7 +46,8 @@
                 }
               },
               "queryRef": "HaithamMeasures.Avg Earnings (Freelance + Certificate)",
-              "nativeQueryRef": "Avg Earnings (Freelance + Certificate)"
+              "nativeQueryRef": "Avg Earnings ",
+              "displayName": "Avg Earnings "
             },
             {
               "field": {
@@ -60,7 +61,8 @@
                 }
               },
               "queryRef": "HimaMeasures.Avg Costs (Freelance + Certificate)",
-              "nativeQueryRef": "Avg Costs (Freelance + Certificate)"
+              "nativeQueryRef": "Avg Costs ",
+              "displayName": "Avg Costs "
             }
           ]
         }
