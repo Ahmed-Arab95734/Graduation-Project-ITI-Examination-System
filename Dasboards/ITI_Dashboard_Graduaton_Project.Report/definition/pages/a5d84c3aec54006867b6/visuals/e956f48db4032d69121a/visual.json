@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimTrack"
+                      "Entity": "DimBranch"
                     }
                   },
-                  "Property": "Track_Name"
+                  "Property": "Branch_Name"
                 }
               },
-              "queryRef": "DimTrack.Track_Name",
-              "nativeQueryRef": "Track_Name",
+              "queryRef": "DimBranch.Branch_Name",
+              "nativeQueryRef": "Branch_Name",
               "active": true
             }
           ]
@@ -244,7 +244,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Employment Rate Per Track'"
+                  "Value": "'Employment Rate Per Branch'"
                 }
               }
             }
@@ -348,5 +348,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5d18bf65937121fcc085",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Employment Rate %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "29e31e8436b9c72f6f85",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimBranch"
+              }
+            },
+            "Property": "Branch_Name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

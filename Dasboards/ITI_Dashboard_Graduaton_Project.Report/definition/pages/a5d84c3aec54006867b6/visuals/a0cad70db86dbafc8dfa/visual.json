@@ -19,14 +19,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimBranch"
+                      "Entity": "DimTrack"
                     }
                   },
-                  "Property": "Branch_Name"
+                  "Property": "Track_Name"
                 }
               },
-              "queryRef": "DimBranch.Branch_Name",
-              "nativeQueryRef": "Branch_Name",
+              "queryRef": "DimTrack.Track_Name",
+              "nativeQueryRef": "Track_Name",
               "active": true
             }
           ]
@@ -161,7 +161,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Graduate Salary Per Branch'"
+                  "Value": "'Average Graduate Salary Per Track'"
                 }
               }
             },
@@ -333,5 +333,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "160dad4fbb9e41090186",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Salary"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bebd15928674b19a68e8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTrack"
+              }
+            },
+            "Property": "Track_Name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
