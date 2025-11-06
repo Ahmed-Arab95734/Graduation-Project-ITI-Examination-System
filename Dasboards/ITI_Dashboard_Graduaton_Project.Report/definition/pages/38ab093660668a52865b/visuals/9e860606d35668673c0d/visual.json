@@ -495,7 +495,22 @@
             }
           ]
         }
+      },
+      {
+        "name": "20d4d055a6939410740d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Salary"
+          }
+        },
+        "type": "Advanced"
       }
     ]
-  }
+  },
+  "isHidden": true
 }
