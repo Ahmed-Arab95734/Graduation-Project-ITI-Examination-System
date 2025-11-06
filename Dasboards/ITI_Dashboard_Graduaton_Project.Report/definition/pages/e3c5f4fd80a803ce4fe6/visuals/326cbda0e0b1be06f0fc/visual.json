@@ -246,7 +246,7 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'left'"
+                  "Value": "'center'"
                 }
               }
             },
@@ -325,5 +325,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "aac6fe31baa1946afcee"
+  "parentGroupName": "aac6fe31baa1946afcee",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bd788516c0b4f5d18b45",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Ins Count by Track"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

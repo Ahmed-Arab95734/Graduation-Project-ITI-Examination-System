@@ -230,7 +230,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Graduate Salary Per Track'"
+                  "Value": "'Graduates Per Track'"
                 }
               }
             }
@@ -334,5 +334,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e5bd7090f0377d858f9b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTrack"
+              }
+            },
+            "Property": "Track_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a02302132393d7f5bfba",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Total Graduates"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

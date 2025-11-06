@@ -334,5 +334,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5c55bbf0fd92854c95ef",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTrack"
+              }
+            },
+            "Property": "Track_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "820f3ecb87eaec51b80b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Ins Count by Track"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
