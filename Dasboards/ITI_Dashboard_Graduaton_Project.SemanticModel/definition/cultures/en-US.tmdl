@@ -30782,6 +30782,50 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "hima_measure.total_earnings_freelance__certificate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "HimaMeasures",
+			          "ConceptualProperty": "Total Earnings (Freelance + Certificate)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total earnings (freelance + certificate)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "total earnings": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
+			    },
+			    "hima_measure.total_costs_freelance__certificate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "HimaMeasures",
+			          "ConceptualProperty": "Total Costs (Freelance + Certificate)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total costs (freelance + certificate)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "total costs": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -31992,6 +32036,138 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_branches_have_dim_students"
+			        }
+			      ]
+			    },
+			    "fact_certificate_has_hima_measure_total_costs_freelance__certificate": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCertificate"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_certificate": {
+			          "Target": {
+			            "Entity": "fact_certificate"
+			          }
+			        },
+			        "hima_measure.total_costs_freelance__certificate": {
+			          "Target": {
+			            "Entity": "hima_measure.total_costs_freelance__certificate"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_certificate"
+			            },
+			            "Object": {
+			              "Role": "hima_measure.total_costs_freelance__certificate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_certificates_have_total_costs_freelance__certificate"
+			        }
+			      ]
+			    },
+			    "dim_student_has_hima_measure_total_costs_freelance__certificate": {
+			      "Binding": {
+			        "ConceptualEntity": "DimStudent"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_student": {
+			          "Target": {
+			            "Entity": "dim_student"
+			          }
+			        },
+			        "hima_measure.total_costs_freelance__certificate": {
+			          "Target": {
+			            "Entity": "hima_measure.total_costs_freelance__certificate"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_student"
+			            },
+			            "Object": {
+			              "Role": "hima_measure.total_costs_freelance__certificate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_students_have_total_costs_freelance__certificate"
+			        }
+			      ]
+			    },
+			    "fact_freelance_job_has_hima_measure_total_earnings_freelance__certificate": {
+			      "Binding": {
+			        "ConceptualEntity": "FactFreelanceJob"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_freelance_job": {
+			          "Target": {
+			            "Entity": "fact_freelance_job"
+			          }
+			        },
+			        "hima_measure.total_earnings_freelance__certificate": {
+			          "Target": {
+			            "Entity": "hima_measure.total_earnings_freelance__certificate"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_freelance_job"
+			            },
+			            "Object": {
+			              "Role": "hima_measure.total_earnings_freelance__certificate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_freelance_jobs_have_total_earnings_freelance__certificate"
+			        }
+			      ]
+			    },
+			    "dim_student_has_hima_measure_total_earnings_freelance__certificate": {
+			      "Binding": {
+			        "ConceptualEntity": "DimStudent"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_student": {
+			          "Target": {
+			            "Entity": "dim_student"
+			          }
+			        },
+			        "hima_measure.total_earnings_freelance__certificate": {
+			          "Target": {
+			            "Entity": "hima_measure.total_earnings_freelance__certificate"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_student"
+			            },
+			            "Object": {
+			              "Role": "hima_measure.total_earnings_freelance__certificate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_students_have_total_earnings_freelance__certificate"
 			        }
 			      ]
 			    },

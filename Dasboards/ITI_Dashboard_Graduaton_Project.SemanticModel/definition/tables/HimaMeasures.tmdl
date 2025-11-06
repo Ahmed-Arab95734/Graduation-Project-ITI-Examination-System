@@ -107,9 +107,8 @@ table HimaMeasures
 			        USERELATIONSHIP(DimStudent[StudentKey], FactFreelanceJob[StudentKey])
 			    )
 			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 65e90833-ddad-4244-a555-21307c187fa2
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Costs (Freelance + Certificate)' =
 			
@@ -130,9 +129,8 @@ table HimaMeasures
 			        USERELATIONSHIP(DimStudent[StudentKey], FactFreelanceJob[StudentKey])
 			    )
 			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: f16f57cd-1a87-4955-81b7-998c0829aa47
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Column
 		formatString: 0

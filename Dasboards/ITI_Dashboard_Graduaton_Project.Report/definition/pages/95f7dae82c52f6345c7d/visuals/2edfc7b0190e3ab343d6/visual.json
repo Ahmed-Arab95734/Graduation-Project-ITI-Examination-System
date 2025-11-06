@@ -46,7 +46,23 @@
                 }
               },
               "queryRef": "HimaMeasures.Total Earnings (Freelance + Certificate)",
-              "nativeQueryRef": "Total Earnings (Freelance + Certificate)"
+              "nativeQueryRef": "Total Earnings",
+              "displayName": "Total Earnings"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HimaMeasures"
+                    }
+                  },
+                  "Property": "Total Costs (Freelance + Certificate)"
+                }
+              },
+              "queryRef": "HimaMeasures.Total Costs (Freelance + Certificate)",
+              "nativeQueryRef": "Total Costs ",
+              "displayName": "Total Costs "
             }
           ]
         }
@@ -163,6 +179,13 @@
       "labels": [
         {
           "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
@@ -209,20 +232,6 @@
                 }
               }
             },
-            "enableDetailDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
-            },
             "color": {
               "solid": {
                 "color": {
@@ -232,6 +241,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             },
@@ -324,6 +340,98 @@
           },
           "selector": {
             "metadata": "HaithamMeasures.Average Earnings"
+          }
+        },
+        {
+          "properties": {
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "HaithamMeasures.Avg Earnings (Freelance + Certificate)"
+          }
+        },
+        {
+          "properties": {
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "HimaMeasures.Avg Costs (Freelance + Certificate)"
+          }
+        },
+        {
+          "properties": {
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "HimaMeasures.Total Earnings (Freelance + Certificate)"
+          }
+        },
+        {
+          "properties": {
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "HimaMeasures.Total Costs (Freelance + Certificate)"
           }
         }
       ],
@@ -576,7 +684,7 @@
                       },
                       {
                         "Name": "h",
-                        "Entity": "HaithamMeasures",
+                        "Entity": "HimaMeasures",
                         "Type": 0
                       }
                     ],
@@ -603,7 +711,7 @@
                                 "Source": "h"
                               }
                             },
-                            "Property": "Avg Earnings (Freelance + Certificate)"
+                            "Property": "Total Earnings (Freelance + Certificate)"
                           }
                         }
                       }
@@ -657,6 +765,20 @@
               }
             },
             "Property": "Total Earnings (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5fc2a5520072a7b3dbdb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Total Costs (Freelance + Certificate)"
           }
         },
         "type": "Advanced"
