@@ -39,28 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Ziad"
-                    }
-                  },
-                  "Property": "Total Freelance Earnings"
-                }
-              },
-              "queryRef": "_Ziad.Total Freelance Earnings",
-              "nativeQueryRef": "Total Freelance Earnings"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
                       "Entity": "HimaMeasures"
                     }
                   },
-                  "Property": "Total Certicates cost"
+                  "Property": "Total Earnings (Freelance + Certificate)"
                 }
               },
-              "queryRef": "HimaMeasures.Total Certicates cost",
-              "nativeQueryRef": "Total Certicates cost"
+              "queryRef": "HimaMeasures.Total Earnings (Freelance + Certificate)",
+              "nativeQueryRef": "Total Earnings (Freelance + Certificate)"
             }
           ]
         }
@@ -72,10 +58,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Ziad"
+                    "Entity": "HimaMeasures"
                   }
                 },
-                "Property": "Total Freelance Earnings"
+                "Property": "Total Earnings (Freelance + Certificate)"
               }
             },
             "direction": "Descending"
@@ -339,79 +325,6 @@
           "selector": {
             "metadata": "HaithamMeasures.Average Earnings"
           }
-        },
-        {
-          "properties": {
-            "enableValueDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "enableDetailDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "backgroundColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "HimaMeasures.Total Certicates cost"
-          }
-        },
-        {
-          "properties": {
-            "enableValueDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "enableDetailDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "detailContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Percent of total'"
-                }
-              }
-            },
-            "detailColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Ziad.Total Freelance Earnings"
-          }
         }
       ],
       "ribbonBands": [
@@ -662,8 +575,8 @@
                         "Type": 0
                       },
                       {
-                        "Name": "_",
-                        "Entity": "_Ziad",
+                        "Name": "h",
+                        "Entity": "HaithamMeasures",
                         "Type": 0
                       }
                     ],
@@ -687,10 +600,10 @@
                           "Measure": {
                             "Expression": {
                               "SourceRef": {
-                                "Source": "_"
+                                "Source": "h"
                               }
                             },
-                            "Property": "Total Freelance Earnings"
+                            "Property": "Avg Earnings (Freelance + Certificate)"
                           }
                         }
                       }
@@ -733,6 +646,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "1ab89ea97e11c900dd13",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Total Earnings (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

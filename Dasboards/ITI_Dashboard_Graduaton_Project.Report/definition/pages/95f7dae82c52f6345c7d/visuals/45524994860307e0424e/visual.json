@@ -39,28 +39,30 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "HimaMeasures"
+                      "Entity": "HaithamMeasures"
                     }
                   },
-                  "Property": "Average Certicates cost"
+                  "Property": "Avg Earnings (Freelance + Certificate)"
                 }
               },
-              "queryRef": "HimaMeasures.Average Certicates cost",
-              "nativeQueryRef": "Average Certicates cost"
+              "queryRef": "HaithamMeasures.Avg Earnings (Freelance + Certificate)",
+              "nativeQueryRef": "Avg Earnings",
+              "displayName": "Avg Earnings"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "HaithamMeasures"
+                      "Entity": "HimaMeasures"
                     }
                   },
-                  "Property": "Average Earnings"
+                  "Property": "Avg Costs (Freelance + Certificate)"
                 }
               },
-              "queryRef": "HaithamMeasures.Average Earnings",
-              "nativeQueryRef": "Average Earnings"
+              "queryRef": "HimaMeasures.Avg Costs (Freelance + Certificate)",
+              "nativeQueryRef": "Avg Costs",
+              "displayName": "Avg Costs"
             }
           ]
         }
@@ -72,10 +74,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "HimaMeasures"
+                    "Entity": "HaithamMeasures"
                   }
                 },
-                "Property": "Average Certicates cost"
+                "Property": "Avg Earnings (Freelance + Certificate)"
               }
             },
             "direction": "Descending"
@@ -177,6 +179,13 @@
       "labels": [
         {
           "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
@@ -216,6 +225,25 @@
                 }
               }
             },
+            "enableValueDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
             "enableDetailDataLabel": {
               "expr": {
                 "Literal": {
@@ -223,20 +251,44 @@
                 }
               }
             },
-            "enableValueDataLabel": {
+            "detailColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "enableDetailDataLabel": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
-            },
-            "detailContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Percent of total'"
-                }
-              }
             }
+          },
+          "selector": {
+            "metadata": "HaithamMeasures.Avg Earnings (Freelance + Certificate)"
           }
         },
         {
@@ -285,6 +337,18 @@
         },
         {
           "properties": {
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
             "enableValueDataLabel": {
               "expr": {
                 "Literal": {
@@ -292,6 +356,20 @@
                 }
               }
             },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "HaithamMeasures.Average Earnings"
+          }
+        },
+        {
+          "properties": {
             "enableDetailDataLabel": {
               "expr": {
                 "Literal": {
@@ -313,7 +391,7 @@
             }
           },
           "selector": {
-            "metadata": "HaithamMeasures.Average Earnings"
+            "metadata": "HimaMeasures.Avg Costs (Freelance + Certificate)"
           }
         }
       ],
@@ -593,7 +671,7 @@
                                 "Source": "h"
                               }
                             },
-                            "Property": "Average Earnings"
+                            "Property": "Avg Earnings (Freelance + Certificate)"
                           }
                         }
                       }
@@ -636,6 +714,34 @@
             }
           ]
         }
+      },
+      {
+        "name": "9750e4af3c73d3dd27b9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Avg Earnings (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0823344a1bb407179710",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Avg Costs (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

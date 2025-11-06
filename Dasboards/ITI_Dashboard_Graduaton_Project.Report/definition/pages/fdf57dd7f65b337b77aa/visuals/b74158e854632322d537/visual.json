@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 243.16109422492403,
     "width": 521.33738601823711,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "hundredPercentStackedBarChart",
@@ -599,34 +599,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "99f151c18378bcbecb18",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Avg Earnings (Freelance + Certificate)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e8db208583ce847039ea",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Avg Costs (Freelance + Certificate)"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

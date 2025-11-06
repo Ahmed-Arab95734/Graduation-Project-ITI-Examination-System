@@ -88,6 +88,52 @@ table HimaMeasures
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 2e55ac19-b7ff-4f3e-b615-9e371e57aa2e
 
+	measure 'Total Earnings (Freelance + Certificate)' =
+			
+			SUMX(
+			    FILTER(
+			        VALUES(DimStudent[StudentKey]),
+			        CALCULATE(
+			            COUNTROWS(FactFreelanceJob),
+			            USERELATIONSHIP(DimStudent[StudentKey], FactFreelanceJob[StudentKey])
+			        ) > 0 &&
+			        CALCULATE(
+			            COUNTROWS(FactCertificate),
+			            USERELATIONSHIP(DimStudent[StudentKey], FactCertificate[StudentKey])
+			        ) > 0
+			    ),
+			    CALCULATE(
+			        [Total Freelance Earnings],
+			        USERELATIONSHIP(DimStudent[StudentKey], FactFreelanceJob[StudentKey])
+			    )
+			)
+		lineageTag: 65e90833-ddad-4244-a555-21307c187fa2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Costs (Freelance + Certificate)' =
+			
+			SUMX(
+			    FILTER(
+			        VALUES(DimStudent[StudentKey]),
+			        CALCULATE(
+			            COUNTROWS(FactFreelanceJob),
+			            USERELATIONSHIP(DimStudent[StudentKey], FactFreelanceJob[StudentKey])
+			        ) > 0 &&
+			        CALCULATE(
+			            COUNTROWS(FactCertificate),
+			            USERELATIONSHIP(DimStudent[StudentKey], FactCertificate[StudentKey])
+			        ) > 0
+			    ),
+			    CALCULATE(
+			        [Total Certicates cost],
+			        USERELATIONSHIP(DimStudent[StudentKey], FactFreelanceJob[StudentKey])
+			    )
+			)
+		lineageTag: f16f57cd-1a87-4955-81b7-998c0829aa47
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Column
 		formatString: 0
 		lineageTag: 6e458eb2-9f3f-44e3-a01b-49ce6d3b49de

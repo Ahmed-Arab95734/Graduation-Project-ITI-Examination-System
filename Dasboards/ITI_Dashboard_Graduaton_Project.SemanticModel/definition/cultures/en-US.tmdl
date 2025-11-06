@@ -30740,6 +30740,48 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "entity__ziad.ins_count_by_track": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Ziad",
+			          "ConceptualProperty": "Ins Count by Track"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ins count by track": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ins count": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "in amount by track": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "in amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -31950,6 +31992,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_branches_have_dim_students"
+			        }
+			      ]
+			    },
+			    "dim_instructor_has_entity__ziad_ins_count_by_track": {
+			      "Binding": {
+			        "ConceptualEntity": "DimInstructor"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_instructor": {
+			          "Target": {
+			            "Entity": "dim_instructor"
+			          }
+			        },
+			        "entity__ziad.ins_count_by_track": {
+			          "Target": {
+			            "Entity": "entity__ziad.ins_count_by_track"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_instructor"
+			            },
+			            "Object": {
+			              "Role": "entity__ziad.ins_count_by_track"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_instructors_have_ins_count_by_track"
 			        }
 			      ]
 			    },
