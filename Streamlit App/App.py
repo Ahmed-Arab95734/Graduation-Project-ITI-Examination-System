@@ -250,19 +250,19 @@ with SSRS_Report:
             }
             /* Titles */
             h1, h2, h3, h4, h5, h6 {
-                color: #003366;
+                color: #000000;
                 text-align: center;
             }
             /* Dropdown label */
             .stSelectbox label {
-                color: #003366 !important;
+                color: #000000 !important;
                 font-weight: 600 !important;
                 text-align: center !important;
                 display: block;
             }
             /* Buttons */
             .stButton>button {
-                background-color: #d80032;
+                background-color: #000000;
                 color: white;
                 border-radius: 8px;
                 padding: 0.5rem 1rem;
