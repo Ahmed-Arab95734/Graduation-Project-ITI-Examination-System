@@ -615,7 +615,38 @@
   "filterConfig": {
     "filters": [
       {
+        "name": "2357a6e30e6961b75b83",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Avg Costs (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e1313a28c56875cbc2b7",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Avg Earnings (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
         "name": "36d28671b84684451579",
+        "ordinal": 2,
         "field": {
           "Column": {
             "Expression": {
@@ -714,35 +745,8 @@
             }
           ]
         }
-      },
-      {
-        "name": "9750e4af3c73d3dd27b9",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Avg Earnings (Freelance + Certificate)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "0823344a1bb407179710",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Avg Costs (Freelance + Certificate)"
-          }
-        },
-        "type": "Advanced"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

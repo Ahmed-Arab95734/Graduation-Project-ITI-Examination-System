@@ -247,7 +247,7 @@
             "enableDetailDataLabel": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -754,34 +754,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "1ab89ea97e11c900dd13",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Total Earnings (Freelance + Certificate)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5fc2a5520072a7b3dbdb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HimaMeasures"
-              }
-            },
-            "Property": "Total Costs (Freelance + Certificate)"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
