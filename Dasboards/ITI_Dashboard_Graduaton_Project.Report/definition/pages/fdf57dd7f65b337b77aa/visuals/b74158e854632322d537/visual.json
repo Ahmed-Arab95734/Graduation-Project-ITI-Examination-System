@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "b74158e854632322d537",
   "position": {
     "x": 746.99088145896656,
@@ -39,28 +39,28 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "HimaMeasures"
+                      "Entity": "HaithamMeasures"
                     }
                   },
-                  "Property": "Average Certicates cost"
+                  "Property": "Avg Earnings (Freelance + Certificate)"
                 }
               },
-              "queryRef": "HimaMeasures.Average Certicates cost",
-              "nativeQueryRef": "Average Certicates cost"
+              "queryRef": "HaithamMeasures.Avg Earnings (Freelance + Certificate)",
+              "nativeQueryRef": "Avg Earnings (Freelance + Certificate)"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "HaithamMeasures"
+                      "Entity": "HimaMeasures"
                     }
                   },
-                  "Property": "Average Earnings"
+                  "Property": "Avg Costs (Freelance + Certificate)"
                 }
               },
-              "queryRef": "HaithamMeasures.Average Earnings",
-              "nativeQueryRef": "Average Earnings"
+              "queryRef": "HimaMeasures.Avg Costs (Freelance + Certificate)",
+              "nativeQueryRef": "Avg Costs (Freelance + Certificate)"
             }
           ]
         }
@@ -72,10 +72,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "HimaMeasures"
+                    "Entity": "HaithamMeasures"
                   }
                 },
-                "Property": "Average Certicates cost"
+                "Property": "Avg Earnings (Freelance + Certificate)"
               }
             },
             "direction": "Descending"
@@ -238,83 +238,6 @@
               }
             }
           }
-        },
-        {
-          "properties": {
-            "backgroundColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#5bc0de'"
-                    }
-                  }
-                }
-              }
-            },
-            "enableValueDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "enableDetailDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "HimaMeasures.Average Certicates cost"
-          }
-        },
-        {
-          "properties": {
-            "enableValueDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "enableDetailDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "backgroundColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "HaithamMeasures.Average Earnings"
-          }
         }
       ],
       "ribbonBands": [
@@ -334,22 +257,6 @@
                 }
               }
             }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "borderShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "HimaMeasures.Average Certicates cost"
           }
         }
       ]
@@ -537,7 +444,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "522bcd9c6394d7ee7fca",
+        "name": "08cc8e2704c32495d1b7",
         "field": {
           "Column": {
             "Expression": {
@@ -560,7 +467,7 @@
                     "Version": 2,
                     "From": [
                       {
-                        "Name": "d1",
+                        "Name": "d",
                         "Entity": "DimTrack",
                         "Type": 0
                       },
@@ -575,7 +482,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Source": "d1"
+                              "Source": "d"
                             }
                           },
                           "Property": "Track_Name"
@@ -593,7 +500,7 @@
                                 "Source": "h"
                               }
                             },
-                            "Property": "Average Earnings"
+                            "Property": "Avg Earnings (Freelance + Certificate)"
                           }
                         }
                       }
@@ -605,7 +512,7 @@
               "Type": 2
             },
             {
-              "Name": "d1",
+              "Name": "d",
               "Entity": "DimTrack",
               "Type": 0
             }
@@ -619,7 +526,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Source": "d1"
+                            "Source": "d"
                           }
                         },
                         "Property": "Track_Name"
@@ -635,8 +542,35 @@
               }
             }
           ]
+        }
+      },
+      {
+        "name": "ccdba2f5b10ecc0513f2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Avg Earnings (Freelance + Certificate)"
+          }
         },
-        "howCreated": "User"
+        "type": "Advanced"
+      },
+      {
+        "name": "5f16cf93337936b64a0b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Avg Costs (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

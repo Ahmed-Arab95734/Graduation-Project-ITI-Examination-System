@@ -66,6 +66,29 @@ table HimaMeasures
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 0a5b18d0-fa0f-48cf-869a-2d473980309f
 
+	measure 'Avg Costs (Freelance + Certificate)' =
+			
+			AVERAGEX(
+			    FILTER(
+			        VALUES(DimStudent[StudentKey]),
+			        CALCULATE(
+			            COUNTROWS(FactFreelanceJob),
+			            USERELATIONSHIP(DimStudent[StudentKey], FactFreelanceJob[StudentKey])
+			        ) > 0 &&
+			        CALCULATE(
+			            COUNTROWS(FactCertificate),
+			            USERELATIONSHIP(DimStudent[StudentKey], FactCertificate[StudentKey])
+			        ) > 0
+			    ),
+			    CALCULATE(
+			        [Total Certicates cost],
+			        USERELATIONSHIP(DimStudent[StudentKey], FactFreelanceJob[StudentKey])
+			    )
+			)
+		lineageTag: 2e55ac19-b7ff-4f3e-b615-9e371e57aa2e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Column
 		formatString: 0
 		lineageTag: 6e458eb2-9f3f-44e3-a01b-49ce6d3b49de

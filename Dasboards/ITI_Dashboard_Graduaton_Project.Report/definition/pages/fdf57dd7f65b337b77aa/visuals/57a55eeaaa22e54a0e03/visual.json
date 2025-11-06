@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "57a55eeaaa22e54a0e03",
   "position": {
     "x": 213.98176291793314,
@@ -42,11 +42,11 @@
                       "Entity": "HaithamMeasures"
                     }
                   },
-                  "Property": "Average Earnings"
+                  "Property": "Avg Earnings (Freelance + Certificate)"
                 }
               },
-              "queryRef": "HaithamMeasures.Average Earnings",
-              "nativeQueryRef": "Average Earnings"
+              "queryRef": "HaithamMeasures.Avg Earnings (Freelance + Certificate)",
+              "nativeQueryRef": "Avg Earnings (Freelance + Certificate)"
             },
             {
               "field": {
@@ -56,11 +56,11 @@
                       "Entity": "HimaMeasures"
                     }
                   },
-                  "Property": "Average Certicates cost"
+                  "Property": "Avg Costs (Freelance + Certificate)"
                 }
               },
-              "queryRef": "HimaMeasures.Average Certicates cost",
-              "nativeQueryRef": "Average Certicates cost"
+              "queryRef": "HimaMeasures.Avg Costs (Freelance + Certificate)",
+              "nativeQueryRef": "Avg Costs (Freelance + Certificate)"
             }
           ]
         }
@@ -75,7 +75,7 @@
                     "Entity": "HaithamMeasures"
                   }
                 },
-                "Property": "Average Earnings"
+                "Property": "Avg Earnings (Freelance + Certificate)"
               }
             },
             "direction": "Descending"
@@ -217,72 +217,6 @@
               }
             }
           }
-        },
-        {
-          "properties": {
-            "enableDetailDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "enableValueDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "backgroundColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "HimaMeasures.Average Certicates cost"
-          }
-        },
-        {
-          "properties": {
-            "enableDetailDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "enableValueDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "HaithamMeasures.Average Earnings"
-          }
         }
       ],
       "ribbonBands": [
@@ -302,22 +236,6 @@
                 }
               }
             }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "borderShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "HimaMeasures.Average Certicates cost"
           }
         }
       ]
@@ -561,7 +479,7 @@
                                 "Source": "h"
                               }
                             },
-                            "Property": "Average Earnings"
+                            "Property": "Avg Earnings (Freelance + Certificate)"
                           }
                         }
                       }
@@ -604,6 +522,34 @@
             }
           ]
         }
+      },
+      {
+        "name": "af3c19b2405b3da7a1c4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Avg Earnings (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9dffa51740c8882ac6be",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Avg Costs (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }
