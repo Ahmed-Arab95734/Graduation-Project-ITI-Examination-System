@@ -15,6 +15,18 @@ import google.generativeai as genai
 import joblib
 from catboost import CatBoostClassifier, Pool
 
+
+st.markdown("""
+    <style>
+        /* Make all text white */
+        .stRadio > label, .stRadio div[role='radiogroup'] label {
+            color: white !important;
+            font-weight: 600;
+            font-size: 18px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 # Try to import pbixray
 try:
     from pbixray import PBIXRay
@@ -103,44 +115,49 @@ if 'file_path' not in st.session_state:
     st.session_state.file_path = ""
 
 # --- Tabs ---
-tab_powerbi, tab_tableau, tab_inspector, SSRS_Report= st.tabs([
-    "📊 Power BI Dashboard",
-    "📈 Tableau Dashboard",
+tab_dashboard, tab_inspector, SSRS_Report = st.tabs([
+    "📊 Visualization Dashboards",
     "🧩 PBIX Inspector",
-    "SSRS_Report"
+    "📑 SSRS Report"
 ])
 
 # =====================================================================
-# 🔷 TAB 1: Power BI Dashboard
+# 🔷 COMBINED TAB: Power BI & Tableau (with toggle)
 # =====================================================================
-with tab_powerbi:
-    st.markdown("<h2 style='text-align:center;'>📊 Power BI Dashboard</h2>", unsafe_allow_html=True)
+with tab_dashboard:
+    st.markdown("<h2 style='text-align:center;'>📊 ITI Examination System Dashboards</h2>", unsafe_allow_html=True)
     st.divider()
-    report_url = "https://app.powerbi.com/reportEmbed?reportId=469d6c4a-986b-4f01-bd21-f24cfaf961d1&autoAuth=true&ctid=aee5de94-75d5-4ee4-bcc5-4267ccd37fe2"
 
-    components.iframe(report_url, height=850, scrolling=True)
-    st.info("This is a live Power BI report. You can interact with filters and visuals directly.")
+    # Let the user choose which dashboard to view
+    dashboard_choice = st.radio(
+        "Select a dashboard to view:",
+        ("Power BI Dashboard", "Tableau Dashboard"),
+        horizontal=True
+    )
+
+    # POWER BI SECTION
+    if dashboard_choice == "Power BI Dashboard":
+        st.markdown("<h3 style='text-align:center;'>📊 Power BI Dashboard</h3>", unsafe_allow_html=True)
+        report_url = "https://app.powerbi.com/reportEmbed?reportId=469d6c4a-986b-4f01-bd21-f24cfaf961d1&autoAuth=true&ctid=aee5de94-75d5-4ee4-bcc5-4267ccd37fe2"
+        components.iframe(report_url, height=850, scrolling=True)
+        st.info("This is a live Power BI report. You can interact with filters and visuals directly.")
+
+    # TABLEAU SECTION
+    elif dashboard_choice == "Tableau Dashboard":
+        st.markdown("<h3 style='text-align:center;'>📈 Tableau Dashboard</h3>", unsafe_allow_html=True)
+        tableau_url = "https://public.tableau.com/views/SalesDashboard_17579406008640/SalesDashboard?:showVizHome=no&:embed=true"
+        DASH_WIDTH, DASH_HEIGHT = 1300, 850
+
+        iframe_html = f"""
+        <div style="width:{DASH_WIDTH}px;height:{DASH_HEIGHT}px;margin:0 auto;border-radius:12px;">
+            <iframe src="{tableau_url}" width="100%" height="100%" frameborder="0" style="border-radius:12px;"></iframe>
+        </div>
+        """
+        components.html(iframe_html, height=DASH_HEIGHT + 20)
+        st.info("This view is published from Tableau Public and mirrors your ITI Examination dashboard.")
 
 # =====================================================================
-# 🔶 TAB 2: Tableau Dashboard
-# =====================================================================
-with tab_tableau:
-    st.markdown("<h2 style='text-align:center;'>📈 Tableau Dashboard</h2>", unsafe_allow_html=True)
-    st.divider()
-    tableau_url = "https://public.tableau.com/views/SalesDashboard_17579406008640/SalesDashboard?:showVizHome=no&:embed=true"
-    DASH_WIDTH, DASH_HEIGHT = 1300, 850
-
-    iframe_html = f"""
-    <div style="width:{DASH_WIDTH}px;height:{DASH_HEIGHT}px;margin:0 auto;border-radius:12px;">
-        <iframe src="{tableau_url}" width="100%" height="100%" frameborder="0" style="border-radius:12px;"></iframe>
-    </div>
-    """
-    components.html(iframe_html, height=DASH_HEIGHT + 20)
-    st.info("This view is published from Tableau Public and mirrors your ITI Examination dashboard.")
-
-
-# =====================================================================
-# 🧩 TAB 3: PBIX Inspector
+# 🧩 TAB 2: PBIX Inspector
 # =====================================================================
 with tab_inspector:
     st.markdown("<h2 style='text-align:center;'>🧠 PBIX Model Inspector</h2>", unsafe_allow_html=True)
@@ -216,60 +233,57 @@ with tab_inspector:
 
 
 # =====================================================================
-# 🧩 TAB 4: SSRS Report
+# 🧮 TAB 4: SSRS Reporting (Optimized + No Sidebar)
 # =====================================================================
 with SSRS_Report:
-
-# --- PAGE SETUP ---
-
+    # --- PAGE TITLE ---
     st.markdown("<h2 style='text-align:center;'>🧮 SSRS Reporting</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align:center;'>Automatically analyzes your ITI Examination System Power BI model.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align:center;'>Explore cloud-hosted SSRS reports for the ITI Examination System.</p>", unsafe_allow_html=True)
     st.divider()
-# --- CUSTOM STYLING ---
-    st.markdown(
-        """
+
+    # --- STYLING ---
+    st.markdown("""
         <style>
-            body {
-                background-color: white;
-            }
-            .main {
-                background-color: white;
-            }
-            /* Sidebar styling */
-            [data-testid="stSidebar"] {
-                background-color: #f7f7f7;
-                border-right: 2px solid #e0e0e0;
+            /* Background */
+            [data-testid="stAppViewContainer"] {
+            background-color: transparent;
             }
             /* Titles */
-            h1, h2, h3 {
-                color: #003366; /* deep blue */
+            h1, h2, h3, h4, h5, h6 {
+                color: #003366;
+                text-align: center;
             }
-            /* Selectbox label */
-            label {
+            /* Dropdown label */
+            .stSelectbox label {
                 color: #003366 !important;
                 font-weight: 600 !important;
+                text-align: center !important;
+                display: block;
             }
-            /* Accent buttons / general elements */
+            /* Buttons */
             .stButton>button {
-                background-color: #d80032; /* red */
+                background-color: #d80032;
                 color: white;
                 border-radius: 8px;
                 padding: 0.5rem 1rem;
+                border: none;
             }
             .stButton>button:hover {
                 background-color: #b40028;
             }
         </style>
-        """,
-        unsafe_allow_html=True
-    )
+    """, unsafe_allow_html=True)
 
-# --- HEADER ---
-    st.title("📊 CLOUD SSRS REPORTS")
-    st.subheader("Use these login credentials to view the reports:")
-    st.subheader("Email: ahmedmohamed3805_sd@nsst.bsu.edu.eg | Password: Team2_ITI_12345")
+    # --- LOGIN INFO ---
+    st.markdown("""
+        <div style="text-align:center; color:#FFFFFF;">
+            <p><strong>Login Credentials:</strong></p>
+            <p>Email: <code>ahmedmohamed3805_sd@nsst.bsu.edu.eg</code></p>
+            <p>Password: <code>Team2_ITI_12345</code></p>
+        </div>
+    """, unsafe_allow_html=True)
 
-# --- REPORT DICTIONARY ---
+    # --- REPORT LINKS ---
     REPORTS = {
         "Course Topics": "https://app.powerbi.com/rdlEmbed?reportId=c415569d-8ceb-4aae-bbcd-69de90e9ff1e&autoAuth=true&ctid=0ffeb7b8-177f-48b0-809f-2499efab9107&experience=power-bi&rs:embed=true",
         "Instructor Courses & Number of Students": "https://app.powerbi.com/rdlEmbed?reportId=8ca9c034-34f4-4a44-9b72-e6958dae8e33&autoAuth=true&ctid=0ffeb7b8-177f-48b0-809f-2499efab9107&experience=power-bi&rs:embed=true",
@@ -279,18 +293,24 @@ with SSRS_Report:
         "Student Details by Track": "https://app.powerbi.com/rdlEmbed?reportId=7d2cf478-032e-4428-abdd-2bd31d4e43cc&autoAuth=true&ctid=0ffeb7b8-177f-48b0-809f-2499efab9107&experience=power-bi&rs:embed=true",
     }
 
-# --- SIDEBAR ---
-    st.sidebar.header("🔎 Select a Report")
-    selected_report_name = st.sidebar.selectbox(
-        "Report:",
-        options=list(REPORTS.keys())
+    # --- CENTERED SELECT BOX ---
+    st.markdown("<h4 style='text-align:center;'>Select a Report:</h4>", unsafe_allow_html=True)
+    selected_report = st.selectbox(
+        "",
+        options=list(REPORTS.keys()),
+        index=0,
+        key="ssrs_report_select"
     )
 
     # --- DISPLAY SELECTED REPORT ---
-    report_to_display_url = REPORTS[selected_report_name]
+    report_url = REPORTS[selected_report]
+    st.markdown(f"<h4 style='text-align:center;'>Currently Viewing: {selected_report}</h4>", unsafe_allow_html=True)
 
-    st.header(f"Showing: {selected_report_name}")
-    components.iframe(report_to_display_url, height=900, scrolling=True)
+    iframe_html = f"""
+    <div style="width:1300px; height:850px; margin:0 auto; border-radius:12px;">
+        <iframe src="{report_url}" width="100%" height="100%" frameborder="0" style="border-radius:12px;"></iframe>
+    </div>
+    """
+    components.html(iframe_html, height=870)
 
-
-
+    st.info("This SSRS report is embedded directly from the Power BI Service (Paginated Report).")
