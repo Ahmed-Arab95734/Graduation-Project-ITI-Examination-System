@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 245.94670406732118,
     "width": 495.48387096774195,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "barChart",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimBranch"
+                      "Entity": "DimTrack"
                     }
                   },
-                  "Property": "Branch_Name"
+                  "Property": "Track_Name"
                 }
               },
-              "queryRef": "DimBranch.Branch_Name",
-              "nativeQueryRef": "Branch_Name",
+              "queryRef": "DimTrack.Track_Name",
+              "nativeQueryRef": "Track_Name",
               "active": true
             }
           ]
@@ -162,7 +162,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Graduate Salary Per Branch'"
+                  "Value": "'Average Graduate Salary Per Track'"
                 }
               }
             },
@@ -334,5 +334,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "25996d36ba551312fc12",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Salary"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "75b8949584a48b970bc9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTrack"
+              }
+            },
+            "Property": "Track_Name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

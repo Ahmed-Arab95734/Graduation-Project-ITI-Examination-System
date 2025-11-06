@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 244.74725274725276,
     "width": 494.18315018315019,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "barChart",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimTrack"
+                      "Entity": "DimBranch"
                     }
                   },
-                  "Property": "Track_Name"
+                  "Property": "Branch_Name"
                 }
               },
-              "queryRef": "DimTrack.Track_Name",
-              "nativeQueryRef": "Track_Name",
+              "queryRef": "DimBranch.Branch_Name",
+              "nativeQueryRef": "Branch_Name",
               "active": true
             }
           ]
@@ -244,7 +244,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Employment Rate Per Track'"
+                  "Value": "'Employment Rate Per Branch'"
                 }
               }
             }
@@ -352,7 +352,21 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "a9e67e8ae294960c133f",
+        "name": "1c4d4850a70c923afde6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimBranch"
+              }
+            },
+            "Property": "Branch_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "39d69947f7b63c5a8745",
         "field": {
           "Measure": {
             "Expression": {
@@ -364,20 +378,6 @@
           }
         },
         "type": "Advanced"
-      },
-      {
-        "name": "46fde284173c08ae157c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTrack"
-              }
-            },
-            "Property": "Track_Name"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }
