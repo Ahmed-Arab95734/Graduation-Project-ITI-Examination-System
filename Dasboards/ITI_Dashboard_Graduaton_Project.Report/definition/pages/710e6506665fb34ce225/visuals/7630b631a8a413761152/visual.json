@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 244.95956873315362,
     "width": 494.23180592991912,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "columnChart",
@@ -348,37 +348,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "2b1fc248e70aee0d686f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimIntake"
-              }
-            },
-            "Property": "Intake_Type"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "cb9c35ac5b4475654d7e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Employment Rate %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

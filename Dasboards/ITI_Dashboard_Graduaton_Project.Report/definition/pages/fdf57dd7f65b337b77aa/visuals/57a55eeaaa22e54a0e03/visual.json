@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 243.16109422492403,
     "width": 507.72036474164133,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "hundredPercentStackedBarChart",
@@ -90,6 +90,13 @@
       "legend": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "labelColor": {
               "solid": {
                 "color": {
@@ -103,13 +110,6 @@
               }
             },
             "showGradientLegend": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "show": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -147,6 +147,13 @@
       "valueAxis": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
             "labelColor": {
               "solid": {
                 "color": {
@@ -160,13 +167,6 @@
               }
             },
             "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -217,7 +217,82 @@
                   "Value": "0L"
                 }
               }
+            },
+            "enableValueDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "detailTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "detailLabelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "detailContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Percent of total'"
+                }
+              }
+            },
+            "detailLabelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000D"
+                }
+              }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
             }
+          }
+        },
+        {
+          "properties": {
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "HimaMeasures.Avg Costs (Freelance + Certificate)"
           }
         }
       ],
@@ -246,6 +321,13 @@
       "title": [
         {
           "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top 5 Average Earnings VS Costs Per Branch'"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
@@ -311,13 +393,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Segoe UI'"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Top 5 Average Earnings VS Costs Per Branch'"
                 }
               }
             }
@@ -524,6 +599,34 @@
             }
           ]
         }
+      },
+      {
+        "name": "91d3c80e912fea642a38",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Avg Earnings (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3506d95e3343bfcf0b2d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HimaMeasures"
+              }
+            },
+            "Property": "Avg Costs (Freelance + Certificate)"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

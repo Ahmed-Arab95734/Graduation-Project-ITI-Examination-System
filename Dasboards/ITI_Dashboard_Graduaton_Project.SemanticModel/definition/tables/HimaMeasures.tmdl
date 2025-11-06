@@ -85,9 +85,8 @@ table HimaMeasures
 			        USERELATIONSHIP(DimStudent[StudentKey], FactFreelanceJob[StudentKey])
 			    )
 			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 2e55ac19-b7ff-4f3e-b615-9e371e57aa2e
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Column
 		formatString: 0

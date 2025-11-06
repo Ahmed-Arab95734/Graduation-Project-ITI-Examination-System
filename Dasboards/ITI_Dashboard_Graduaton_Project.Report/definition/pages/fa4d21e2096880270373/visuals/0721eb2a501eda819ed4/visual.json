@@ -6,8 +6,7 @@
     "y": 207.34922861150071,
     "z": 3000,
     "height": 245.94670406732118,
-    "width": 494.58625525946707,
-    "tabOrder": 1000
+    "width": 494.58625525946707
   },
   "visual": {
     "visualType": "barChart",
@@ -334,37 +333,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4497f893f635a03c9ab5",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTrack"
-              }
-            },
-            "Property": "Track_Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f673041527318324a6ae",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Failure Rate %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

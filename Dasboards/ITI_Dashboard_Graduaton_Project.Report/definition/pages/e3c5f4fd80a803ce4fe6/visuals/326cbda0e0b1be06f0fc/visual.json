@@ -6,8 +6,7 @@
     "y": 0,
     "z": 3000,
     "height": 122.70003994141925,
-    "width": 227.28190515382639,
-    "tabOrder": 1000
+    "width": 227.28190515382639
   },
   "visual": {
     "visualType": "card",
@@ -325,23 +324,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "aac6fe31baa1946afcee",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "bd788516c0b4f5d18b45",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Ins Count by Track"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "aac6fe31baa1946afcee"
 }
