@@ -25,9 +25,8 @@ table _Ziad
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Freelance Earnings' = CALCULATE(SUM(FactFreelanceJob[Job_Earn]), USERELATIONSHIP(FactFreelanceJob[JobDateKey], DimDate[DateKey]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: b0caa63a-3446-442e-8127-afcaae2b423a
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Employment Rate %' = DIVIDE(COUNT(FactStudentOutcomes[StudentKey]), [Total Graduates])
 		formatString: 0.00%;-0.00%;0.00%
@@ -74,6 +73,10 @@ table _Ziad
 		lineageTag: d2fcd621-c7dd-4836-a9b0-1141131d8757
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ins Count by Track' = CALCULATE(COUNT(DimInstructor[Instructor_ID]), USERELATIONSHIP(DimDepartment[DepartmentKey], DimInstructor[DepartmentKey]))
+		formatString: 0
+		lineageTag: aa937e12-c001-4a80-bb2a-1bfcd3d7dbcc
 
 	column ZZZ
 		formatString: 0

@@ -48,6 +48,7 @@ relationship 6e422025-7fc1-4d0d-b24f-75aabfea69b4
 	annotation PBI_IsFromSource = FS
 
 relationship 59a244f9-33fe-4d3d-b7c7-0b3a5e7d6630
+	crossFilteringBehavior: bothDirections
 	fromColumn: DimTrack.DepartmentKey
 	toColumn: DimDepartment.DepartmentKey
 
@@ -201,4 +202,9 @@ relationship bbe255ae-37fd-4205-acc9-d8ca6fdbc9d9
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactSocial.created_time
 	toColumn: LocalDateTable_16b0038e-35fa-4308-8913-3ea4b7ba4ece.Date
+
+relationship d7a6a603-be70-e587-a9e7-6d7c46b06b6f
+	isActive: false
+	fromColumn: DimInstructor.DepartmentKey
+	toColumn: DimDepartment.DepartmentKey
 

@@ -1,123 +1,34 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "6c45bc24af3ff74d8397",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "d8bb9429fd85dcc7c52a",
   "position": {
-    "x": 752.99191374663064,
-    "y": 207.00808625336927,
-    "z": 4000,
-    "height": 245.822102425876,
-    "width": 495.09433962264148,
-    "tabOrder": 8000
+    "x": 753.79939209726444,
+    "y": 207.17325227963528,
+    "z": 10000,
+    "height": 246.07902735562311,
+    "width": 494.10334346504561,
+    "tabOrder": 9000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
+                    "SourceRef": {
+                      "Entity": "DimTrack"
                     }
                   },
-                  "Level": "Year"
+                  "Property": "Track_Name"
                 }
               },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Year",
-              "nativeQueryRef": "FullDate Year",
+              "queryRef": "DimTrack.Track_Name",
+              "nativeQueryRef": "Track_Name",
               "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Quarter"
-                }
-              },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Quarter",
-              "nativeQueryRef": "FullDate Quarter",
-              "active": false
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Month"
-                }
-              },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Month",
-              "nativeQueryRef": "FullDate Month",
-              "active": false
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimDate"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "FullDate"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Day"
-                }
-              },
-              "queryRef": "DimDate.FullDate.Variation.Date Hierarchy.Day",
-              "nativeQueryRef": "FullDate Day",
-              "active": false
             }
           ]
         },
@@ -131,14 +42,32 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg. St. Salary"
+                  "Property": "Ins Count by Track"
                 }
               },
-              "queryRef": "_Ziad.Avg. St. Salary",
-              "nativeQueryRef": "Avg. St. Salary"
+              "queryRef": "_Ziad.Ins Count by Track",
+              "nativeQueryRef": "Ins Count by Track"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Ziad"
+                  }
+                },
+                "Property": "Ins Count by Track"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -191,19 +120,45 @@
             }
           }
         }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'InsideEnd'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "ribbonBands": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
       "title": [
         {
           "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Average Graduate Salary '"
-                }
-              }
-            },
             "show": {
               "expr": {
                 "Literal": {
@@ -269,6 +224,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Segoe UI'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Instructors Per Track'"
                 }
               }
             }

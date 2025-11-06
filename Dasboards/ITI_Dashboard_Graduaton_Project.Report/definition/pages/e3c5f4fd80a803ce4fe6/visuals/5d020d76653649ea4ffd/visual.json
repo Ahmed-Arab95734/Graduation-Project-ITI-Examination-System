@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "5d020d76653649ea4ffd",
   "position": {
-    "x": 753.09957924263676,
-    "y": 460.47685834502107,
-    "z": 6000,
-    "height": 259.41093969144458,
-    "width": 494.58625525946707,
-    "tabOrder": 3000
+    "x": 752.82674772036478,
+    "y": 460.06079027355628,
+    "z": 5000,
+    "height": 251.91489361702128,
+    "width": 495.07598784194533,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "barChart",
@@ -42,11 +42,11 @@
                       "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg. St. Salary"
+                  "Property": "Total Graduates"
                 }
               },
-              "queryRef": "_Ziad.Avg. St. Salary",
-              "nativeQueryRef": "Avg. St. Salary"
+              "queryRef": "_Ziad.Total Graduates",
+              "nativeQueryRef": "Total Graduates"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "_Ziad"
                   }
                 },
-                "Property": "Avg. St. Salary"
+                "Property": "Total Graduates"
               }
             },
             "direction": "Descending"

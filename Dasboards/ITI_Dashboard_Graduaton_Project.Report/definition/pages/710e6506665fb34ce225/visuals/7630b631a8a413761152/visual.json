@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "7630b631a8a413761152",
   "position": {
     "x": 219.08355795148248,
@@ -348,5 +348,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2b1fc248e70aee0d686f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimIntake"
+              }
+            },
+            "Property": "Intake_Type"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cb9c35ac5b4475654d7e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Employment Rate %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
