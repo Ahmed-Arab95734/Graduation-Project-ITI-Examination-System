@@ -56,7 +56,12 @@
     <DataSource Include="Stored.rds" />
   </ItemGroup>
   <ItemGroup>
+    <Report Include="Course Topics.rdl" />
     <Report Include="Exam Questions.rdl" />
+    <Report Include="Instructor courses and number of students.rdl" />
+    <Report Include="Student answers in exam.rdl" />
+    <Report Include="Student Details by Track.rdl" />
+    <Report Include="Student Grades.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
