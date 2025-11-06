@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "1b74f26261dc87ddcd48",
   "position": {
     "x": 774.70925470925476,
     "y": 217.00245700245702,
     "z": 13000,
     "height": 230.63063063063063,
-    "width": 472.7927927927928,
-    "tabOrder": 1000
+    "width": 472.7927927927928
   },
   "visual": {
     "visualType": "tableEx",
@@ -263,51 +262,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "3776af0d72fab02312bf",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimInstructor"
-              }
-            },
-            "Property": "Instructor_FullName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "82ddc3caec82f4c660f6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCourse"
-              }
-            },
-            "Property": "Course_Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "26b5a86644f1d6ed8725",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. Instructor Rating"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

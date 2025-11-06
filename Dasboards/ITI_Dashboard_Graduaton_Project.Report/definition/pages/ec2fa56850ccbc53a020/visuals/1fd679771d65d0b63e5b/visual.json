@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "1fd679771d65d0b63e5b",
   "position": {
     "x": 219.09909909909911,
@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 245.30712530712532,
     "width": 494.80753480753481,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -338,37 +338,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "f05c5f08b2991699b30e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimStudent"
-              }
-            },
-            "Property": "Freelance Level"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2e24d265bc28b4dd06b4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. St. Salary"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
