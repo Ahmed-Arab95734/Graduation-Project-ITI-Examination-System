@@ -4,8 +4,6 @@ import pandas as pd
 from pathlib import Path
 import tempfile
 import requests
-import networkx as nx
-from pyvis.network import Network
 import base64
 import os
 import re
@@ -118,12 +116,12 @@ if 'file_path' not in st.session_state:
     st.session_state.file_path = ""
 
 # --- Tabs ---
-tab_dashboard, tab_inspector, FireBase, SSRS_Report, = st.tabs([
+tab_dashboard, tab_inspector, FireBase, SSRS_Report,Ai_Dashboards = st.tabs([
     "📊 Visualization Dashboards",
     "🧩 PBIX Inspector",
     "✏️ Examination ",
-    "📝 SSRS Report"
-
+    "📝 SSRS Report",
+    "⚙️ Ai Assistant for Dashboards"
 ])
 
 # =====================================================================
