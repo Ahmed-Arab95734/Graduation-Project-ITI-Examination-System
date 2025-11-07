@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "a0cad70db86dbafc8dfa",
   "position": {
     "x": 218.12061711079946,
     "y": 207.34922861150071,
     "z": 3000,
     "height": 245.94670406732118,
-    "width": 495.48387096774195
+    "width": 495.48387096774195,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "barChart",
@@ -333,37 +334,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "160dad4fbb9e41090186",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Ziad"
-              }
-            },
-            "Property": "Avg. St. Salary"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "bebd15928674b19a68e8",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTrack"
-              }
-            },
-            "Property": "Track_Name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }
