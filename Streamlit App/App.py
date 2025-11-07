@@ -15,6 +15,8 @@ import time
 import random
 import json
 
+
+
 # --- Page setup (set ONCE) ---
 st.set_page_config(
     page_title="ITI Examination System Dashboard",
@@ -22,35 +24,22 @@ st.set_page_config(
     layout="wide",
 )
 
-st.markdown("""
-    <style>
-        /* Make all text white */
-        .stRadio > label, .stRadio div[role='radiogroup'] label {
-            color: white !important;
-            font-weight: 600;
-            font-size: 18px;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-# Try to import pbixray
-try:
-    from pbixray import PBIXRay
-except ImportError:
-    st.error("Could not import `pbixray`. Please install it using: `pip install pbixray`")
-    st.stop()
-
-
 # ------------------------------
 # BACKGROUND IMAGE SETUP
 # ------------------------------
 def get_base64_of_bin_file(bin_file):
+    # Check if file exists before opening
+    if not os.path.exists(bin_file):
+        st.error(f"Error: Background image file not found at {bin_file}")
+        return None
     with open(bin_file, 'rb') as f:
         data = f.read()
     return base64.b64encode(data).decode()
 
 def set_background(png_file):
     bin_str = get_base64_of_bin_file(png_file)
+    if bin_str is None:
+        return
     page_bg_img = f"""
     <style>
     .stApp {{
@@ -64,12 +53,79 @@ def set_background(png_file):
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
+# Try to set background
 set_background("ITI_Background17601951402362703.png")
+
+# ------------------------------
+# UNIFIED CSS STYLING
+# ------------------------------
+st.markdown("""
+    <style>
+    /* --- 1. Global Text --- */
+    h1, h2, h3, h4, h5, h6, p, .stMarkdown, .stInfo, .stSuccess, .stWarning, .stError {
+        color: #FFFFFF !important; /* Make all text white */
+    }
+    /* Fix info/success box text color */
+    [data-testid="stInfo"] p, [data-testid="stSuccess"] p {
+        color: #FFFFFF !important;
+    }
+    
+    /* --- 2. Widget Labels (Radio, Selectbox, etc.) --- */
+    [data-testid="stWidgetLabel"], .stRadio > label, .stRadio div[role='radiogroup'] label {
+        color: white !important;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    
+    /* --- 3. Components (Expanders, DataFrames) --- */
+    [data-testid="stExpander"] {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    [data-testid="stExpander"] > div[role="button"] > div {
+         color: #FFFFFF !important; /* Expander title */
+    }
+    [data-testid="stDataFrame"] {
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 8px;
+    }
+    [data-testid="stDataFrame"] .col-header, 
+    [data-testid="stDataFrame"] .cell-value {
+        color: #FFFFFF !important;
+        background-color: transparent !important;
+    }
+    
+    /* --- 4. Firebase Exam Styling --- */
+    /* Make radio choice text white */
+    .stRadio [data-baseweb="radio"] div label {
+        color: #FFFFFF !important;
+    }
+    /* Make question text white and bold */
+    [data-testid="stForm"] [data-testid="stMarkdown"] p {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #FFFFFF;
+    }
+    
+    </style>
+""", unsafe_allow_html=True)
+
+
+# Try to import pbixray
+try:
+    from pbixray import PBIXRay
+except ImportError:
+    st.error("Could not import `pbixray`. Please install it using: `pip install pbixray`")
+    st.stop()
 
 # ------------------------------
 # LOGO SETUP
 # ------------------------------
 def get_base64_image(image_path):
+    if not os.path.exists(image_path):
+        st.error(f"Error: Logo file not found at {image_path}")
+        return ""
     with open(image_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode()
 
@@ -77,36 +133,37 @@ logo_path = "Gemini_Generated_Image_pwn1v3p13472503787887624.png"
 logo_base64 = get_base64_image(logo_path)
 
 # --- Header ---
-st.markdown(
-    f"""
-    <style>
-    .header-container {{
-        display: flex;
-        align-items: center;
-        justify-content: center; /* Centers content horizontally */
-        gap: 15px; /* Space between logo and title */
-        margin-bottom: 25px;
-    }}
-    .header-container img {{
-        height: 160px;  /* Increased logo size */
-        margin-right: 25px;
-        border-radius: 12px;
-    }}
-    .header-title {{
-        font-size: 36px;
-        font-weight: 800;
-        color: white;
-        letter-spacing: 0.5px;
-    }}
-    </style>
+if logo_base64: # Only show header if logo was found
+    st.markdown(
+        f"""
+        <style>
+        .header-container {{
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centers content horizontally */
+            gap: 15px; /* Space between logo and title */
+            margin-bottom: 25px;
+        }}
+        .header-container img {{
+            height: 160px;  /* Increased logo size */
+            margin-right: 25px;
+            border-radius: 12px;
+        }}
+        .header-title {{
+            font-size: 36px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 0.5px;
+        }}
+        </style>
 
-    <div class="header-container">
-        <img src="data:image/png;base64,{logo_base64}" alt="Logo">
-        <div class="header-title">🎓 ITI Examination System Web Application</div>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+        <div class="header-container">
+            <img src="data:image/png;base64,{logo_base64}" alt="Logo">
+            <div class="header-title">🎓 ITI Examination System Web Application</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 # --- Session state ---
 if 'pbi_model' not in st.session_state:
@@ -115,12 +172,12 @@ if 'file_path' not in st.session_state:
     st.session_state.file_path = ""
 
 # --- Tabs ---
-tab_dashboard, tab_inspector, FireBase, SSRS_Report,Ai_Dashboards = st.tabs([
+tab_dashboard, tab_inspector, FireBase, SSRS_Report, Grade_Predictor = st.tabs([
     "📊 Visualization Dashboards",
     "🧩 PBIX Inspector",
     "✏️ Examination ",
     "📝 SSRS Report",
-    "⚙️ Ai Assistant for Dashboards"
+    "🤖 Student Grade Predictor"
 ])
 
 # =====================================================================
@@ -144,19 +201,47 @@ with tab_dashboard:
         components.iframe(report_url, height=850, scrolling=True)
         st.info("This is a live Power BI report. You can interact with filters and visuals directly.")
 
-    # TABLEAU SECTION
+    # ========================
+    # --- TABLEAU SECTION ---
+    # ========================
     elif dashboard_choice == "Tableau Dashboard":
-        st.markdown("<h3 style='text-align:center;'>📈 Tableau Dashboard</h3>", unsafe_allow_html=True)
-        tableau_url = "https://public.tableau.com/views/SalesDashboard_17579406008640/SalesDashboard?:showVizHome=no&:embed=true"
-        DASH_WIDTH, DASH_HEIGHT = 1300, 850
+        st.markdown("<h3 style='text-align:center;'>📈 Tableau Dashboards</h3>", unsafe_allow_html=True)
+        
+        # --- Nested selection for the three Tableau dashboards ---
+        tableau_selection = st.selectbox(
+            "Select a Tableau dashboard to display:",
+            ( "Failure Dashboard", "Employee And Freelance")
+        )
 
-        iframe_html = f"""
-        <div style="width:{DASH_WIDTH}px;height:{DASH_HEIGHT}px;margin:0 auto;border-radius:12px;">
-            <iframe src="{tableau_url}" width="100%" height="100%" frameborder="0" style="border-radius:12px;"></iframe>
-        </div>
-        """
-        components.html(iframe_html, height=DASH_HEIGHT + 20)
-        st.info("This view is published from Tableau Public and mirrors your ITI Examination dashboard.")
+        # --- 2. Failure Dashboard (Responsive-Width) ---
+        if tableau_selection == "Failure Dashboard":
+            # URL from your embed code's 'path' parameter
+            tableau_url = "https://public.tableau.com/shared/Y6FYPWHXT?:showVizHome=no&:embed=true"
+            # Height based on your embed script's min/max values (887-987)
+            DASH_HEIGHT = 900 
+
+            iframe_html = f"""
+            <div style="width:100%; height:{DASH_HEIGHT}px; border-radius:12px; overflow:hidden;">
+                <iframe src="{tableau_url}" width="100%" height="100%" frameborder="0" style="border-radius:12px;"></iframe>
+            </div>
+            """
+            components.html(iframe_html, height=DASH_HEIGHT + 20)
+            st.info("This view is published from Tableau Public.")
+
+        # --- 3. Employee And Freelance (Responsive-Width) ---
+        elif tableau_selection == "Employee And Freelance":
+            # URL from your embed code's 'name' parameter
+            tableau_url = "https://public.tableau.com/views/ITIGraduationProject/EmployeeAndFreelance?:showVizHome=no&:embed=true"
+            # Height based on your embed script's min/max values
+            DASH_HEIGHT = 900 
+
+            iframe_html = f"""
+            <div style="width:100%; height:{DASH_HEIGHT}px; border-radius:12px; overflow:hidden;">
+                <iframe src="{tableau_url}" width="100%" height="100%" frameborder="0" style="border-radius:12px;"></iframe>
+            </div>
+            """
+            components.html(iframe_html, height=DASH_HEIGHT + 20)
+            st.info("This view is published from Tableau Public.")
 
 # =====================================================================
 # 🧩 TAB 2: PBIX Inspector
@@ -199,7 +284,7 @@ with tab_inspector:
         with st.expander("🧮 DAX Measures", expanded=True):
             try:
                 dax_df = model.dax_measures
-                st.dataframe(dax_df if not dax_df.empty else pd.DataFrame(["No DAX measures found."]))
+                st.dataframe(dax_df if not dax_df.empty else pd.DataFrame(["No DAX measures found."]), use_container_width=True)
             except Exception as e:
                 st.error(f"Error reading DAX: {e}")
 
@@ -207,7 +292,7 @@ with tab_inspector:
         with st.expander("⚙️ Power Query (M) Code"):
             try:
                 m_df = model.power_query
-                st.dataframe(m_df if not m_df.empty else pd.DataFrame(["No Power Query found."]))
+                st.dataframe(m_df if not m_df.empty else pd.DataFrame(["No Power Query found."]), use_container_width=True)
             except Exception as e:
                 st.error(f"Error reading Power Query: {e}")
 
@@ -215,7 +300,7 @@ with tab_inspector:
         with st.expander("🧱 Data Model Schema"):
             try:
                 schema_df = model.schema
-                st.dataframe(schema_df if not schema_df.empty else pd.DataFrame(["No Schema found."]))
+                st.dataframe(schema_df if not schema_df.empty else pd.DataFrame(["No Schema found."]), use_container_width=True)
             except Exception as e:
                 st.error(f"Error reading Schema: {e}")
 
@@ -224,19 +309,16 @@ with tab_inspector:
             try:
                 rel_df = model.relationships
                 if rel_df is not None and not rel_df.empty:
-                    st.dataframe(rel_df)
+                    st.dataframe(rel_df, use_container_width=True)
                 else:
                     st.info("No relationships found in this PBIX model.")
             except Exception as e:
                 st.error(f"Error reading relationships: {e}")
 
-            except Exception as e:
-                st.error(f"⚠️ Error rendering relationship graph: {e}")
 
 # =====================================================================
 # 🧮 TAB 3: Firebase Connection And Examination system
 # =====================================================================
-
 with FireBase:
     load_dotenv()
 
@@ -244,9 +326,6 @@ with FireBase:
     st.markdown("<h2 style='text-align:center;'>✏️ ITI Student Exam Portal </h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align:center;'>Automatically Generates your ITI Exam.</p>", unsafe_allow_html=True)
     st.divider()
-    # *** 1. SET YOUR URLs HERE ***
-    ITI_LOGO_URL = "https://iti.gov.eg/assets/images/ColoredLogo.svg"  # <-- PUT YOUR ITI LOGO URL HERE
-    BACKGROUND_IMAGE_URL = "https://i.ibb.co/tT7vYnPL/ITI-Background17601951402362703.png"  # <-- PUT YOUR BACKGROUND URL HERE
 
     # --- Firebase Configuration ---
     FIREBASE_URL = os.getenv("FIREBASE_URL")  # e.g. https://project-id-default-rtdb.firebaseio.com
@@ -256,7 +335,7 @@ with FireBase:
         st.stop()
 
     def fb_url(path):
-        auth =""
+        auth ="" # Add auth token if needed: ?auth={token}
         return f"{FIREBASE_URL.rstrip('/')}/{path}.json{auth}"
 
     # --- Firebase Helper Functions ---
@@ -267,10 +346,10 @@ with FireBase:
             r.raise_for_status()  # Raise an exception for bad status codes
             return r.json() or {}
         except requests.exceptions.RequestException as e:
-            print(f"Error fetching data from Firebase path '{path}': {e}") # Replaced st.error with print
+            print(f"Error fetching data from Firebase path '{path}': {e}") # Use print for backend errors
             return {}
         except json.JSONDecodeError:
-            print(f"Error decoding JSON from Firebase path '{path}'. Response was: {r.text}") # Replaced st.error with print
+            print(f"Error decoding JSON from Firebase path '{path}'. Response was: {r.text}")
             return {}
 
     def fb_post(path, payload):
@@ -280,7 +359,7 @@ with FireBase:
             r.raise_for_status()
             return r.json()
         except requests.exceptions.RequestException as e:
-            print(f"Error posting data to Firebase path '{path}': {e}") # Replaced st.error with print
+            print(f"Error posting data to Firebase path '{path}': {e}")
             return None
 
     def fb_put(path, payload):
@@ -290,37 +369,27 @@ with FireBase:
             r.raise_for_status()
             return r.json()
         except requests.exceptions.RequestException as e:
-            print(f"Error putting data to Firebase path '{path}': {e}") # Replaced st.error with print
+            print(f"Error putting data to Firebase path '{path}': {e}")
             return None
 
     # --- Data Loading ---
     @st.cache_resource
     def load_all_data():
-        # REMOVED: st.toast("Loading exam data from Firebase Realtime Database...")
-        # This was causing the CacheReplayClosureError.
-        # The st.spinner outside this function already handles the loading message.
-        
+        # This function runs inside st.spinner, so no need for toasts
         def process_to_id_map(raw_data, id_field_name):
-            """Converts raw data (list or dict) to a dict keyed by the ID field."""
             processed_map = {}
             if isinstance(raw_data, dict):
                 for key, val in raw_data.items():
-                    if not (val and isinstance(val, dict)):
-                        continue
+                    if not (val and isinstance(val, dict)): continue
                     cid = val.get(id_field_name)
-                    if cid:
-                        processed_map[str(cid)] = val
-                    elif key.isdigit():
-                        processed_map[key] = val
+                    if cid: processed_map[str(cid)] = val
+                    elif key.isdigit(): processed_map[key] = val
             elif isinstance(raw_data, list):
                 for idx, val in enumerate(raw_data):
-                    if not (val and isinstance(val, dict)):
-                        continue
+                    if not (val and isinstance(val, dict)): continue
                     cid = val.get(id_field_name)
-                    if cid:
-                        processed_map[str(cid)] = val
-                    else:
-                        processed_map[str(idx)] = val
+                    if cid: processed_map[str(cid)] = val
+                    else: processed_map[str(idx)] = val
             return processed_map
 
         courses = process_to_id_map(fb_get("courses"), "Course_ID")
@@ -333,22 +402,19 @@ with FireBase:
             student_courses_map = student_courses_raw
         elif isinstance(student_courses_raw, list):
             for idx, val in enumerate(student_courses_raw):
-                if val:
-                    student_courses_map[str(idx)] = val
+                if val: student_courses_map[str(idx)] = val
         
         choices = fb_get("choices")
         
         def get_as_dict(path):
             data = fb_get(path)
-            if isinstance(data, dict):
-                return data or {}
+            if isinstance(data, dict): return data or {}
             if isinstance(data, list):
                 converted_dict = {}
                 for idx, val in enumerate(data):
-                    if val:
-                        converted_dict[str(idx)] = val
+                    if val: converted_dict[str(idx)] = val
                 return converted_dict
-            print(f"Data at path '{path}' was not a dictionary or list. Using empty map.") # Replaced st.error with print
+            print(f"Data at path '{path}' was not a dictionary or list. Using empty map.")
             return {}
 
         exam_questions_grouped = get_as_dict("exam_questions_grouped")
@@ -365,155 +431,23 @@ with FireBase:
         }
 
     # --- GUI Styling ---
-    # *** 3. Custom CSS Styling ***
-    # *** 3. Custom CSS Styling ***
-    # *** 3. Custom CSS Styling ***
-    st.markdown(f"""
-    <style>
-        /* --- Base --- */
-        body {{
-            background-image: url("{BACKGROUND_IMAGE_URL}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: #FFFFFF; /* Make all base text white */
-        }}
-        .stApp {{
-            background-color: transparent;
-        }}
-        /* --- Main Content Box --- */
-        [data-testid="stAppViewContainer"] > .main .block-container {{
-            background-color: rgba(10, 10, 10, 0.85); /* Dark semi-transparent */
-            border-radius: 20px;
-            padding: 2rem 3rem;
-            margin-top: 2rem;
-            border: 1px solid rgba(200, 200, 200, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }}
-        /* --- Headers & Text (FIX: More specific) --- */
-        [data-testid="stAppViewContainer"] h1,
-        [data-testid="stAppViewContainer"] h2,
-        [data-testid="stAppViewContainer"] h3 {{
-            color: #FFFFFF !important; /* Bright white titles */
-            font-weight: 600;
-            text-align: center; /* FIX: Center titles */
-        }}
-        .stMarkdown {{
-            color: #FAFAFA; /* Off-white for body text */
-        }}
-        
-        /* FIX: Center Question Text */
-        [data-testid="stForm"] [data-testid="stMarkdown"] p {{
-            
-            font-size: 1.15rem; /* Make questions a bit bigger */
-            font-weight: 600;
-            color: #FFFFFF;
-        }}
-
-        /* --- Logo --- */
-        [data-testid="stImage"] img {{
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }}
-        /* --- Buttons --- */
-        .stButton > button {{
-            background-color: #C00000; /* ITI Red */
-            color: white;
-            border: 1px solid #A00000; /* Darker red border */
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            padding: 0.5rem 1rem;
-        }}
-        .stButton > button:hover {{
-            background-color: #A00000; /* Darker red on hover */
-            color: white;
-            border: 1px solid #C00000;
-        }}
-        /* --- Inputs --- */
-        .stTextInput input, .stSelectbox [data-baseweb="select"] > div {{
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            background-color: rgba(50, 50, 50, 0.5);
-            color: #FFFFFF;
-        }}
-        /* --- Exam Choices (Radio) --- */
-        .stRadio {{
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 1rem 1.5rem;
-        }}
-
-        /* Make sure the label text itself is white */
-        .stRadio [data-baseweb="radio"] div label {{
-            color: #FFFFFF !important;
-        }}
-
-        /* Style for HOVERED radio item */
-        .stRadio [data-baseweb="radio"] div:hover {{
-            background-color: rgba(255, 255, 255, 0.2);
-        }}
-        /* Style for SELECTED radio item */
-        .stRadio [data-baseweb="radio"][aria-checked="true"] > div {{
-            background-color: #C00000; /* ITI Red for selected */
-            color: #FFFFFF !important;
-            border: 1px solid #FF4136; /* Brighter red border */
-        }}
-        /* Style for each radio item */
-        .stRadio [data-baseweb="radio"] div {{
-
-            
-            color: #FFFFFF !important; /* Make radio label text white */
-
-        }}
-        
-        /* --- Timer --- */
-        .timer-box {{
-            position: fixed;
-            top: 10px;
-            right: 20px;
-            background-color: rgba(10, 10, 10, 0.8); /* Dark background */
-            color: #FF4136; /* Bright Red */
-            padding: 0.75rem 1.25rem;
-            border-radius: 10px;
-            font-size: 1.25rem;
-            font-weight: 800;
-            border: 1px solid #FF4136;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            z-index: 1000;
-        }}
-        /* --- Form (to remove extra space) --- */
-        [data-testid="stForm"] {{
-            padding: 0;
-            border: none;
-        }}
-    </style>
-    """, unsafe_allow_html=True)
+    # REMOVED: All CSS from here is now consolidated at the top of the file.
+    
     # --- Load Data with Spinner ---
     with st.spinner("Connecting to Exam Database..."):
         data = load_all_data()
-    # st.success("Data loaded successfully!") # Optional: can be too noisy
 
     # --- Session State Initialization ---
-    if "step" not in st.session_state:
-        st.session_state.step = 1
-    if "student_id" not in st.session_state:
-        st.session_state.student_id = None
-    if "selected_course_id" not in st.session_state:
-        st.session_state.selected_course_id = None
-    if "exam_id" not in st.session_state:
-        st.session_state.exam_id = None
-    if "exam_questions" not in st.session_state:
-        st.session_state.exam_questions = []
-    if "answers" not in st.session_state:
-        st.session_state.answers = {}  # question_id -> answer text (or None)
-    if "end_time" not in st.session_state:
-        st.session_state.end_time = None
-    if "duration_minutes" not in st.session_state:
-        st.session_state.duration_minutes = 0
+    if "step" not in st.session_state: st.session_state.step = 1
+    if "student_id" not in st.session_state: st.session_state.student_id = None
+    if "selected_course_id" not in st.session_state: st.session_state.selected_course_id = None
+    if "exam_id" not in st.session_state: st.session_state.exam_id = None
+    if "exam_questions" not in st.session_state: st.session_state.exam_questions = []
+    if "answers" not in st.session_state: st.session_state.answers = {}
+    if "end_time" not in st.session_state: st.session_state.end_time = None
+    if "duration_minutes" not in st.session_state: st.session_state.duration_minutes = 0
 
     # --- UI Functions (Steps) ---
-
     def step1_ui():
         st.subheader("Step 1 — Student Authentication")
         st.write("Please enter your Student ID to find your available exams.")
@@ -523,7 +457,6 @@ with FireBase:
             if not sid:
                 st.warning("Please enter your Student ID.")
                 return
-            # set and go to step 2
             st.session_state.student_id = sid
             st.session_state.step = 2
             st.rerun()
@@ -534,17 +467,14 @@ with FireBase:
         st.info(f"Welcome, Student ID: **{sid}**")
         st.write("Please select an exam from your available courses.")
 
-        # Find student_course rows where Student_ID matches
         sc_map = data["student_courses"] or {}
         courses_map = data["courses"] or {}
 
         available = []
         if isinstance(sc_map, dict):
             for key, sc in sc_map.items():
-                try:
-                    sc_student = str(sc.get("Student_ID") or sc.get("student_id") or sc.get("StudentID"))
-                except Exception:
-                    sc_student = None
+                try: sc_student = str(sc.get("Student_ID") or sc.get("student_id") or sc.get("StudentID"))
+                except Exception: sc_student = None
                 
                 if sc_student == str(sid):
                     cid = str(sc.get("Course_ID"))
@@ -556,11 +486,9 @@ with FireBase:
 
         if not available:
             st.error("No courses found for this Student ID. Please contact your administrator.")
-            # No "Back" button, student is stuck here. They must refresh.
             return
 
-        # build dropdown
-        options = {name: cid for cid, name in available if name} # Filter out None names
+        options = {name: cid for cid, name in available if name}
         if not options:
             st.error("Courses found, but they have no names. Please contact your administrator.")
             return
@@ -571,14 +499,11 @@ with FireBase:
             st.session_state.selected_course_id = options[choice]
             st.session_state.step = 3
             st.rerun()
-        
-        # REMOVED: "Back" button
 
     def start_exam_for_course(course_id):
         exams_map = data["exams"]
         matching = [eid for eid, e in exams_map.items() if str(e.get("Course_ID")) == str(course_id)]
-        if not matching:
-            return None
+        if not matching: return None
         chosen = random.choice(matching)
         return chosen
 
@@ -586,47 +511,38 @@ with FireBase:
         st.subheader("Step 3 — Exam In Progress")
         course_id = st.session_state.selected_course_id
 
-        # pick random exam if not chosen already
         if not st.session_state.exam_id:
             exam_id = start_exam_for_course(course_id)
             if not exam_id:
                 st.error("No exam found for this course.")
-                # REMOVED: "Back to courses" button
                 return
             st.session_state.exam_id = exam_id
             exam_info = data["exams"].get(str(exam_id), {})
             
             dur = exam_info.get("Exam_Duration_Minutes") or exam_info.get("Exam_Duration")
-            try:
-                dur = int(dur)
-            except (ValueError, TypeError):
-                dur = 30  # Default duration
+            try: dur = int(dur)
+            except (ValueError, TypeError): dur = 30 # Default
             
             st.session_state.duration_minutes = dur
             st.session_state.end_time = time.time() + dur * 60
             st.session_state.exam_questions = data["exam_questions_grouped"].get(str(exam_id), [])
-            
-            # FIX: Initialize answers map with None for no default selection
             st.session_state.answers = {str(qid): None for qid in st.session_state.exam_questions}
 
-        # Display the Exam ID
         if st.session_state.exam_id:
             st.caption(f"Student ID: {st.session_state.student_id} | Exam ID: {st.session_state.exam_id}")
 
-        # show timer
         remaining = int(st.session_state.end_time - time.time())
         if remaining <= 0:
             st.warning("Time is up. Submitting...")
             st.toast("Time's up! Automatically submitting your exam.", icon="⏰")
             submit_answers()
-            st.rerun() # Rerun to go to step 4
+            st.rerun() 
             return
             
         minutes = remaining // 60
         seconds = remaining % 60
         st.markdown(f"**Time remaining: {minutes:02d}:{seconds:02d}**")
 
-        # Render questions
         questions_map = data["questions"]
         choices_by_q = data["choices_by_question"]
 
@@ -643,7 +559,6 @@ with FireBase:
                 qtype = q.get("Question_Type")
                 key = f"q_{qid_s}"
                 
-                # FIX: Get current val (which might be None)
                 current_val = st.session_state.answers.get(qid_s)
                 
                 if qtype == "MCQ":
@@ -653,45 +568,31 @@ with FireBase:
                         st.warning(f"No choices found for question {qid_s}")
                         continue
                     
-                    # FIX: Set index to None if no answer selected yet
-                    try:
-                        default_index = labels.index(current_val)
-                    except ValueError:
-                        default_index = None # No default selection
+                    try: default_index = labels.index(current_val)
+                    except ValueError: default_index = None
                         
                     sel = st.radio("Select one", labels, index=default_index, key=key,label_visibility="collapsed")
                     st.session_state.answers[qid_s] = sel
                     
                 elif qtype == "True/False":
                     opts = ["True", "False"]
-                    
-                    # FIX: Set index to None if no answer selected yet
-                    try:
-                        default_index = opts.index(current_val)
-                    except ValueError:
-                        default_index = None # No default selection
+                    try: default_index = opts.index(current_val)
+                    except ValueError: default_index = None
 
                     sel = st.radio("Select one", opts, index=default_index, key=key,label_visibility="collapsed")
                     st.session_state.answers[qid_s] = sel
                     
-                else:
-                    # fallback: free text
-                    # FIX: Handle None value
+                else: # fallback: free text
                     txt = st.text_input("Answer", value=current_val if current_val else "", key=key)
                     st.session_state.answers[qid_s] = txt
-
                 st.write("---")
             
-            # Submit button inside the form
             submitted = st.form_submit_button("Submit Exam")
             if submitted:
                 submit_answers()
-                st.rerun() # Rerun to go to step 4
+                st.rerun()
                 return
 
-        # REMOVED: "Cancel and go back" button
-
-        # simple rerun loop to update timer every 1 second
         time.sleep(1)
         st.rerun()
 
@@ -701,7 +602,6 @@ with FireBase:
         exam_id = st.session_state.exam_id
         answers = st.session_state.answers
         
-        # FIX: Updated validation to check for None or empty string
         all_answered = all(ans is not None and ans != "" for ans in answers.values())
         if not all_answered:
             st.warning("You have not answered all questions, but submitting anyway.")
@@ -712,7 +612,7 @@ with FireBase:
                 "Exam_ID": int(exam_id) if str(exam_id).isdigit() else exam_id,
                 "Question_ID": int(qid) if str(qid).isdigit() else qid,
                 "Student_ID": int(sid) if str(sid).isdigit() else sid,
-                "Student_Answer": ans if ans is not None else "N/A", # Store "N/A" if unanswered
+                "Student_Answer": ans if ans is not None else "N/A",
                 "Submitted_At": int(time.time())
             }
             payloads.append(record)
@@ -721,15 +621,11 @@ with FireBase:
         with st.spinner("Submitting your answers to the database..."):
             for rec in payloads:
                 res = fb_post("student_answers", rec)
-                if res:
-                    results.append(res.get("name")) # Get the push key from Firebase
-                else:
-                    st.error(f"Failed to submit answer for Question ID: {rec['Question_ID']}")
-                    # Continue submitting other answers
+                if res: results.append(res.get("name"))
+                else: st.error(f"Failed to submit answer for Question ID: {rec['Question_ID']}")
 
         st.session_state.step = 4
         st.session_state.submitted_results = results
-        # No rerun here, it's handled by the caller function (step3_ui)
 
     def step4_ui():
         st.subheader("Step 4 — Submission Complete")
@@ -753,18 +649,12 @@ with FireBase:
 
     # --- Main App Flow ---
     if "step" in st.session_state:
-        if st.session_state.step == 1:
-            step1_ui()
-        elif st.session_state.step == 2:
-            step2_ui()
-        elif st.session_state.step == 3:
-            step3_ui()
-        elif st.session_state.step == 4:
-            step4_ui()
+        if st.session_state.step == 1: step1_ui()
+        elif st.session_state.step == 2: step2_ui()
+        elif st.session_state.step == 3: step3_ui()
+        elif st.session_state.step == 4: step4_ui()
     else:
-        # Default to step 1 if state is lost
-        step1_ui()
-
+        step1_ui() # Default
 
 # =====================================================================
 # 🧮 TAB 4: SSRS Reporting (Optimized + No Sidebar)
@@ -776,37 +666,8 @@ with SSRS_Report:
     st.divider()
 
     # --- STYLING ---
-    st.markdown("""
-        <style>
-            /* Background */
-            [data-testid="stAppViewContainer"] {
-            background-color: transparent;
-            }
-            /* Titles */
-            h1, h2, h3, h4, h5, h6 {
-                color: #000000;
-                text-align: center;
-            }
-            /* Dropdown label */
-            .stSelectbox label {
-                color: #000000 !important;
-                font-weight: 600 !important;
-                text-align: center !important;
-                display: block;
-            }
-            /* Buttons */
-            .stButton>button {
-                background-color: #000000;
-                color: white;
-                border-radius: 8px;
-                padding: 0.5rem 1rem;
-                border: none;
-            }
-            .stButton>button:hover {
-                background-color: #b40028;
-            }
-        </style>
-    """, unsafe_allow_html=True)
+    # REMOVED: All CSS from here is now consolidated at the top of the file.
+    # The unified CSS will make all text white.
 
     # --- LOGIN INFO ---
     st.markdown("""
@@ -830,10 +691,11 @@ with SSRS_Report:
     # --- CENTERED SELECT BOX ---
     st.markdown("<h4 style='text-align:center;'>Select a Report:</h4>", unsafe_allow_html=True)
     selected_report = st.selectbox(
-        "",
+        "Select a Report", # Label for accessibility
         options=list(REPORTS.keys()),
         index=0,
-        key="ssrs_report_select"
+        key="ssrs_report_select",
+        label_visibility="collapsed" # Hide label as we have a header
     )
 
     # --- DISPLAY SELECTED REPORT ---
@@ -841,7 +703,7 @@ with SSRS_Report:
     st.markdown(f"<h4 style='text-align:center;'>Currently Viewing: {selected_report}</h4>", unsafe_allow_html=True)
 
     iframe_html = f"""
-    <div style="width:1300px; height:850px; margin:0 auto; border-radius:12px;">
+    <div style="width:1300px; height:850px; margin:0 auto; border-radius:12px; overflow:hidden;">
         <iframe src="{report_url}" width="100%" height="100%" frameborder="0" style="border-radius:12px;"></iframe>
     </div>
     """
@@ -849,3 +711,159 @@ with SSRS_Report:
 
     st.info("This SSRS report is embedded directly from the Power BI Service (Paginated Report).")
 
+# =====================================================================
+# 🤖 TAB 5: Ai Assistant for Dashboards (Completed)
+# =====================================================================
+with Grade_Predictor:
+        
+    st.markdown("<h2 style='text-align:center;'>🤖 Student Grade Predictor</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align:center;'>Use this app to predict a student's final grade based on their academic and demographic profile.</p>", unsafe_allow_html=True)
+    st.divider()
+
+    # -----------------------------
+    # 1. Load Model
+    # -----------------------------
+    @st.cache_resource
+    def load_model():
+        # Load the pipeline we just built
+        try:
+            model = joblib.load("iti_grade_predictor_pipeline.pkl")
+            return model
+        except FileNotFoundError:
+            st.error("Model file 'iti_grade_predictor_pipeline.pkl' not found.")
+            st.stop()
+        except Exception as e:
+            st.error(f"Error loading model: {e}")
+            st.stop()
+
+    model = load_model()
+
+    # -----------------------------
+    # 2. Helper Functions & Mappings
+    # -----------------------------
+
+    # This mapping is CRITICAL. Our pipeline expects the mapped number.
+    FACULTY_GRADE_MAP = {'Excellent': 0, 'Very Good': 1, 'Good': 2, 'Pass': 3}
+    
+    # --- IMPORTANT: Update this list with all your real branch names ---
+    BRANCH_NAMES = ['Sohag', 'Smart Village', 'Zagazig', 'Damanhour', 'Qena', 'Tanta',
+       'El Menoufia', 'El Mansoura', 'Aswan', 'El Minia',
+       'Cairo University', 'Ismailia', 'New Capital', 'Beni Sweif',
+       'El Fayoum', 'Alexandria', 'Assiut', 'Port Said', 'New Valley',
+       'Benha', 'Al Arish']
+    
+    # This function is CRITICAL. Our pipeline expects the 'faculty_group' feature.
+    def faculty_group(faculty):
+        stem = ['Faculty of Computers Sciences', 'Faculty of Engineering', 'Faculty of Information Systems', 'Faculty of Science']
+        business = ['Faculty of Business Administration', 'Faculty of Commerce', 'Faculty of Economics and Political Science']
+        arts = ['Faculty of Fine Arts', 'Faculty of Applied Arts', 'Faculty of Arts']
+        applied = ['Faculty of Agriculture', 'Faculty of Education']
+        if faculty in stem:
+            return 'STEM'
+        elif faculty in business:
+            return 'Business'
+        elif faculty in arts:
+            return 'Arts'
+        elif faculty in applied:
+            return 'Applied'
+        else:
+            return 'Other'
+
+    # -----------------------------
+    # 3. Input Section (MODIFIED)
+    # -----------------------------
+    st.header("📋 Student Profile")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        student_faculty = st.selectbox("Faculty", [
+            'Faculty of Computers Sciences', 'Faculty of Engineering', 'Faculty of Information Systems',
+            'Faculty of Business Administration', 'Faculty of Commerce', 'Faculty of Agriculture',
+            'Faculty of Science', 'Faculty of Fine Arts', 'Faculty of Applied Arts',
+            'Faculty of Arts', 'Faculty of Economics and Political Science', 'Faculty of Education'
+        ])
+        
+        student_gender = st.selectbox("Gender", ['Male', 'Female'])
+        
+        # --- NEW INPUT ---
+        branch_name = st.selectbox("Branch Name", BRANCH_NAMES)
+        
+    with col2:
+        student_faculty_grade_str = st.selectbox("Faculty Grade", list(FACULTY_GRADE_MAP.keys()))
+        
+        student_marital_status = st.selectbox("Marital Status", ['Single', 'Married'])
+
+        year_str = st.selectbox("Year", ['2023', '2024'])
+
+    student_iti_status = st.selectbox("ITI Status", ['Graduated', 'Failed to Graduate'], 
+                                       help="This is a key predictor, as status can be affected by non-grade factors.")
+
+    st.divider()
+    
+    # -----------------------------
+    # 4. Prepare input for prediction (MODIFIED)
+    # -----------------------------
+
+    try:
+        faculty_grade_num = FACULTY_GRADE_MAP[student_faculty_grade_str]
+        faculty_group_str = faculty_group(student_faculty)
+        # We don't need 'year_str = str(year_num)' anymore
+
+        # Create the dictionary that matches our pipeline's feature names
+        input_dict = {
+            "student_faculty_grade": [faculty_grade_num],
+            "student_gender": [student_gender],
+            "student_marital_status": [student_marital_status],
+            "faculty_group": [faculty_group_str],
+            "student_iti_status": [student_iti_status],
+            "branch_name": [branch_name], 
+            "year": [year_str]             # --- This now uses the selectbox value directly ---
+        }
+
+        input_df = pd.DataFrame(input_dict)
+    except Exception as e:
+        st.error(f"Error preparing input data: {e}")
+        st.stop()
+
+
+    # -----------------------------
+    # 5. Prediction Section (MODIFIED)
+    # -----------------------------
+    if st.button("🔍 Predict Final Grade", use_container_width=True):
+        with st.spinner("Calculating grade..."):
+            
+            # --- DEFINE YOUR REAL MIN/MAX GRADE ---
+            TOTAL_MIN_GRADE = 0.0
+            TOTAL_MAX_GRADE = 120.0 # 12 subjects * 10 marks
+            
+            # Use the pipeline to predict. It handles all preprocessing.
+            prediction_raw = model.predict(input_df)[0] # [0] to get the single value
+
+            # --- Clamp the prediction to the realistic 0-120 range ---
+            prediction_clamped = max(TOTAL_MIN_GRADE, min(prediction_raw, TOTAL_MAX_GRADE))
+            
+            # --- Calculate percentage ---
+            prediction_percentage = (prediction_clamped / TOTAL_MAX_GRADE) * 100
+
+        st.divider()
+        st.header("📊 Predicted Grade")
+
+        # --- NEW: Show percentage and raw score in columns ---
+        col_res_1, col_res_2 = st.columns(2)
+        
+        with col_res_1:
+            # Display the percentage result in a clean metric box
+            st.metric(label="Predicted Grade (Percentage)", value=f"{prediction_percentage:.1f} %")
+        
+        with col_res_2:
+            # Display the raw score
+            st.metric(label="Predicted Score (out of 120)", value=f"{prediction_clamped:.1f} pts")
+
+        
+        st.success(f"The model predicts a final grade of **{prediction_clamped:.1f} / {TOTAL_MAX_GRADE}**.")
+
+        # Show a warning if the model's raw prediction was unrealistic
+        if prediction_raw != prediction_clamped:
+            st.warning(f"Note: The model's raw prediction was {prediction_raw:.1f}, "
+                       f"but it has been capped to the realistic range of {TOTAL_MIN_GRADE}-{TOTAL_MAX_GRADE}.")
