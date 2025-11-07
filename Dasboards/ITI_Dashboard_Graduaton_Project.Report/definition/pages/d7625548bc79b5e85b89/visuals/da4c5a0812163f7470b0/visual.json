@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "da4c5a0812163f7470b0",
   "position": {
-    "x": 11.527093596059114,
-    "y": 125.02463054187193,
+    "x": 11.671732522796352,
+    "y": 125.47112462006079,
     "z": 8000,
-    "height": 211.0344827586207,
-    "width": 190.64039408866995,
-    "tabOrder": 4000
+    "height": 194.52887537993922,
+    "width": 190.63829787234044,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "image9381D9E0B8224040987A3963DA557E0D",
@@ -28,6 +28,24 @@
               },
               "queryRef": "FactSocial.picture.data.url",
               "nativeQueryRef": "picture.data.url"
+            }
+          ]
+        },
+        "alttext": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactSocial"
+                    }
+                  },
+                  "Property": "Full Name"
+                }
+              },
+              "queryRef": "FactSocial.Full Name",
+              "nativeQueryRef": "Full Name"
             }
           ]
         }

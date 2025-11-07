@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "3e65c48f175645a25864",
   "position": {
-    "x": 213.69458128078819,
-    "y": 470.83743842364532,
+    "x": 213.98176291793314,
+    "y": 463.95136778115506,
     "z": 5000,
-    "height": 241.18226600985221,
-    "width": 1055.1724137931035,
-    "tabOrder": 7000
+    "height": 248.0243161094225,
+    "width": 1055.3191489361702,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "lineChart",
@@ -39,7 +39,7 @@
               },
               "queryRef": "FactSocial.created_time.Variation.Date Hierarchy.Year",
               "nativeQueryRef": "created_time Year",
-              "active": false
+              "active": true
             },
             {
               "field": {
@@ -117,7 +117,7 @@
               },
               "queryRef": "FactSocial.created_time.Variation.Date Hierarchy.Day",
               "nativeQueryRef": "created_time Day",
-              "active": true
+              "active": false
             }
           ]
         },
@@ -528,7 +528,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "df969df26f76c8ee4c55",
+        "name": "177f475c5c811e815623",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -553,7 +553,7 @@
         "type": "Advanced"
       },
       {
-        "name": "5aedd486879f7a97510b",
+        "name": "91e6504b03984cfc226d",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -578,7 +578,7 @@
         "type": "Categorical"
       },
       {
-        "name": "2de7affac0caf28e7bf3",
+        "name": "a6e7e22254b6ca2ee8f5",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -603,7 +603,7 @@
         "type": "Categorical"
       },
       {
-        "name": "f4c36e4ee728547598a5",
+        "name": "b30b2327b740266be84d",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -628,7 +628,7 @@
         "type": "Advanced"
       },
       {
-        "name": "fd1e043c78e94ca6542f",
+        "name": "d8b5a17c7a969a956d35",
         "field": {
           "Measure": {
             "Expression": {

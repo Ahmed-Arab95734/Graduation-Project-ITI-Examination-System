@@ -107,13 +107,12 @@ table FactSocial
 		annotation SummarizationSetBy = Automatic
 
 	column Month
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: 5eccadbf-6336-4f19-aff9-95ac0d2c5406
 		summarizeBy: none
 		sourceColumn: Month
 
-		annotation SummarizationSetBy = User
+		annotation SummarizationSetBy = Automatic
 
 	column Quarter
 		dataType: int64
@@ -169,7 +168,7 @@ table FactSocial
 		mode: import
 		source =
 				let
-				    Source = Json.Document(Web.Contents("https://graph.facebook.com/v24.0/me?fields=first_name,middle_name,%20last_name,picture.width(10000).height(10000){url},%20posts.limit(200){%20%20%20%20%20id,%20%20%20%20%20message,%20%20%20%20%20created_time,%20%20%20%20%20reactions.summary(total_count),%20%20%20%20%20attachments{media,unshimmed_url,subattachments}%20}&access_token=EAA8b8Y8L2EYBP4XJS3J2YVCvRA5bGwv8QXKHrjn8O0sQdPjoyZCq3db0PhY0hZBtcHfNqc0HCrFIWF4UvIyO78sZBuYCCMBxsVXTfE5vSaFveZBedmbzkfxUcRgZBSbPVYs6vmhWEwbtvC1FxE2909RUoZBmAy0VfHdDJo5V50KM8oA74uR4N2ftIkJIjRC6X7")),
+				    Source = Json.Document(Web.Contents("https://graph.facebook.com/v24.0/me?fields=first_name,middle_name,last_name,picture.width(10000).height(10000){url},posts.limit(200){id,message,created_time,reactions.summary(total_count),attachments{media,unshimmed_url,subattachments}}&access_token=EAA8b8Y8L2EYBP4XJS3J2YVCvRA5bGwv8QXKHrjn8O0sQdPjoyZCq3db0PhY0hZBtcHfNqc0HCrFIWF4UvIyO78sZBuYCCMBxsVXTfE5vSaFveZBedmbzkfxUcRgZBSbPVYs6vmhWEwbtvC1FxE2909RUoZBmAy0VfHdDJo5V50KM8oA74uR4N2ftIkJIjRC6X7")),
 				    #"Converted to Table" = Table.FromRecords({Source}),
 				    #"Expanded picture" = Table.ExpandRecordColumn(#"Converted to Table", "picture", {"data"}, {"picture.data"}),
 				    #"Expanded picture.data" = Table.ExpandRecordColumn(#"Expanded picture", "picture.data", {"url"}, {"picture.data.url"}),
@@ -197,9 +196,10 @@ table FactSocial
 				    #"Inserted Week of Year" = Table.AddColumn(#"Inserted Quarter", "Week of Year", each Date.WeekOfYear([posts.data.created_time]), Int64.Type),
 				    #"Inserted Day" = Table.AddColumn(#"Inserted Week of Year", "Day", each Date.Day([posts.data.created_time]), Int64.Type),
 				    #"Inserted Day Name" = Table.AddColumn(#"Inserted Day", "Day Name", each Date.DayOfWeekName([posts.data.created_time]), type text),
-				    #"Renamed Columns" = Table.RenameColumns(#"Inserted Day Name",{{"posts.data.message", "message"}, {"posts.data.created_time", "created_time"}, {"posts.data.reactions.summary.total_count", "reactions.total_count"}})
+				    #"Renamed Columns" = Table.RenameColumns(#"Inserted Day Name",{{"posts.data.message", "message"}, {"posts.data.created_time", "created_time"}, {"posts.data.reactions.summary.total_count", "reactions.total_count"}}),
+				    #"Appended Query" = Table.Combine({#"Renamed Columns", ArabSocial})
 				in
-				    #"Renamed Columns"
+				    #"Appended Query"
 
 	annotation PBI_NavigationStepName = Navigation
 

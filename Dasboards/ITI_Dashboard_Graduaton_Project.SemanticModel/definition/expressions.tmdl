@@ -11,3 +11,50 @@ expression 'Companies Fileds' =
 
 	annotation PBI_ResultType = Table
 
+expression ArabSocial =
+		let
+		    Source = Json.Document(Web.Contents("https://graph.facebook.com/v24.0/me?fields=first_name,last_name,middle_name,picture.width(1000).height(1000)%7Burl%7D,posts.limit(200)%7Bid,reactions.summary(total_count),attachments%7Bmedia,unshimmed_url,subattachments%7D,message,created_time%7D&access_token=EAAVqZBM4W4x0BPZBzmvZAefjFUECH1bpGriKMZAxdnI2yyEPSgNYJUWpvBRZBYP4gL6ctnhZBEvC1JzfoZB6tGc2dxZAbigaZCW4ZAS5t1D9gCScZCj7AaPDlmqaPaPJefZBQcQZAHvhBszYvYkexkbZCHqn5EMcqQmWvbykvZCNmoWG19GvKY9gQ5MOlNM0mDTQCcpEKkB")),
+		    #"Converted to Table" = Table.FromRecords({Source}),
+		    #"Expanded picture" = Table.ExpandRecordColumn(#"Converted to Table", "picture", {"data"}, {"picture.data"}),
+		    #"Expanded picture.data" = Table.ExpandRecordColumn(#"Expanded picture", "picture.data", {"url"}, {"picture.data.url"}),
+		    #"Expanded posts" = Table.ExpandRecordColumn(#"Expanded picture.data", "posts", {"data", "paging"}, {"posts.data", "posts.paging"}),
+		    #"Expanded posts.data" = Table.ExpandListColumn(#"Expanded posts", "posts.data"),
+		    #"Expanded posts.data1" = Table.ExpandRecordColumn(#"Expanded posts.data", "posts.data", {"id", "reactions", "attachments", "message", "created_time"}, {"posts.data.id", "posts.data.reactions", "posts.data.attachments", "posts.data.message", "posts.data.created_time"}),
+		    #"Expanded posts.data.reactions" = Table.ExpandRecordColumn(#"Expanded posts.data1", "posts.data.reactions", {"data", "paging", "summary"}, {"posts.data.reactions.data", "posts.data.reactions.paging", "posts.data.reactions.summary"}),
+		    #"Expanded posts.data.reactions.paging" = Table.ExpandRecordColumn(#"Expanded posts.data.reactions", "posts.data.reactions.paging", {"cursors", "next"}, {"posts.data.reactions.paging.cursors", "posts.data.reactions.paging.next"}),
+		    #"Expanded posts.data.reactions.paging.cursors" = Table.ExpandRecordColumn(#"Expanded posts.data.reactions.paging", "posts.data.reactions.paging.cursors", {"before", "after"}, {"posts.data.reactions.paging.cursors.before", "posts.data.reactions.paging.cursors.after"}),
+		    #"Expanded posts.data.reactions.summary" = Table.ExpandRecordColumn(#"Expanded posts.data.reactions.paging.cursors", "posts.data.reactions.summary", {"total_count"}, {"posts.data.reactions.summary.total_count"}),
+		    #"Expanded posts.data.attachments" = Table.ExpandRecordColumn(#"Expanded posts.data.reactions.summary", "posts.data.attachments", {"data"}, {"posts.data.attachments.data"}),
+		    #"Expanded posts.paging" = Table.ExpandRecordColumn(#"Expanded posts.data.attachments", "posts.paging", {"previous", "next"}, {"posts.paging.previous", "posts.paging.next"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Expanded posts.paging",{{"first_name", type text}, {"last_name", type text}, {"picture.data.url", type text}, {"posts.data.id", type text}, {"posts.data.reactions.data", type any}, {"posts.data.reactions.paging.cursors.before", type text}, {"posts.data.reactions.paging.cursors.after", type text}, {"posts.data.reactions.paging.next", type text}, {"posts.data.reactions.summary.total_count", Int64.Type}, {"posts.data.attachments.data", type any}, {"posts.data.message", type text}, {"posts.data.created_time", type datetime}, {"posts.paging.previous", type text}, {"posts.paging.next", type text}, {"id", Int64.Type}}),
+		    #"Duplicated Column" = Table.DuplicateColumn(#"Changed Type", "last_name", "last_name - Copy"),
+		    #"Reordered Columns" = Table.ReorderColumns(#"Duplicated Column",{"first_name", "last_name - Copy", "last_name", "picture.data.url", "posts.data.id", "posts.data.reactions.data", "posts.data.reactions.paging.cursors.before", "posts.data.reactions.paging.cursors.after", "posts.data.reactions.paging.next", "posts.data.reactions.summary.total_count", "posts.data.attachments.data", "posts.data.message", "posts.data.created_time", "posts.paging.previous", "posts.paging.next", "id"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"last_name - Copy", "middle_name"}}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","Arab","Mohamed",Replacer.ReplaceText,{"middle_name"}),
+		    #"Expanded posts.data.reactions.data" = Table.ExpandListColumn(#"Replaced Value", "posts.data.reactions.data"),
+		    #"Removed Columns" = Table.RemoveColumns(#"Expanded posts.data.reactions.data",{"posts.data.reactions.data", "posts.data.id", "posts.data.reactions.paging.cursors.before", "posts.data.reactions.paging.cursors.after", "posts.data.reactions.paging.next"}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Removed Columns",{{"posts.data.reactions.summary.total_count", "posts.reactions.total_count"}}),
+		    #"Expanded posts.data.attachments.data" = Table.ExpandListColumn(#"Renamed Columns1", "posts.data.attachments.data"),
+		    #"Expanded posts.data.attachments.data1" = Table.ExpandRecordColumn(#"Expanded posts.data.attachments.data", "posts.data.attachments.data", {"media", "unshimmed_url"}, {"media", "unshimmed_url"}),
+		    #"Reordered Columns1" = Table.ReorderColumns(#"Expanded posts.data.attachments.data1",{"first_name", "middle_name", "last_name", "picture.data.url", "posts.data.message", "posts.reactions.total_count", "media", "unshimmed_url", "posts.data.created_time", "posts.paging.previous", "posts.paging.next", "id"}),
+		    #"Renamed Columns2" = Table.RenameColumns(#"Reordered Columns1",{{"posts.data.message", "message"}}),
+		    #"Removed Columns1" = Table.RemoveColumns(#"Renamed Columns2",{"posts.paging.previous", "posts.paging.next", "id"}),
+		    #"Renamed Columns3" = Table.RenameColumns(#"Removed Columns1",{{"posts.data.created_time", "created_time"}}),
+		    #"Reordered Columns2" = Table.ReorderColumns(#"Renamed Columns3",{"first_name", "middle_name", "last_name", "picture.data.url", "message", "created_time", "posts.reactions.total_count", "media", "unshimmed_url"}),
+		    #"Expanded media" = Table.ExpandRecordColumn(#"Reordered Columns2", "media", {"image"}, {"image"}),
+		    #"Expanded image" = Table.ExpandRecordColumn(#"Expanded media", "image", {"height", "src", "width"}, {"height", "src", "width"}),
+		    #"Renamed Columns4" = Table.RenameColumns(#"Expanded image",{{"posts.reactions.total_count", "reactions.total_count"}}),
+		    #"Inserted Year" = Table.AddColumn(#"Renamed Columns4", "Year", each Date.Year([created_time]), Int64.Type),
+		    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.MonthName([created_time])),
+		    #"Inserted Quarter" = Table.AddColumn(#"Inserted Month", "Quarter", each Date.QuarterOfYear([created_time]), Int64.Type),
+		    #"Inserted Week of Year" = Table.AddColumn(#"Inserted Quarter", "Week of Year", each Date.WeekOfYear([created_time]), Int64.Type),
+		    #"Inserted Day" = Table.AddColumn(#"Inserted Week of Year", "Day", each Date.Day([created_time]), Int64.Type),
+		    #"Inserted Day Name" = Table.AddColumn(#"Inserted Day", "Day Name", each Date.DayOfWeekName([created_time]), type text)
+		in
+		    #"Inserted Day Name"
+	lineageTag: 49c5af87-2133-4b6b-8734-94bc36cd9413
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
