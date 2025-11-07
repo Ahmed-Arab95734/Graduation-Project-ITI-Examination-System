@@ -1,11 +1,11 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "ccf2c92cd77493973f21",
   "position": {
-    "x": 58.896019171881242,
-    "y": 78.528025562508319,
+    "x": 56.442018373052854,
+    "y": 79.755025961922513,
     "z": 7000,
-    "height": 58.896019171881242,
+    "height": 63.804020769538013,
     "width": 239.26507788576754,
     "tabOrder": 4000
   },
@@ -90,5 +90,6 @@
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "10a93de80ba0c5d5bcc3",
   "howCreated": "InsertVisualButton"
 }
