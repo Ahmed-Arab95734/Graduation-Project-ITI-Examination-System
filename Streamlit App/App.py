@@ -796,9 +796,6 @@ with Grade_Predictor:
 
         year_str = st.selectbox("Year", ['2023', '2024'])
 
-    student_iti_status = st.selectbox("ITI Status", ['Graduated', 'Failed to Graduate'], 
-                                       help="This is a key predictor, as status can be affected by non-grade factors.")
-
     st.divider()
     
     # -----------------------------
@@ -816,7 +813,6 @@ with Grade_Predictor:
             "student_gender": [student_gender],
             "student_marital_status": [student_marital_status],
             "faculty_group": [faculty_group_str],
-            "student_iti_status": [student_iti_status],
             "branch_name": [branch_name], 
             "year": [year_str]             # --- This now uses the selectbox value directly ---
         }
