@@ -23,11 +23,11 @@
                       "Entity": "SocialMeasures"
                     }
                   },
-                  "Property": "Reactions Per Post %"
+                  "Property": "Average Reactions"
                 }
               },
-              "queryRef": "SocialMeasures.Reactions Per Post %",
-              "nativeQueryRef": "Reactions Per Post %"
+              "queryRef": "SocialMeasures.Average Reactions",
+              "nativeQueryRef": "Average Reactions"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "SocialMeasures"
                   }
                 },
-                "Property": "Reactions Per Post %"
+                "Property": "Average Reactions"
               }
             },
             "direction": "Descending"
@@ -220,7 +220,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'POST Reactions %'"
+                  "Value": "'Average Reactions Per Post '"
                 }
               }
             },
@@ -332,5 +332,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "48f7d09baeb61c7cc11a"
+  "parentGroupName": "48f7d09baeb61c7cc11a",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "572e5b62d9f7a20f3a2d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SocialMeasures"
+              }
+            },
+            "Property": "Average Reactions"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

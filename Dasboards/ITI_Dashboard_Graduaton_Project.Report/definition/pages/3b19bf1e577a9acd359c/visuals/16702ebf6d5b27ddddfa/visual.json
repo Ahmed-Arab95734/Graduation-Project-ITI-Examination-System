@@ -366,6 +366,34 @@
         },
         "type": "TopN",
         "howCreated": "User"
+      },
+      {
+        "name": "57dfc45af8663a2a8079",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactSocial"
+              }
+            },
+            "Property": "CoptionsWritten"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b4d6353f5ed1f9669cad",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SocialMeasures"
+              }
+            },
+            "Property": "Total Reations"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

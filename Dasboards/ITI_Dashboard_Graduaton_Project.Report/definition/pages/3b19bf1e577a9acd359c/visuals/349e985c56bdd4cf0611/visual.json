@@ -45,7 +45,7 @@
                 "Property": "Full Name"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
