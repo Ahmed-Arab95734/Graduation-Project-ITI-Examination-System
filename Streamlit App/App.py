@@ -9,13 +9,18 @@ import os
 import re
 from dotenv import load_dotenv
 import pypyodbc as odbc
-import google.generativeai as genai
 import joblib
 #from catboost import CatBoostClassifier, Pool
 import time
 import random
 import json
 
+# --- Page setup (set ONCE) ---
+st.set_page_config(
+    page_title="ITI Examination System Dashboard",
+    page_icon="🎓",
+    layout="wide",
+)
 
 st.markdown("""
     <style>
@@ -35,12 +40,6 @@ except ImportError:
     st.error("Could not import `pbixray`. Please install it using: `pip install pbixray`")
     st.stop()
 
-# --- Page setup (set ONCE) ---
-st.set_page_config(
-    page_title="ITI Examination System Dashboard",
-    page_icon="🎓",
-    layout="wide",
-)
 
 # ------------------------------
 # BACKGROUND IMAGE SETUP
@@ -242,8 +241,9 @@ with FireBase:
     load_dotenv()
 
     # --- Page Configuration & URLs ---
-    st.set_page_config(page_title="ITI Student Exam Portal", layout="wide")
-
+    st.markdown("<h2 style='text-align:center;'>✏️ ITI Student Exam Portal </h2>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align:center;'>Automatically Generates your ITI Exam.</p>", unsafe_allow_html=True)
+    st.divider()
     # *** 1. SET YOUR URLs HERE ***
     ITI_LOGO_URL = "https://iti.gov.eg/assets/images/ColoredLogo.svg"  # <-- PUT YOUR ITI LOGO URL HERE
     BACKGROUND_IMAGE_URL = "https://i.ibb.co/tT7vYnPL/ITI-Background17601951402362703.png"  # <-- PUT YOUR BACKGROUND URL HERE
@@ -493,10 +493,6 @@ with FireBase:
     with st.spinner("Connecting to Exam Database..."):
         data = load_all_data()
     # st.success("Data loaded successfully!") # Optional: can be too noisy
-
-    st.markdown("<h2 style='text-align:center;'>✏️ ITI Student Exam Portal</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align:center;'> Ch.</p>", unsafe_allow_html=True)
-    st.divider()
 
     # --- Session State Initialization ---
     if "step" not in st.session_state:
