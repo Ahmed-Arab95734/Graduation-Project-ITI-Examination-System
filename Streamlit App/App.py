@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 import pypyodbc as odbc
 import google.generativeai as genai
 import joblib
-from catboost import CatBoostClassifier, Pool
+#from catboost import CatBoostClassifier, Pool
 import time
 import random
 import json
