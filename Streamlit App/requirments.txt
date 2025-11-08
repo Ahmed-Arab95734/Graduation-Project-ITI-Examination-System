@@ -1,9 +1,12 @@
 streamlit
 pandas
+pathlib
+tempfile
 requests
-python-dotenv
-pypyodbc
-joblib
-dotenv
-PBIXRay
+base64
+os
+re
+json
+time
+random
 pbixray
