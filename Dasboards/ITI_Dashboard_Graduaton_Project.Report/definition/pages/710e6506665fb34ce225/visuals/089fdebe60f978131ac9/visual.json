@@ -290,5 +290,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b67650e3f12fedc33460",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimBranch"
+              }
+            },
+            "Property": "Branch_Location"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e3fc5f001284d138c97a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimBranch"
+              }
+            },
+            "Property": "Branch_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8713c0a5eea0f2bc32b2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Total Graduates"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
