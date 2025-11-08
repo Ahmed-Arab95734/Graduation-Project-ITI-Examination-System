@@ -148,14 +148,9 @@ def get_gemini_response(prompt, input_text):
 
 def read_sql_query(query, database):
     """Connect dynamically to either ITIExaminationSystem or ITI_DW"""
-    DRIVER_NAME = 'ODBC Driver 17 for SQL Server'
-    SERVER_NAME = 'ARAB' # <!> IMPORTANT: Make sure this server name is correct
-    CONNECTION_STRING = ("DRIVER={ODBC Driver 17 for SQL Server};"
-    "SERVER=ARAB;"
-    f'DATABASE={database};'
-    "UID=Ahmed Arab;"
-    "PWD=12345;"
-    "Encrypt=no")
+    DRIVER_NAME = 'SQL Server'
+    SERVER_NAME = 'HIMA' # <!> IMPORTANT: Make sure this server name is correct
+    CONNECTION_STRING = f'DRIVER={{{DRIVER_NAME}}};SERVER={SERVER_NAME};DATABASE={database};Trusted_Connection=yes;'
 
     try:
         connection = odbc.connect(CONNECTION_STRING)
@@ -182,7 +177,7 @@ Instructor(Instructor_ID, Instructor_Fname, Instructor_Lname, Instructor_Gender,
 - Branch(Branch_ID, Branch_Location, Branch_Name, Branch_Start_Date)
 - Track(Track_ID, Track_Name, Department_ID)
 - Group(Group_ID, Intake_ID, Branch_ID, Track_ID)
-- Student(Student_ID, Student_Mail, Student_Address, Student_Gender, Student_Marital_Status, Student_Fname, Student_Lname, Student_Birthdate, Student_Faculty, Student_Faculty_Grade, Student_ITI_Status, Group_ID)
+- Student(Student_ID, Student_Mail, Student_Address, Student_Gender, Student_Marital_Status, Student_Fname, Student_Lname, Student_Birthdate, Student_Faculty, Student_Faculty_Grade, Student_ITI_Status, Intake_Branch_Track_ID)
 - Failed_Students(Student_ID, Failure_Reason)
 - Student_Phone(Student_ID, Phone)
 - Student_Social(Student_ID, Social_Type, Social_Url)

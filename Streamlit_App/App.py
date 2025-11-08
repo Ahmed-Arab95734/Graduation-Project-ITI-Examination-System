@@ -14,7 +14,7 @@ import re
 import time
 import random
 import json
-#from pbixray import PBIXRay
+from pbixray import PBIXRay
 
 
 # --- Page setup (set ONCE) ---
@@ -28,14 +28,24 @@ st.set_page_config(
 # BACKGROUND IMAGE SETUP
 # ------------------------------
 def get_base64_of_bin_file(bin_file):
-    # Check if file exists before opening
-    if not os.path.exists(bin_file):
-        st.error(f"Error: Background image file not found at {bin_file}")
-        return None
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
+    if bin_file.startswith(("http://", "https://")):
+        # If it's a URL, download the content
+        try:
+            response = requests.get(bin_file)
+            response.raise_for_status() # Raise exception for bad status codes
+            data = response.content
+        except requests.exceptions.RequestException as e:
+            st.error(f"Error: Could not download background image from URL: {e}")
+            return None
+    else:
+        # If it's a local path
+        if not os.path.exists(bin_file):
+            st.error(f"Error: Background image file not found at {bin_file}")
+            return None
+        with open(bin_file, 'rb') as f:
+            data = f.read()
 
+    return base64.b64encode(data).decode()
 def set_background(png_file):
     bin_str = get_base64_of_bin_file(png_file)
     if bin_str is None:
@@ -53,9 +63,8 @@ def set_background(png_file):
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# Try to set background
-set_background("ITI_Background17601951402362703.png")
 
+set_background("https://raw.githubusercontent.com/ibrahim-98-7/ITI-App-/main/Streamlit%20App/ITI_Background17601951402362703.png")
 # ------------------------------
 # UNIFIED CSS STYLING
 # ------------------------------
@@ -113,23 +122,33 @@ st.markdown("""
 
 
 # Try to import pbixray
-#try:
-  #  from pbixray import PBIXRay
-#except ImportError:
- #   st.error("Could not import `pbixray`. Please install it using: `pip install pbixray`")
-#  st.stop()
+try:
+    from pbixray import PBIXRay
+except ImportError:
+    st.error("Could not import `pbixray`. Please install it using: `pip install pbixray`")
+    st.stop()
 
 # ------------------------------
 # LOGO SETUP
 # ------------------------------
 def get_base64_image(image_path):
-    if not os.path.exists(image_path):
-        st.error(f"Error: Logo file not found at {image_path}")
-        return ""
-    with open(image_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode()
+    if image_path.startswith(("http://", "https://")):
+        try:
+            response = requests.get(image_path)
+            response.raise_for_status()
+            return base64.b64encode(response.content).decode()
+        except requests.exceptions.RequestException as e:
+            st.error(f"Error: Could not download logo from URL: {e}")
+            return ""
+    else:
+        # Local file path logic
+        if not os.path.exists(image_path):
+            st.error(f"Error: Logo file not found at {image_path}")
+            return ""
+        with open(image_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode()
 
-logo_path = "Gemini_Generated_Image_pwn1v3p13472503787887624.png"
+logo_path = "https://raw.githubusercontent.com/ibrahim-98-7/ITI-App-/main/Streamlit%20App/Gemini_Generated_Image_pwn1v3p13472503787887624.png"
 logo_base64 = get_base64_image(logo_path)
 
 # --- Header ---
@@ -172,10 +191,11 @@ if 'file_path' not in st.session_state:
     st.session_state.file_path = ""
 
 # --- Tabs ---
-FireBase, SSRS_Report, tab_dashboard = st.tabs([
+FireBase, SSRS_Report, tab_dashboard, tab_inspector = st.tabs([
     "✏️ Examination ",
     "📝 SSRS Report",
-    "📊 Visualization Dashboards"
+    "📊 Visualization Dashboards",
+    "🧩 PBIX Inspector"
     
 ])
 
@@ -245,6 +265,74 @@ with tab_dashboard:
 # =====================================================================
 # 🧩 TAB 2: PBIX Inspector
 # =====================================================================
+with tab_inspector:
+    st.markdown("<h2 style='text-align:center;'>🧠 PBIX Model Inspector</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align:center;'>Automatically analyzes your ITI Examination System Power BI model.</p>", unsafe_allow_html=True)
+    st.divider()
+    github_pbix_url = (
+        "https://github.com/Ahmed-Arab95734/Graduation-Project-ITI-Examination-System/"
+        "raw/main/Ibrahim/Streamlit%20Application/ITI_Dashboard_Graduaton_Project.pbix"
+    )
+
+    def auto_load_pbix(url):
+        try:
+            with st.spinner("📥 Downloading PBIX file from GitHub..."):
+                response = requests.get(url)
+                response.raise_for_status()
+                with tempfile.NamedTemporaryFile(delete=False, suffix=".pbix") as tmp_file:
+                    tmp_file.write(response.content)
+                    tmp_path = Path(tmp_file.name)
+            with st.spinner("🔍 Analyzing PBIX file..."):
+                model = PBIXRay(tmp_path)
+                st.session_state.pbi_model = model
+                st.session_state.file_path = str(tmp_path)
+            st.success("✅ PBIX file loaded successfully!")
+        except Exception as e:
+            st.error(f"❌ Error loading PBIX file: {e}")
+
+    if st.session_state.pbi_model is None:
+        auto_load_pbix(github_pbix_url)
+
+    if not st.session_state.pbi_model:
+        st.warning("⚠️ PBIX model could not be loaded.")
+    else:
+        model = st.session_state.pbi_model
+        st.success("✅ PBIX model analyzed successfully!")
+
+        # --- DAX Measures ---
+        with st.expander("🧮 DAX Measures", expanded=True):
+            try:
+                dax_df = model.dax_measures
+                st.dataframe(dax_df if not dax_df.empty else pd.DataFrame(["No DAX measures found."]), use_container_width=True)
+            except Exception as e:
+                st.error(f"Error reading DAX: {e}")
+
+        # --- Power Query ---
+        with st.expander("⚙️ Power Query (M) Code"):
+            try:
+                m_df = model.power_query
+                st.dataframe(m_df if not m_df.empty else pd.DataFrame(["No Power Query found."]), use_container_width=True)
+            except Exception as e:
+                st.error(f"Error reading Power Query: {e}")
+
+        # --- Schema ---
+        with st.expander("🧱 Data Model Schema"):
+            try:
+                schema_df = model.schema
+                st.dataframe(schema_df if not schema_df.empty else pd.DataFrame(["No Schema found."]), use_container_width=True)
+            except Exception as e:
+                st.error(f"Error reading Schema: {e}")
+
+        # --- Relationships ---
+        with st.expander("🔗 Model Relationships", expanded=True):
+            try:
+                rel_df = model.relationships
+                if rel_df is not None and not rel_df.empty:
+                    st.dataframe(rel_df, use_container_width=True)
+                else:
+                    st.info("No relationships found in this PBIX model.")
+            except Exception as e:
+                st.error(f"Error reading relationships: {e}")
 
 
 # =====================================================================
@@ -634,4 +722,7 @@ with SSRS_Report:
     components.html(iframe_html, height=870)
 
     st.info("This SSRS report is embedded directly from the Power BI Service (Paginated Report).")
+
+
+
 
