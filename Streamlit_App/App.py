@@ -648,24 +648,23 @@ with FireBase:
         st.session_state.submitted_results = results
 
     def step4_ui():
-        st.subheader("Step 4 — Submission Complete")
+        st.subheader(f'Step 4 — Submission Complete for Student ID: {st.session_state.student_id} | Exam ID: {st.session_state.exam_id}')
         st.success("Your answers have been submitted successfully. You may now close this window.")
         st.balloons()
         
         # Clear sensitive session state
-        st.session_state.student_id = None
+     #   st.session_state.student_id = None
         st.session_state.selected_course_id = None
-        st.session_state.exam_id = None
+       # st.session_state.exam_id = None
         st.session_state.exam_questions = []
         st.session_state.answers = {}
         st.session_state.end_time = None
         
         st.info("If you need to take another exam, please REFRESH the page to log in again.")
         
+        
         res = st.session_state.get("submitted_results", None)
-        if res:
-            with st.expander("View Submission Summary (Technical Details)"):
-                st.json(res)
+
 
     # --- Main App Flow ---
     if "step" in st.session_state:
