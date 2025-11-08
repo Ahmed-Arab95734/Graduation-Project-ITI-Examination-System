@@ -172,12 +172,11 @@ if 'file_path' not in st.session_state:
     st.session_state.file_path = ""
 
 # --- Tabs ---
-tab_dashboard, tab_inspector, FireBase, SSRS_Report, Grade_Predictor = st.tabs([
+tab_dashboard, tab_inspector, FireBase, SSRS_Report = st.tabs([
     "📊 Visualization Dashboards",
     "🧩 PBIX Inspector",
     "✏️ Examination ",
-    "📝 SSRS Report",
-    "🤖 Student Grade Predictor"
+    "📝 SSRS Report"
 ])
 
 # =====================================================================
