@@ -1,31 +1,12 @@
-# Core app framework
 streamlit
-streamlit-components
-
-# Data handling
 pandas
 pathlib
 tempfile
-
-# HTTP and file utilities
 requests
 base64
 os
 re
-
-# Environment management
-python-dotenv
-
-# Database connection
-pypyodbc
-
-# Machine learning / model persistence
-joblib
-
-# Utilities
+json
 time
 random
-json
-
-# PBIX file analysis
 pbixray
