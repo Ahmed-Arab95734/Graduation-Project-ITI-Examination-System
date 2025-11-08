@@ -57,7 +57,10 @@
   },
   "publicCustomVisuals": [
     "histogramF963F133BA02A0B35D286F09F80E9C78",
-    "image9381D9E0B8224040987A3963DA557E0D"
+    "image9381D9E0B8224040987A3963DA557E0D",
+    "maps",
+    "heatmapF244EA9EE1F34E828A80CF19B41976F8",
+    "MapBySquillion"
   ],
   "resourcePackages": [
     {

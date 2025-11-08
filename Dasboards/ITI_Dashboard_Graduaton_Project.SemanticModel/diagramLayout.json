@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 6711.1293236262754,
-        "y": 213.95351501554967
+        "x": 10.576797602776823,
+        "y": 0
       },
       "nodes": [
         {
@@ -405,7 +405,7 @@
           "nodeIndex": "DimDepartment (2)",
           "nodeLineageTag": "0d866cca-2ef1-4f3d-9906-22532a6070d7",
           "size": {
-            "height": 152,
+            "height": 393.75537377775595,
             "width": 234
           },
           "zIndex": 0

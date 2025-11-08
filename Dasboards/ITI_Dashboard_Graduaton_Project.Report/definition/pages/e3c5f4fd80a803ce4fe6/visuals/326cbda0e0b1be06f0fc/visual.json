@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "326cbda0e0b1be06f0fc",
   "position": {
     "x": 1020.5775010504074,
@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Ziad"
+                      "Entity": "AhmedMeasures"
                     }
                   },
-                  "Property": "Ins Count by Track"
+                  "Property": "Instructor Count"
                 }
               },
-              "queryRef": "_Ziad.Ins Count by Track",
-              "nativeQueryRef": "Ins Count by Track"
+              "queryRef": "AhmedMeasures.Instructor Count",
+              "nativeQueryRef": "Instructor Count"
             }
           ]
         }
@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Ziad"
+                    "Entity": "AhmedMeasures"
                   }
                 },
-                "Property": "Ins Count by Track"
+                "Property": "Instructor Count"
               }
             },
             "direction": "Descending"
@@ -324,5 +324,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1be184aea94bfdedd128",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AhmedMeasures"
+              }
+            },
+            "Property": "Instructor Count"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

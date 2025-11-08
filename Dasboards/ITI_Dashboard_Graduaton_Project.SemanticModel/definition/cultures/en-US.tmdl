@@ -12880,16 +12880,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.484
 			          }
-			        },
-			        {
-			          "Instructor Name": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ],
 			      "NameType": "Name"
@@ -30608,48 +30598,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.466
-			          }
-			        }
-			      ]
-			    },
-			    "entity__ziad.ins_count_by_track": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Ziad",
-			          "ConceptualProperty": "Ins Count by Track"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ins count by track": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "ins count": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "in amount by track": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.748
-			          }
-			        },
-			        {
-			          "in amount": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
 			          }
 			        }
 			      ]
