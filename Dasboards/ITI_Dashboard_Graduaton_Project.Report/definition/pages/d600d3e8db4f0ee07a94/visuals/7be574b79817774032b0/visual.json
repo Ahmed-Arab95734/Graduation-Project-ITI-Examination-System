@@ -23,11 +23,11 @@
                       "Entity": "_Mahmoud"
                     }
                   },
-                  "Property": "Overall Failure Rate"
+                  "Property": "Failure"
                 }
               },
-              "queryRef": "_Mahmoud.Overall Failure Rate",
-              "nativeQueryRef": "Overall Failure Rate"
+              "queryRef": "_Mahmoud.Failure",
+              "nativeQueryRef": "Failure"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Mahmoud"
                   }
                 },
-                "Property": "Overall Failure Rate"
+                "Property": "Failure"
               }
             },
             "direction": "Descending"
@@ -227,7 +227,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Avg, Student Grade'"
+                  "Value": "' Failed Students'"
                 }
               }
             },

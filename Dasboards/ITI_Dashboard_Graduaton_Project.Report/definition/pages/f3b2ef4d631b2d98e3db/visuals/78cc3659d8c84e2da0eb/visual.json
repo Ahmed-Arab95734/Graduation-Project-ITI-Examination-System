@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "df524049c5ddd560da98",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "78cc3659d8c84e2da0eb",
   "position": {
-    "x": 321.47410464651847,
-    "y": 134.97004393556116,
-    "z": 0,
-    "height": 479.75715617094926,
-    "width": 390.18612701371325,
-    "tabOrder": 3000
+    "x": 753.01643068069961,
+    "y": 462.7267358219126,
+    "z": 8000,
+    "height": 256.79473006738851,
+    "width": 494.98114636177786,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -75,7 +75,7 @@
                     "Entity": "_Mahmoud"
                   }
                 },
-                "Property": "Overall Failure Rate"
+                "Property": "Is High Risk Track"
               }
             },
             "direction": "Descending"

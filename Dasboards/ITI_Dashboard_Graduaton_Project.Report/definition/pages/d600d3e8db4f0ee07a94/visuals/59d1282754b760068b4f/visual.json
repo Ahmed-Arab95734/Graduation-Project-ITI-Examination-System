@@ -23,11 +23,11 @@
                       "Entity": "_Mahmoud"
                     }
                   },
-                  "Property": "Failure"
+                  "Property": "Overall Failure Rate"
                 }
               },
-              "queryRef": "_Mahmoud.Failure",
-              "nativeQueryRef": "Failure"
+              "queryRef": "_Mahmoud.Overall Failure Rate",
+              "nativeQueryRef": "Overall Failure Rate"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Mahmoud"
                   }
                 },
-                "Property": "Failure"
+                "Property": "Overall Failure Rate"
               }
             },
             "direction": "Descending"
@@ -117,7 +117,7 @@
             "labelPrecision": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "2L"
                 }
               }
             }
@@ -227,7 +227,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Failure Student'"
+                  "Value": "'Failure Rate'"
                 }
               }
             },

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "0b3c894c24bcb0d2710c",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "16076e17f4444bb3a188",
   "position": {
-    "x": 733.74623884968719,
-    "y": 134.97004393556116,
-    "z": 1000,
-    "height": 479.75715617094926,
-    "width": 397.54812941019838,
-    "tabOrder": 2000
+    "x": 219.57810252139018,
+    "y": 229.50253653365638,
+    "z": 9000,
+    "height": 475.1322783372454,
+    "width": 521.03278564397669,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -82,6 +82,24 @@
           }
         ]
       }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "218.0794095726251D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimStudent.Student_FullName"
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "background": [

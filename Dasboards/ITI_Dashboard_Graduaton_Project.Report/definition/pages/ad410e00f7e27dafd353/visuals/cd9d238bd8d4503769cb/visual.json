@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "cd9d238bd8d4503769cb",
   "position": {
     "x": 219.47952203190027,
@@ -291,7 +291,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Students per Instructor '"
+                  "Value": "'Total Topics per courses'"
                 }
               }
             },
