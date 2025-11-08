@@ -72,12 +72,5 @@
         }
       }
     ]
-  },
-  "visualInteractions": [
-    {
-      "source": "71c66e7ef64d35c08310",
-      "target": "7630b631a8a413761152",
-      "type": "NoFilter"
-    }
-  ]
+  }
 }

@@ -6,8 +6,7 @@
     "y": 145.89665653495442,
     "z": 6000,
     "height": 238.29787234042556,
-    "width": 178.96656534954408,
-    "tabOrder": 1000
+    "width": 178.96656534954408
   },
   "visual": {
     "visualType": "slicer",
@@ -87,6 +86,52 @@
                 "Literal": {
                   "Value": "0D"
                 }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "DimJobSite",
+                    "Type": 0
+                  },
+                  {
+                    "Name": "d1",
+                    "Entity": "DimDepartment",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d1"
+                                }
+                              },
+                              "Property": "Department_Name"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Vimeo'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
               }
             }
           }

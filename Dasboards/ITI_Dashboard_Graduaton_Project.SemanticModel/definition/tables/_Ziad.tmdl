@@ -14,10 +14,8 @@ table _Ziad
 		lineageTag: fd2e6261-6e4b-4a16-b047-314081808e4f
 
 	measure 'Avg. St. Salary' = AVERAGE(FactStudentOutcomes[Salary])
-		formatString: #,0.00\ "ج.م.‏";-#,0.00\ "ج.م.‏";#,0.00\ "ج.م.‏"
+		formatString: 0.00
 		lineageTag: 096341b1-9a5e-486e-ab94-be41e84bc774
-
-		annotation PBI_FormatHint = {"currencyCulture":"ar-EG"}
 
 	measure 'Total Hired Graduates Salaries' = CALCULATE(SUM(FactStudentOutcomes[Salary]), USERELATIONSHIP(FactStudentOutcomes[HireDateKey], DimDate[DateKey]))
 		lineageTag: 5de0a47a-f9f7-4da8-8d40-4fbc406867aa
@@ -25,11 +23,11 @@ table _Ziad
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Freelance Earnings' = CALCULATE(SUM(FactFreelanceJob[Job_Earn]), USERELATIONSHIP(FactFreelanceJob[JobDateKey], DimDate[DateKey]))
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: #,0.00
 		lineageTag: b0caa63a-3446-442e-8127-afcaae2b423a
 
 	measure 'Employment Rate %' = DIVIDE(COUNT(FactStudentOutcomes[StudentKey]), [Total Graduates])
-		formatString: 0.00%;-0.00%;0.00%
+		formatString: 0%;-0%;0%
 		lineageTag: 05a29280-649f-4ddc-83f0-701eec255d5d
 
 	measure 'Total Hires' = COUNTROWS(FactStudentOutcomes)

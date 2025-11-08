@@ -332,5 +332,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "e2953ee0a8ab611b60c8"
+  "parentGroupName": "e2953ee0a8ab611b60c8",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7536ba91f36f9774ef28",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Total Freelance Earning"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

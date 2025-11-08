@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "b4f5ed0c7b672165f7d1",
+  "name": "b513d3596da31a412d4f",
   "position": {
-    "x": 12.644376899696049,
-    "y": 391.00303951367783,
-    "z": 6000,
-    "height": 92.401215805471125,
-    "width": 190.63829787234044,
-    "tabOrder": 3000
+    "x": 12.349955610646745,
+    "y": 478.90383423507933,
+    "z": 9000,
+    "height": 93.310775724886525,
+    "width": 190.73820331998863,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,15 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimTrack"
+                      "Entity": "DimBranch"
                     }
                   },
-                  "Property": "Track_Name"
+                  "Property": "Branch_Name"
                 }
               },
-              "queryRef": "DimTrack.Track_Name",
-              "nativeQueryRef": "Track_Name",
-              "active": true
+              "queryRef": "DimBranch.Branch_Name",
+              "nativeQueryRef": "Branch Name",
+              "active": true,
+              "displayName": "Branch Name"
             }
           ]
         }
@@ -159,7 +160,7 @@
       ]
     },
     "syncGroup": {
-      "groupName": "Track_Name",
+      "groupName": "Branch_Name1",
       "fieldChanges": true,
       "filterChanges": true
     },

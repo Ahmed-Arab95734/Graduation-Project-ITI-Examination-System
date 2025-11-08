@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "2eda177430179d259c37",
+  "name": "6f12a63c5008314ff5ae",
   "position": {
-    "x": 12.644376899696049,
-    "y": 391.00303951367783,
-    "z": 7000,
-    "height": 92.401215805471125,
-    "width": 190.63829787234044,
-    "tabOrder": 5000
+    "x": 12.349955610646745,
+    "y": 388.33749309033652,
+    "z": 10000,
+    "height": 90.5663411447428,
+    "width": 189.36598602991677,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,15 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimTrack"
+                      "Entity": "DimIntake"
                     }
                   },
-                  "Property": "Track_Name"
+                  "Property": "Intake_Type"
                 }
               },
-              "queryRef": "DimTrack.Track_Name",
-              "nativeQueryRef": "Track_Name",
-              "active": true
+              "queryRef": "DimIntake.Intake_Type",
+              "nativeQueryRef": "Intake Type",
+              "active": true,
+              "displayName": "Intake Type"
             }
           ]
         }
@@ -82,18 +83,6 @@
       "items": [
         {
           "properties": {
-            "background": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 8,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
             "fontColor": {
               "solid": {
                 "color": {
@@ -105,26 +94,114 @@
                   }
                 }
               }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
             }
           }
         }
       ]
     },
     "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "'12'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ],
       "background": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#3a3240'"
+                    }
+                  }
+                }
+              }
+            },
             "transparency": {
               "expr": {
                 "Literal": {
                   "Value": "100D"
                 }
               }
-            },
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
             "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2a2e45'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -143,23 +220,10 @@
             }
           }
         }
-      ],
-      "border": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "syncGroup": {
-      "groupName": "Track_Name",
+      "groupName": "Intake_Type",
       "fieldChanges": true,
       "filterChanges": true
     },

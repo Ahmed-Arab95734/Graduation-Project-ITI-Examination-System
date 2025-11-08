@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 248.0243161094225,
     "width": 1055.3191489361702,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "lineChart",
@@ -524,123 +524,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "177f475c5c811e815623",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FactSocial"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "created_time"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "91e6504b03984cfc226d",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FactSocial"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "created_time"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Quarter"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a6e7e22254b6ca2ee8f5",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FactSocial"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "created_time"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Month"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b30b2327b740266be84d",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FactSocial"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "created_time"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Day"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d8b5a17c7a969a956d35",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "SocialMeasures"
-              }
-            },
-            "Property": "Total Posts"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

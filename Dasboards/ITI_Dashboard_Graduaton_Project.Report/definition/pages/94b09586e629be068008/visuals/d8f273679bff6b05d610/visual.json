@@ -6,7 +6,8 @@
     "y": 465.55555555555554,
     "z": 5000,
     "height": 245.55555555555554,
-    "width": 494.44444444444446
+    "width": 494.44444444444446,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "lineChart",
@@ -391,5 +392,123 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4482f173e81051981a40",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "98f9962d8eb6a76e8e73",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Quarter"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c81a06d902b0b244ae59",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Month"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d77022a83386bb66b400",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "FullDate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Day"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2496b6072fe9433f3b13",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HaithamMeasures"
+              }
+            },
+            "Property": "Total Certificates Acquired"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
