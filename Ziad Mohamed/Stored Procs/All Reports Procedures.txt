@@ -29,7 +29,7 @@ Student_Address, Student_Birthdate,Student_Marital_Status,
 Student_Faculty, Student_Faculty_Grade,Student_ITI_Status,d.Department_Name
 
 from Student s join [Group] as g 
-on s.Intake_Branch_Track_ID = g.group_id join Track t 
+on s.Group_ID = g.group_id join Track t 
 on t.Track_ID = g.track_id join Department d
 on t.Department_ID = d.Department_ID
 

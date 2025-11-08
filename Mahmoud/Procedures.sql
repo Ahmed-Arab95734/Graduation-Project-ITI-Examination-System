@@ -1014,7 +1014,7 @@ BEGIN
         INSERT INTO Student (
             Student_ID, Student_Mail, Student_Address, Student_Gender, Student_Marital_Status,
             Student_Fname, Student_Lname, Student_Birthdate, Student_Faculty,
-            Student_Faculty_Grade, Student_ITI_Status, Intake_Branch_Track_ID
+            Student_Faculty_Grade, Student_ITI_Status, Group_ID
         )
         VALUES (
             @Student_ID, @Student_Mail, @Student_Address, @Student_Gender, @Student_Marital_Status,
@@ -1078,7 +1078,7 @@ BEGIN
         END
         ELSE IF @GroupID IS NOT NULL
         BEGIN
-            SELECT * FROM Student WHERE Intake_Branch_Track_ID = @GroupID;
+            SELECT * FROM Student WHERE Group_ID = @GroupID;
              IF @@ROWCOUNT = 0
                 PRINT 'No Students found for Group_ID ' + CAST(@GroupID AS VARCHAR) + '.';
         END
@@ -1167,7 +1167,7 @@ BEGIN
             Student_Faculty = @Student_Faculty,
             Student_Faculty_Grade = @Student_Faculty_Grade,
             Student_ITI_Status = @Student_ITI_Status,
-            Intake_Branch_Track_ID = @Intake_Branch_Track_ID
+            Group_ID = @Intake_Branch_Track_ID
         WHERE Student_ID = @Student_ID;
 
         COMMIT TRANSACTION;
