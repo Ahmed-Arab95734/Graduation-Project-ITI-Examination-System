@@ -1,5 +1,7 @@
 streamlit
 pandas
-os
-json
-time
+python-dotenv
+pypyodbc
+joblib
+requests
+pbixray
