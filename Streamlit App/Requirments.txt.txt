@@ -1,7 +1,13 @@
 streamlit
+
 pandas
+
 requests
+
 python-dotenv
+
 pypyodbc
+
 joblib
+
 dotenv
