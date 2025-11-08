@@ -8,7 +8,7 @@ import base64
 import os
 import re
 #from dotenv import load_dotenv
-import pypyodbc as odbc
+#import pypyodbc as odbc
 import joblib
 #from catboost import CatBoostClassifier, Pool
 import time
