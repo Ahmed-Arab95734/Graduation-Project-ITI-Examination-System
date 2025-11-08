@@ -671,7 +671,6 @@ with SSRS_Report:
     # The unified CSS will make all text white.
 
 
-
     # --- REPORT LINKS ---
     REPORTS = {
         "Course Topics": "https://app.powerbi.com/rdlEmbed?reportId=c415569d-8ceb-4aae-bbcd-69de90e9ff1e&autoAuth=true&ctid=0ffeb7b8-177f-48b0-809f-2499efab9107&experience=power-bi&rs:embed=true",
