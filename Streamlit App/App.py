@@ -7,7 +7,7 @@ import requests
 import base64
 import os
 import re
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import pypyodbc as odbc
 import joblib
 #from catboost import CatBoostClassifier, Pool
@@ -320,7 +320,7 @@ with tab_inspector:
 # 🧮 TAB 3: Firebase Connection And Examination system
 # =====================================================================
 with FireBase:
-    load_dotenv()
+  #  load_dotenv()
 
     # --- Page Configuration & URLs ---
     st.markdown("<h2 style='text-align:center;'>✏️ ITI Student Exam Portal </h2>", unsafe_allow_html=True)
@@ -328,7 +328,8 @@ with FireBase:
     st.divider()
 
     # --- Firebase Configuration ---
-    FIREBASE_URL = os.getenv("FIREBASE_URL")  # e.g. https://project-id-default-rtdb.firebaseio.com
+    FIREBASE_URL = "https://iti-examination-default-rtdb.firebaseio.com"
+
 
     if not FIREBASE_URL:
         st.error("FIREBASE_URL not set in .env")
