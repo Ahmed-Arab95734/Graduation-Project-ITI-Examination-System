@@ -216,7 +216,7 @@ with tab_dashboard:
     # POWER BI SECTION
     if dashboard_choice == "Power BI Dashboard":
         st.markdown("<h3 style='text-align:center;'>📊 Power BI Dashboard</h3>", unsafe_allow_html=True)
-        report_url = "https://app.powerbi.com/reportEmbed?reportId=f4db1c94-1880-4411-9985-631532e8a5db&autoAuth=true&ctid=0ffeb7b8-177f-48b0-809f-2499efab9107"
+        report_url = "https://app.powerbi.com/reportEmbed?reportId=d5ff4296-31da-493d-8a86-667db851294e&autoAuth=true&ctid=0ffeb7b8-177f-48b0-809f-2499efab9107"
         components.iframe(report_url, height=850, scrolling=True)
         st.info("This is a live Power BI report. You can interact with filters and visuals directly.")
 
