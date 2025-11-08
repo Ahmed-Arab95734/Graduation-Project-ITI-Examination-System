@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 286.4039408866995,
     "width": 513.39901477832518,
-    "tabOrder": 5000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "scatterChart",
@@ -419,5 +419,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "345ec7e63623d5373dfb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactSocial"
+              }
+            },
+            "Property": "reactions.total_count"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5058b25967e587f390f3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SocialMeasures"
+              }
+            },
+            "Property": "Total Posts"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9dabef17daeae903c9a1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SocialMeasures"
+              }
+            },
+            "Property": "Total Reations"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

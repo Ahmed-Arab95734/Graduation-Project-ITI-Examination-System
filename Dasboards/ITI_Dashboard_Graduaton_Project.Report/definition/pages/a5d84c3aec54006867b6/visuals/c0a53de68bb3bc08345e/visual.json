@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "0fe0d423cb3e1d496ae2",
+  "name": "c0a53de68bb3bc08345e",
   "position": {
-    "x": 12.349955610646745,
-    "y": 633.9643880131996,
-    "z": 11000,
-    "height": 76.844168244024189,
-    "width": 189.36598602991677,
-    "tabOrder": 10000
+    "x": 12.644376899696049,
+    "y": 359.87841945288756,
+    "z": 8000,
+    "height": 90.455927051671736,
+    "width": 189.66565349544075,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimBranch"
+                      "Entity": "DimIntake"
                     }
                   },
-                  "Property": "Branch_Location"
+                  "Property": "Intake_Type"
                 }
               },
-              "queryRef": "DimBranch.Branch_Location",
-              "nativeQueryRef": "Branch Location",
-              "active": true,
-              "displayName": "Branch Location"
+              "queryRef": "DimIntake.Intake_Type",
+              "nativeQueryRef": "Intake_Type",
+              "active": true
             }
           ]
         }
@@ -115,20 +114,6 @@
       "title": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "heading": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Heading3'"
-                }
-              }
-            },
             "titleWrap": {
               "expr": {
                 "Literal": {
@@ -136,43 +121,10 @@
                 }
               }
             },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "italic": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "'12'"
                 }
               }
             },
@@ -200,9 +152,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#3a3240'"
                     }
                   }
                 }
@@ -211,7 +162,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "90D"
+                  "Value": "100D"
                 }
               }
             }
@@ -232,9 +183,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#2a2e45'"
                     }
                   }
                 }
@@ -243,14 +193,14 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "25D"
+                  "Value": "3D"
                 }
               }
             },
             "width": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "1D"
                 }
               }
             }
@@ -269,69 +219,8 @@
             }
           }
         }
-      ],
-      "dropShadow": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "stylePreset": [
-        {
-          "properties": {
-            "name": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Minimal'"
-                }
-              }
-            }
-          }
-        }
       ]
     },
-    "syncGroup": {
-      "groupName": "Branch_Location",
-      "fieldChanges": true,
-      "filterChanges": true
-    },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "62bdda599c478875c807",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimBranch"
-              }
-            },
-            "Property": "Branch_Location"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

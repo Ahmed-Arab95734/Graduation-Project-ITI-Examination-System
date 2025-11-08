@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "9bc5f9084a2ad93b2008",
   "position": {
     "x": 753.33333333333337,
@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 245.55555555555554,
     "width": 494.44444444444446,
-    "tabOrder": 9000
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "barChart",
@@ -321,37 +321,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "2f3abccd5261525e113c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCertificateProvider"
-              }
-            },
-            "Property": "Provider_Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a781eb00c763b34d66b0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Total Certificates Acquired"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

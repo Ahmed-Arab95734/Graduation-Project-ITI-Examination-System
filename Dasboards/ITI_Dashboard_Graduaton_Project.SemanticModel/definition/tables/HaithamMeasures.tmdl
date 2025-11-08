@@ -2,11 +2,12 @@ table HaithamMeasures
 	lineageTag: 90789787-27ad-4b31-bd0f-411734b53e3d
 
 	measure 'Total Rating Submitted' = COUNTROWS(FactStudentRating)
-		formatString: 0.0
 		lineageTag: 12419d00-1bc8-41ed-a260-da35e50b4e26
 
-	measure '% Students Submitting Ratings' = DIVIDE(DISTINCTCOUNT(FactStudentRating[StudentKey]), DISTINCTCOUNT(DimStudent[StudentKey]))
-		formatString: 0%;-0%;0%
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Students Submitting Ratings' = DIVIDE(DISTINCTCOUNT(FactStudentRating[StudentKey]), DISTINCTCOUNT(DimStudent[Student_ID]))
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 2b3a2fc6-1f68-402f-8c48-5066390f297d
 
 	measure 'Total Certificates Acquired' = COUNTROWS(FactCertificate)
@@ -27,7 +28,7 @@ table HaithamMeasures
 		lineageTag: f03bb04a-c394-4ba6-ac73-957b67d66dfa
 
 	measure 'Total Freelance Earning' = SUM(FactFreelanceJob[Job_Earn])
-		formatString: 0.0
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: cf03686d-3d26-4e12-beb7-51e454c1afd0
 
 	measure '% Students with Freelance Jobs' =
@@ -36,7 +37,7 @@ table HaithamMeasures
 			    DISTINCTCOUNT(FactFreelanceJob[StudentKey]),
 			    DISTINCTCOUNT(DimStudent[Student_ID])
 			)
-		formatString: 0.0%;-0.0%;0.0%
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 6c66eff0-8430-422a-91d2-1f825b5093cd
 
 	measure 'Total Freelance Jobs' = COUNTROWS(FactFreelanceJob)
@@ -53,10 +54,8 @@ table HaithamMeasures
 		lineageTag: 1a864770-054d-4a60-9195-28e3db5d6659
 
 	measure 'Average Earnings' = AVERAGE(FactFreelanceJob[Job_Earn])
-		formatString: #,0
+		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 47d05000-3696-4d89-bee0-2af7b172188f
-
-		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'Distinct Both Certified and Freelance' =
 			

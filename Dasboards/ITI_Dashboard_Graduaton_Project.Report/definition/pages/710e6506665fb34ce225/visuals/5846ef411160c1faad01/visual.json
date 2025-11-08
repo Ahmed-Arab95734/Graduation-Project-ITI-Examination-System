@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "0730cb486219457eb600",
+  "name": "5846ef411160c1faad01",
   "position": {
-    "x": 12.349955610646745,
-    "y": 478.90383423507933,
-    "z": 9000,
-    "height": 93.310775724886525,
-    "width": 190.73820331998863,
-    "tabOrder": 8000
+    "x": 12.644376899696049,
+    "y": 432.82674772036478,
+    "z": 7000,
+    "height": 92,
+    "width": 190,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -17,22 +17,61 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimBranch"
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "DimBranch"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Branch_Start_Date"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
                     }
                   },
-                  "Property": "Branch_Name"
+                  "Level": "Year"
                 }
               },
-              "queryRef": "DimBranch.Branch_Name",
-              "nativeQueryRef": "Branch Name",
-              "active": true,
-              "displayName": "Branch Name"
+              "queryRef": "DimBranch.Branch_Start_Date.Variation.Date Hierarchy.Year",
+              "nativeQueryRef": "Branch_Start_Date Year",
+              "active": true
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "PropertyVariationSource": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimBranch"
+                          }
+                        },
+                        "Name": "Variation",
+                        "Property": "Branch_Start_Date"
+                      }
+                    },
+                    "Hierarchy": "Date Hierarchy"
+                  }
+                },
+                "Level": "Year"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -158,11 +197,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "Branch_Name1",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

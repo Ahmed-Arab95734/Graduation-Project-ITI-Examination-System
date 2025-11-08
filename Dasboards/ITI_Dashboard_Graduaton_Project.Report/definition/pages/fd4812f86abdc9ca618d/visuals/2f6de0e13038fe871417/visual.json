@@ -339,23 +339,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "e2953ee0a8ab611b60c8",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "69e2cfeb923348671609",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Average Earnings"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "e2953ee0a8ab611b60c8"
 }

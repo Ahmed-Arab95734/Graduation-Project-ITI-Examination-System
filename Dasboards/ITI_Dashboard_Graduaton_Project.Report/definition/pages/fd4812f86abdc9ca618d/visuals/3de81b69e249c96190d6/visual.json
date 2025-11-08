@@ -6,8 +6,7 @@
     "y": 465.55555555555554,
     "z": 5000,
     "height": 245.55555555555554,
-    "width": 494.44444444444446,
-    "tabOrder": 11000
+    "width": 494.44444444444446
   },
   "visual": {
     "visualType": "barChart",
@@ -341,37 +340,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "1ecece0bbda310e5b863",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimJobSite"
-              }
-            },
-            "Property": "Job_Site_Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "21c40fc89c43ff8ee5ac",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HaithamMeasures"
-              }
-            },
-            "Property": "Total Freelance Jobs"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

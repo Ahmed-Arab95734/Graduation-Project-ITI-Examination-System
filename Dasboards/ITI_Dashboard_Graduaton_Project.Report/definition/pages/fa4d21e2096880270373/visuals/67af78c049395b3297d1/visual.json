@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "a6e2f548beb444ab7248",
+  "name": "67af78c049395b3297d1",
   "position": {
-    "x": 12.349955610646745,
-    "y": 388.33749309033652,
-    "z": 10000,
-    "height": 90.5663411447428,
-    "width": 189.36598602991677,
-    "tabOrder": 9000
+    "x": 13.617021276595745,
+    "y": 359.87841945288756,
+    "z": 8000,
+    "height": 90.455927051671736,
+    "width": 189.66565349544075,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -27,9 +27,8 @@
                 }
               },
               "queryRef": "DimIntake.Intake_Type",
-              "nativeQueryRef": "Intake Type",
-              "active": true,
-              "displayName": "Intake Type"
+              "nativeQueryRef": "Intake_Type",
+              "active": true
             }
           ]
         }
@@ -221,11 +220,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "Intake_Type",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }
