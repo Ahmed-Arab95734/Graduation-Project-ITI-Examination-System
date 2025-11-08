@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "089fdebe60f978131ac9",
   "position": {
     "x": 218.49084249084248,
@@ -10,7 +10,7 @@
     "tabOrder": 2000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "map",
     "query": {
       "queryState": {
         "Category": {
@@ -32,7 +32,25 @@
             }
           ]
         },
-        "Y": {
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimBranch"
+                    }
+                  },
+                  "Property": "Branch_Name"
+                }
+              },
+              "queryRef": "DimBranch.Branch_Name",
+              "nativeQueryRef": "Branch_Name"
+            }
+          ]
+        },
+        "Size": {
           "projections": [
             {
               "field": {
@@ -50,104 +68,42 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Ziad"
-                  }
-                },
-                "Property": "Total Graduates"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "objects": {
-      "categoryAxis": [
-        {
-          "properties": {
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "labelPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'InsideEnd'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "ribbonBands": [
+      "legend": [
         {
           "properties": {
             "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "mapStyles": [
+        {
+          "properties": {
+            "mapTheme": {
+              "expr": {
+                "Literal": {
+                  "Value": "'canvasLight'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "bubbles": [
+        {
+          "properties": {
+            "bubbleSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "-5L"
                 }
               }
             }
@@ -159,13 +115,6 @@
       "title": [
         {
           "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Graduates Per Location'"
-                }
-              }
-            },
             "show": {
               "expr": {
                 "Literal": {
@@ -231,6 +180,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Segoe UI'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Graduates Per Location'"
                 }
               }
             }
@@ -338,7 +294,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "4eeebe4d3dcf17e8f24d",
+        "name": "b67650e3f12fedc33460",
         "field": {
           "Column": {
             "Expression": {
@@ -352,7 +308,21 @@
         "type": "Categorical"
       },
       {
-        "name": "7400e87c1a60ceb3e1c4",
+        "name": "e3fc5f001284d138c97a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimBranch"
+              }
+            },
+            "Property": "Branch_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8713c0a5eea0f2bc32b2",
         "field": {
           "Measure": {
             "Expression": {
