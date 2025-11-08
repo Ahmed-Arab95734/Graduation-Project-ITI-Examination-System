@@ -7,9 +7,9 @@ import requests
 import base64
 import os
 import re
-from dotenv import load_dotenv
-import pypyodbc as odbc
-import joblib
+#from dotenv import load_dotenv
+#import pypyodbc as odbc
+#import joblib
 #from catboost import CatBoostClassifier, Pool
 import time
 import random
@@ -172,11 +172,12 @@ if 'file_path' not in st.session_state:
     st.session_state.file_path = ""
 
 # --- Tabs ---
-tab_dashboard, tab_inspector, FireBase, SSRS_Report = st.tabs([
-    "📊 Visualization Dashboards",
-    "🧩 PBIX Inspector",
+FireBase, SSRS_Report, tab_dashboard, tab_inspector = st.tabs([
     "✏️ Examination ",
-    "📝 SSRS Report"
+    "📝 SSRS Report",
+    "📊 Visualization Dashboards",
+    "🧩 PBIX Inspector"
+    
 ])
 
 # =====================================================================
@@ -196,7 +197,7 @@ with tab_dashboard:
     # POWER BI SECTION
     if dashboard_choice == "Power BI Dashboard":
         st.markdown("<h3 style='text-align:center;'>📊 Power BI Dashboard</h3>", unsafe_allow_html=True)
-        report_url = "https://app.powerbi.com/reportEmbed?reportId=469d6c4a-986b-4f01-bd21-f24cfaf961d1&autoAuth=true&ctid=aee5de94-75d5-4ee4-bcc5-4267ccd37fe2"
+        report_url = "https://app.powerbi.com/reportEmbed?reportId=f4db1c94-1880-4411-9985-631532e8a5db&autoAuth=true&ctid=0ffeb7b8-177f-48b0-809f-2499efab9107"
         components.iframe(report_url, height=850, scrolling=True)
         st.info("This is a live Power BI report. You can interact with filters and visuals directly.")
 
@@ -319,7 +320,7 @@ with tab_inspector:
 # 🧮 TAB 3: Firebase Connection And Examination system
 # =====================================================================
 with FireBase:
-    load_dotenv()
+  #  load_dotenv()
 
     # --- Page Configuration & URLs ---
     st.markdown("<h2 style='text-align:center;'>✏️ ITI Student Exam Portal </h2>", unsafe_allow_html=True)
@@ -327,7 +328,8 @@ with FireBase:
     st.divider()
 
     # --- Firebase Configuration ---
-    FIREBASE_URL = os.getenv("FIREBASE_URL")  # e.g. https://project-id-default-rtdb.firebaseio.com
+    FIREBASE_URL = "https://iti-examination-default-rtdb.firebaseio.com"
+
 
     if not FIREBASE_URL:
         st.error("FIREBASE_URL not set in .env")
@@ -668,14 +670,7 @@ with SSRS_Report:
     # REMOVED: All CSS from here is now consolidated at the top of the file.
     # The unified CSS will make all text white.
 
-    # --- LOGIN INFO ---
-    st.markdown("""
-        <div style="text-align:center; color:#FFFFFF;">
-            <p><strong>Login Credentials:</strong></p>
-            <p>Email: <code>ahmedmohamed3805_sd@nsst.bsu.edu.eg</code></p>
-            <p>Password: <code>Team2_ITI_12345</code></p>
-        </div>
-    """, unsafe_allow_html=True)
+
 
     # --- REPORT LINKS ---
     REPORTS = {
