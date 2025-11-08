@@ -172,6 +172,10 @@ table _Mahmoud
 			```
 		lineageTag: d91e661a-1ee0-45f3-88e9-cb82b5ad4dc0
 
+	measure 'Total Tracks' = DISTINCTCOUNT(DimTrack[TrackKey])
+		formatString: 0
+		lineageTag: 887d9d3a-d36a-442e-bc3a-f93d0c1f51a3
+
 	column Column
 		formatString: 0
 		lineageTag: d6fbd1cd-cb24-445c-b463-c743d36d5720
