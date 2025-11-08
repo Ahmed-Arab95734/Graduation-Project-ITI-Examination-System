@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "1fd6d17a7a84c5d9bd30",
   "position": {
     "x": 219.81762917933131,
     "y": 205.22796352583586,
-    "z": 1000,
+    "z": 3000,
     "height": 260.66869300911856,
     "width": 1029.0577507598784,
-    "tabOrder": 6000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "decompositionTreeVisual",
@@ -38,28 +38,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimCourse"
-                    }
-                  },
-                  "Property": "Course_Name"
-                }
-              },
-              "queryRef": "DimCourse.Course_Name",
-              "nativeQueryRef": "Course_Name",
-              "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimDepartment"
+                      "Entity": "DimDepartment (2)"
                     }
                   },
                   "Property": "Department_Name"
                 }
               },
-              "queryRef": "DimDepartment.Department_Name",
+              "queryRef": "DimDepartment (2).Department_Name",
               "nativeQueryRef": "Department_Name",
               "active": true
             },
@@ -68,13 +53,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimTrack"
+                      "Entity": "DimTrack (2)"
                     }
                   },
                   "Property": "Track_Name"
                 }
               },
-              "queryRef": "DimTrack.Track_Name",
+              "queryRef": "DimTrack (2).Track_Name",
               "nativeQueryRef": "Track_Name",
               "active": true
             },
@@ -83,16 +68,30 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimInstructor"
+                      "Entity": "DimCourse (2)"
+                    }
+                  },
+                  "Property": "Course_Name"
+                }
+              },
+              "queryRef": "DimCourse (2).Course_Name",
+              "nativeQueryRef": "Course_Name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimInstructor (2)"
                     }
                   },
                   "Property": "Instructor_FullName"
                 }
               },
-              "queryRef": "DimInstructor.Instructor_FullName",
-              "nativeQueryRef": "Instructor Name",
-              "active": true,
-              "displayName": "Instructor Name"
+              "queryRef": "DimInstructor (2).Instructor_FullName",
+              "nativeQueryRef": "Instructor_FullName",
+              "active": true
             }
           ]
         }
@@ -124,7 +123,7 @@
         "levels": [
           {
             "queryRefs": [
-              "DimCourse.Course_Name"
+              "DimDepartment (2).Department_Name"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -132,43 +131,18 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimCourse"
-                    }
-                  },
-                  "Property": "Course_Name"
-                }
-              }
-            ],
-            "isPinned": true,
-            "AIInformation": {
-              "method": "MaxSplit"
-            }
-          },
-          {
-            "queryRefs": [
-              "DimDepartment.Department_Name"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimDepartment"
+                      "Entity": "DimDepartment (2)"
                     }
                   },
                   "Property": "Department_Name"
                 }
               }
             ],
-            "isPinned": true,
-            "AIInformation": {
-              "method": "MaxSplit"
-            }
+            "isPinned": true
           },
           {
             "queryRefs": [
-              "DimTrack.Track_Name"
+              "DimTrack (2).Track_Name"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -176,7 +150,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimTrack"
+                      "Entity": "DimTrack (2)"
                     }
                   },
                   "Property": "Track_Name"
@@ -190,7 +164,29 @@
           },
           {
             "queryRefs": [
-              "DimInstructor.Instructor_FullName"
+              "DimCourse (2).Course_Name"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCourse (2)"
+                    }
+                  },
+                  "Property": "Course_Name"
+                }
+              }
+            ],
+            "isPinned": true,
+            "AIInformation": {
+              "method": "MaxSplit"
+            }
+          },
+          {
+            "queryRefs": [
+              "DimInstructor (2).Instructor_FullName"
             ],
             "isCollapsed": true,
             "isPinned": true,
@@ -205,7 +201,7 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Intro to Data Analytics & Power BI'"
+                    "Value": "'System Development'"
                   }
                 }
               ],
@@ -215,7 +211,7 @@
                   "identityValues": [
                     {
                       "Literal": {
-                        "Value": "'System Development'"
+                        "Value": "'Power BI Development'"
                       }
                     }
                   ],
@@ -225,7 +221,7 @@
                       "identityValues": [
                         {
                           "Literal": {
-                            "Value": "'Power BI Development'"
+                            "Value": "'SQL for Analysts'"
                           }
                         }
                       ],
@@ -340,125 +336,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "DimCourse"
-                          }
-                        },
-                        "Property": "Course_Name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Intro to Data Analytics & Power BI'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "isAINode": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "DimCourse"
-                          }
-                        },
-                        "Property": "Course_Name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Intro to Data Analytics & Power BI'"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "DimDepartment"
-                          }
-                        },
-                        "Property": "Department_Name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'System Development'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "isAINode": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "DimCourse"
-                          }
-                        },
-                        "Property": "Course_Name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Intro to Data Analytics & Power BI'"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "DimDepartment"
+                            "Entity": "DimDepartment (2)"
                           }
                         },
                         "Property": "Department_Name"
@@ -480,7 +358,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "DimTrack"
+                            "Entity": "DimTrack (2)"
                           }
                         },
                         "Property": "Track_Name"
@@ -517,29 +395,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "DimCourse"
-                          }
-                        },
-                        "Property": "Course_Name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Intro to Data Analytics & Power BI'"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "DimDepartment"
+                            "Entity": "DimDepartment (2)"
                           }
                         },
                         "Property": "Department_Name"
@@ -561,7 +417,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "DimTrack"
+                            "Entity": "DimTrack (2)"
                           }
                         },
                         "Property": "Track_Name"
@@ -583,7 +439,110 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "DimInstructor"
+                            "Entity": "DimCourse (2)"
+                          }
+                        },
+                        "Property": "Course_Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'SQL for Analysts'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "isAINode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimDepartment (2)"
+                          }
+                        },
+                        "Property": "Department_Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'System Development'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimTrack (2)"
+                          }
+                        },
+                        "Property": "Track_Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Power BI Development'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimCourse (2)"
+                          }
+                        },
+                        "Property": "Course_Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'SQL for Analysts'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimInstructor (2)"
                           }
                         },
                         "Property": "Instructor_FullName"
@@ -591,7 +550,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Youssef Kamal'"
+                        "Value": "'Walid Said'"
                       }
                     }
                   }

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "4dff1268898e70514fcc",
   "position": {
     "x": 753.79939209726444,
@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 235.37993920972644,
     "width": 494.10334346504561,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "scatterChart",
@@ -20,15 +20,33 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimInstructor"
+                      "Entity": "DimInstructor (2)"
                     }
                   },
                   "Property": "Instructor_FullName"
                 }
               },
-              "queryRef": "DimInstructor.Instructor_FullName",
+              "queryRef": "DimInstructor (2).Instructor_FullName",
               "nativeQueryRef": "Instructor_FullName",
               "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimInstructor (2)"
+                    }
+                  },
+                  "Property": "Is_Manager"
+                }
+              },
+              "queryRef": "DimInstructor (2).Is_Manager",
+              "nativeQueryRef": "Is_Manager"
             }
           ]
         },
@@ -432,6 +450,121 @@
             }
           ]
         }
+      },
+      {
+        "name": "8b7c2be702da5fe88637",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor"
+              }
+            },
+            "Property": "Is_Manager"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimInstructor",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "Is_Manager"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "bc0a05ff304a25509899",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AhmedMeasures"
+              }
+            },
+            "Property": "Avg. Rating"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "16c180a515220e5db14f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor (2)"
+              }
+            },
+            "Property": "Is_Manager"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9851e9dbd9b4ae5113d3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor (2)"
+              }
+            },
+            "Property": "Instructor_FullName"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "0c61b16b7a30a626e62c",
   "position": {
-    "x": 267.46240913272379,
-    "y": 0,
-    "z": 1000,
+    "x": 487.01717554422146,
+    "y": 72,
+    "z": 2000,
     "height": 122.70003994141925,
     "width": 227.28190515382639,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -271,16 +271,29 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "0f288a48f308bdaef987",
   "filterConfig": {
     "filters": [
       {
-        "name": "76ee743334f34341fa00",
+        "name": "c55eaf1c9d139bfdb687",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AhmedMeasures"
+              }
+            },
+            "Property": "Avg. Salary"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "48b6c790cc924e129e1b",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "DimInstructor"
+                "Entity": "DimInstructor (2)"
               }
             },
             "Property": "Instructor_Contract_Type"
@@ -292,7 +305,7 @@
           "From": [
             {
               "Name": "d",
-              "Entity": "DimInstructor",
+              "Entity": "DimInstructor (2)",
               "Type": 0
             }
           ],

@@ -1,0 +1,47 @@
+table 'DimCourse (2)'
+	lineageTag: fb5ac129-0a62-4e39-afc1-584c3811b390
+
+	column CourseKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b3b0048-b82d-4277-90b1-ff242e1a9efb
+		summarizeBy: none
+		sourceColumn: CourseKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Course_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: c22b7f93-1b91-4972-9a4a-175158e1d822
+		summarizeBy: count
+		sourceColumn: Course_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Course_Name
+		dataType: string
+		lineageTag: 3e13b1f4-028e-4f91-8756-988916c7f882
+		summarizeBy: none
+		sourceColumn: Course_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrackKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 374416f6-b645-4f5d-b7cf-19851c1f4535
+		summarizeBy: none
+		sourceColumn: TrackKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DimCourse (2)' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ARAB", "ITI_DW"),
+				    dbo_DimCourse = Source{[Schema="dbo",Item="DimCourse"]}[Data]
+				in
+				    dbo_DimCourse
+

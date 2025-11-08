@@ -1,0 +1,46 @@
+table 'DimQuestion (2)'
+	lineageTag: def2a303-60cf-45d1-a2a6-63f6c7a65b18
+
+	column QuestionKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 73c64d9f-09ef-460d-80d2-ce355dadd2ba
+		summarizeBy: none
+		sourceColumn: QuestionKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Question_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 96efc38b-457e-48ee-948b-446c28c90ddb
+		summarizeBy: none
+		sourceColumn: Question_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Question_Type
+		dataType: string
+		lineageTag: b0d3e040-7667-48f8-aa69-4c5c6502ab8d
+		summarizeBy: none
+		sourceColumn: Question_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Question_Description
+		dataType: string
+		lineageTag: 1c6ca6d1-d18e-4e91-aaca-29565539e623
+		summarizeBy: none
+		sourceColumn: Question_Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DimQuestion (2)' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ARAB", "ITI_DW"),
+				    dbo_DimQuestion = Source{[Schema="dbo",Item="DimQuestion"]}[Data]
+				in
+				    dbo_DimQuestion
+

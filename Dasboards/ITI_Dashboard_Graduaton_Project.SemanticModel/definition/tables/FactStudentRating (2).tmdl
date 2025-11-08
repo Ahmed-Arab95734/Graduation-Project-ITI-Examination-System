@@ -1,0 +1,48 @@
+table 'FactStudentRating (2)'
+	lineageTag: 1332f615-0d09-482c-9239-adf36225508b
+
+	column StudentKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a55114c-b76f-47ad-8ea6-b3d4a3a91a26
+		summarizeBy: count
+		sourceColumn: StudentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column InstructorKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 995b9d38-aaec-4f34-937b-e72b91bfd292
+		summarizeBy: none
+		sourceColumn: InstructorKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column RatingValue
+		dataType: int64
+		formatString: 0
+		lineageTag: 9efdb3a6-fa24-47b9-a72f-e26e7ab33d1b
+		summarizeBy: sum
+		sourceColumn: RatingValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column RateDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b1cdd67-fb89-415c-83ee-d4b5ebc8422c
+		summarizeBy: none
+		sourceColumn: RateDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'FactStudentRating (2)' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ARAB", "ITI_DW"),
+				    dbo_FactStudentRating = Source{[Schema="dbo",Item="FactStudentRating"]}[Data]
+				in
+				    dbo_FactStudentRating
+

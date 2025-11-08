@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "9bbacec1d522ade5020d",
   "position": {
-    "x": 219.81762917933131,
-    "y": 474.65045592705167,
-    "z": 2000,
-    "height": 237.32522796352583,
-    "width": 495.07598784194533,
-    "tabOrder": 10000
+    "x": 219.57077332527984,
+    "y": 483.98346514656754,
+    "z": 4000,
+    "height": 236.5797768927311,
+    "width": 494.80737650767287,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimCourse"
+                      "Entity": "DimCourse (2)"
                     }
                   },
                   "Property": "Course_Name"
                 }
               },
-              "queryRef": "DimCourse.Course_Name",
+              "queryRef": "DimCourse (2).Course_Name",
               "nativeQueryRef": "Course_Name",
               "active": true
             }

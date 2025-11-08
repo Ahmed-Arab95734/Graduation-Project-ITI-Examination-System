@@ -3,7 +3,7 @@ table AhmedMeasures
 
 	measure 'Avg. Rating' = ```
 			
-			    AVERAGE(FactStudentRating[RatingValue])
+			    AVERAGE('FactStudentRating (2)'[RatingValue])
 			```
 		lineageTag: d79e0e92-225f-482e-a036-93e287a1b4d9
 
@@ -25,14 +25,14 @@ table AhmedMeasures
 
 	measure 'Total Instructors' = ```
 			
-			    DISTINCTCOUNT(DimInstructor[InstructorKey])
+			    DISTINCTCOUNT('DimInstructor (2)'[InstructorKey])
 			```
 		formatString: 0
 		lineageTag: 24a1faea-debb-43f8-adc9-2e8972093696
 
 	measure 'Avg. Salary' = ```
 			
-			    AVERAGE(DimInstructor[Instructor_Salary])
+			    AVERAGE('DimInstructor (2)'[Instructor_Salary])
 			
 			```
 		lineageTag: 655e6e10-749c-45d6-81b0-f6b30b3146c8
@@ -41,7 +41,7 @@ table AhmedMeasures
 
 	measure 'Total Salary (Payroll)' = ```
 			
-			    SUM(DimInstructor[Instructor_Salary])
+			    SUM('DimInstructor (2)'[Instructor_Salary])
 			
 			```
 		formatString: 0
@@ -109,7 +109,7 @@ table AhmedMeasures
 
 	measure 'Avg.Grade' = ```
 			
-			    AVERAGE(FactStudentPerformance[Student_Grade])
+			    AVERAGE('FactStudentPerformance (2)'[Student_Grade])
 			```
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 10f23101-5372-438e-bb6d-9dcc1b83d0cb
@@ -141,11 +141,11 @@ table AhmedMeasures
 	measure 'Easiest Course' = TOPN(1, VALUES(DimCourse[Course_Name]), [Avg. Grade], DESC)
 		lineageTag: d7d473ea-9460-4aec-bfb7-bbcc7b1cc15e
 
-	measure 'Distinct Students Taught' = DISTINCTCOUNT(FactStudentPerformance[StudentKey])
+	measure 'Distinct Students Taught' = DISTINCTCOUNT('FactStudentPerformance (2)'[StudentKey])
 		formatString: 0
 		lineageTag: a82d5411-f3a7-4a11-84c4-69cd956f4231
 
-	measure 'Instructor Count' = DISTINCTCOUNT(DimInstructor[InstructorKey])
+	measure 'Instructor Count' = DISTINCTCOUNT('DimInstructor (2)'[InstructorKey])
 		formatString: 0
 		lineageTag: 10835fcd-512d-4dce-8c91-fb4e8b234702
 
@@ -156,7 +156,7 @@ table AhmedMeasures
 
 	measure 'Full-Time %' =
 			
-			VAR FullTimeCount = CALCULATE([Instructor Count], DimInstructor[Instructor_Contract_Type] = "Full-Time")
+			VAR FullTimeCount = CALCULATE([Instructor Count], 'DimInstructor (2)'[Instructor_Contract_Type] = "Full-Time")
 			VAR TotalStaff = [Instructor Count]
 			RETURN
 			DIVIDE(FullTimeCount, TotalStaff)

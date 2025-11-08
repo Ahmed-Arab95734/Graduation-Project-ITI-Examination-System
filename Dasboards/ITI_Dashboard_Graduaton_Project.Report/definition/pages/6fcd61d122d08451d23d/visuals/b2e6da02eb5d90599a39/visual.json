@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "b2e6da02eb5d90599a39",
   "position": {
     "x": 753.79939209726444,
     "y": 207.17325227963528,
     "z": 3000,
     "height": 241.21580547112464,
-    "width": 494.10334346504561,
-    "tabOrder": 1000
+    "width": 494.10334346504561
   },
   "visual": {
     "visualType": "columnChart",
@@ -20,13 +19,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimDepartment"
+                      "Entity": "DimDepartment (2)"
                     }
                   },
                   "Property": "Department_Name"
                 }
               },
-              "queryRef": "DimDepartment.Department_Name",
+              "queryRef": "DimDepartment (2).Department_Name",
               "nativeQueryRef": "Department_Name",
               "active": true
             }
@@ -39,13 +38,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimInstructor"
+                      "Entity": "DimInstructor (2)"
                     }
                   },
                   "Property": "Instructor_Contract_Type"
                 }
               },
-              "queryRef": "DimInstructor.Instructor_Contract_Type",
+              "queryRef": "DimInstructor (2).Instructor_Contract_Type",
               "nativeQueryRef": "Instructor_Contract_Type"
             }
           ]
@@ -223,6 +222,90 @@
                         "Expression": {
                           "SourceRef": {
                             "Entity": "DimInstructor"
+                          }
+                        },
+                        "Property": "Instructor_Contract_Type"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Part-Time'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimInstructor (2)"
+                          }
+                        },
+                        "Property": "Instructor_Contract_Type"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Full-Time'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimInstructor (2)"
                           }
                         },
                         "Property": "Instructor_Contract_Type"
@@ -420,5 +503,81 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "433c5a90697685e74624",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor (2)"
+              }
+            },
+            "Property": "Instructor_Contract_Type"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimInstructor (2)",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "Instructor_Contract_Type"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }

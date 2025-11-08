@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "1f6f5017098a46a3c15e",
   "position": {
     "x": 220.790273556231,
     "y": 217.87234042553192,
-    "z": 1000,
+    "z": 2000,
     "height": 248.99696048632219,
     "width": 646.80851063829789,
-    "tabOrder": 7000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "decompositionTreeVisual",

@@ -1,0 +1,47 @@
+table 'DimTrack (2)'
+	lineageTag: a17239d8-3393-4d91-8895-225f7962f7a1
+
+	column TrackKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a0758a08-2d21-4e4b-a21e-df0335c4842c
+		summarizeBy: none
+		sourceColumn: TrackKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Track_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 43572874-da72-4e3b-b55a-36a307a7ae51
+		summarizeBy: count
+		sourceColumn: Track_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Track_Name
+		dataType: string
+		lineageTag: 40ccb9a7-e961-4e20-96ad-e6b988b3738f
+		summarizeBy: none
+		sourceColumn: Track_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c87efe15-1c73-404c-816e-d4092cde9ef8
+		summarizeBy: none
+		sourceColumn: DepartmentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DimTrack (2)' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ARAB", "ITI_DW"),
+				    dbo_DimTrack = Source{[Schema="dbo",Item="DimTrack"]}[Data]
+				in
+				    dbo_DimTrack
+

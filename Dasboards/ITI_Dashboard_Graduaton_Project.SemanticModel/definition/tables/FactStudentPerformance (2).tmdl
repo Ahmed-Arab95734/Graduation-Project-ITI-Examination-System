@@ -1,0 +1,76 @@
+table 'FactStudentPerformance (2)'
+	lineageTag: fd465193-b1b0-4bd6-befe-13a546576d92
+
+	column StudentKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b2ee25e-dec0-4408-931e-0081c349a9a1
+		summarizeBy: count
+		sourceColumn: StudentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CourseKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fdc3796-c70a-4b17-b968-c6c1341f6a52
+		summarizeBy: count
+		sourceColumn: CourseKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column InstructorKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 911abc7c-8119-46e4-b2cd-a14dd2ce82a0
+		summarizeBy: none
+		sourceColumn: InstructorKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExamKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f3d49a45-d916-4012-a3f5-6dafb11d5e4c
+		summarizeBy: none
+		sourceColumn: ExamKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuestionKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 048577c9-105c-4f7e-9040-e38bff87f3ad
+		summarizeBy: none
+		sourceColumn: QuestionKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExamDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c3a18ba6-4dda-4395-8d21-b5aa6969ba72
+		summarizeBy: none
+		sourceColumn: ExamDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Student_Grade
+		dataType: double
+		lineageTag: 83416e30-51d3-4d61-aacd-0ab826698634
+		summarizeBy: sum
+		sourceColumn: Student_Grade
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'FactStudentPerformance (2)' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ARAB", "ITI_DW"),
+				    dbo_FactStudentPerformance = Source{[Schema="dbo",Item="FactStudentPerformance"]}[Data]
+				in
+				    dbo_FactStudentPerformance
+

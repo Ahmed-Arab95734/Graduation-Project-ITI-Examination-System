@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "661f433e67f6609f39e1",
   "position": {
     "x": 219.81762917933131,
     "y": 477.56838905775078,
-    "z": 2000,
+    "z": 5000,
     "height": 234.40729483282675,
-    "width": 494.10334346504561
+    "width": 494.10334346504561,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -19,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimInstructor"
+                      "Entity": "DimInstructor (2)"
                     }
                   },
                   "Property": "Salary Band"
                 }
               },
-              "queryRef": "DimInstructor.Salary Band",
+              "queryRef": "DimInstructor (2).Salary Band",
               "nativeQueryRef": "Salary Band",
               "active": true
             }

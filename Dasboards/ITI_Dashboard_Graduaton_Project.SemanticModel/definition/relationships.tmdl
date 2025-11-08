@@ -203,8 +203,67 @@ relationship bbe255ae-37fd-4205-acc9-d8ca6fdbc9d9
 	fromColumn: FactSocial.created_time
 	toColumn: LocalDateTable_16b0038e-35fa-4308-8913-3ea4b7ba4ece.Date
 
-relationship d7a6a603-be70-e587-a9e7-6d7c46b06b6f
+relationship 493d6038-9b28-45a8-b231-7f2bc0802f24
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DimInstructor (2)'.Instructor_Birthdate
+	toColumn: LocalDateTable_e534014a-5eb1-4279-b08e-db9998f9a8d8.Date
+
+relationship cec5ad7b-77b4-4c53-a179-161ddf188a3d
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'DimInstructor (2)'.CourseKey
+	toColumn: 'DimCourse (2)'.CourseKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 91430c55-24f8-441b-9a47-b52094979eb3
+	fromColumn: 'DimCourse (2)'.TrackKey
+	toColumn: 'DimTrack (2)'.TrackKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 3a6d0340-be60-483c-bff2-33e2c9e7012d
+	fromColumn: 'FactStudentPerformance (2)'.InstructorKey
+	toColumn: 'DimInstructor (2)'.InstructorKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 1f43911c-191b-44be-a895-4eee1f4fe4ef
 	isActive: false
-	fromColumn: DimInstructor.DepartmentKey
-	toColumn: DimDepartment.DepartmentKey
+	fromColumn: 'FactStudentPerformance (2)'.CourseKey
+	toColumn: 'DimCourse (2)'.CourseKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 665f4a7b-615a-4be6-bfa6-904b8ee7776f
+	fromColumn: 'FactStudentPerformance (2)'.ExamKey
+	toColumn: 'DimExam (2)'.ExamKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 066fe426-ed4f-419c-9144-4446f063d2de
+	fromColumn: 'FactStudentPerformance (2)'.QuestionKey
+	toColumn: 'DimQuestion (2)'.QuestionKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 43d50141-ed00-4dba-a4b7-e7a5d8371017
+	fromColumn: 'FactStudentRating (2)'.InstructorKey
+	toColumn: 'DimInstructor (2)'.InstructorKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship b94f27c2-dab8-4c31-9b79-f237d003ff7e
+	fromColumn: 'DimTrack (2)'.DepartmentKey
+	toColumn: 'DimDepartment (2)'.DepartmentKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 9ea08427-6d1f-9c77-da6a-1055f0a971a4
+	fromColumn: 'FactStudentRating (2)'.RateDateKey
+	toColumn: DimDate.DateKey
+
+relationship 02575eab-e721-222e-3420-79a2cd765c28
+	fromColumn: 'FactStudentPerformance (2)'.ExamDateKey
+	toColumn: DimDate.DateKey
 

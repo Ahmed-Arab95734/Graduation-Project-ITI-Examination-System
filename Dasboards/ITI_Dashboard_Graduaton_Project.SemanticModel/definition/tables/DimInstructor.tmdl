@@ -114,12 +114,20 @@ table DimInstructor
 
 		annotation SummarizationSetBy = User
 
-	column DepartmentKey
+	column CourseKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 7252eb84-bfb5-45e9-8eec-4e7629b4ab89
+		lineageTag: 7bf5e808-8f9b-479f-993f-56d5f1002f61
 		summarizeBy: count
-		sourceColumn: DepartmentKey
+		sourceColumn: CourseKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Is_Manager
+		dataType: string
+		lineageTag: 8a0d1d57-4178-44bd-a2a5-52a4785ee0a4
+		summarizeBy: none
+		sourceColumn: Is_Manager
 
 		annotation SummarizationSetBy = Automatic
 
@@ -134,4 +142,6 @@ table DimInstructor
 				    dbo_DimInstructor
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

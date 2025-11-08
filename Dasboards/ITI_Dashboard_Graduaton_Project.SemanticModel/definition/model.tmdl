@@ -10,7 +10,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["Companies Fileds","DimBranch","DimCertificate","DimCertificateProvider","DimCompany","DimCourse","DimDate","DimDepartment","DimExam","DimFailureReason","DimInstructor","DimIntake","DimJobSite","DimQuestion","DimStudent","DimTopic","DimTrack","FactCertificate","FactFreelanceJob","FactStudentFailure","FactStudentPerformance","FactStudentOutcomes","FactStudentRating","FactSocial","ArabSocial"]
+annotation PBI_QueryOrder = ["Companies Fileds","DimBranch","DimCertificate","DimCertificateProvider","DimCompany","DimCourse","DimDate","DimDepartment","DimExam","DimFailureReason","DimInstructor","DimIntake","DimJobSite","DimQuestion","DimStudent","DimTopic","DimTrack","FactCertificate","FactFreelanceJob","FactStudentFailure","FactStudentPerformance","FactStudentOutcomes","FactStudentRating","FactSocial","ArabSocial","DimInstructor (2)","DimCourse (2)","FactStudentPerformance (2)","FactStudentRating (2)","DimTrack (2)","DimExam (2)","DimQuestion (2)","DimDepartment (2)"]
 
 ref table _Ziad
 ref table HaithamMeasures
@@ -48,6 +48,15 @@ ref table FactStudentRating
 ref table SocialMeasures
 ref table FactSocial
 ref table LocalDateTable_16b0038e-35fa-4308-8913-3ea4b7ba4ece
+ref table 'DimInstructor (2)'
+ref table LocalDateTable_e534014a-5eb1-4279-b08e-db9998f9a8d8
+ref table 'DimCourse (2)'
+ref table 'FactStudentPerformance (2)'
+ref table 'FactStudentRating (2)'
+ref table 'DimTrack (2)'
+ref table 'DimExam (2)'
+ref table 'DimQuestion (2)'
+ref table 'DimDepartment (2)'
 
 ref cultureInfo en-US
 

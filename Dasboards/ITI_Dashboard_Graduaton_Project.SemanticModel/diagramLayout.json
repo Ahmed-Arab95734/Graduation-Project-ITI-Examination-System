@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 4794.0333964902966,
-        "y": 721.56234252859542
+        "x": 6711.1293236262754,
+        "y": 213.95351501554967
       },
       "nodes": [
         {
@@ -140,8 +140,8 @@
         },
         {
           "location": {
-            "x": 1156.6216802983349,
-            "y": 703.52583476409689
+            "x": 7137.0452391255722,
+            "y": 259.30033544747016
           },
           "nodeIndex": "DimDate",
           "nodeLineageTag": "0291bf5d-559f-4460-8e8b-b5db7af8d30f",
@@ -250,7 +250,7 @@
           "nodeIndex": "DimStudent",
           "nodeLineageTag": "c28fdf97-2dc6-4faa-b7b7-c24cb7613f81",
           "size": {
-            "height": 371.77380769240881,
+            "height": 409.50214237324462,
             "width": 234
           },
           "zIndex": 15
@@ -341,7 +341,7 @@
           "nodeIndex": "FactStudentPerformance",
           "nodeLineageTag": "3d41984b-a018-4606-a7a3-3a02ab204817",
           "size": {
-            "height": 260.42238979291687,
+            "height": 292.94681624191321,
             "width": 234
           },
           "zIndex": 27
@@ -383,10 +383,114 @@
             "width": 234
           },
           "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 7138.84126387472,
+            "y": 905.222655096702
+          },
+          "nodeIndex": "DimCourse (2)",
+          "nodeLineageTag": "fb5ac129-0a62-4e39-afc1-584c3811b390",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6852.7279455934568,
+            "y": 585.72898880894149
+          },
+          "nodeIndex": "DimDepartment (2)",
+          "nodeLineageTag": "0d866cca-2ef1-4f3d-9906-22532a6070d7",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7316.8085229454182,
+            "y": 1227.1971527741825
+          },
+          "nodeIndex": "DimExam (2)",
+          "nodeLineageTag": "056e86f2-a8ee-4ba4-a661-af8f138abbdc",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7425.86301148309,
+            "y": 574.029009176399
+          },
+          "nodeIndex": "DimInstructor (2)",
+          "nodeLineageTag": "fde63d0a-43e1-49ec-b94c-0a040aee56fb",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7827.1570620949933,
+            "y": 793.04680011578625
+          },
+          "nodeIndex": "DimQuestion (2)",
+          "nodeLineageTag": "def2a303-60cf-45d1-a2a6-63f6c7a65b18",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7139.7955350293369,
+            "y": 550.51185607626462
+          },
+          "nodeIndex": "DimTrack (2)",
+          "nodeLineageTag": "a17239d8-3393-4d91-8895-225f7962f7a1",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7541.4583718708218,
+            "y": 927.511246493176
+          },
+          "nodeIndex": "FactStudentPerformance (2)",
+          "nodeLineageTag": "fd465193-b1b0-4bd6-befe-13a546576d92",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7491.3631114767359,
+            "y": 344.90652814398209
+          },
+          "nodeIndex": "FactStudentRating (2)",
+          "nodeLineageTag": "1332f615-0d09-482c-9239-adf36225508b",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
-      "zoomValue": 89.527953708920052,
+      "zoomValue": 66.182603306715691,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

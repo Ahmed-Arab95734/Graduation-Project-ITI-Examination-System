@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "da17ab844bb8156632b3",
   "position": {
-    "x": 801.37489740196645,
-    "y": 0.54889947905325,
-    "z": 3000,
+    "x": 1020.9296638134641,
+    "y": 72.548899479053247,
+    "z": 6000,
     "height": 122.12733881639559,
-    "width": 227.78807015192885,
-    "tabOrder": 1000
+    "width": 227.78807015192885
   },
   "visual": {
     "visualType": "card",
@@ -271,5 +270,76 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "0f288a48f308bdaef987"
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d41853996aa959723735",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AhmedMeasures"
+              }
+            },
+            "Property": "Avg. Salary"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9a6847159e8d4687b0b9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimInstructor (2)"
+              }
+            },
+            "Property": "Is_Manager"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimInstructor (2)",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Is_Manager"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Yes'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
 }

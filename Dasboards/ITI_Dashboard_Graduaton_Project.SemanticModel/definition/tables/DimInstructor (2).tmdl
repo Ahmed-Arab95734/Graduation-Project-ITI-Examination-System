@@ -1,0 +1,135 @@
+table 'DimInstructor (2)'
+	lineageTag: fde63d0a-43e1-49ec-b94c-0a040aee56fb
+
+	column InstructorKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 490b94f4-adbc-41fa-9d41-7df5642c1136
+		summarizeBy: none
+		sourceColumn: InstructorKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Instructor_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 2969f818-c9ea-4f36-9c9d-022ee7c1784d
+		summarizeBy: count
+		sourceColumn: Instructor_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Instructor_FullName
+		dataType: string
+		lineageTag: 21dc1b5d-eecf-4982-9fd2-bbeddd4e704a
+		summarizeBy: none
+		sourceColumn: Instructor_FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Instructor_Gender
+		dataType: string
+		lineageTag: 5aeac6de-32fd-44ae-8d13-5f043de97e35
+		summarizeBy: none
+		sourceColumn: Instructor_Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Instructor_Birthdate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 76c65b77-c25f-41fb-8efc-feb99893ef16
+		summarizeBy: none
+		sourceColumn: Instructor_Birthdate
+
+		variation Variation
+			isDefault
+			relationship: 493d6038-9b28-45a8-b231-7f2bc0802f24
+			defaultHierarchy: LocalDateTable_e534014a-5eb1-4279-b08e-db9998f9a8d8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Instructor_Marital_Status
+		dataType: string
+		lineageTag: 4b474adb-74da-41e3-b4f0-8909e0f20ff1
+		summarizeBy: none
+		sourceColumn: Instructor_Marital_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Instructor_Contract_Type
+		dataType: string
+		lineageTag: 36a31b3f-7d63-4914-94bf-9ecb997c74f9
+		summarizeBy: none
+		sourceColumn: Instructor_Contract_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Instructor_Salary
+		dataType: int64
+		formatString: 0
+		lineageTag: a678ee83-ac59-4093-bc31-389b480d6453
+		summarizeBy: sum
+		sourceColumn: Instructor_Salary
+
+		annotation SummarizationSetBy = Automatic
+
+	column Instructor_Email
+		dataType: string
+		lineageTag: d8273f05-8c3b-451a-91fc-60403829711f
+		summarizeBy: none
+		sourceColumn: Instructor_Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: ec07af50-9836-4a23-a422-fc29702830a2
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column CourseKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a7e9167-bb21-4d68-92a1-b77434ca0b95
+		summarizeBy: none
+		sourceColumn: CourseKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Is_Manager
+		dataType: string
+		lineageTag: 76acb291-8d43-4404-84f6-b0ee6f74f6b7
+		summarizeBy: none
+		sourceColumn: Is_Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Salary Band' = ```
+			
+			    SWITCH(
+			        TRUE(),
+			        'DimInstructor (2)'[Instructor_Salary] < 12000, "8 - 12k",
+			        'DimInstructor (2)'[Instructor_Salary] < 15000, "12k - 15k",
+			       'DimInstructor (2)'[Instructor_Salary]< 20000, "15k - 20k",
+			        "20k+"
+			    )
+			```
+		lineageTag: 05561124-76a2-46c1-aadf-ea61d723e836
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DimInstructor (2)' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ARAB", "ITI_DW"),
+				    dbo_DimInstructor = Source{[Schema="dbo",Item="DimInstructor"]}[Data]
+				in
+				    dbo_DimInstructor
+
