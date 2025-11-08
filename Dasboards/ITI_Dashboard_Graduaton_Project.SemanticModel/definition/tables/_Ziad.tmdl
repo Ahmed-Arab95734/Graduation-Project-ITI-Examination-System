@@ -74,10 +74,6 @@ table _Ziad
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Ins Count by Track' = CALCULATE(COUNT(DimInstructor[Instructor_ID]), USERELATIONSHIP(DimDepartment[DepartmentKey], DimInstructor[DepartmentKey]))
-		formatString: 0
-		lineageTag: aa937e12-c001-4a80-bb2a-1bfcd3d7dbcc
-
 	column ZZZ
 		formatString: 0
 		lineageTag: ec85d41f-1103-43ad-b43b-f54c64456c12

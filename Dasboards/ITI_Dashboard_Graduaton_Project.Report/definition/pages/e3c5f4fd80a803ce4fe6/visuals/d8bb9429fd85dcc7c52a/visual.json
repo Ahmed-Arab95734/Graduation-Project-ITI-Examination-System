@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "d8bb9429fd85dcc7c52a",
   "position": {
     "x": 753.79939209726444,
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimTrack"
+                      "Entity": "DimTrack (2)"
                     }
                   },
                   "Property": "Track_Name"
                 }
               },
-              "queryRef": "DimTrack.Track_Name",
+              "queryRef": "DimTrack (2).Track_Name",
               "nativeQueryRef": "Track_Name",
               "active": true
             }
@@ -39,14 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Ziad"
+                      "Entity": "AhmedMeasures"
                     }
                   },
-                  "Property": "Ins Count by Track"
+                  "Property": "Instructor Count"
                 }
               },
-              "queryRef": "_Ziad.Ins Count by Track",
-              "nativeQueryRef": "Ins Count by Track"
+              "queryRef": "AhmedMeasures.Instructor Count",
+              "nativeQueryRef": "Instructor Count"
             }
           ]
         }
@@ -58,10 +58,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Ziad"
+                    "Entity": "AhmedMeasures"
                   }
                 },
-                "Property": "Ins Count by Track"
+                "Property": "Instructor Count"
               }
             },
             "direction": "Descending"
@@ -334,5 +334,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d81649582f193a49cde8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AhmedMeasures"
+              }
+            },
+            "Property": "Instructor Count"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5045fce503e526d14ff6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTrack (2)"
+              }
+            },
+            "Property": "Track_Name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
