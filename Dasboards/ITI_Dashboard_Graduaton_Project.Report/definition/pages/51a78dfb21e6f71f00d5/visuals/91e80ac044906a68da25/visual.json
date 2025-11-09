@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "91e80ac044906a68da25",
   "position": {
     "x": 753.23766415653483,
@@ -10,7 +10,7 @@
     "tabOrder": 4000
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -39,14 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Mahmoud"
+                      "Entity": "_Ziad"
                     }
                   },
-                  "Property": "Avg. Grade"
+                  "Property": "Avg. St. Grade"
                 }
               },
-              "queryRef": "_Mahmoud.Avg. Grade",
-              "nativeQueryRef": "Avg. Grade"
+              "queryRef": "_Ziad.Avg. St. Grade",
+              "nativeQueryRef": "Avg. St. Grade"
             }
           ]
         }
@@ -58,10 +58,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Mahmoud"
+                    "Entity": "_Ziad"
                   }
                 },
-                "Property": "Avg. Grade"
+                "Property": "Avg. St. Grade"
               }
             },
             "direction": "Descending"
@@ -441,6 +441,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "3578e89546c7e3a58962",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Ziad"
+              }
+            },
+            "Property": "Avg. St. Grade"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }
